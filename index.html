@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Next Football Star ⚽</title>
-
     <style>
         * {
             box-sizing: border-box;
@@ -17,12 +15,11 @@
             font-family: Arial, sans-serif;
             min-height: 100vh;
             color: white;
-            background:
-                radial-gradient(circle at top, #153d27 0%, #07120c 45%, #030706 100%);
+            background: radial-gradient(circle at top, #153d27 0%, #07120c 45%, #030706 100%);
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
         .container {
@@ -38,7 +35,7 @@
 
         .card {
             width: 100%;
-            padding: 60px 30px;
+            padding: 50px 30px;
             border: 1px solid rgba(255,255,255,0.12);
             border-radius: 28px;
             background: rgba(8, 18, 12, 0.78);
@@ -59,9 +56,7 @@
             margin-bottom: 15px;
         }
 
-        h1 span {
-            color: #38e878;
-        }
+        h1 span { color: #38e878; }
 
         .subtitle {
             color: #b9c7be;
@@ -72,7 +67,7 @@
         .start-button {
             border: none;
             border-radius: 14px;
-            padding: 18px 38px;
+            padding: 16px 32px;
             font-size: 18px;
             font-weight: bold;
             color: #06100a;
@@ -80,6 +75,7 @@
             cursor: pointer;
             transition: 0.2s;
             box-shadow: 0 10px 30px rgba(40, 230, 110, 0.25);
+            margin: 5px;
         }
 
         .start-button:hover {
@@ -96,27 +92,11 @@
             color: #aab8ae;
         }
 
-        .feature {
-            padding: 10px 15px;
-        }
-
-        .hidden {
-            display: none;
-        }
+        .hidden { display: none; }
 
         .career-screen {
             max-width: 600px;
             margin: auto;
-        }
-
-        .career-screen h2 {
-            font-size: 38px;
-            margin-bottom: 12px;
-        }
-
-        .career-screen p {
-            color: #aab8ae;
-            margin-bottom: 30px;
         }
 
         input, select {
@@ -131,144 +111,208 @@
             outline: none;
         }
 
-        input:focus, select:focus {
-            border-color: #38e878;
+        /* Stili Schermata Dashboard Gioco */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .stat-card h4 { color: #38e878; font-size: 14px; }
+        .stat-card p { font-size: 22px; font-weight: bold; margin-top: 5px; }
+
+        .log-box {
+            background: #0a140d;
+            border: 1px solid #33483a;
+            border-radius: 12px;
+            padding: 15px;
+            height: 150px;
+            overflow-y: auto;
+            text-align: left;
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: #d1dcd4;
         }
 
         @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .card {
-                padding: 40px 20px;
-            }
-
-            .subtitle {
-                font-size: 17px;
-            }
-
-            .features {
-                gap: 5px;
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
     </style>
 </head>
-
 <body>
 
     <main class="container">
 
-        <!-- PAGINA INIZIALE -->
+        <!-- 1. HOME -->
         <section class="card" id="home">
-
             <div class="ball">⚽</div>
-
             <h1>NEXT <span>FOOTBALL STAR</span></h1>
-
-            <p class="subtitle">
-                La tua carriera. Le tue scelte. Il tuo futuro. 🌟
-            </p>
-
-            <button class="start-button" onclick="startCareer()">
-                INIZIA CARRIERA 🚀
-            </button>
-
+            <p class="subtitle">La tua carriera. Le tue scelte. Il tuo futuro. 🌟</p>
+            <button class="start-button" onclick="showScreen('career')">INIZIA CARRIERA 🚀</button>
             <div class="features">
                 <div class="feature">📈 Cresci</div>
                 <div class="feature">⚽ Gioca</div>
                 <div class="feature">🏆 Vinci</div>
-                <div class="feature">👑 Diventa una stella</div>
             </div>
-
         </section>
 
-
-        <!-- CREAZIONE GIOCATORE -->
+        <!-- 2. CREAZIONE GIOCATORE -->
         <section class="card career-screen hidden" id="career">
-
             <h2>CREA IL TUO GIOCATORE 👤</h2>
-
-            <p>
-                Inizia il tuo percorso e costruisci la tua leggenda.
-            </p>
-
-            <input
-                type="text"
-                id="playerName"
-                placeholder="Nome del giocatore"
-            >
-
-            <input
-                type="text"
-                id="playerSurname"
-                placeholder="Cognome del giocatore"
-            >
-
+            <p style="margin-bottom: 20px; color: #aab8ae;">Inserisci i tuoi dettagli di partenza.</p>
+            
+            <input type="text" id="playerName" placeholder="Nome del giocatore">
+            <input type="text" id="playerSurname" placeholder="Cognome del giocatore">
+            
             <select id="position">
                 <option value="">Scegli il ruolo</option>
-                <option>Portiere</option>
-                <option>Difensore</option>
-                <option>Centrocampista</option>
-                <option>Ala</option>
-                <option>Attaccante</option>
+                <option value="Attaccante">Attaccante</option>
+                <option value="Centrocampista">Centrocampista</option>
+                <option value="Difensore">Difensore</option>
+                <option value="Portiere">Portiere</option>
             </select>
 
             <select id="nationality">
                 <option value="">Scegli la nazionalità</option>
-                <option>🇮🇹 Italia</option>
-                <option>🇫🇷 Francia</option>
-                <option>🇪🇸 Spagna</option>
-                <option>🇧🇷 Brasile</option>
-                <option>🇦🇷 Argentina</option>
-                <option>🇩🇪 Germania</option>
-                <option>🇬🇧 Inghilterra</option>
+                <option value="🇮🇹 Italia">🇮🇹 Italia</option>
+                <option value="🇪🇸 Spagna">🇪🇸 Spagna</option>
+                <option value="🇫🇷 Francia">🇫🇷 Francia</option>
+                <option value="🇦🇷 Argentina">🇦🇷 Argentina</option>
             </select>
 
-            <button class="start-button" onclick="createPlayer()">
-                CREA GIOCATORE ⚽
-            </button>
+            <button class="start-button" onclick="createPlayer()">CREA GIOCATORE ⚽</button>
+        </section>
 
+        <!-- 3. DASHBOARD DI GIOCO (HUB) -->
+        <section class="card hidden" id="hub">
+            <h2 id="displayPlayerName">Nome Giocatore</h2>
+            <p id="displayDetails" style="color: #38e878; margin-bottom: 15px;">Ruolo | Nazionalità</p>
+
+            <div class="stats-grid">
+                <div class="stat-card"><h4>OVERALL</h4><p id="valOverall">60</p></div>
+                <div class="stat-card"><h4>ENERGIA</h4><p id="valEnergy">100%</p></div>
+                <div class="stat-card"><h4>DENARO</h4><p id="valMoney">500 €</p></div>
+            </div>
+
+            <div class="log-box" id="gameLog">
+                <div> Benvenuto nella tua carriera da professionista!</div>
+            </div>
+
+            <div>
+                <button class="start-button" onclick="train()">🏋️ Allenati (-15% Energ, +1 Ovrl)</button>
+                <button class="start-button" onclick="playMatch()">⚽ Gioca Partita (-30% Energ, +100€)</button>
+                <button class="start-button" style="background: #38bdf8;" onclick="rest()">💤 Riposati (+50% Energ)</button>
+            </div>
         </section>
 
     </main>
 
-
     <script>
+        // Oggetto Dati Giocatore
+        let player = {
+            name: "",
+            surname: "",
+            position: "",
+            nationality: "",
+            overall: 60,
+            energy: 100,
+            money: 500
+        };
 
-        function startCareer() {
+        function showScreen(screenId) {
             document.getElementById("home").classList.add("hidden");
-            document.getElementById("career").classList.remove("hidden");
+            document.getElementById("career").classList.add("hidden");
+            document.getElementById("hub").classList.add("hidden");
+            document.getElementById(screenId).classList.remove("hidden");
         }
 
         function createPlayer() {
-
-            const name = document.getElementById("playerName").value;
-            const surname = document.getElementById("playerSurname").value;
+            const name = document.getElementById("playerName").value.trim();
+            const surname = document.getElementById("playerSurname").value.trim();
             const position = document.getElementById("position").value;
             const nationality = document.getElementById("nationality").value;
 
             if (!name || !surname || !position || !nationality) {
-                alert("Compila tutti i campi! ⚠️");
+                alert("Compila tutti i campi per proseguire! ⚠️");
                 return;
             }
 
-            alert(
-                "Benvenuto " +
-                name + " " +
-                surname +
-                "! ⚽🔥\n\n" +
-                "La tua carriera sta per iniziare."
-            );
+            player.name = name;
+            player.surname = surname;
+            player.position = position;
+            player.nationality = nationality;
+
+            // Aggiorna Interfaccia HUB
+            document.getElementById("displayPlayerName").textContent = `${player.name} ${player.surname}`;
+            document.getElementById("displayDetails").textContent = `${player.position} | ${player.nationality}`;
+            updateUI();
+
+            showScreen("hub");
         }
 
-    </script>
+        function updateUI() {
+            document.getElementById("valOverall").textContent = player.overall;
+            document.getElementById("valEnergy").textContent = player.energy + "%";
+            document.getElementById("valMoney").textContent = player.money + " €";
+        }
 
+        function logMessage(msg) {
+            const logBox = document.getElementById("gameLog");
+            const entry = document.createElement("div");
+            entry.textContent = "> " + msg;
+            logBox.appendChild(entry);
+            logBox.scrollTop = logBox.scrollHeight;
+        }
+
+        function train() {
+            if (player.energy < 15) {
+                logMessage("Sei troppo stanco per allenarti! Riposati.");
+                return;
+            }
+            player.energy -= 15;
+            player.overall += 1;
+            logMessage("Ti sei allenato duramente! Overall aumentato a " + player.overall + ".");
+            updateUI();
+        }
+
+        function playMatch() {
+            if (player.energy < 30) {
+                logMessage("Non hai abbastanza energia per scendere in campo!");
+                return;
+            }
+            player.energy -= 30;
+            player.money += 100;
+            logMessage("Hai giocato una partita! Guadagnati 100€ premi prestazione.");
+            updateUI();
+        }
+
+        function rest() {
+            if (player.energy >= 100) {
+                logMessage("Sei già al massimo delle forze!");
+                return;
+            }
+            player.energy = Math.min(100, player.energy + 50);
+            logMessage("Ti sei riposato. Energia recuperata al " + player.energy + "%.");
+            updateUI();
+        }
+    </script>
 </body>
 </html>
+// Salva i dati
+localStorage.setItem('footballPlayer', JSON.stringify(player));
+
+// Carica i dati all'apertura
+const savedData = localStorage.getItem('footballPlayer');
+if (savedData) {
+    player = JSON.parse(savedData);
+    updateUI();
+}

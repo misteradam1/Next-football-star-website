@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Next Football Star ⚽</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            color: white;
+            background:
+                radial-gradient(circle at top, #153d27 0%, #07120c 45%, #030706 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .card {
+            width: 100%;
+            padding: 60px 30px;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 28px;
+            background: rgba(8, 18, 12, 0.78);
+            box-shadow: 0 25px 80px rgba(0,0,0,0.55);
+            backdrop-filter: blur(12px);
+        }
+
+        .ball {
+            font-size: 70px;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        h1 {
+            font-size: clamp(42px, 8vw, 76px);
+            font-weight: 900;
+            letter-spacing: -3px;
+            margin-bottom: 15px;
+        }
+
+        h1 span {
+            color: #38e878;
+        }
+
+        .subtitle {
+            color: #b9c7be;
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
+
+        .start-button {
+            border: none;
+            border-radius: 14px;
+            padding: 18px 38px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #06100a;
+            background: linear-gradient(135deg, #45f27f, #18c95b);
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 10px 30px rgba(40, 230, 110, 0.25);
+        }
+
+        .start-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(40, 230, 110, 0.4);
+        }
+
+        .features {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            color: #aab8ae;
+        }
+
+        .feature {
+            padding: 10px 15px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .career-screen {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .career-screen h2 {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .career-screen p {
+            color: #aab8ae;
+            margin-bottom: 30px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border: 1px solid #33483a;
+            background: #101c15;
+            color: white;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input:focus, select:focus {
+            border-color: #38e878;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 40px 20px;
+            }
+
+            .subtitle {
+                font-size: 17px;
+            }
+
+            .features {
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <!-- PAGINA INIZIALE -->
+        <section class="card" id="home">
+
+            <div class="ball">⚽</div>
+
+            <h1>NEXT <span>FOOTBALL STAR</span></h1>
+
+            <p class="subtitle">
+                La tua carriera. Le tue scelte. Il tuo futuro. 🌟
+            </p>
+
+            <button class="start-button" onclick="startCareer()">
+                INIZIA CARRIERA 🚀
+            </button>
+
+            <div class="features">
+                <div class="feature">📈 Cresci</div>
+                <div class="feature">⚽ Gioca</div>
+                <div class="feature">🏆 Vinci</div>
+                <div class="feature">👑 Diventa una stella</div>
+            </div>
+
+        </section>
+
+
+        <!-- CREAZIONE GIOCATORE -->
+        <section class="card career-screen hidden" id="career">
+
+            <h2>CREA IL TUO GIOCATORE 👤</h2>
+
+            <p>
+                Inizia il tuo percorso e costruisci la tua leggenda.
+            </p>
+
+            <input
+                type="text"
+                id="playerName"
+                placeholder="Nome del giocatore"
+            >
+
+            <input
+                type="text"
+                id="playerSurname"
+                placeholder="Cognome del giocatore"
+            >
+
+            <select id="position">
+                <option value="">Scegli il ruolo</option>
+                <option>Portiere</option>
+                <option>Difensore</option>
+                <option>Centrocampista</option>
+                <option>Ala</option>
+                <option>Attaccante</option>
+            </select>
+
+            <select id="nationality">
+                <option value="">Scegli la nazionalità</option>
+                <option>🇮🇹 Italia</option>
+                <option>🇫🇷 Francia</option>
+                <option>🇪🇸 Spagna</option>
+                <option>🇧🇷 Brasile</option>
+                <option>🇦🇷 Argentina</option>
+                <option>🇩🇪 Germania</option>
+                <option>🇬🇧 Inghilterra</option>
+            </select>
+
+            <button class="start-button" onclick="createPlayer()">
+                CREA GIOCATORE ⚽
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        function startCareer() {
+            document.getElementById("home").classList.add("hidden");
+            document.getElementById("career").classList.remove("hidden");
+        }
+
+        function createPlayer() {
+
+            const name = document.getElementById("playerName").value;
+            const surname = document.getElementById("playerSurname").value;
+            const position = document.getElementById("position").value;
+            const nationality = document.getElementById("nationality").value;
+
+            if (!name || !surname || !position || !nationality) {
+                alert("Compila tutti i campi! ⚠️");
+                return;
+            }
+
+            alert(
+                "Benvenuto " +
+                name + " " +
+                surname +
+                "! ⚽🔥\n\n" +
+                "La tua carriera sta per iniziare."
+            );
+        }
+
+    </script>
+
+</body>
+</html>

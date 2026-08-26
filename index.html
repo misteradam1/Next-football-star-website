@@ -26,6 +26,414 @@
             overflow: hidden;
         }
 
+        .home-pitch-bg {
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(56, 232, 120, 0.05) 10%, transparent 20%);
+            background-size: 30px 30px;
+            transform: rotate(15deg);
+            pointer-events: none;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(56, 232, 120, 0.15);
+            color: #38e878;
+            border: 1px solid rgba(56, 232, 120, 0.4);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .ball-icon {
+            font-size: 80px;
+            margin-bottom: 15px;
+            display: inline-block;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+            animation: float 3s ease-in-out infinite;
+        }
+        .home-title {
+            font-size: clamp(40px, 9vw, 72px);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 15px;
+        }
+        .home-title span {
+            background: linear-gradient(135deg, #45f27f, #18c95b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .home-subtitle {
+            color: #a3c2b0;
+            font-size: 18px;
+            max-width: 550px;
+            margin: 0 auto 35px auto;
+            line-height: 1.5;
+        }
+        .features-pills {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 35px;
+        }
+        .pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 14px;
+            border-radius: 12px;
+            font-size: 13px;
+            color: #d1dcd4;
+        }
+
+        .start-button {
+            border: none;
+            border-radius: 16px;
+            padding: 16px 36px;
+            font-size: 18px;
+            font-weight: 800;
+            color: #041209;
+            background: linear-gradient(135deg, #45f27f, #18c95b);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 12px 35px rgba(40, 230, 110, 0.3);
+            margin: 6px;
+        }
+        .start-button:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 18px 45px rgba(40, 230, 110, 0.5);
+        }
+        .btn-blue { background: linear-gradient(135deg, #38bdf8, #0284c7); color: white; box-shadow: 0 10px 30px rgba(2, 132, 199, 0.3); }
+        .btn-orange { background: linear-gradient(135deg, #fb923c, #ea580c); color: white; }
+        .btn-purple { background: linear-gradient(135deg, #c084fc, #9333ea); color: white; }
+        .btn-red { background: linear-gradient(135deg, #f87171, #dc2626); color: white; }
+
+        .hidden { display: none; }
+        .career-screen { max-width: 600px; margin: auto; }
+        input, select { width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 12px; border: 1px solid #33483a; background: #0c1811; color: white; font-size: 16px; outline: none; }
+        
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; margin: 20px 0; }
+        .stat-card { background: rgba(255,255,255,0.04); padding: 12px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.08); }
+        .stat-card h4 { color: #38e878; font-size: 11px; text-transform: uppercase; }
+        .stat-card p { font-size: 18px; font-weight: bold; margin-top: 5px; }
+
+        .actions-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 20px; }
+        .log-box { background: #060e08; border: 1px solid #23382b; border-radius: 14px; padding: 15px; height: 130px; overflow-y: auto; text-align: left; font-size: 13px; margin-bottom: 20px; color: #d1dcd4; }
+        .transfer-list, .league-table { display: flex; flex-direction: column; gap: 8px; margin-top: 15px; max-height: 300px; overflow-y: auto; }
+        .transfer-item, .table-row { background: rgba(255,255,255,0.04); padding: 12px 16px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #23382b; font-size: 14px; }
+
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+
+        <!-- 1. HOME ACCOGLIENTE -->
+        <section class="card" id="home">
+            <div class="home-pitch-bg"></div>
+            
+            <div class="hero-badge">⚽ Career Simulator</div>
+            <div class="ball-icon">🏆</div>
+            
+            <h1 class="home-title">NEXT <span>FOOTBALL STAR</span></h1>
+            <p class="home-subtitle">Parti dalle giovanili, scala i campionati top al mondo, firma contratti milionari e conquista il Pallone d'Oro!</p>
+
+            <div class="features-pills">
+                <div class="pill">🏆 Campionati & Classifiche</div>
+                <div class="pill">🤝 Calciomercato</div>
+                <div class="pill">🥇 Pallone d'Oro</div>
+                <div class="pill">💾 Salvataggio Auto</div>
+            </div>
+
+            <div>
+                <button class="start-button" onclick="checkSavedGame()">ENTRA IN CAMPO 🚀</button>
+            </div>
+        </section>
+
+        <!-- 2. CREAZIONE GIOCATORE (STEP 1: INFO BASE & STILE) -->
+        <section class="card career-screen hidden" id="career">
+            <h2>CREA IL TUO GIOCATORE 👤</h2>
+            <p style="margin-bottom: 20px; color: #aab8ae;">Personalizza le caratteristiche della tua futura stella.</p>
+            
+            <input type="text" id="playerName" placeholder="Nome del giocatore">
+            <input type="text" id="playerSurname" placeholder="Cognome del giocatore">
+            <input type="number" id="jerseyNumber" placeholder="Numero di Maglia (1-99)" min="1" max="99">
+
+            <select id="hairType">
+                <option value="">Scegli lo stile di Capelli 💇‍♂️</option>
+                <option value="Corti Classici">Corti Classici</option>
+                <option value="Cresta Moderna">Cresta Moderna</option>
+                <option value="Ricci Afros">Ricci Afro</option>
+                <option value="Capelli Lunghi">Capelli Lunghi</option>
+                <option value="Rasato">Rasato</option>
+            </select>
+
+            <select id="personality">
+                <option value="">Scegli la Personalità 🧠</option>
+                <option value="Leader Naturale">👑 Leader Naturale (+Bonus Fan)</option>
+                <option value="Prodigio Tecnico">🎯 Prodigio Tecnico (+Bonus Overall)</option>
+                <option value="Lavoratore Instancabile">🏋️ Lavoratore Instancabile (+Bonus Energia)</option>
+            </select>
+
+            <select id="position">
+                <option value="">Scegli il ruolo ⚽</option>
+                <option value="Attaccante">Attaccante</option>
+                <option value="Centrocampista">Centrocampista</option>
+                <option value="Difensore">Difensore</option>
+            </select>
+
+            <select id="nationality">
+                <option value="">Scegli la nazionalità 🌍</option>
+                <option value="🇮🇹 Italia">🇮🇹 Italia</option>
+                <option value="🇪🇸 Spagna">🇪🇸 Spagna</option>
+                <option value="🇫🇷 Francia">🇫🇷 Francia</option>
+                <option value="🇧🇷 Brasile">🇧🇷 Brasile</option>
+            </select>
+
+            <button class="start-button" onclick="createPlayer()">INIZIA LA CARRIERA 🚀</button>
+        </section>
+
+        <!-- 3. DASHBOARD DI GIOCO -->
+        <section class="card hidden" id="hub">
+            <h2 id="displayPlayerName">Nome Giocatore</h2>
+            <p id="displayDetails" style="color: #38e878; margin-bottom: 5px;">Ruolo | Nazionalità</p>
+            <p id="displayExtra" style="color: #d1dcd4; font-size: 14px; margin-bottom: 5px;">Maglia #-- | Capelli: -- | Personalità: --</p>
+            <p id="displayTeam" style="color: #aab8ae; font-weight: bold; margin-bottom: 15px;">Squadra: FC Giovanili</p>
+
+            <div class="stats-grid">
+                <div class="stat-card"><h4>GIORNATA</h4><p id="valMatchDay">1 / 38</p></div>
+                <div class="stat-card"><h4>PUNTI</h4><p id="valPoints">0 PTS</p></div>
+                <div class="stat-card"><h4>OVERALL</h4><p id="valOverall">60</p></div>
+                <div class="stat-card"><h4>ENERGIA</h4><p id="valEnergy">100%</p></div>
+                <div class="stat-card"><h4>DENARO</h4><p id="valMoney">500 €</p></div>
+                <div class="stat-card"><h4>TROFEI</h4><p id="valTrophies">🏆 0</p></div>
+            </div>
+
+            <div class="log-box" id="gameLog">
+                <div> Benvenuto nel Campionato! Gioca le 38 giornate per vincere il titolo.</div>
+            </div>
+
+            <!-- PULSANTI AZIONE ESPANSI -->
+            <div class="actions-grid">
+                <button class="start-button btn-orange" style="font-size: 15px; padding: 12px 20px;" onclick="playMatch()">⚽ Gioca Giornata (-30% Energ)</button>
+                <button class="start-button" style="font-size: 15px; padding: 12px 20px;" onclick="train('fisico')">🏋️ Allenamento (-15% Energ, +1 Ovrl)</button>
+                <button class="start-button btn-purple" style="font-size: 15px; padding: 12px 20px;" onclick="sponsor()">📸 Sponsor (+200€, +100 Fan)</button>
+                <button class="start-button btn-blue" style="font-size: 15px; padding: 12px 20px;" onclick="rest()">💤 Riposo (+50% Energ)</button>
+                <button class="start-button" style="background: #38bdf8; color: black; font-size: 15px; padding: 12px 20px;" onclick="openLeague()">🏆 Classifica</button>
+                <button class="start-button" style="background: #eab308; color: black; font-size: 15px; padding: 12px 20px;" onclick="openMarket()">🤝 Calciomercato</button>
+                <button class="start-button btn-red" style="font-size: 15px; padding: 12px 20px;" onclick="resetGame()">🗑️ Resetta</button>
+            </div>
+        </section>
+
+        <!-- 4. CLASSIFICA CAMPIONATO -->
+        <section class="card career-screen hidden" id="league">
+            <h2>🏆 CLASSIFICA CAMPIONATO</h2>
+            <div class="league-table" id="leagueTable"></div>
+            <button class="start-button btn-blue" style="margin-top: 20px; font-size: 15px;" onclick="showScreen('hub')">⬅️ Torna al Gioco</button>
+        </section>
+
+        <!-- 5. SCHERMATA CALCIOMERCATO -->
+        <section class="card career-screen hidden" id="market">
+            <h2>🤝 CALCIOMERCATO</h2>
+            <div class="transfer-list" id="transferList"></div>
+            <button class="start-button btn-blue" style="margin-top: 20px; font-size: 15px;" onclick="showScreen('hub')">⬅️ Torna al Gioco</button>
+        </section>
+
+    </main>
+
+    <script>
+        let player = {
+            name: "", surname: "", position: "", nationality: "",
+            jerseyNumber: 10, hairType: "Corti Classici", personality: "Leader Naturale",
+            team: "Milano Red Devils", overall: 60, energy: 100, money: 500, fans: 100,
+            age: 17, season: 1, matchDay: 1, points: 0, trophies: 0
+        };
+
+        const teamsDB = [
+            { name: "Milano Red Devils", reqOverall: 60, points: 0 },
+            { name: "Torino Black & White", reqOverall: 65, points: 0 },
+            { name: "Madrid Kings", reqOverall: 72, points: 0 },
+            { name: "Catalonia Stars", reqOverall: 78, points: 0 },
+            { name: "Paris Blue Gem", reqOverall: 84, points: 0 },
+            { name: "London Red Cannons", reqOverall: 88, points: 0 }
+        ];
+
+        function saveGame() { localStorage.setItem("nextFootballStarData", JSON.stringify(player)); }
+
+        function checkSavedGame() {
+            const saved = localStorage.getItem("nextFootballStarData");
+            if (saved) {
+                player = JSON.parse(saved);
+                updatePlayerInfoDisplay();
+                updateUI();
+                showScreen("hub");
+            } else { showScreen("career"); }
+        }
+
+        function resetGame() {
+            if (confirm("Vuoi azzerare la tua carriera?")) {
+                localStorage.removeItem("nextFootballStarData");
+                location.reload();
+            }
+        }
+
+        function showScreen(screenId) {
+            ["home", "career", "hub", "league", "market"].forEach(id => document.getElementById(id).classList.add("hidden"));
+            document.getElementById(screenId).classList.remove("hidden");
+        }
+
+        function createPlayer() {
+            const name = document.getElementById("playerName").value.trim();
+            const surname = document.getElementById("playerSurname").value.trim();
+            const jerseyNumber = document.getElementById("jerseyNumber").value;
+            const hairType = document.getElementById("hairType").value;
+            const personality = document.getElementById("personality").value;
+            const position = document.getElementById("position").value;
+            const nationality = document.getElementById("nationality").value;
+
+            if (!name || !surname || !jerseyNumber || !hairType || !personality || !position || !nationality) {
+                return alert("Compila tutti i campi per creare il tuo giocatore! ⚠️");
+            }
+
+            player.name = name; 
+            player.surname = surname;
+            player.jerseyNumber = jerseyNumber;
+            player.hairType = hairType;
+            player.personality = personality;
+            player.position = position; 
+            player.nationality = nationality;
+
+            // Applica bonus iniziale in base alla personalità scelta
+            if (personality === "Prodigio Tecnico") player.overall += 3;
+            if (personality === "Leader Naturale") player.fans += 100;
+
+            updatePlayerInfoDisplay();
+            saveGame(); updateUI(); showScreen("hub");
+        }
+
+        function updatePlayerInfoDisplay() {
+            document.getElementById("displayPlayerName").textContent = `${player.name} ${player.surname}`;
+            document.getElementById("displayDetails").textContent = `${player.position} | ${player.nationality}`;
+            document.getElementById("displayExtra").textContent = `Maglia #${player.jerseyNumber} | Capelli: ${player.hairType} | ${player.personality}`;
+        }
+
+        function updateUI() {
+            document.getElementById("valMatchDay").textContent = `${player.matchDay} / 38`;
+            document.getElementById("valPoints").textContent = `${player.points} PTS`;
+            document.getElementById("valOverall").textContent = player.overall;
+            document.getElementById("valEnergy").textContent = player.energy + "%";
+            document.getElementById("valMoney").textContent = player.money + " €";
+            document.getElementById("valTrophies").textContent = `🏆 ${player.trophies}`;
+            document.getElementById("displayTeam").textContent = "Squadra attuale: " + player.team;
+        }
+
+        function logMessage(msg) {
+            const logBox = document.getElementById("gameLog");
+            const entry = document.createElement("div");
+            entry.textContent = "> " + msg;
+            logBox.appendChild(entry);
+            logBox.scrollTop = logBox.scrollHeight;
+        }
+
+        function playMatch() {
+            if (player.energy < 30) return logMessage("Troppo stanco! Riposati.");
+
+            player.energy -= 30;
+            const opponent = teamsDB[Math.floor(Math.random() * teamsDB.length)].name;
+            const outcome = Math.random();
+
+            if (outcome > 0.4) {
+                player.points += 3;
+                player.money += 150;
+                logMessage(`Giornata ${player.matchDay}: VITTORIA contro ${opponent}! +3 Punti e +150€.`);
+            } else if (outcome > 0.2) {
+                player.points += 1;
+                logMessage(`Giornata ${player.matchDay}: PAREGGIO contro ${opponent}. +1 Punto.`);
+            } else {
+                logMessage(`Giornata ${player.matchDay}: SCONFITTA contro ${opponent}.`);
+            }
+
+            player.matchDay += 1;
+
+            if (player.matchDay > 38) {
+                logMessage(`🎉 FINE STAGIONE ${player.season}! Punti totali: ${player.points}`);
+                if (player.points >= 75) {
+                    player.trophies += 1;
+                    logMessage("🏆 HAI VINTO IL CAMPIONATO!");
+                }
+                if (player.overall >= 85) {
+                    player.trophies += 1;
+                    logMessage("🥇 STREPITOSO! HAI VINTO IL PALLONE D'ORO!");
+                }
+                player.season += 1; player.age += 1; player.matchDay = 1; player.points = 0;
+            }
+
+            saveGame(); updateUI();
+        }
+
+        function train(type) {
+            if (player.energy < 15) return logMessage("Troppo stanco!");
+            player.energy -= 15; player.overall += 1;
+            logMessage(`Allenamento completato! Overall: ${player.overall}.`);
+            saveGame(); updateUI();
+        }
+
+        function sponsor() {
+            if (player.energy < 10) return logMessage("Troppo stanco!");
+            player.energy -= 10; player.money += 200; player.fans += 100;
+            logMessage("Evento Sponsor completato! +200€ e +100 Fan.");
+            saveGame(); updateUI();
+        }
+
+        function rest() {
+            if (player.energy >= 100) return logMessage("Energia già al massimo!");
+            player.energy = Math.min(100, player.energy + 50);
+            logMessage("Riposo effettuato!");
+            saveGame(); updateUI();
+        }
+
+        function openLeague() {
+            const container = document.getElementById("leagueTable");
+            container.innerHTML = "";
+            let sortedTeams = [...teamsDB];
+            sortedTeams.find(t => t.name === player.team).points = player.points;
+            sortedTeams.sort((a, b) => b.points - a.points);
+
+            sortedTeams.forEach((t, i) => {
+                container.innerHTML += `<div class="table-row"><span>#${i+1} ${t.name}</span><strong>${t.points} PTS</strong></div>`;
+            });
+            showScreen("league");
+        }
+
+        function openMarket() {
+            const container = document.getElementById("transferList");
+            container.innerHTML = "";
+            teamsDB.forEach(t => {
+                const canJoin = player.overall >= t.reqOverall;
+                container.innerHTML += `
+                    <div class="transfer-item">
+                        <div><strong>${t.name}</strong><br><small>Req. Overall: ${t.reqOverall}</small></div>
+                        <button class="start-button" style="font-size: 12px; padding: 8px 14px;" ${!canJoin || player.team === t.name ? 'disabled style="opacity:0.5;"' : ''} onclick="joinTeam('${t.name}')">
+                            ${player.team === t.name ? 'Tua Squadra' : 'Firma'}
+                        </button>
+                    </div>`;
+            });
+            showScreen("market");
+        }
+
+        function joinTeam(teamName) {
+            player.team = teamName;
+            logMessage("Trasferito al " + teamName + "!");
+            saveGame(); updateUI(); showScreen("hub");
+        }
+    </script>
+</body>
+</html>
+
         /* STILE DEDICATO ALLA HOME ACCOGLIENTE */
         .home-pitch-bg {
             position: absolute;

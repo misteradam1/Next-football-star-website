@@ -1,379 +1,343 @@
-<script>
-    let player = {
-        name: "", surname: "", position: "", nationality: "",
-        jerseyNumber: 10, hairType: "Corti Classici", personality: "Leader Naturale",
-        team: "Milano Red Devils", overall: 60, energy: 100, money: 500, fans: 100,
-        salary: 1000000, age: 17, season: 1, matchDay: 1, points: 0, trophies: 0,
-        trainCount: 0, inventory: [], reviews: []
-    };
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Football Star</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #121212; color: #fff; margin: 0; padding: 20px; text-align: center; }
+        .card { background: #1e1e1e; padding: 20px; border-radius: 12px; max-width: 500px; margin: auto; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        .hidden { display: none !important; }
+        button { background: #28a745; color: white; border: none; padding: 10px 15px; margin: 5px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: bold; }
+        button:hover { background: #218838; }
+        .btn-red { background: #dc3545; } .btn-red:hover { background: #c82333; }
+        .btn-gold { background: #ffc107; color: #000; } .btn-gold:hover { background: #e0a800; }
+        input, select { padding: 8px; margin: 5px; border-radius: 4px; border: none; width: 80%; }
+        #gameLog { background: #000; color: #00ff00; padding: 10px; height: 120px; overflow-y: scroll; text-align: left; font-family: monospace; border-radius: 6px; margin-top: 15px; }
+        .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; }
+        .modal-content { background: #2a2a2a; padding: 25px; border-radius: 12px; max-width: 400px; border: 2px solid #ffc107; }
+        .table-row { display: flex; justify-content: space-between; padding: 8px; border-bottom: 1px solid #333; }
+    </style>
+</head>
+<body>
 
-    let currentOffer = null;
+    <div id="app" class="card">
+        <!-- Creazione Personaggio -->
+        <div id="career">
+            <h2>Crea il tuo Calciatore</h2>
+            <input type="text" id="playerName" placeholder="Nome"><br>
+            <input type="text" id="playerSurname" placeholder="Cognome"><br>
+            <input type="number" id="jerseyNumber" placeholder="Numero di Maglia" value="10"><br>
+            <select id="position">
+                <option value="ATT">Attaccante</option>
+                <option value="CEN">Centrocampista</option>
+                <option value="DIF">Difensore</option>
+            </select><br>
+            <select id="hairType">
+                <option value="Corti Classici">Corti Classici</option>
+                <option value="Cresta">Cresta</option>
+                <option value="Treccine">Treccine</option>
+            </select><br>
+            <select id="personality">
+                <option value="Leader Naturale">Leader Naturale</option>
+                <option value="Prodigio Tecnico">Prodigio Tecnico</option>
+            </select><br>
+            <input type="text" id="nationality" placeholder="Nazionalità" value="Italiana"><br><br>
+            <button onclick="createPlayer()">Inizia Carriera ⚽</button>
+        </div>
 
-    const teamsDB = [
-        { name: "Milano Red Devils", power: 75, points: 0 },
-        { name: "Torino Black & White", power: 78, points: 0 },
-        { name: "Madrid Kings", power: 85, points: 0 },
-        { name: "Catalonia Stars", power: 82, points: 0 },
-        { name: "Paris Blue Gem", power: 80, points: 0 },
-        { name: "London Red Cannons", power: 77, points: 0 }
-    ];
+        <!-- Hub Principale -->
+        <div id="hub" class="hidden">
+            <h2 id="displayPlayerName"></h2>
+            <p id="displayDetails"></p>
+            <p id="displayExtra" style="font-size: 12px; color: #aaa;"></p>
+            <p id="displayTeam" style="color: #ffc107; font-weight: bold;"></p>
+            <hr>
+            <p>Giornata: <strong id="valMatchDay">1 / 38</strong> | Punti: <strong id="valPoints">0 PTS</strong></p>
+            <p>Overall: <strong id="valOverall">60</strong> | Energia: <strong id="valEnergy">100%</strong></p>
+            <p>Conto: <strong id="valMoney">$500</strong> | Fan: <strong id="valFans">100</strong></p>
+            <p>Allenamento: <span id="trainProgress">0/5</span></p>
+            <hr>
+            <button onclick="playMatch()">Gioca Partita ⚽</button>
+            <button onclick="train()">Allenati 🏋️</button>
+            <button onclick="rest()">Riposati 💤</button>
+            <button onclick="sponsor()">Sponsor 💰</button>
+            <br>
+            <button class="btn-gold" onclick="openLeague()">Classifica 🏆</button>
+            <button class="btn-gold" onclick="openShop()">Negozio 🛒</button>
+            <button class="btn-gold" onclick="openReviews()">Stampa 📰</button>
+            <br><br>
+            <button class="btn-red" onclick="resetGame()">Azzera Carriera ⚠️</button>
+            <div id="gameLog"></div>
+        </div>
 
-    const shopDB = [
-        { id: "watch", name: "⌚ Orologio di Lusso", price: 50000, fansBonus: 500 },
-        { id: "ferrari", name: "🏎️ Ferrari F8 Supercar", price: 250000, fansBonus: 3000 },
-        { id: "villa", name: "🏰 Villa Vista Mare", price: 300000, fansBonus: 5000 },
-        { id: "jet", name: "✈️ Jet Privato", price: 1500000, fansBonus: 25000 }
-    ];
+        <!-- Classifica -->
+        <div id="league" class="hidden">
+            <h2>Classifica Campionato</h2>
+            <div id="leagueTable"></div><br>
+            <button onclick="showScreen('hub')">Torna all'Hub</button>
+        </div>
 
-    function saveGame() { 
-        localStorage.setItem("nextFootballStarData", JSON.stringify(player)); 
-    }
+        <!-- Negozio -->
+        <div id="shop" class="hidden">
+            <h2>Negozio di Lusso</h2>
+            <div id="shopList"></div><br>
+            <button onclick="showScreen('hub')">Torna all'Hub</button>
+        </div>
 
-    function checkSavedGame() {
-        const saved = localStorage.getItem("nextFootballStarData");
-        if (saved) {
-            player = JSON.parse(saved);
-            if (!player.salary) player.salary = 1000000;
-            if (player.trainCount === undefined) player.trainCount = 0;
-            if (!player.inventory) player.inventory = [];
-            if (!player.reviews) player.reviews = [];
+        <!-- Recensioni -->
+        <div id="reviews" class="hidden">
+            <h2>Rassegna Stampa</h2>
+            <div id="reviewsList"></div><br>
+            <button onclick="showScreen('hub')">Torna all'Hub</button>
+        </div>
+    </div>
+
+    <!-- Modale Offerta Calciomercato -->
+    <div id="offerModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>🚨 OFFERTA DI TRASFERIMENTO!</h3>
+            <p id="offerText"></p>
+            <button onclick="acceptOffer()">Accetta Offerta 🤝</button>
+            <button class="btn-red" onclick="rejectOffer()">Rifiuta ❌</button>
+        </div>
+    </div>
+
+    <script>
+        let player = {
+            name: "", surname: "", position: "", nationality: "",
+            jerseyNumber: 10, hairType: "", personality: "",
+            team: "Milano Red Devils", overall: 60, energy: 100, money: 500, fans: 100,
+            salary: 1000000, age: 17, season: 1, matchDay: 1, points: 0, trophies: 0,
+            trainCount: 0, inventory: [], reviews: []
+        };
+
+        let currentOffer = null;
+
+        const teamsDB = [
+            { name: "Milano Red Devils", power: 75, points: 0 },
+            { name: "Torino Black & White", power: 78, points: 0 },
+            { name: "Madrid Kings", power: 85, points: 0 },
+            { name: "Catalonia Stars", power: 82, points: 0 },
+            { name: "Paris Blue Gem", power: 80, points: 0 },
+            { name: "London Red Cannons", power: 77, points: 0 }
+        ];
+
+        const shopDB = [
+            { id: "watch", name: "⌚ Orologio di Lusso", price: 50000, fansBonus: 500 },
+            { id: "ferrari", name: "🏎️ Ferrari F8 Supercar", price: 250000, fansBonus: 3000 },
+            { id: "villa", name: "🏰 Villa Vista Mare", price: 300000, fansBonus: 5000 },
+            { id: "jet", name: "✈️ Jet Privato", price: 1500000, fansBonus: 25000 }
+        ];
+
+        window.onload = function() { checkSavedGame(); };
+
+        function saveGame() { localStorage.setItem("nextFootballStarData", JSON.stringify(player)); }
+
+        function checkSavedGame() {
+            const saved = localStorage.getItem("nextFootballStarData");
+            if (saved) {
+                player = JSON.parse(saved);
+                updatePlayerInfoDisplay();
+                updateUI();
+                showScreen("hub");
+            } else {
+                showScreen("career");
+            }
+        }
+
+        function resetGame() {
+            if (confirm("Vuoi azzerare la tua carriera?")) {
+                localStorage.removeItem("nextFootballStarData");
+                location.reload();
+            }
+        }
+
+        function showScreen(screenId) {
+            ["career", "hub", "league", "shop", "reviews"].forEach(id => {
+                document.getElementById(id).classList.add("hidden");
+            });
+            document.getElementById(screenId).classList.remove("hidden");
+        }
+
+        function createPlayer() {
+            const name = document.getElementById("playerName").value.trim();
+            const surname = document.getElementById("playerSurname").value.trim();
+            if (!name || !surname) return alert("Inserisci nome e cognome!");
+
+            player.name = name;
+            player.surname = surname;
+            player.jerseyNumber = document.getElementById("jerseyNumber").value;
+            player.position = document.getElementById("position").value;
+            player.hairType = document.getElementById("hairType").value;
+            player.personality = document.getElementById("personality").value;
+            player.nationality = document.getElementById("nationality").value;
+
+            resetLeaguePoints();
             updatePlayerInfoDisplay();
+            saveGame();
             updateUI();
             showScreen("hub");
-        } else { 
-            showScreen("career"); 
-        }
-    }
-
-    function resetGame() {
-        if (confirm("Vuoi azzerare la tua carriera?")) {
-            localStorage.removeItem("nextFootballStarData");
-            location.reload();
-        }
-    }
-
-    function showScreen(screenId) {
-        ["home", "career", "hub", "league", "shop", "reviews"].forEach(id => {
-            const el = document.getElementById(id);
-            if (el) el.classList.add("hidden");
-        });
-        document.getElementById(screenId).classList.remove("hidden");
-    }
-
-    function createPlayer() {
-        const name = document.getElementById("playerName").value.trim();
-        const surname = document.getElementById("playerSurname").value.trim();
-        const jerseyNumber = document.getElementById("jerseyNumber").value;
-        const hairType = document.getElementById("hairType").value;
-        const personality = document.getElementById("personality").value;
-        const position = document.getElementById("position").value;
-        const nationality = document.getElementById("nationality").value;
-
-        if (!name || !surname || !jerseyNumber || !hairType || !personality || !position || !nationality) {
-            return alert("Compila tutti i campi per creare il tuo giocatore! ⚠️");
         }
 
-        player.name = name; 
-        player.surname = surname;
-        player.jerseyNumber = jerseyNumber;
-        player.hairType = hairType;
-        player.personality = personality;
-        player.position = position; 
-        player.nationality = nationality;
-
-        if (personality === "Prodigio Tecnico") player.overall += 3;
-        if (personality === "Leader Naturale") player.fans += 100;
-
-        resetLeaguePoints();
-        player.reviews.push({ author: "La Gazzetta dello Sport", text: `Un nuovo talento fa il suo esordio nel calcio professionistico: benvenuto a ${name} ${surname}!` });
-
-        updatePlayerInfoDisplay();
-        saveGame(); 
-        updateUI(); 
-        showScreen("hub");
-    }
-
-    function updatePlayerInfoDisplay() {
-        document.getElementById("displayPlayerName").textContent = `${player.name} ${player.surname}`;
-        document.getElementById("displayDetails").textContent = `${player.position} | ${player.nationality}`;
-        document.getElementById("displayExtra").textContent = `Maglia #${player.jerseyNumber} | Capelli: ${player.hairType} | ${player.personality}`;
-    }
-
-    function updateUI() {
-        document.getElementById("valMatchDay").textContent = `${player.matchDay} / 38`;
-        document.getElementById("valPoints").textContent = `${player.points} PTS`;
-        document.getElementById("valOverall").textContent = player.overall;
-        document.getElementById("valEnergy").textContent = player.energy + "%";
-        document.getElementById("valMoney").textContent = "$" + player.money.toLocaleString();
-        document.getElementById("valFans").textContent = player.fans.toLocaleString();
-        document.getElementById("displayTeam").textContent = `Squadra attuale: ${player.team} (Stipendio: $${(player.salary / 1000000).toFixed(1)}M/anno)`;
-        document.getElementById("trainProgress").textContent = `${player.trainCount}/5`;
-    }
-
-    function logMessage(msg) {
-        const logBox = document.getElementById("gameLog");
-        const entry = document.createElement("div");
-        entry.textContent = "> " + msg;
-        logBox.appendChild(entry);
-        logBox.scrollTop = logBox.scrollHeight;
-    }
-
-    function resetLeaguePoints() {
-        teamsDB.forEach(t => t.points = 0);
-    }
-
-    function simulateOtherMatches() {
-        teamsDB.forEach(team => {
-            if (team.name !== player.team) {
-                const chance = Math.random() * 100;
-                if (chance < 45) team.points += 3;
-                else if (chance < 75) team.points += 1;
-            }
-        });
-    }
-
-    function playMatch() {
-        if (player.energy < 30) return logMessage("Troppo stanco! Riposati.");
-
-        player.energy -= 30;
-        const otherTeams = teamsDB.filter(t => t.name !== player.team);
-        const opponent = otherTeams[Math.floor(Math.random() * otherTeams.length)].name;
-        const outcome = Math.random();
-
-        const matchSalary = Math.floor(player.salary / 38);
-        player.money += matchSalary;
-
-        if (outcome > 0.4) {
-            player.points += 3;
-            player.money += 2500;
-            logMessage(`Giornata ${player.matchDay}: VITTORIA contro ${opponent}! +3 Punti, +$2.500 bonus e +$${matchSalary.toLocaleString()} stipendio.`);
-            generateReview(true);
-        } else if (outcome > 0.2) {
-            player.points += 1;
-            player.money += 1000;
-            logMessage(`Giornata ${player.matchDay}: PAREGGIO contro ${opponent}. +1 Punto, +$1.000 e +$${matchSalary.toLocaleString()} stipendio.`);
-        } else {
-            logMessage(`Giornata ${player.matchDay}: SCONFITTA contro ${opponent}. Stipendio incassato: +$${matchSalary.toLocaleString()}.`);
-            generateReview(false);
+        function updatePlayerInfoDisplay() {
+            document.getElementById("displayPlayerName").textContent = `${player.name} ${player.surname}`;
+            document.getElementById("displayDetails").textContent = `${player.position} | ${player.nationality}`;
+            document.getElementById("displayExtra").textContent = `Maglia #${player.jerseyNumber} | ${player.hairType} | ${player.personality}`;
         }
 
-        const myTeamObj = teamsDB.find(t => t.name === player.team);
-        if (myTeamObj) myTeamObj.points = player.points;
-
-        simulateOtherMatches();
-
-        // Controllo calciomercato esattamente alla 19ª giornata
-        if (player.matchDay === 19) {
-            checkOffers();
+        function updateUI() {
+            document.getElementById("valMatchDay").textContent = `${player.matchDay} / 38`;
+            document.getElementById("valPoints").textContent = `${player.points} PTS`;
+            document.getElementById("valOverall").textContent = player.overall;
+            document.getElementById("valEnergy").textContent = player.energy + "%";
+            document.getElementById("valMoney").textContent = "$" + player.money.toLocaleString();
+            document.getElementById("valFans").textContent = player.fans.toLocaleString();
+            document.getElementById("displayTeam").textContent = `Squadra: ${player.team} ($${(player.salary / 1000000).toFixed(1)}M/anno)`;
+            document.getElementById("trainProgress").textContent = `${player.trainCount}/5`;
         }
 
-        player.matchDay += 1;
-
-        if (player.matchDay > 38) {
-            logMessage(`🎉 FINE STAGIONE ${player.season}! Punti totali: ${player.points}`);
-            
-            teamsDB.sort((a, b) => b.points - a.points);
-            if (teamsDB[0].name === player.team) {
-                player.trophies += 1;
-                player.money += 5000000;
-                logMessage("🏆 COMPLIMENTI! HAI VINTO LO SCUDETTO! Bonus di $5.000.000!");
-            } else {
-                logMessage(`Lo Scudetto va a: ${teamsDB[0].name} con ${teamsDB[0].points} punti.`);
-            }
-
-            if (player.overall >= 85) {
-                player.trophies += 1;
-                logMessage("🥇 STREPITOSO! HAI VINTO IL PALLONE D'ORO!");
-            }
-
-            player.season += 1; 
-            player.age += 1; 
-            player.matchDay = 1; 
-            player.points = 0;
-            resetLeaguePoints();
+        function logMessage(msg) {
+            const logBox = document.getElementById("gameLog");
+            const entry = document.createElement("div");
+            entry.textContent = "> " + msg;
+            logBox.appendChild(entry);
+            logBox.scrollTop = logBox.scrollHeight;
         }
 
-        saveGame(); 
-        updateUI();
-    }
+        function resetLeaguePoints() { teamsDB.forEach(t => t.points = 0); }
 
-    function generateReview(won) {
-        const media = ["Sky Sports", "La Gazzetta dello Sport", "Marca", "L'Équipe"];
-        const source = media[Math.floor(Math.random() * media.length)];
-        let text = "";
-
-        if (won) {
-            const quotes = [
-                `${player.surname} trascina la squadra con una prestazione dominata da vero fuoriclasse!`,
-                `Spettacolo in campo! ${player.name} ${player.surname} dimostra un talento cristallino.`,
-                `Prestazione da 8 in pagella per ${player.surname}, decisivo per la vittoria.`
-            ];
-            text = quotes[Math.floor(Math.random() * quotes.length)];
-        } else {
-            const quotes = [
-                `Giornata no per ${player.surname}: la squadra affonda sotto i colpi degli avversari.`,
-                `${player.name} ${player.surname} non incide nel match, voto 5 in pagella.`,
-                `Sconfitta amara per la squadra di ${player.surname}, servono miglioramenti immediati.`
-            ];
-            text = quotes[Math.floor(Math.random() * quotes.length)];
-        }
-
-        player.reviews.unshift({ author: source, text: text });
-        if (player.reviews.length > 10) player.reviews.pop();
-    }
-
-    function checkOffers() {
-        const availableTeams = teamsDB.filter(t => t.name !== player.team);
-        if (availableTeams.length === 0) return;
-
-        const chosenTeam = availableTeams[Math.floor(Math.random() * availableTeams.length)];
-        
-        // Offerta cartellino/bonus da 0 a 500 milioni
-        const transferOffer = Math.floor(Math.random() * 500000001); 
-        
-        // Stipendio annuale da 1M a 10M
-        const yearlySalary = Math.floor(Math.random() * 9000001) + 1000000; 
-        
-        currentOffer = { 
-            team: chosenTeam.name, 
-            bonus: transferOffer, 
-            salary: yearlySalary 
-        };
-        
-        logMessage(`🔥 METÀ STAGIONE: È arrivata un'offerta di calciomercato dal ${chosenTeam.name}!`);
-        
-        document.getElementById("offerText").textContent = 
-            `SESSIONE INVERNALE: Il club ${chosenTeam.name} offre $${transferOffer.toLocaleString()} di bonus alla firma e uno stipendio di $${(yearlySalary / 1000000).toFixed(1)}M/anno!`;
-        
-        document.getElementById("offerModal").classList.remove("hidden");
-    }
-
-    function acceptOffer() {
-        if (!currentOffer) return;
-        
-        player.team = currentOffer.team;
-        player.money += currentOffer.bonus;
-        player.salary = currentOffer.salary;
-        
-        logMessage(`🤝 TRASFERIMENTO ACCETTATO! Ti sei trasferito al ${currentOffer.team}! Bonus: +$${currentOffer.bonus.toLocaleString()} | Nuovo Stipendio: $${(currentOffer.salary / 1000000).toFixed(1)}M/anno.`);
-        player.reviews.unshift({ author: "Calciomercato News", text: `BOMBA DI MERCATO A GENNAIO: ${player.name} ${player.surname} passa al ${currentOffer.team}!` });
-        
-        document.getElementById("offerModal").classList.add("hidden");
-        currentOffer = null;
-        saveGame(); 
-        updateUI();
-    }
-
-    function rejectOffer() {
-        if (currentOffer) {
-            logMessage(`Hai rifiutato l'offerta di trasferimento dal ${currentOffer.team}. Resti al ${player.team}.`);
-        }
-        document.getElementById("offerModal").classList.add("hidden");
-        currentOffer = null;
-    }
-
-    function train() {
-        if (player.energy < 15) return logMessage("Troppo stanco per allenarti!");
-        player.energy -= 15;
-        player.trainCount += 1;
-
-        if (player.trainCount >= 5) {
-            player.overall += 1;
-            player.trainCount = 0;
-            logMessage(`🏋️ Allenamento durissimo completato! OVERALL AUMENTATO a ${player.overall}! 🔥`);
-        } else {
-            logMessage(`🏋️ Sessione completata (${player.trainCount}/5 allenamenti per il prossimo +1 Overall).`);
-        }
-
-        saveGame(); 
-        updateUI();
-    }
-
-    function sponsor() {
-        if (player.energy < 10) return logMessage("Troppo stanco!");
-        player.energy -= 10; 
-        player.money += 1000; 
-        player.fans += 200;
-        logMessage("Evento Sponsor completato! +$1.000 e +200 Fan.");
-        saveGame(); 
-        updateUI();
-    }
-
-    function rest() {
-        if (player.energy >= 100) return logMessage("Energia già al massimo!");
-        player.energy = Math.min(100, player.energy + 50);
-        logMessage("Riposo effettuato!");
-        saveGame(); 
-        updateUI();
-    }
-
-    function openLeague() {
-        const container = document.getElementById("leagueTable");
-        container.innerHTML = "";
-        
-        const myTeamObj = teamsDB.find(t => t.name === player.team);
-        if (myTeamObj) myTeamObj.points = player.points;
-
-        let sortedTeams = [...teamsDB];
-        sortedTeams.sort((a, b) => b.points - a.points);
-
-        sortedTeams.forEach((t, i) => {
-            container.innerHTML += `<div class="table-row"><span>#${i+1} ${t.name}</span><strong>${t.points} PTS</strong></div>`;
-        });
-        showScreen("league");
-    }
-
-    function openShop() {
-        const container = document.getElementById("shopList");
-        container.innerHTML = "";
-        shopDB.forEach(item => {
-            const owned = player.inventory.includes(item.id);
-            container.innerHTML += `
-                <div class="shop-item">
-                    <div>
-                        <strong>${item.name}</strong><br>
-                        <small>Prezzo: $${item.price.toLocaleString()} | +${item.fansBonus} Fan</small>
-                    </div>
-                    <button class="start-button btn-gold" style="font-size: 12px; padding: 8px 14px;" ${owned ? 'disabled style="opacity:0.5;"' : ''} onclick="buyItem('${item.id}')">
-                        ${owned ? 'Acquistato' : 'Compra'}
-                    </button>
-                </div>`;
-        });
-        showScreen("shop");
-    }
-
-    function buyItem(itemId) {
-        const item = shopDB.find(i => i.id === itemId);
-        if (!item) return;
-
-        if (player.money < item.price) {
-            return alert("Non hai abbastanza soldi!");
-        }
-
-        player.money -= item.price;
-        player.fans += item.fansBonus;
-        player.inventory.push(item.id);
-        
-        logMessage(`🏎️ Hai acquistato: ${item.name}! +${item.fansBonus} Fan.`);
-        saveGame(); 
-        updateUI(); 
-        openShop();
-    }
-
-    function openReviews() {
-        const container = document.getElementById("reviewsList");
-        container.innerHTML = "";
-        if (player.reviews.length === 0) {
-            container.innerHTML = "<p style='color:#aab8ae;'>Nessuna recensione disponibile al momento.</p>";
-        } else {
-            player.reviews.forEach(r => {
-                container.innerHTML += `
-                    <div class="review-item">
-                        <div class="review-author">📰 ${r.author}</div>
-                        <div class="review-text">"${r.text}"</div>
-                    </div>`;
+        function simulateOtherMatches() {
+            teamsDB.forEach(team => {
+                if (team.name !== player.team) {
+                    const chance = Math.random() * 100;
+                    if (chance < 45) team.points += 3;
+                    else if (chance < 75) team.points += 1;
+                }
             });
         }
-        showScreen("reviews");
-    }
-</script>
+
+        function playMatch() {
+            if (player.energy < 30) return logMessage("Troppo stanco! Riposati.");
+
+            player.energy -= 30;
+            const otherTeams = teamsDB.filter(t => t.name !== player.team);
+            const opponent = otherTeams[Math.floor(Math.random() * otherTeams.length)].name;
+            const outcome = Math.random();
+
+            const matchSalary = Math.floor(player.salary / 38);
+            player.money += matchSalary;
+
+            if (outcome > 0.4) {
+                player.points += 3;
+                player.money += 2500;
+                logMessage(`G. ${player.matchDay}: VITTORIA vs ${opponent}! +3 Pts, +$2.500 bonus.`);
+            } else if (outcome > 0.2) {
+                player.points += 1;
+                logMessage(`G. ${player.matchDay}: PAREGGIO vs ${opponent}. +1 Pt.`);
+            } else {
+                logMessage(`G. ${player.matchDay}: SCONFITTA vs ${opponent}.`);
+            }
+
+            const myTeamObj = teamsDB.find(t => t.name === player.team);
+            if (myTeamObj) myTeamObj.points = player.points;
+
+            simulateOtherMatches();
+
+            // Calciomercato ESATTAMENTE alla 19ª giornata
+            if (player.matchDay === 19) {
+                checkOffers();
+            }
+
+            player.matchDay += 1;
+
+            if (player.matchDay > 38) {
+                logMessage(`🎉 FINE STAGIONE ${player.season}! Punti: ${player.points}`);
+                teamsDB.sort((a, b) => b.points - a.points);
+                if (teamsDB[0].name === player.team) {
+                    player.money += 5000000;
+                    logMessage("🏆 SCUDETTO VINTO! Bonus $5.000.000!");
+                }
+                player.season += 1;
+                player.matchDay = 1;
+                player.points = 0;
+                resetLeaguePoints();
+            }
+
+            saveGame();
+            updateUI();
+        }
+
+        function checkOffers() {
+            const availableTeams = teamsDB.filter(t => t.name !== player.team);
+            const chosenTeam = availableTeams[Math.floor(Math.random() * availableTeams.length)];
+            
+            const transferOffer = Math.floor(Math.random() * 500000001); // 0 a 500M
+            const yearlySalary = Math.floor(Math.random() * 9000001) + 1000000; // 1M a 10M
+
+            currentOffer = { team: chosenTeam.name, bonus: transferOffer, salary: yearlySalary };
+
+            document.getElementById("offerText").textContent = 
+                `Il club ${chosenTeam.name} offre $${transferOffer.toLocaleString()} alla firma e $${(yearlySalary / 1000000).toFixed(1)}M/anno!`;
+            
+            document.getElementById("offerModal").classList.remove("hidden");
+        }
+
+        function acceptOffer() {
+            if (!currentOffer) return;
+            player.team = currentOffer.team;
+            player.money += currentOffer.bonus;
+            player.salary = currentOffer.salary;
+            logMessage(`🤝 TRASFERITO al ${currentOffer.team}! Bonus: +$${currentOffer.bonus.toLocaleString()}`);
+            document.getElementById("offerModal").classList.add("hidden");
+            currentOffer = null;
+            saveGame();
+            updateUI();
+        }
+
+        function rejectOffer() {
+            logMessage(`Hai rifiutato l'offerta dal ${currentOffer ? currentOffer.team : 'club'}.`);
+            document.getElementById("offerModal").classList.add("hidden");
+            currentOffer = null;
+        }
+
+        function train() {
+            if (player.energy < 15) return logMessage("Troppo stanco!");
+            player.energy -= 15;
+            player.trainCount += 1;
+            if (player.trainCount >= 5) {
+                player.overall += 1;
+                player.trainCount = 0;
+                logMessage(`🏋️ OVERALL AUMENTATO a ${player.overall}! 🔥`);
+            }
+            saveGame(); updateUI();
+        }
+
+        function rest() {
+            player.energy = Math.min(100, player.energy + 50);
+            logMessage("Riposo effettuato!");
+            saveGame(); updateUI();
+        }
+
+        function sponsor() {
+            if (player.energy < 10) return logMessage("Troppo stanco!");
+            player.energy -= 10; player.money += 1000; player.fans += 200;
+            logMessage("Sponsor: +$1.000 e +200 Fan.");
+            saveGame(); updateUI();
+        }
+
+        function openLeague() {
+            const container = document.getElementById("leagueTable");
+            container.innerHTML = "";
+            let sortedTeams = [...teamsDB].sort((a, b) => b.points - a.points);
+            sortedTeams.forEach((t, i) => {
+                container.innerHTML += `<div class="table-row"><span>#${i+1} ${t.name}</span><strong>${t.points} PTS</strong></div>`;
+            });
+            showScreen("league");
+        }
+
+        function openShop() { showScreen("shop"); }
+        function openReviews() { showScreen("reviews"); }
+    </script>
+</body>
+</html>

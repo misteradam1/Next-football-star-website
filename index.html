@@ -7,47 +7,153 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
             color: white;
-            background: radial-gradient(circle at top, #153d27 0%, #07120c 45%, #030706 100%);
+            background: radial-gradient(circle at center, #1b472e 0%, #081a10 60%, #020804 100%);
             display: flex; justify-content: center; align-items: center; overflow-x: hidden;
         }
         .container { width: 100%; max-width: 900px; min-height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; padding: 20px; }
-        .card { width: 100%; padding: 30px 20px; border: 1px solid rgba(255,255,255,0.12); border-radius: 28px; background: rgba(8, 18, 12, 0.78); box-shadow: 0 25px 80px rgba(0,0,0,0.55); backdrop-filter: blur(12px); }
-        .ball { font-size: 70px; margin-bottom: 20px; animation: float 3s ease-in-out infinite; }
-        h1 { font-size: clamp(36px, 8vw, 76px); font-weight: 900; letter-spacing: -3px; margin-bottom: 15px; }
-        h1 span { color: #38e878; }
-        .start-button { border: none; border-radius: 12px; padding: 12px 20px; font-size: 15px; font-weight: bold; color: #06100a; background: linear-gradient(135deg, #45f27f, #18c95b); cursor: pointer; transition: 0.2s; box-shadow: 0 10px 30px rgba(40, 230, 110, 0.25); margin: 4px; }
-        .start-button:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 15px 40px rgba(40, 230, 110, 0.4); }
-        .btn-blue { background: linear-gradient(135deg, #38bdf8, #0284c7); color: white; }
+        .card { 
+            width: 100%; 
+            padding: 40px 25px; 
+            border: 1px solid rgba(56, 232, 120, 0.2); 
+            border-radius: 32px; 
+            background: rgba(10, 26, 16, 0.85); 
+            box-shadow: 0 30px 90px rgba(0,0,0,0.7), inset 0 1px 1px rgba(255,255,255,0.1); 
+            backdrop-filter: blur(16px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* STILE DEDICATO ALLA HOME ACCOGLIENTE */
+        .home-pitch-bg {
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(56, 232, 120, 0.05) 10%, transparent 20%);
+            background-size: 30px 30px;
+            transform: rotate(15deg);
+            pointer-events: none;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(56, 232, 120, 0.15);
+            color: #38e878;
+            border: 1px solid rgba(56, 232, 120, 0.4);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .ball-icon {
+            font-size: 80px;
+            margin-bottom: 15px;
+            display: inline-block;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+            animation: float 3s ease-in-out infinite;
+        }
+        .home-title {
+            font-size: clamp(40px, 9vw, 72px);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 15px;
+        }
+        .home-title span {
+            background: linear-gradient(135deg, #45f27f, #18c95b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .home-subtitle {
+            color: #a3c2b0;
+            font-size: 18px;
+            max-width: 550px;
+            margin: 0 auto 35px auto;
+            line-height: 1.5;
+        }
+        .features-pills {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 35px;
+        }
+        .pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 14px;
+            border-radius: 12px;
+            font-size: 13px;
+            color: #d1dcd4;
+        }
+
+        /* PULSANTI */
+        .start-button {
+            border: none;
+            border-radius: 16px;
+            padding: 16px 36px;
+            font-size: 18px;
+            font-weight: 800;
+            color: #041209;
+            background: linear-gradient(135deg, #45f27f, #18c95b);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 12px 35px rgba(40, 230, 110, 0.3);
+            margin: 6px;
+        }
+        .start-button:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 18px 45px rgba(40, 230, 110, 0.5);
+        }
+        .btn-blue { background: linear-gradient(135deg, #38bdf8, #0284c7); color: white; box-shadow: 0 10px 30px rgba(2, 132, 199, 0.3); }
         .btn-orange { background: linear-gradient(135deg, #fb923c, #ea580c); color: white; }
         .btn-purple { background: linear-gradient(135deg, #c084fc, #9333ea); color: white; }
         .btn-red { background: linear-gradient(135deg, #f87171, #dc2626); color: white; }
+
         .hidden { display: none; }
         .career-screen { max-width: 600px; margin: auto; }
-        input, select { width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 10px; border: 1px solid #33483a; background: #101c15; color: white; font-size: 16px; outline: none; }
+        input, select { width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 12px; border: 1px solid #33483a; background: #0c1811; color: white; font-size: 16px; outline: none; }
+        
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; margin: 20px 0; }
-        .stat-card { background: rgba(255,255,255,0.05); padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
-        .stat-card h4 { color: #38e878; font-size: 12px; }
+        .stat-card { background: rgba(255,255,255,0.04); padding: 12px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.08); }
+        .stat-card h4 { color: #38e878; font-size: 11px; text-transform: uppercase; }
         .stat-card p { font-size: 18px; font-weight: bold; margin-top: 5px; }
-        .actions-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 20px; }
-        .log-box { background: #0a140d; border: 1px solid #33483a; border-radius: 12px; padding: 15px; height: 120px; overflow-y: auto; text-align: left; font-size: 13px; margin-bottom: 20px; color: #d1dcd4; }
+
+        .actions-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 20px; }
+        .log-box { background: #060e08; border: 1px solid #23382b; border-radius: 14px; padding: 15px; height: 130px; overflow-y: auto; text-align: left; font-size: 13px; margin-bottom: 20px; color: #d1dcd4; }
         .transfer-list, .league-table { display: flex; flex-direction: column; gap: 8px; margin-top: 15px; max-height: 300px; overflow-y: auto; }
-        .transfer-item, .table-row { background: rgba(255,255,255,0.05); padding: 10px 15px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #33483a; font-size: 14px; }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .transfer-item, .table-row { background: rgba(255,255,255,0.04); padding: 12px 16px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #23382b; font-size: 14px; }
+
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
     </style>
 </head>
 <body>
 
     <main class="container">
 
-        <!-- 1. HOME -->
+        <!-- 1. HOME ACCOGLIENTE -->
         <section class="card" id="home">
-            <div class="ball">⚽</div>
-            <h1>NEXT <span>FOOTBALL STAR</span></h1>
-            <p style="color: #b9c7be; margin-bottom: 30px;">La tua carriera. Le tue scelte. Il tuo futuro. 🌟</p>
-            <button class="start-button" onclick="checkSavedGame()">GIOCA ORA 🚀</button>
+            <div class="home-pitch-bg"></div>
+            
+            <div class="hero-badge">⚽ Career Simulator</div>
+            <div class="ball-icon">🏆</div>
+            
+            <h1 class="home-title">NEXT <span>FOOTBALL STAR</span></h1>
+            <p class="home-subtitle">Parti dalle giovanili, scala i campionati top al mondo, firma contratti milionari e conquista il Pallone d'Oro!</p>
+
+            <div class="features-pills">
+                <div class="pill">🏆 Campionati & Classifiche</div>
+                <div class="pill">🤝 Calciomercato</div>
+                <div class="pill">🥇 Pallone d'Oro</div>
+                <div class="pill">💾 Salvataggio Auto</div>
+            </div>
+
+            <div>
+                <button class="start-button" onclick="checkSavedGame()">ENTRA IN CAMPO 🚀</button>
+            </div>
         </section>
 
         <!-- 2. CREAZIONE GIOCATORE -->
@@ -69,7 +175,7 @@
                 <option value="🇫🇷 Francia">🇫🇷 Francia</option>
                 <option value="🇧🇷 Brasile">🇧🇷 Brasile</option>
             </select>
-            <button class="start-button" onclick="createPlayer()">CREA GIOCATORE ⚽</button>
+            <button class="start-button" onclick="createPlayer()">INIZIA LA CARRIERA ⚽</button>
         </section>
 
         <!-- 3. DASHBOARD DI GIOCO -->
@@ -93,13 +199,13 @@
 
             <!-- PULSANTI AZIONE ESPANSI -->
             <div class="actions-grid">
-                <button class="start-button btn-orange" onclick="playMatch()">⚽ Gioca Giornata (-30% Energ)</button>
-                <button class="start-button" onclick="train('fisico')">🏋️ Allenamento (-15% Energ, +1 Ovrl)</button>
-                <button class="start-button btn-purple" onclick="sponsor()">📸 Sponsor (+200€, +100 Fan)</button>
-                <button class="start-button btn-blue" onclick="rest()">💤 Riposo (+50% Energ)</button>
-                <button class="start-button" style="background: #38bdf8; color: black;" onclick="openLeague()">🏆 Classifica</button>
-                <button class="start-button" style="background: #eab308; color: black;" onclick="openMarket()">🤝 Calciomercato</button>
-                <button class="start-button btn-red" onclick="resetGame()">🗑️ Resetta</button>
+                <button class="start-button btn-orange" style="font-size: 15px; padding: 12px 20px;" onclick="playMatch()">⚽ Gioca Giornata (-30% Energ)</button>
+                <button class="start-button" style="font-size: 15px; padding: 12px 20px;" onclick="train('fisico')">🏋️ Allenamento (-15% Energ, +1 Ovrl)</button>
+                <button class="start-button btn-purple" style="font-size: 15px; padding: 12px 20px;" onclick="sponsor()">📸 Sponsor (+200€, +100 Fan)</button>
+                <button class="start-button btn-blue" style="font-size: 15px; padding: 12px 20px;" onclick="rest()">💤 Riposo (+50% Energ)</button>
+                <button class="start-button" style="background: #38bdf8; color: black; font-size: 15px; padding: 12px 20px;" onclick="openLeague()">🏆 Classifica</button>
+                <button class="start-button" style="background: #eab308; color: black; font-size: 15px; padding: 12px 20px;" onclick="openMarket()">🤝 Calciomercato</button>
+                <button class="start-button btn-red" style="font-size: 15px; padding: 12px 20px;" onclick="resetGame()">🗑️ Resetta</button>
             </div>
         </section>
 
@@ -107,14 +213,14 @@
         <section class="card career-screen hidden" id="league">
             <h2>🏆 CLASSIFICA CAMPIONATO</h2>
             <div class="league-table" id="leagueTable"></div>
-            <button class="start-button btn-blue" style="margin-top: 20px;" onclick="showScreen('hub')">⬅️ Torna al Gioco</button>
+            <button class="start-button btn-blue" style="margin-top: 20px; font-size: 15px;" onclick="showScreen('hub')">⬅️ Torna al Gioco</button>
         </section>
 
         <!-- 5. SCHERMATA CALCIOMERCATO -->
         <section class="card career-screen hidden" id="market">
             <h2>🤝 CALCIOMERCATO</h2>
             <div class="transfer-list" id="transferList"></div>
-            <button class="start-button btn-blue" style="margin-top: 20px;" onclick="showScreen('hub')">⬅️ Torna al Gioco</button>
+            <button class="start-button btn-blue" style="margin-top: 20px; font-size: 15px;" onclick="showScreen('hub')">⬅️ Torna al Gioco</button>
         </section>
 
     </main>
@@ -272,7 +378,7 @@
                 container.innerHTML += `
                     <div class="transfer-item">
                         <div><strong>${t.name}</strong><br><small>Req. Overall: ${t.reqOverall}</small></div>
-                        <button class="start-button" style="font-size: 12px;" ${!canJoin || player.team === t.name ? 'disabled style="opacity:0.5;"' : ''} onclick="joinTeam('${t.name}')">
+                        <button class="start-button" style="font-size: 12px; padding: 8px 14px;" ${!canJoin || player.team === t.name ? 'disabled style="opacity:0.5;"' : ''} onclick="joinTeam('${t.name}')">
                             ${player.team === t.name ? 'Tua Squadra' : 'Firma'}
                         </button>
                     </div>`;

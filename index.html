@@ -80,6 +80,7 @@
         .btn-blue { background: linear-gradient(135deg, #38bdf8, #0284c7); color: white; }
         .btn-orange { background: linear-gradient(135deg, #fb923c, #ea580c); color: white; }
         .btn-purple { background: linear-gradient(135deg, #c084fc, #9333ea); color: white; }
+        .btn-red { background: linear-gradient(135deg, #f87171, #dc2626); color: white; }
 
         .hidden { display: none; }
 
@@ -170,7 +171,7 @@
             <div class="ball">⚽</div>
             <h1>NEXT <span>FOOTBALL STAR</span></h1>
             <p style="color: #b9c7be; margin-bottom: 30px;">La tua carriera. Le tue scelte. Il tuo futuro. 🌟</p>
-            <button class="start-button" onclick="showScreen('career')">INIZIA CARRIERA 🚀</button>
+            <button class="start-button" onclick="checkSavedGame()">GIOCA ORA 🚀</button>
         </section>
 
         <!-- 2. CREAZIONE GIOCATORE -->
@@ -203,10 +204,11 @@
         <!-- 3. DASHBOARD DI GIOCO -->
         <section class="card hidden" id="hub">
             <h2 id="displayPlayerName">Nome Giocatore</h2>
-            <p id="displayDetails" style="color: #38e878; margin-bottom: 10px;">Ruolo | Nazionalità</p>
+            <p id="displayDetails" style="color: #38e878; margin-bottom: 5px;">Ruolo | Nazionalità</p>
             <p id="displayTeam" style="color: #aab8ae; font-weight: bold; margin-bottom: 15px;">Squadra attuale: FC Giovanili</p>
 
             <div class="stats-grid">
+                <div class="stat-card"><h4>ETÀ / STAG.</h4><p id="valAge">16y (S1)</p></div>
                 <div class="stat-card"><h4>OVERALL</h4><p id="valOverall">60</p></div>
                 <div class="stat-card"><h4>ENERGIA</h4><p id="valEnergy">100%</p></div>
                 <div class="stat-card"><h4>DENARO</h4><p id="valMoney">500 €</p></div>
@@ -214,7 +216,7 @@
             </div>
 
             <div class="log-box" id="gameLog">
-                <div> Benvenuto nel tuo HUB carriera!</div>
+                <div> Benvenuto nel tuo HUB carriera! Il gioco si salva automaticamente.</div>
             </div>
 
             <!-- PULSANTI AZIONE ESPANSI -->
@@ -225,6 +227,7 @@
                 <button class="start-button btn-purple" onclick="sponsor()">📸 Sponsor / Social (+200€, +100 Fan, -10% Energ)</button>
                 <button class="start-button btn-blue" onclick="rest()">💤 Riposo (+50% Energ)</button>
                 <button class="start-button" style="background: #eab308; color: black;" onclick="openMarket()">🤝 Calciomercato</button>
+                <button class="start-button btn-red" onclick="resetGame()">🗑️ Resetta Carriera</button>
             </div>
         </section>
 
@@ -233,9 +236,7 @@
             <h2>🤝 CALCIOMERCATO</h2>
             <p style="color: #aab8ae; margin-bottom: 15px;">Offerte disponibili in base al tuo Overall:</p>
             
-            <div class="transfer-list" id="transferList">
-                <!-- Le offerte verranno inserite qui da JS -->
-            </div>
+            <div class="transfer-list" id="transferList"></div>
 
             <button class="start-button btn-blue" style="margin-top: 20px;" onclick="showScreen('hub')">⬅️ Torna al Gioco</button>
         </section>
@@ -252,10 +253,12 @@
             overall: 60,
             energy: 100,
             money: 500,
-            fans: 100
+            fans: 100,
+            age: 16,
+            matchesPlayed: 0,
+            season: 1
         };
 
-        // Lista squadre modificate (No Copyright)
         const teamsDB = [
             { name: "Milano Red Devils", reqOverall: 60, wage: 200 },
             { name: "Torino Black & White", reqOverall: 65, wage: 500 },
@@ -264,6 +267,31 @@
             { name: "Paris Blue Gem", reqOverall: 84, wage: 5000 },
             { name: "London Red Cannons", reqOverall: 88, wage: 10000 }
         ];
+
+        function saveGame() {
+            localStorage.setItem("nextFootballStarData", JSON.stringify(player));
+        }
+
+        function checkSavedGame() {
+            const saved = localStorage.getItem("nextFootballStarData");
+            if (saved) {
+                player = JSON.parse(saved);
+                document.getElementById("displayPlayerName").textContent = `${player.name} ${player.surname}`;
+                document.getElementById("displayDetails").textContent = `${player.position} | ${player.nationality}`;
+                updateUI();
+                showScreen("hub");
+                logMessage("Progressi caricati con successo!");
+            } else {
+                showScreen("career");
+            }
+        }
+
+        function resetGame() {
+            if (confirm("Sei sicuro di voler cancellare la tua carriera e ricominciare?")) {
+                localStorage.removeItem("nextFootballStarData");
+                location.reload();
+            }
+        }
 
         function showScreen(screenId) {
             document.getElementById("home").classList.add("hidden");
@@ -291,12 +319,13 @@
 
             document.getElementById("displayPlayerName").textContent = `${player.name} ${player.surname}`;
             document.getElementById("displayDetails").textContent = `${player.position} | ${player.nationality}`;
+            saveGame();
             updateUI();
-
             showScreen("hub");
         }
 
         function updateUI() {
+            document.getElementById("valAge").textContent = `${player.age}y (S${player.season})`;
             document.getElementById("valOverall").textContent = player.overall;
             document.getElementById("valEnergy").textContent = player.energy + "%";
             document.getElementById("valMoney").textContent = player.money + " €";
@@ -320,6 +349,7 @@
             player.energy -= 15;
             player.overall += 1;
             logMessage(`Allenamento ${type} completato! Overall: ${player.overall}.`);
+            saveGame();
             updateUI();
         }
 
@@ -331,7 +361,17 @@
             player.energy -= 30;
             player.money += 100;
             player.fans += 50;
-            logMessage("Ottima prestazione in partita! Guadagnati +100€ e +50 Fan.");
+            player.matchesPlayed += 1;
+
+            if (player.matchesPlayed % 10 === 0) {
+                player.season += 1;
+                player.age += 1;
+                logMessage(`🎉 STAGIONE CONCLUSA! Ora hai ${player.age} anni (Stagione ${player.season}).`);
+            } else {
+                logMessage(`Partita completata (${player.matchesPlayed % 10}/10 della stagione)! +100€, +50 Fan.`);
+            }
+
+            saveGame();
             updateUI();
         }
 
@@ -343,7 +383,8 @@
             player.energy -= 10;
             player.money += 200;
             player.fans += 100;
-            logMessage("Post social virale! Guadagnati +200€ e +100 nuovi Fan.");
+            logMessage("Post social virale! +200€ e +100 Fan.");
+            saveGame();
             updateUI();
         }
 
@@ -354,6 +395,7 @@
             }
             player.energy = Math.min(100, player.energy + 50);
             logMessage("Riposo effettuato. Energia recuperata!");
+            saveGame();
             updateUI();
         }
 
@@ -375,7 +417,7 @@
                     <button class="start-button" style="font-size: 12px; padding: 8px 12px;" 
                             ${!canJoin || player.team === t.name ? 'disabled style="opacity:0.5;"' : ''} 
                             onclick="joinTeam('${t.name}')">
-                        ${player.team === t.name ? 'Tua Squadra' : (canJoin ? 'Firma Contract' : 'Livello Basso')}
+                        ${player.team === t.name ? 'Tua Squadra' : (canJoin ? 'Firma Contratto' : 'Livello Basso')}
                     </button>
                 `;
                 listContainer.appendChild(item);
@@ -387,13 +429,10 @@
         function joinTeam(teamName) {
             player.team = teamName;
             logMessage("CONTRATTO FIRMATO! Ti sei trasferito al " + teamName + "!");
+            saveGame();
             updateUI();
             showScreen("hub");
         }
     </script>
 </body>
 </html>
-if (savedData) {
-    player = JSON.parse(savedData);
-    updateUI();
-}

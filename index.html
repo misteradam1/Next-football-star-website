@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+    <!-- SCRIPT PRIVACY SECURE PRIVACY -->
+    <script src="https://app.secureprivacy.ai/script/6a90166a663e72d94f78f2f7.js"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Next Football Star ⚽ Ultimate Edition</title>
@@ -362,7 +365,6 @@
             age: 16, season: 1, matchDay: 1, points: 0,
             trophies: 0, worldCups: 0, uclTrophies: 0,
             goals: 0, assists: 0, trainCount: 0, inventory: [],
-            // NOVITÀ
             coachTrust: 80, isCaptain: false, injuryDays: 0,
             qualifiedUCL: false, uclRound: 0, hasPhysio: false
         };
@@ -545,7 +547,6 @@
             document.getElementById("displayTeam").textContent = `Lega: ${player.league} | Club: ${player.team} (Ovr: ${teamPower})`;
             document.getElementById("trainProgress").textContent = `${player.trainCount}/5`;
 
-            // NOVITÀ STATUS
             document.getElementById("valCoachTrust").textContent = player.coachTrust + "%";
             document.getElementById("valCaptain").textContent = player.coachTrust >= 90 ? "(👑 CAPITANO)" : "";
             
@@ -589,7 +590,6 @@
             if (player.injuryDays > 0) return logMessage(`🚑 Sei infortunato! Devi saltare ancora ${player.injuryDays} giornate o recuperare con il riposo/fisioterapista.`);
             if (player.energy < 30) return logMessage("⚡ Troppo stanco! Riposati prima di giocare.");
 
-            // Gestione Fiducia Allenatore (Panchina o Tribuna)
             if (player.coachTrust < 30) {
                 logMessage("⚠️ Il Mister ti ha lasciato in TRIBUNA per scarso rendimento o comportamento scorretto!");
                 player.energy = Math.min(100, player.energy + 10);
@@ -623,7 +623,6 @@
             const matchSalary = getMatchSalary(player.team);
             player.money += matchSalary;
 
-            // Rischio Infortunio (maggiore se energia è bassa o personalità non è instancabile)
             let injuryChance = player.personality === "Lavoratore Instancabile" ? 0.03 : 0.07;
             if (Math.random() < injuryChance) {
                 let stopDays = Math.floor(Math.random() * 3) + 1;
@@ -631,7 +630,6 @@
                 logMessage(`💥 CRACK! Ti sei infortunato durante il match! Resterai fuori per ${stopDays} giornate!`);
             }
 
-            // Cambiamento Fiducia Mister
             if (matchGoals > 0 || matchAssists > 0) {
                 player.coachTrust = Math.min(100, player.coachTrust + 5);
             } else if (outcome < 0.3) {
@@ -656,17 +654,14 @@
         }
 
         function advanceMatchDay() {
-            // Eventi Calciomercato a metà stagione
             if (player.matchDay === 19) checkOffers();
 
-            // Partite Champions League se qualificato
             if (player.qualifiedUCL && (player.matchDay === 10 || player.matchDay === 20 || player.matchDay === 30)) {
                 playUCLMatch();
             }
 
             player.matchDay += 1;
 
-            // Fine stagione
             if (player.matchDay > 38) {
                 endSeason();
             }
@@ -697,7 +692,6 @@
             const currentLeagueTeams = getActiveLeagueTeams();
             currentLeagueTeams.sort((a, b) => (b.points || 0) - (a.points || 0));
 
-            // Qualificazione Champions (Prime 4)
             let myRank = currentLeagueTeams.findIndex(t => t.name === player.team) + 1;
             if (myRank <= 4) {
                 player.qualifiedUCL = true;
@@ -717,7 +711,6 @@
                 logMessage("🥇 STREPITOSO! HAI VINTO IL PALLONE D'ORO!");
             }
 
-            // CONTROLLO MONDIALI (Ogni 4 anni: 20, 24, 28, 32, 36)
             if ([20, 24, 28, 32, 36].includes(player.age)) {
                 triggerWorldCup();
             }

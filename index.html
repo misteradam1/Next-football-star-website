@@ -112,7 +112,7 @@
         .btn-gold { background: linear-gradient(135deg, #facc15, #ca8a04); color: black; }
         .btn-red { background: linear-gradient(135deg, #f87171, #dc2626); color: white; }
 
-        .hidden { display: none; }
+        .hidden { display: none !important; }
         .career-screen { max-width: 600px; margin: auto; }
         input, select { width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 12px; border: 1px solid #33483a; background: #0c1811; color: white; font-size: 16px; outline: none; }
         
@@ -123,8 +123,12 @@
 
         .actions-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 20px; }
         .log-box { background: #060e08; border: 1px solid #23382b; border-radius: 14px; padding: 15px; height: 130px; overflow-y: auto; text-align: left; font-size: 13px; margin-bottom: 20px; color: #d1dcd4; }
-        .transfer-list, .league-table, .shop-list { display: flex; flex-direction: column; gap: 8px; margin-top: 15px; max-height: 320px; overflow-y: auto; }
-        .transfer-item, .table-row, .shop-item { background: rgba(255,255,255,0.04); padding: 12px 16px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #23382b; font-size: 14px; }
+        .league-table, .shop-list { display: flex; flex-direction: column; gap: 8px; margin-top: 15px; max-height: 320px; overflow-y: auto; }
+        .table-row, .shop-item { background: rgba(255,255,255,0.04); padding: 12px 16px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #23382b; font-size: 14px; }
+
+        /* Finestra Modale per le Offerte di Mercato a Metà Stagione */
+        .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: flex; align-items: center; justify-content: center; z-index: 1000; backdrop-filter: blur(5px); }
+        .modal-content { background: #0c1811; padding: 30px; border-radius: 20px; max-width: 450px; width: 90%; border: 2px solid #facc15; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.9); }
 
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
     </style>
@@ -141,12 +145,12 @@
             <div class="ball-icon">🏆</div>
             
             <h1 class="home-title">NEXT <span>FOOTBALL STAR</span></h1>
-            <p class="home-subtitle">Parti dalle giovanili, scala i campionati top al mondo, acquista oggetti di lusso e conquista il Pallone d'Oro!</p>
+            <p class="home-subtitle">Parti dalle giovanili, scala i campionati top al mondo, gestisci le offerte di mercato a metà stagione e conquista il Pallone d'Oro!</p>
 
             <div class="features-pills">
                 <div class="pill">🏆 Campionati & Classifiche</div>
                 <div class="pill">🛍️ Shop di Lusso</div>
-                <div class="pill">🥇 Pallone d'Oro</div>
+                <div class="pill">🤝 Mercato Invernale (19ª)</div>
                 <div class="pill">💾 Salvataggio Auto</div>
             </div>
 
@@ -203,7 +207,7 @@
             <h2 id="displayPlayerName">Nome Giocatore</h2>
             <p id="displayDetails" style="color: #38e878; margin-bottom: 5px;">Ruolo | Nazionalità</p>
             <p id="displayExtra" style="color: #d1dcd4; font-size: 14px; margin-bottom: 5px;">Maglia #-- | Capelli: -- | Personalità: --</p>
-            <p id="displayTeam" style="color: #aab8ae; font-weight: bold; margin-bottom: 15px;">Squadra: Milano Red Devils</p>
+            <p id="displayTeam" style="color: #facc15; font-weight: bold; margin-bottom: 15px;">Squadra: Milano Red Devils</p>
 
             <div class="stats-grid">
                 <div class="stat-card"><h4>GIORNATA</h4><p id="valMatchDay">1 / 38</p></div>
@@ -215,7 +219,7 @@
             </div>
 
             <div class="log-box" id="gameLog">
-                <div> Benvenuto! Allenati dura: servono 5 allenamenti per salire di +1 Overall.</div>
+                <div> Benvenuto! Allenati duro: servono 5 allenamenti per salire di +1 Overall. A metà stagione (19ª giornata) riceverai offerte di mercato!</div>
             </div>
 
             <!-- PULSANTI AZIONE ESPANSI -->
@@ -226,7 +230,6 @@
                 <button class="start-button btn-blue" style="font-size: 15px; padding: 12px 20px;" onclick="rest()">💤 Riposo (+50% Energ)</button>
                 <button class="start-button btn-gold" style="font-size: 15px; padding: 12px 20px;" onclick="openShop()">💎 Shop di Lusso</button>
                 <button class="start-button" style="background: #38bdf8; color: black; font-size: 15px; padding: 12px 20px;" onclick="openLeague()">🏆 Classifica</button>
-                <button class="start-button" style="background: #eab308; color: black; font-size: 15px; padding: 12px 20px;" onclick="openMarket()">🤝 Calciomercato</button>
                 <button class="start-button btn-red" style="font-size: 15px; padding: 12px 20px;" onclick="resetGame()">🗑️ Resetta</button>
             </div>
         </section>
@@ -238,39 +241,46 @@
             <button class="start-button btn-blue" style="margin-top: 20px; font-size: 15px;" onclick="showScreen('hub')">⬅️ Torna al Gioco</button>
         </section>
 
-        <!-- 5. SCHERMATA CALCIOMERCATO -->
-        <section class="card career-screen hidden" id="market">
-            <h2>🤝 CALCIOMERCATO</h2>
-            <div class="transfer-list" id="transferList"></div>
-            <button class="start-button btn-blue" style="margin-top: 20px; font-size: 15px;" onclick="showScreen('hub')">⬅️ Torna al Gioco</button>
-        </section>
-
-        <!-- 6. SHOP DI LUSSO -->
+        <!-- 5. SHOP DI LUSSO -->
         <section class="card career-screen hidden" id="shop">
             <h2>💎 SHOP DI LUSSO</h2>
-            <p style="color: #aab8ae; font-size: 14px; margin-bottom: 10px;">Spendi i tuoi ingaggi per aumentare la tua popolarità!</p>
+            <p style="color: #aab8ae; font-size: 14px; margin-bottom: 10px;">Spendi i tuoi guadagni per aumentare la tua popolarità!</p>
             <div class="shop-list" id="shopList"></div>
             <button class="start-button btn-blue" style="margin-top: 20px; font-size: 15px;" onclick="showScreen('hub')">⬅️ Torna al Gioco</button>
         </section>
 
     </main>
 
+    <!-- MODALE OFFERTA DI CALCIOMERCATO (A METÀ STAGIONE / 19ª GIORNATA) -->
+    <div id="offerModal" class="modal hidden">
+        <div class="modal-content">
+            <h3 style="color: #facc15; margin-bottom: 15px;">🚨 OFFERTA DI MERCATO (19ª Giornata)</h3>
+            <p id="offerText" style="margin-bottom: 20px; font-size: 15px; line-height: 1.5;"></p>
+            <div style="display: flex; justify-content: center; gap: 10px;">
+                <button class="start-button" style="font-size: 14px; padding: 10px 20px; background: #22c55e;" onclick="acceptOffer()">Accetta 🤝</button>
+                <button class="start-button btn-red" style="font-size: 14px; padding: 10px 20px;" onclick="rejectOffer()">Rifiuta ❌</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         let player = {
             name: "", surname: "", position: "", nationality: "",
             jerseyNumber: 10, hairType: "Corti Classici", personality: "Leader Naturale",
             team: "Milano Red Devils", overall: 60, energy: 100, money: 500, fans: 100,
-            age: 17, season: 1, matchDay: 1, points: 0, trophies: 0,
+            salary: 1000000, age: 17, season: 1, matchDay: 1, points: 0, trophies: 0,
             trainCount: 0, inventory: []
         };
 
+        let currentOffer = null;
+
         const teamsDB = [
-            { name: "Milano Red Devils", reqOverall: 60, points: 0 },
-            { name: "Torino Black & White", reqOverall: 65, points: 0 },
-            { name: "Madrid Kings", reqOverall: 72, points: 0 },
-            { name: "Catalonia Stars", reqOverall: 78, points: 0 },
-            { name: "Paris Blue Gem", reqOverall: 84, points: 0 },
-            { name: "London Red Cannons", reqOverall: 88, points: 0 }
+            { name: "Milano Red Devils", power: 75, points: 0 },
+            { name: "Torino Black & White", power: 78, points: 0 },
+            { name: "Madrid Kings", power: 85, points: 0 },
+            { name: "Catalonia Stars", power: 82, points: 0 },
+            { name: "Paris Blue Gem", power: 80, points: 0 },
+            { name: "London Red Cannons", power: 77, points: 0 }
         ];
 
         const shopDB = [
@@ -286,6 +296,7 @@
             const saved = localStorage.getItem("nextFootballStarData");
             if (saved) {
                 player = JSON.parse(saved);
+                if (!player.salary) player.salary = 1000000;
                 if (player.trainCount === undefined) player.trainCount = 0;
                 if (!player.inventory) player.inventory = [];
                 updatePlayerInfoDisplay();
@@ -302,7 +313,10 @@
         }
 
         function showScreen(screenId) {
-            ["home", "career", "hub", "league", "market", "shop"].forEach(id => document.getElementById(id).classList.add("hidden"));
+            ["home", "career", "hub", "league", "shop"].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.classList.add("hidden");
+            });
             document.getElementById(screenId).classList.remove("hidden");
         }
 
@@ -330,6 +344,7 @@
             if (personality === "Prodigio Tecnico") player.overall += 3;
             if (personality === "Leader Naturale") player.fans += 100;
 
+            resetLeaguePoints();
             updatePlayerInfoDisplay();
             saveGame(); updateUI(); showScreen("hub");
         }
@@ -347,7 +362,7 @@
             document.getElementById("valEnergy").textContent = player.energy + "%";
             document.getElementById("valMoney").textContent = "$" + player.money.toLocaleString();
             document.getElementById("valFans").textContent = player.fans.toLocaleString();
-            document.getElementById("displayTeam").textContent = "Squadra attuale: " + player.team;
+            document.getElementById("displayTeam").textContent = `Squadra: ${player.team} ($${(player.salary / 1000000).toFixed(1)}M/anno)`;
             document.getElementById("trainProgress").textContent = `${player.trainCount}/5`;
         }
 
@@ -359,42 +374,102 @@
             logBox.scrollTop = logBox.scrollHeight;
         }
 
+        function resetLeaguePoints() { teamsDB.forEach(t => t.points = 0); }
+
+        function simulateOtherMatches() {
+            teamsDB.forEach(team => {
+                if (team.name !== player.team) {
+                    const chance = Math.random() * 100;
+                    if (chance < 45) team.points += 3;
+                    else if (chance < 75) team.points += 1;
+                }
+            });
+        }
+
         function playMatch() {
             if (player.energy < 30) return logMessage("Troppo stanco! Riposati.");
 
             player.energy -= 30;
-            const opponent = teamsDB[Math.floor(Math.random() * teamsDB.length)].name;
+            const otherTeams = teamsDB.filter(t => t.name !== player.team);
+            const opponent = otherTeams[Math.floor(Math.random() * otherTeams.length)].name;
             const outcome = Math.random();
+
+            const matchSalary = Math.floor(player.salary / 38);
+            player.money += matchSalary;
 
             if (outcome > 0.4) {
                 player.points += 3;
                 player.money += 2500;
-                logMessage(`Giornata ${player.matchDay}: VITTORIA contro ${opponent}! +3 Punti e +$2.500 premi partita.`);
+                logMessage(`Giornata ${player.matchDay}: VITTORIA vs ${opponent}! +3 Pts, +$2.500 bonus e stipendio.`);
             } else if (outcome > 0.2) {
                 player.points += 1;
                 player.money += 1000;
-                logMessage(`Giornata ${player.matchDay}: PAREGGIO contro ${opponent}. +1 Punto e +$1.000.`);
+                logMessage(`Giornata ${player.matchDay}: PAREGGIO vs ${opponent}. +1 Pt, +$1.000 e stipendio.`);
             } else {
-                logMessage(`Giornata ${player.matchDay}: SCONFITTA contro ${opponent}.`);
+                logMessage(`Giornata ${player.matchDay}: SCONFITTA vs ${opponent}. Stipendio incassato.`);
+            }
+
+            const myTeamObj = teamsDB.find(t => t.name === player.team);
+            if (myTeamObj) myTeamObj.points = player.points;
+
+            simulateOtherMatches();
+
+            // Calciomercato attivato ESATTAMENTE alla 19ª giornata (metà stagione)
+            if (player.matchDay === 19) {
+                checkOffers();
             }
 
             player.matchDay += 1;
 
             if (player.matchDay > 38) {
                 logMessage(`🎉 FINE STAGIONE ${player.season}! Punti totali: ${player.points}`);
-                if (player.points >= 75) {
+                teamsDB.sort((a, b) => b.points - a.points);
+                if (teamsDB[0].name === player.team) {
                     player.trophies += 1;
-                    player.money += 50000;
-                    logMessage("🏆 HAI VINTO IL CAMPIONATO! +$50.000 Bonus!");
+                    player.money += 5000000;
+                    logMessage("🏆 COMPLIMENTI! HAI VINTO IL CAMPIONATO! +$5.000.000 Bonus!");
                 }
                 if (player.overall >= 85) {
                     player.trophies += 1;
                     logMessage("🥇 STREPITOSO! HAI VINTO IL PALLONE D'ORO!");
                 }
                 player.season += 1; player.age += 1; player.matchDay = 1; player.points = 0;
+                resetLeaguePoints();
             }
 
             saveGame(); updateUI();
+        }
+
+        function checkOffers() {
+            const availableTeams = teamsDB.filter(t => t.name !== player.team);
+            const chosenTeam = availableTeams[Math.floor(Math.random() * availableTeams.length)];
+            
+            const transferBonus = Math.floor(Math.random() * 50000001) + 5000000; // Da 5M a 55M
+            const yearlySalary = Math.floor(Math.random() * 9000001) + 1000000; // Da 1M a 10M
+
+            currentOffer = { team: chosenTeam.name, bonus: transferBonus, salary: yearlySalary };
+
+            document.getElementById("offerText").textContent = 
+                `Il club ${chosenTeam.name} vuole acquistarti nella sessione di gennaio! Ti offre un bonus alla firma di $${transferBonus.toLocaleString()} e un nuovo stipendio di $${(yearlySalary / 1000000).toFixed(1)}M all'anno. Accetti il trasferimento?`;
+            
+            document.getElementById("offerModal").classList.remove("hidden");
+        }
+
+        function acceptOffer() {
+            if (!currentOffer) return;
+            player.team = currentOffer.team;
+            player.money += currentOffer.bonus;
+            player.salary = currentOffer.salary;
+            logMessage(`🤝 TRASFERIMENTO ACCETTATO! Ora giochi nel ${currentOffer.team}! Bonus: +$${currentOffer.bonus.toLocaleString()}`);
+            document.getElementById("offerModal").classList.add("hidden");
+            currentOffer = null;
+            saveGame(); updateUI();
+        }
+
+        function rejectOffer() {
+            logMessage(`Hai rifiutato l'offerta di mercato. Resti fedele al ${player.team}.`);
+            document.getElementById("offerModal").classList.add("hidden");
+            currentOffer = null;
         }
 
         function train() {
@@ -432,36 +507,17 @@
         function openLeague() {
             const container = document.getElementById("leagueTable");
             container.innerHTML = "";
+            
+            let myTeamObj = teamsDB.find(t => t.name === player.team);
+            if (myTeamObj) myTeamObj.points = player.points;
+
             let sortedTeams = [...teamsDB];
-            sortedTeams.find(t => t.name === player.team).points = player.points;
             sortedTeams.sort((a, b) => b.points - a.points);
 
             sortedTeams.forEach((t, i) => {
                 container.innerHTML += `<div class="table-row"><span>#${i+1} ${t.name}</span><strong>${t.points} PTS</strong></div>`;
             });
             showScreen("league");
-        }
-
-        function openMarket() {
-            const container = document.getElementById("transferList");
-            container.innerHTML = "";
-            teamsDB.forEach(t => {
-                const canJoin = player.overall >= t.reqOverall;
-                container.innerHTML += `
-                    <div class="transfer-item">
-                        <div><strong>${t.name}</strong><br><small>Req. Overall: ${t.reqOverall}</small></div>
-                        <button class="start-button" style="font-size: 12px; padding: 8px 14px;" ${!canJoin || player.team === t.name ? 'disabled style="opacity:0.5;"' : ''} onclick="joinTeam('${t.name}')">
-                            ${player.team === t.name ? 'Tua Squadra' : 'Firma'}
-                        </button>
-                    </div>`;
-            });
-            showScreen("market");
-        }
-
-        function joinTeam(teamName) {
-            player.team = teamName;
-            logMessage("Trasferito al " + teamName + "!");
-            saveGame(); updateUI(); showScreen("hub");
         }
 
         function openShop() {

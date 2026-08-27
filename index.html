@@ -142,8 +142,9 @@
         .news-title { font-size: 10px; font-weight: bold; text-transform: uppercase; color: #8b0000; letter-spacing: 1px; border-bottom: 1px solid #111; padding-bottom: 2px; margin-bottom: 4px; }
         .news-headline { font-size: 14px; font-weight: 900; line-height: 1.2; }
 
-        .league-table, .shop-list, .social-feed { display: flex; flex-direction: column; gap: 8px; margin-top: 15px; max-height: 320px; overflow-y: auto; }
-        .table-row, .shop-item, .post-card { background: rgba(255,255,255,0.04); padding: 12px 16px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #23382b; font-size: 14px; text-align: left; }
+        .league-table, .shop-list, .social-feed, .reviews-list { display: flex; flex-direction: column; gap: 8px; margin-top: 15px; max-height: 320px; overflow-y: auto; }
+        .table-row, .shop-item, .post-card, .review-card { background: rgba(255,255,255,0.04); padding: 12px 16px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #23382b; font-size: 14px; text-align: left; }
+        .review-card { flex-direction: column; align-items: flex-start; gap: 4px; }
 
         .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: flex; align-items: center; justify-content: center; z-index: 1000; backdrop-filter: blur(5px); }
         .modal-content { background: #0c1811; padding: 25px; border-radius: 20px; max-width: 450px; width: 90%; border: 2px solid #facc15; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.9); }
@@ -168,9 +169,9 @@
             <div class="features-pills">
                 <div class="pill">🌍 Mondiali & Nazionali</div>
                 <div class="pill">🏆 Champions League</div>
+                <div class="pill">📝 Clausole & Offerte</div>
+                <div class="pill">📰 Recensioni Stampa</div>
                 <div class="pill">📱 Social & TikTok</div>
-                <div class="pill">👔 Fiducia Mister</div>
-                <div class="pill">🏥 Infortuni & Clinica</div>
             </div>
 
             <div>
@@ -241,7 +242,8 @@
             <h2 id="displayPlayerName">Nome Giocatore</h2>
             <p id="displayDetails" style="color: #38e878; margin-bottom: 3px;">Ruolo | Nazionalità</p>
             <p id="displayExtra" style="color: #d1dcd4; font-size: 13px; margin-bottom: 5px;">Maglia #-- | Capelli: -- | Personalità: --</p>
-            <p id="displayTeam" style="color: #facc15; font-weight: bold; margin-bottom: 10px;">Lega: -- | Club: --</p>
+            <p id="displayTeam" style="color: #facc15; font-weight: bold; margin-bottom: 5px;">Lega: -- | Club: --</p>
+            <p id="displayClause" style="color: #38bdf8; font-size: 13px; margin-bottom: 10px;">Clausola Rescissoria: €0</p>
 
             <div class="status-banner">
                 <span>👔 Mister: <strong id="valCoachTrust">80%</strong> <span id="valCaptain"></span></span>
@@ -273,7 +275,7 @@
                 <button class="start-button btn-orange" style="font-size: 14px; padding: 10px 16px;" onclick="playMatch()">⚽ Gioca Match (-30% Energ)</button>
                 <button class="start-button" style="font-size: 14px; padding: 10px 16px;" onclick="train()">🏋️ Allenati (<span id="trainProgress">0/5</span>)</button>
                 <button class="start-button btn-pink" style="font-size: 14px; padding: 10px 16px;" onclick="openSocial()">📱 Social Media</button>
-                <button class="start-button btn-purple" style="font-size: 14px; padding: 10px 16px;" onclick="sponsor()">📸 Sponsor (+€1.000)</button>
+                <button class="start-button btn-purple" style="font-size: 14px; padding: 10px 16px;" onclick="openReviews()">⭐️ Recensioni Stampa</button>
                 <button class="start-button btn-blue" style="font-size: 14px; padding: 10px 16px;" onclick="rest()">💤 Riposo / Curati</button>
                 <button class="start-button btn-gold" style="font-size: 14px; padding: 10px 16px;" onclick="openShop()">💎 Shop & Staff</button>
                 <button class="start-button" style="background: #38bdf8; color: black; font-size: 14px; padding: 10px 16px;" onclick="openLeague()">🏆 Classifica</button>
@@ -296,7 +298,7 @@
                 </div>
                 <div class="post-card">
                     <div>
-                        <strong>🏎️ Foto con Auto di Lusso & Catene</strong><br>
+                        <strong>🏎‍🟀 Foto con Auto di Lusso & Catene</strong><br>
                         <small>"Solo il meglio per il Re del campo. Chi è il numero uno?"</small>
                     </div>
                     <button class="start-button btn-pink" style="font-size: 12px; padding: 8px 12px;" onclick="publishPost('flex')">Pubblica (++Fan, -Mister)</button>
@@ -313,14 +315,29 @@
             <button class="start-button btn-blue" style="margin-top: 20px; font-size: 14px;" onclick="showScreen('hub')">⬅️ Torna al Hub</button>
         </section>
 
-        <!-- 5. CLASSIFICA CAMPIONATO -->
+        <!-- 5. RECENSIONI STAMPA & PAGELLE -->
+        <section class="card career-screen hidden" id="reviews">
+            <h2>📰 PAGELLE & CRITICA STAMPA</h2>
+            <p style="color: #aab8ae; font-size: 13px; margin-bottom: 15px;">Cosa dicono di te la Gazzetta dello Sport, Sky Sports e i tifosi sul web!</p>
+            
+            <div class="reviews-list" id="reviewsList">
+                <div class="review-card">
+                    <strong style="color: #facc15;">📰 La Gazzetta dello Sport (Voto: 6/10)</strong>
+                    <p style="font-size: 12px;">"Inizio di stagione senza infamia e senza lode. Il giovane deve ancora trovare il ritmo giusto."</p>
+                </div>
+            </div>
+
+            <button class="start-button btn-blue" style="margin-top: 20px; font-size: 14px;" onclick="showScreen('hub')">⬅️ Torna al Hub</button>
+        </section>
+
+        <!-- 6. CLASSIFICA CAMPIONATO -->
         <section class="card career-screen hidden" id="league">
             <h2>🏆 CLASSIFICA CAMPIONATO</h2>
             <div class="league-table" id="leagueTable"></div>
             <button class="start-button btn-blue" style="margin-top: 20px; font-size: 14px;" onclick="showScreen('hub')">⬅️ Torna al Hub</button>
         </section>
 
-        <!-- 6. SHOP DI LUSSO & STAFF -->
+        <!-- 7. SHOP DI LUSSO & STAFF -->
         <section class="card career-screen hidden" id="shop">
             <h2>💎 SHOP DI LUSSO & STAFF</h2>
             <p style="color: #aab8ae; font-size: 13px; margin-bottom: 10px;">Compra oggetti esclusivi o ingaggia specialisti per la tua carriera!</p>
@@ -328,7 +345,7 @@
             <button class="start-button btn-blue" style="margin-top: 20px; font-size: 14px;" onclick="showScreen('hub')">⬅️ Torna al Hub</button>
         </section>
 
-        <!-- 7. SCHERMATA RITIRO / CARRIERA FINITA -->
+        <!-- 8. SCHERMATA RITIRO / CARRIERA FINITA -->
         <section class="card career-screen hidden" id="retirement">
             <h2>👴 ORA DI APPENDERE GLI SCARPINI AL CHIODO!</h2>
             <p style="color: #aab8ae; margin-top: 10px;">Hai compiuto 40 anni e ti ritiri ufficialmente dal calcio giocato.</p>
@@ -362,11 +379,13 @@
             name: "", surname: "", position: "", nationality: "",
             jerseyNumber: 10, hairType: "Corti Classici", personality: "Leader Naturale",
             league: "🇮🇹 Italia", team: "Lombardia Neroazzurra", overall: 60, energy: 100, money: 500, fans: 100,
+            releaseClause: 5000000,
             age: 16, season: 1, matchDay: 1, points: 0,
             trophies: 0, worldCups: 0, uclTrophies: 0,
             goals: 0, assists: 0, trainCount: 0, inventory: [],
             coachTrust: 80, isCaptain: false, injuryDays: 0,
-            qualifiedUCL: false, uclRound: 0, hasPhysio: false
+            qualifiedUCL: false, uclRound: 0, hasPhysio: false,
+            reviews: []
         };
 
         let currentOffer = null;
@@ -420,7 +439,7 @@
         const shopDB = [
             { id: "physio", name: "🩺 Fisioterapista Top Staff", price: 100000, fansBonus: 0, isStaff: true },
             { id: "watch", name: "⌚ Orologio di Lusso", price: 50000, fansBonus: 500 },
-            { id: "car", name: "🏎️ Supercar Sportiva", price: 250000, fansBonus: 3000 },
+            { id: "car", name: "🏎‍🟀 Supercar Sportiva", price: 250000, fansBonus: 3000 },
             { id: "villa", name: "🏰 Villa Lussuosa", price: 300000, fansBonus: 5000 },
             { id: "yacht", name: "🛥️ Yacht Elegante", price: 1000000, fansBonus: 10000 },
             { id: "jet", name: "✈️ Jet Privato", price: 1500000, fansBonus: 25000 },
@@ -429,6 +448,10 @@
 
         function getActiveLeagueTeams() { return leaguesDB[player.league] || leaguesDB["🇮🇹 Italia"]; }
 
+        function calculateReleaseClause() {
+            return player.overall * 250000 + (player.goals * 100000);
+        }
+
         function updateTeamDropdown() {
             const nat = document.getElementById("nationality").value;
             const select = document.getElementById("startingTeam");
@@ -436,11 +459,11 @@
 
             if (nat && leaguesDB[nat]) {
                 const optGroup = document.createElement("optgroup");
-                optGroup.label = `Squadre del tuo paese (${nat})`;
+                optGroup.label = Squadre del tuo paese (${nat});
                 leaguesDB[nat].forEach(t => {
                     const opt = document.createElement("option");
-                    opt.value = `${nat}|${t.name}`;
-                    opt.textContent = `${t.name} (Ovr: ${t.power})`;
+                    opt.value = ${nat}|${t.name};
+                    opt.textContent = ${t.name} (Ovr: ${t.power});
                     optGroup.appendChild(opt);
                 });
                 select.appendChild(optGroup);
@@ -462,6 +485,8 @@
             const saved = localStorage.getItem("nextFootballStarData_v2");
             if (saved) {
                 player = JSON.parse(saved);
+                if (!player.reviews) player.reviews = [];
+                if (!player.releaseClause) player.releaseClause = calculateReleaseClause();
                 if (player.age >= 40) {
                     showRetirementScreen();
                 } else {
@@ -480,7 +505,7 @@
         }
 
         function showScreen(screenId) {
-            ["home", "career", "hub", "social", "league", "shop", "retirement"].forEach(id => {
+            ["home", "career", "hub", "social", "reviews", "league", "shop", "retirement"].forEach(id => {
                 const el = document.getElementById(id);
                 if (el) el.classList.add("hidden");
             });
@@ -519,40 +544,42 @@
             if (personality === "Prodigio Tecnico") player.overall += 3;
             if (personality === "Leader Naturale") { player.fans += 100; player.coachTrust += 10; }
 
+            player.releaseClause = calculateReleaseClause();
             resetLeaguePoints();
             updatePlayerInfoDisplay();
             saveGame(); updateUI(); showScreen("hub");
         }
 
         function updatePlayerInfoDisplay() {
-            document.getElementById("displayPlayerName").textContent = `${player.name} ${player.surname}`;
-            document.getElementById("displayDetails").textContent = `${player.position} | ${player.nationality}`;
-            document.getElementById("displayExtra").textContent = `Maglia #${player.jerseyNumber} | Capelli: ${player.hairType} | ${player.personality}`;
+            document.getElementById("displayPlayerName").textContent = ${player.name} ${player.surname};
+            document.getElementById("displayDetails").textContent = ${player.position} | ${player.nationality};
+            document.getElementById("displayExtra").textContent = Maglia #${player.jerseyNumber} | Capelli: ${player.hairType} | ${player.personality};
         }
 
         function updateUI() {
-            const currentSalaryPerMatch = getMatchSalary(player.team);
+            player.releaseClause = calculateReleaseClause();
             const currentLeagueTeams = getActiveLeagueTeams();
             const teamObj = currentLeagueTeams.find(t => t.name === player.team);
             const teamPower = teamObj ? teamObj.power : 75;
 
             document.getElementById("valAge").textContent = player.age;
-            document.getElementById("valMatchDay").textContent = `${player.matchDay} / 38`;
+            document.getElementById("valMatchDay").textContent = ${player.matchDay} / 38;
             document.getElementById("valGoals").textContent = player.goals;
             document.getElementById("valAssists").textContent = player.assists;
             document.getElementById("valOverall").textContent = player.overall;
             document.getElementById("valEnergy").textContent = player.energy + "%";
             document.getElementById("valMoney").textContent = "€" + player.money.toLocaleString();
             document.getElementById("valFans").textContent = player.fans.toLocaleString();
-            document.getElementById("displayTeam").textContent = `Lega: ${player.league} | Club: ${player.team} (Ovr: ${teamPower})`;
-            document.getElementById("trainProgress").textContent = `${player.trainCount}/5`;
+            document.getElementById("displayTeam").textContent = Lega: ${player.league} | Club: ${player.team} (Ovr: ${teamPower});
+            document.getElementById("displayClause").textContent = Clausola Rescissoria: €${player.releaseClause.toLocaleString()};
+            document.getElementById("trainProgress").textContent = ${player.trainCount}/5;
 
             document.getElementById("valCoachTrust").textContent = player.coachTrust + "%";
             document.getElementById("valCaptain").textContent = player.coachTrust >= 90 ? "(👑 CAPITANO)" : "";
             
             const healthEl = document.getElementById("valHealth");
             if (player.injuryDays > 0) {
-                healthEl.textContent = `🚑 Infortunato (${player.injuryDays} giornate)`;
+                healthEl.textContent = 🚑 Infortunato (${player.injuryDays} giornate);
                 healthEl.style.color = "#f87171";
             } else {
                 healthEl.textContent = "🟢 Sano";
@@ -587,12 +614,13 @@
         }
 
         function playMatch() {
-            if (player.injuryDays > 0) return logMessage(`🚑 Sei infortunato! Devi saltare ancora ${player.injuryDays} giornate o recuperare con il riposo/fisioterapista.`);
+            if (player.injuryDays > 0) return logMessage(🚑 Sei infortunato! Devi saltare ancora ${player.injuryDays} giornate o recuperare con il riposo/fisioterapista.);
             if (player.energy < 30) return logMessage("⚡ Troppo stanco! Riposati prima di giocare.");
 
             if (player.coachTrust < 30) {
                 logMessage("⚠️ Il Mister ti ha lasciato in TRIBUNA per scarso rendimento o comportamento scorretto!");
                 player.energy = Math.min(100, player.energy + 10);
+                generateMatchReview(0, 0, "tribuna");
                 advanceMatchDay();
                 return;
             }
@@ -627,7 +655,7 @@
             if (Math.random() < injuryChance) {
                 let stopDays = Math.floor(Math.random() * 3) + 1;
                 player.injuryDays = stopDays;
-                logMessage(`💥 CRACK! Ti sei infortunato durante il match! Resterai fuori per ${stopDays} giornate!`);
+                logMessage(💥 CRACK! Ti sei infortunato durante il match! Resterai fuori per ${stopDays} giornate!);
             }
 
             if (matchGoals > 0 || matchAssists > 0) {
@@ -638,19 +666,53 @@
 
             if (outcome > 0.4) {
                 player.points += 3; player.money += 2500;
-                logMessage(`Giornata ${player.matchDay}: VITTORIA vs ${opponent}! (+${matchGoals}G, +${matchAssists}A) +€${matchSalary.toLocaleString()}`);
+                logMessage(Giornata ${player.matchDay}: VITTORIA vs ${opponent}! (+${matchGoals}G, +${matchAssists}A) +€${matchSalary.toLocaleString()});
             } else if (outcome > 0.2) {
                 player.points += 1; player.money += 1000;
-                logMessage(`Giornata ${player.matchDay}: PAREGGIO vs ${opponent}. (+${matchGoals}G, +${matchAssists}A) +€${matchSalary.toLocaleString()}`);
+                logMessage(Giornata ${player.matchDay}: PAREGGIO vs ${opponent}. (+${matchGoals}G, +${matchAssists}A) +€${matchSalary.toLocaleString()});
             } else {
-                logMessage(`Giornata ${player.matchDay}: SCONFITTA vs ${opponent}. (+${matchGoals}G, +${matchAssists}A) +€${matchSalary.toLocaleString()}`);
+                logMessage(Giornata ${player.matchDay}: SCONFITTA vs ${opponent}. (+${matchGoals}G, +${matchAssists}A) +€${matchSalary.toLocaleString()});
             }
+
+            generateMatchReview(matchGoals, matchAssists, outcome > 0.4 ? "win" : outcome > 0.2 ? "draw" : "loss");
 
             const myTeamObj = currentLeagueTeams.find(t => t.name === player.team);
             if (myTeamObj) myTeamObj.points = player.points;
 
             simulateOtherMatches();
             advanceMatchDay();
+        }
+
+        function generateMatchReview(goals, assists, result) {
+            let rating = 6.0;
+            let comment = "Prestazione ordinaria senza grandi squilli.";
+
+            if (result === "tribuna") {
+                rating = 4.0;
+                comment = "Non pervenuto. Il tecnico lo spedisce in tribuna.";
+            } else {
+                rating += goals * 1.5 + assists * 1.0;
+                if (result === "win") rating += 0.5;
+                if (result === "loss") rating -= 0.5;
+                rating = Math.min(10, Math.max(3, rating)).toFixed(1);
+
+                if (rating >= 8.5) comment = "Prestazione MONUMENTALE! Dominatore assoluto del campo.";
+                else if (rating >= 7.0) comment = "Gioca con classe e incide in modo determinante sulla partita.";
+                else if (rating >= 5.5) comment = "Partita sufficiente, ma ci si aspetta di più da un talento simile.";
+                else comment = "Giornata no. Sbaglia passaggi elementari e appare stanco.";
+            }
+
+            const mediaSources = ["📰 La Gazzetta dello Sport", "🎙️ Sky Sports", "📻 Radio Calcio", "💬 Fan Page Tifosi"];
+            const randomSource = mediaSources[Math.floor(Math.random() * mediaSources.length)];
+
+            if (!player.reviews) player.reviews = [];
+            player.reviews.unshift({
+                source: randomSource,
+                rating: rating,
+                text: Giornata ${player.matchDay}: ${comment}
+            });
+
+            if (player.reviews.length > 8) player.reviews.pop();
         }
 
         function advanceMatchDay() {
@@ -670,32 +732,32 @@
         }
 
         function playUCLMatch() {
-            logMessage(`🌟 CHAMPIONS TROPHY: Disputi una sfida europea ad altissima tensione!`);
+            logMessage(🌟 CHAMPIONS TROPHY: Disputi una sfida europea ad altissima tensione!);
             let chance = Math.random() + (player.overall / 200);
             if (chance > 0.8) {
                 player.uclRound += 1;
                 player.money += 500000;
-                logMessage(`🔥 VITTORIA IN CHAMPIONS! Avanzi al prossimo turno europei (+€500.000)`);
+                logMessage(🔥 VITTORIA IN CHAMPIONS! Avanzi al prossimo turno europei (+€500.000));
                 if (player.uclRound >= 4) {
                     player.uclTrophies += 1;
                     player.trophies += 1;
                     player.money += 10000000;
-                    logMessage(`🏆 CAPOLAVORO! HAI VINTO LA CHAMPIONS LEAGUE! (+€10.000.000)`);
+                    logMessage(🏆 CAPOLAVORO! HAI VINTO LA CHAMPIONS LEAGUE! (+€10.000.000));
                 }
             } else {
-                logMessage(`❌ Eliminato dalla Champions League per questa stagione.`);
+                logMessage(❌ Eliminato dalla Champions League per questa stagione.);
             }
         }
 
         function endSeason() {
-            logMessage(`🎉 FINE STAGIONE ${player.season}! Goal: ${player.goals}, Assist: ${player.assists}`);
+            logMessage(🎉 FINE STAGIONE ${player.season}! Goal: ${player.goals}, Assist: ${player.assists});
             const currentLeagueTeams = getActiveLeagueTeams();
             currentLeagueTeams.sort((a, b) => (b.points || 0) - (a.points || 0));
 
             let myRank = currentLeagueTeams.findIndex(t => t.name === player.team) + 1;
             if (myRank <= 4) {
                 player.qualifiedUCL = true;
-                logMessage(`🌟 La tua squadra si è piazzata al #${myRank}° posto! SEI QUALIFICATO IN CHAMPIONS LEAGUE!`);
+                logMessage(🌟 La tua squadra si è piazzata al #${myRank}° posto! SEI QUALIFICATO IN CHAMPIONS LEAGUE!);
             } else {
                 player.qualifiedUCL = false;
             }
@@ -710,6 +772,8 @@
                 player.trophies += 1;
                 logMessage("🥇 STREPITOSO! HAI VINTO IL PALLONE D'ORO!");
             }
+
+            checkClauseBuyout();
 
             if ([20, 24, 28, 32, 36].includes(player.age)) {
                 triggerWorldCup();
@@ -728,13 +792,37 @@
             }
         }
 
+        function checkClauseBuyout() {
+            if (player.overall >= 75 && Math.random() < 0.4) {
+                const allLeagues = Object.keys(leaguesDB);
+                const randomLeague = allLeagues[Math.floor(Math.random() * allLeagues.length)];
+                const availableTeams = leaguesDB[randomLeague].filter(t => t.name !== player.team);
+                if (availableTeams.length === 0) return;
+
+                const buyer = availableTeams[Math.floor(Math.random() * availableTeams.length)];
+                
+                const modal = document.getElementById("eventModal");
+                document.getElementById("modalTitle").textContent = "💰 RISCATTO CLAUSOLA RESCISSORIA!";
+                document.getElementById("modalText").textContent = IL CLUB ${buyer.name} (${randomLeague}) HA PAGATO LA TUA CLAUSOLA RESCISSORIA DI €${player.releaseClause.toLocaleString()}! Ti offrono un ingaggio d'oro. Vuoi accettare il trasferimento?;
+                
+                currentOffer = { league: randomLeague, team: buyer.name, bonus: player.releaseClause * 0.1 };
+
+                const btnContainer = document.getElementById("modalButtons");
+                btnContainer.innerHTML = `
+                    <button class="start-button" style="background: #22c55e;" onclick="acceptOffer()">Firma il Contratto ✍️</button>
+                    <button class="start-button btn-red" onclick="rejectOffer()">Rifiuta e Resta ❌</button>
+                `;
+                modal.classList.remove("hidden");
+            }
+        }
+
         function triggerWorldCup() {
             const modal = document.getElementById("eventModal");
             document.getElementById("modalTitle").textContent = "🌍 COPPA DEL MONDO";
-            document.getElementById("modalText").textContent = `Sei stato convocato dalla Nazionale (${player.nationality}) per giocare i MONDIALI! Sarete in grado di portare a casa il trofeo più importante del pianeta?`;
+            document.getElementById("modalText").textContent = Sei stato convocato dalla Nazionale (${player.nationality}) per giocare i MONDIALI! Sarete in grado di portare a casa il trofeo più importante del pianeta?;
             
             const btnContainer = document.getElementById("modalButtons");
-            btnContainer.innerHTML = `<button class="start-button btn-gold" onclick="playWorldCup()">Gioca il Mondiale ⚽</button>`;
+            btnContainer.innerHTML = <button class="start-button btn-gold" onclick="playWorldCup()">Gioca il Mondiale ⚽</button>;
             modal.classList.remove("hidden");
         }
 
@@ -746,16 +834,33 @@
                 player.trophies += 1;
                 player.fans += 50000;
                 player.money += 10000000;
-                logMessage(`🌍🏆 IMMORTALE! HAI VINTO LA COPPA DEL MONDO CON LA TUA NAZIONALE (${player.nationality})! +€10.000.000!`);
-                alert(`🏆 SOGNO REALIZZATO! La tua Nazionale ha vinto la COPPA DEL MONDO! Campioni del Mondo! 🎉`);
+                logMessage(🌍🏆 IMMORTALE! HAI VINTO LA COPPA DEL MONDO CON LA TUA NAZIONALE (${player.nationality})! +€10.000.000!);
+                alert(🏆 SOGNO REALIZZATO! La tua Nazionale ha vinto la COPPA DEL MONDO! Campioni del Mondo! 🎉);
             } else {
-                logMessage(`🌍 La tua Nazionale è stata eliminata ai Quarti di Finale della Coppa del Mondo.`);
-                alert(`❌ Eliminati ai Quarti di Finale della Coppa del Mondo. Ci riproverete al prossimo Mondiale!`);
+                logMessage(🌍 La tua Nazionale è stata eliminata ai Quarti di Finale della Coppa del Mondo.);
+                alert(❌ Eliminati ai Quarti di Finale della Coppa del Mondo. Ci riproverete al prossimo Mondiale!);
             }
             saveGame(); updateUI();
         }
 
         function openSocial() { showScreen("social"); }
+
+        function openReviews() {
+            const list = document.getElementById("reviewsList");
+            list.innerHTML = "";
+            if (!player.reviews || player.reviews.length === 0) {
+                list.innerHTML = "<p>Nessuna recensione ancora disponibile. Gioca qualche partita!</p>";
+            } else {
+                player.reviews.forEach(r => {
+                    list.innerHTML += `
+                        <div class="review-card">
+                            <strong style="color: #facc15;">${r.source} (Voto: ${r.rating}/10)</strong>
+                            <p style="font-size: 12px;">"${r.text}"</p>
+                        </div>`;
+                });
+            }
+            showScreen("reviews");
+        }
 
         function publishPost(type) {
             if (type === "workout") {
@@ -770,7 +875,7 @@
                 let viralGain = Math.floor(Math.random() * 3000) + 1000;
                 player.fans += viralGain;
                 player.money += 1500;
-                logMessage(`📱 TikTok Andato Virale! +${viralGain} Fan e +€1.500 dalle monetizzazioni!`);
+                logMessage(📱 TikTok Andato Virale! +${viralGain} Fan e +€1.500 dalle monetizzazioni!);
             }
             saveGame(); updateUI(); showScreen("hub");
         }
@@ -783,13 +888,12 @@
 
             const chosenTeam = availableTeams[Math.floor(Math.random() * availableTeams.length)];
             const transferBonus = Math.floor(Math.random() * 5000000) + 1000000;
-            const newMatchSalary = getMatchSalary(chosenTeam.name);
 
             currentOffer = { league: randomLeague, team: chosenTeam.name, bonus: transferBonus };
 
             const modal = document.getElementById("eventModal");
-            document.getElementById("modalTitle").textContent = "🚨 OFFERTA DI TRASFERIMENTO";
-            document.getElementById("modalText").textContent = `Il club ${chosenTeam.name} (${randomLeague}, Ovr: ${chosenTeam.power}) vuole acquistarti! Bonus alla firma: €${transferBonus.toLocaleString()}. Accetti?`;
+            document.getElementById("modalTitle").textContent = "🚨 OFFERTA DI TRASFERIMENTO DI MERCATO";
+            document.getElementById("modalText").textContent = Il club ${chosenTeam.name} (${randomLeague}, Ovr: ${chosenTeam.power}) vuole acquistarti! Ti offrono un Bonus alla firma di €${transferBonus.toLocaleString()}. Accetti l'offerta?;
             
             const btnContainer = document.getElementById("modalButtons");
             btnContainer.innerHTML = `
@@ -806,14 +910,14 @@
             player.money += currentOffer.bonus;
             player.points = 0; player.coachTrust = 80;
             resetLeaguePoints();
-            logMessage(`🤝 TRASFERIMENTO COMPLETATO! Ora giochi nel ${currentOffer.team} (${currentOffer.league})! Bonus: +€${currentOffer.bonus.toLocaleString()}`);
+            logMessage(🤝 TRASFERIMENTO COMPLETATO! Ora giochi nel ${currentOffer.team} (${currentOffer.league})! Bonus alla firma: +€${currentOffer.bonus.toLocaleString()});
             document.getElementById("eventModal").classList.add("hidden");
             currentOffer = null;
             saveGame(); updateUI();
         }
 
         function rejectOffer() {
-            logMessage(`Hai rifiutato l'offerta di mercato. Resti al ${player.team}.`);
+            logMessage(Hai rifiutato l'offerta di mercato. Resti al ${player.team}.);
             document.getElementById("eventModal").classList.add("hidden");
             currentOffer = null;
         }
@@ -826,9 +930,9 @@
             if (player.trainCount >= 5) {
                 player.overall += 1;
                 player.trainCount = 0;
-                logMessage(`🏋️ Allenamento completato! OVERALL AUMENTATO a ${player.overall}! 🔥`);
+                logMessage(🏋️ Allenamento completato! OVERALL AUMENTATO a ${player.overall}! 🔥);
             } else {
-                logMessage(`🏋️ Sessione completata (${player.trainCount}/5 per +1 Overall).`);
+                logMessage(🏋️ Sessione completata (${player.trainCount}/5 per +1 Overall).);
             }
 
             saveGame(); updateUI();
@@ -846,7 +950,7 @@
             if (player.injuryDays > 0) {
                 let recovery = player.hasPhysio ? 2 : 1;
                 player.injuryDays = Math.max(0, player.injuryDays - recovery);
-                logMessage(`💤 Riposo effettuato. Infortunio ridotto di ${recovery} giorni!`);
+                logMessage(💤 Riposo effettuato. Infortunio ridotto di ${recovery} giorni!);
             } else {
                 logMessage("💤 Riposo effettuato! Energia recuperata.");
             }
@@ -906,7 +1010,7 @@
             if (itemId === "physio") player.hasPhysio = true;
             player.inventory.push(item.id);
             
-            logMessage(`🛍️ Hai acquistato: ${item.name}!`);
+            logMessage(🛍️ Hai acquistato: ${item.name}!);
             saveGame(); updateUI(); openShop();
         }
 

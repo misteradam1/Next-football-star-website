@@ -155,7 +155,7 @@
                 <div class="pill">🎂 Carriera 16-40 Anni</div>
                 <div class="pill">⚽ Goal & Assist</div>
                 <div class="pill">📰 News del Calcio</div>
-                <div class="pill">🏝️ Isola Privata & Bugatti</div>
+                <div class="pill">🌍 Campionati del Mondo</div>
             </div>
 
             <div>
@@ -195,15 +195,15 @@
                 <option value="Difensore">Difensore</option>
             </select>
 
-            <select id="nationality">
+            <select id="nationality" onchange="updateTeamDropdown()">
                 <option value="">Scegli la nazionalità 🌍</option>
                 <option value="🇮🇹 Italia">🇮🇹 Italia</option>
                 <option value="🇲🇦 Marocco">🇲🇦 Marocco</option>
-                <option value="🇵🇰 Pakistan">🇵🇰 Pakistan</option>
-                <option value="🇳🇴 Norvegia">🇳🇴 Norvegia</option>
-                <option value="🇹🇳 Tunisia">🇹🇳 Tunisia</option>
                 <option value="🇪🇬 Egitto">🇪🇬 Egitto</option>
                 <option value="🇹🇷 Turchia">🇹🇷 Turchia</option>
+                <option value="🇹🇳 Tunisia">🇹🇳 Tunisia</option>
+                <option value="🇳🇴 Norvegia">🇳🇴 Norvegia</option>
+                <option value="🇵🇰 Pakistan">🇵🇰 Pakistan</option>
                 <option value="🇺🇸 Stati Uniti">🇺🇸 Stati Uniti</option>
                 <option value="🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inghilterra">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inghilterra</option>
                 <option value="🇨🇳 Cina">🇨🇳 Cina</option>
@@ -212,6 +212,10 @@
                 <option value="🇧🇷 Brasile">🇧🇷 Brasile</option>
                 <option value="🇦🇷 Argentina">🇦🇷 Argentina</option>
                 <option value="🇩🇪 Germania">🇩🇪 Germania</option>
+            </select>
+
+            <select id="startingTeam">
+                <option value="RANDOM">🎲 Offerta Casuale (Inizia da qualsiasi club)</option>
             </select>
 
             <button class="start-button" onclick="createPlayer()">INIZIA LA CARRIERA 🚀</button>
@@ -304,37 +308,93 @@
         let player = {
             name: "", surname: "", position: "", nationality: "",
             jerseyNumber: 10, hairType: "Corti Classici", personality: "Leader Naturale",
-            team: "Lombardia Neroazzurra", overall: 60, energy: 100, money: 500, fans: 100,
+            league: "🇮🇹 Italia", team: "Lombardia Neroazzurra", overall: 60, energy: 100, money: 500, fans: 100,
             age: 16, season: 1, matchDay: 1, points: 0, trophies: 0,
             goals: 0, assists: 0, trainCount: 0, inventory: []
         };
 
         let currentOffer = null;
 
-        // Squadre con nomi Anti-Copyright stile PES
-        const teamsDB = [
-            // Top Club (Overall >= 80 -> Stipendio 300k / 10 partite)
-            { name: "Madrid Blancos", power: 87, points: 0 },
-            { name: "Manchester Blue", power: 86, points: 0 },
-            { name: "Bavaria Red", power: 85, points: 0 },
-            { name: "Catalunya Red-Blue", power: 85, points: 0 },
-            { name: "Lombardia Neroazzurra", power: 84, points: 0 },
-            { name: "Paris Red-Blue", power: 84, points: 0 },
-            { name: "London Red", power: 84, points: 0 },
-            { name: "Torino Bianconera", power: 82, points: 0 },
-            { name: "Milano Rossonera", power: 81, points: 0 },
-
-            // Mid/Low Club (Overall < 80 -> Stipendio 100k / 10 partite)
-            { name: "Partenope Azzurra", power: 79, points: 0 },
-            { name: "Roma Giallorossa", power: 79, points: 0 },
-            { name: "London Blue", power: 79, points: 0 },
-            { name: "Dortmund Yellow", power: 79, points: 0 },
-            { name: "Lazio Biancoceleste", power: 78, points: 0 },
-            { name: "Sevilla Red", power: 78, points: 0 },
-            { name: "Firenze Viola", power: 77, points: 0 },
-            { name: "Bologna Red-Blue", power: 77, points: 0 },
-            { name: "Torino Granata", power: 76, points: 0 }
-        ];
+        // DATABASE CAMPIONATI CON NOMI ANTI-COPYRIGHT
+        const leaguesDB = {
+            "🇮🇹 Italia": [
+                { name: "Lombardia Neroazzurra", power: 84 },
+                { name: "Torino Bianconera", power: 82 },
+                { name: "Milano Rossonera", power: 81 },
+                { name: "Partenope Azzurra", power: 79 },
+                { name: "Roma Giallorossa", power: 79 },
+                { name: "Lazio Biancoceleste", power: 78 },
+                { name: "Firenze Viola", power: 77 },
+                { name: "Bologna Red-Blue", power: 77 },
+                { name: "Torino Granata", power: 76 }
+            ],
+            "🇲🇦 Marocco": [
+                { name: "Casablanca Red Eagles", power: 76 },
+                { name: "Casablanca Green Stars", power: 75 },
+                { name: "Rabat Military", power: 74 },
+                { name: "Berkane Orange", power: 73 },
+                { name: "Fez Yellow & Black", power: 71 },
+                { name: "Tangier Blue", power: 70 }
+            ],
+            "🇪🇬 Egitto": [
+                { name: "Cairo Red Devils", power: 77 },
+                { name: "Giza White Knights", power: 76 },
+                { name: "Alexandria Coastal", power: 72 },
+                { name: "Pyramids Gold", power: 75 }
+            ],
+            "🇹🇷 Turchia": [
+                { name: "Istanbul Yellow-Navy", power: 80 },
+                { name: "Bosphorus Yellow-Red", power: 81 },
+                { name: "Black Eagles Bosphorus", power: 78 },
+                { name: "Trabzon Storm", power: 76 }
+            ],
+            "🇹🇳 Tunisia": [
+                { name: "Tunis Gold & Red", power: 74 },
+                { name: "Sousse Red Star", power: 73 },
+                { name: "Club Africain White", power: 71 }
+            ],
+            "🇳🇴 Norvegia": [
+                { name: "Bodo Gold", power: 76 },
+                { name: "Oslo White-Blue", power: 73 },
+                { name: "Molde Blue", power: 74 },
+                { name: "Rosenborg Black-White", power: 72 }
+            ],
+            "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inghilterra": [
+                { name: "Manchester Blue", power: 87 },
+                { name: "Merseyside Red", power: 86 },
+                { name: "London Red", power: 84 },
+                { name: "London Blue", power: 80 },
+                { name: "Manchester Red", power: 81 }
+            ],
+            "🇪🇸 Spagna": [
+                { name: "Madrid Blancos", power: 88 },
+                { name: "Catalunya Red-Blue", power: 86 },
+                { name: "Madrid Colchoneros", power: 82 },
+                { name: "Sevilla Red", power: 78 }
+            ],
+            "🇫🇷 Francia": [
+                { name: "Paris Red-Blue", power: 85 },
+                { name: "Marseille Sky Blue", power: 79 },
+                { name: "Lyon Lions", power: 78 },
+                { name: "Monaco Gold", power: 80 }
+            ],
+            "🇩🇪 Germania": [
+                { name: "Bavaria Red", power: 86 },
+                { name: "Dortmund Yellow", power: 82 },
+                { name: "Leipzig Bulls", power: 81 }
+            ],
+            "🇧🇷 Brasile": [
+                { name: "Rio Red-Black", power: 79 },
+                { name: "Sao Paulo Green", power: 78 },
+                { name: "Santos White", power: 75 },
+                { name: "Porto Alegre Tricolor", power: 76 }
+            ],
+            "🇺🇸 Stati Uniti": [
+                { name: "Miami Pink", power: 77 },
+                { name: "LA Galaxy Stars", power: 75 },
+                { name: "NY City Blue", power: 74 }
+            ]
+        };
 
         const shopDB = [
             { id: "watch", name: "⌚ Orologio di Lusso", price: 50000, fansBonus: 500 },
@@ -346,14 +406,39 @@
             { id: "island", name: "🏝️ Isola Privata", price: 500000000, fansBonus: 3000000 }
         ];
 
-        // Calcolo stipendio per singola partita in base all'overall della squadra
+        function getActiveLeagueTeams() {
+            return leaguesDB[player.league] || leaguesDB["🇮🇹 Italia"];
+        }
+
+        function updateTeamDropdown() {
+            const nat = document.getElementById("nationality").value;
+            const select = document.getElementById("startingTeam");
+            select.innerHTML = '<option value="RANDOM">🎲 Offerta Casuale (Inizia da qualsiasi club)</option>';
+
+            if (nat && leaguesDB[nat]) {
+                const optGroup = document.createElement("optgroup");
+                optGroup.label = `Squadre del tuo paese (${nat})`;
+                leaguesDB[nat].forEach(t => {
+                    const opt = document.createElement("option");
+                    opt.value = `${nat}|${t.name}`;
+                    opt.textContent = `${t.name} (Ovr: ${t.power})`;
+                    optGroup.appendChild(opt);
+                });
+                select.appendChild(optGroup);
+            }
+        }
+
         function getMatchSalary(teamName) {
-            const teamObj = teamsDB.find(t => t.name === teamName);
-            const teamPower = teamObj ? teamObj.power : 75;
+            let teamPower = 75;
+            Object.values(leaguesDB).forEach(league => {
+                const found = league.find(t => t.name === teamName);
+                if (found) teamPower = found.power;
+            });
+
             if (teamPower >= 80) {
-                return 30000; // 300.000€ ogni 10 partite (30.000€ a partita)
+                return 30000; // 300.000€ ogni 10 partite
             } else {
-                return 10000; // 100.000€ ogni 10 partite (10.000€ a partita)
+                return 10000; // 100.000€ ogni 10 partite
             }
         }
 
@@ -364,6 +449,7 @@
             if (saved) {
                 player = JSON.parse(saved);
                 if (!player.age) player.age = 16;
+                if (!player.league) player.league = "🇮🇹 Italia";
                 if (player.goals === undefined) player.goals = 0;
                 if (player.assists === undefined) player.assists = 0;
                 if (player.trainCount === undefined) player.trainCount = 0;
@@ -402,6 +488,7 @@
             const personality = document.getElementById("personality").value;
             const position = document.getElementById("position").value;
             const nationality = document.getElementById("nationality").value;
+            const chosenTeamVal = document.getElementById("startingTeam").value;
 
             if (!name || !surname || !jerseyNumber || !hairType || !personality || !position || !nationality) {
                 return alert("Compila tutti i campi per creare il tuo giocatore! ⚠️");
@@ -415,6 +502,17 @@
             player.position = position; 
             player.nationality = nationality;
             player.age = 16;
+
+            if (chosenTeamVal === "RANDOM") {
+                const allLeagues = Object.keys(leaguesDB);
+                player.league = leaguesDB[nationality] ? nationality : allLeagues[Math.floor(Math.random() * allLeagues.length)];
+                const currentLeagueTeams = leaguesDB[player.league];
+                player.team = currentLeagueTeams[Math.floor(Math.random() * currentLeagueTeams.length)].name;
+            } else {
+                const parts = chosenTeamVal.split("|");
+                player.league = parts[0];
+                player.team = parts[1];
+            }
 
             if (personality === "Prodigio Tecnico") player.overall += 3;
             if (personality === "Leader Naturale") player.fans += 100;
@@ -432,7 +530,8 @@
 
         function updateUI() {
             const currentSalaryPerMatch = getMatchSalary(player.team);
-            const teamObj = teamsDB.find(t => t.name === player.team);
+            const currentLeagueTeams = getActiveLeagueTeams();
+            const teamObj = currentLeagueTeams.find(t => t.name === player.team);
             const teamPower = teamObj ? teamObj.power : 75;
 
             document.getElementById("valAge").textContent = player.age;
@@ -443,7 +542,7 @@
             document.getElementById("valEnergy").textContent = player.energy + "%";
             document.getElementById("valMoney").textContent = "€" + player.money.toLocaleString();
             document.getElementById("valFans").textContent = player.fans.toLocaleString();
-            document.getElementById("displayTeam").textContent = `Squadra: ${player.team} (Ovr: ${teamPower} | €${(currentSalaryPerMatch * 10).toLocaleString()}/10 partite)`;
+            document.getElementById("displayTeam").textContent = `Lega: ${player.league} | Club: ${player.team} (Ovr: ${teamPower} | €${(currentSalaryPerMatch * 10).toLocaleString()}/10 partite)`;
             document.getElementById("trainProgress").textContent = `${player.trainCount}/5`;
         }
 
@@ -455,14 +554,18 @@
             logBox.scrollTop = logBox.scrollHeight;
         }
 
-        function resetLeaguePoints() { teamsDB.forEach(t => t.points = 0); }
+        function resetLeaguePoints() {
+            const currentLeagueTeams = getActiveLeagueTeams();
+            currentLeagueTeams.forEach(t => t.points = 0); 
+        }
 
         function simulateOtherMatches() {
-            teamsDB.forEach(team => {
+            const currentLeagueTeams = getActiveLeagueTeams();
+            currentLeagueTeams.forEach(team => {
                 if (team.name !== player.team) {
                     const chance = Math.random() * 100;
-                    if (chance < 45) team.points += 3;
-                    else if (chance < 75) team.points += 1;
+                    if (chance < 45) team.points = (team.points || 0) + 3;
+                    else if (chance < 75) team.points = (team.points || 0) + 1;
                 }
             });
         }
@@ -492,8 +595,9 @@
             if (player.energy < 30) return logMessage("Troppo stanco! Riposati.");
 
             player.energy -= 30;
-            const otherTeams = teamsDB.filter(t => t.name !== player.team);
-            const opponent = otherTeams[Math.floor(Math.random() * otherTeams.length)].name;
+            const currentLeagueTeams = getActiveLeagueTeams();
+            const otherTeams = currentLeagueTeams.filter(t => t.name !== player.team);
+            const opponent = otherTeams.length > 0 ? otherTeams[Math.floor(Math.random() * otherTeams.length)].name : "Avversario";
             const outcome = Math.random();
 
             let matchGoals = 0;
@@ -507,7 +611,6 @@
             player.goals += matchGoals;
             player.assists += matchAssists;
 
-            // Accredito stipendio partita
             const matchSalary = getMatchSalary(player.team);
             player.money += matchSalary;
 
@@ -529,7 +632,7 @@
 
             generateNews(matchGoals, matchAssists, resultText, opponent);
 
-            const myTeamObj = teamsDB.find(t => t.name === player.team);
+            const myTeamObj = currentLeagueTeams.find(t => t.name === player.team);
             if (myTeamObj) myTeamObj.points = player.points;
 
             simulateOtherMatches();
@@ -540,11 +643,10 @@
 
             player.matchDay += 1;
 
-            // Fine stagione
             if (player.matchDay > 38) {
                 logMessage(`🎉 FINE STAGIONE ${player.season}! Goal: ${player.goals}, Assist: ${player.assists}`);
-                teamsDB.sort((a, b) => b.points - a.points);
-                if (teamsDB[0].name === player.team) {
+                currentLeagueTeams.sort((a, b) => (b.points || 0) - (a.points || 0));
+                if (currentLeagueTeams[0] && currentLeagueTeams[0].name === player.team) {
                     player.trophies += 1;
                     player.money += 5000000;
                     logMessage("🏆 COMPLIMENTI! HAI VINTO IL CAMPIONATO! +€5.000.000 Bonus!");
@@ -580,25 +682,31 @@
         }
 
         function checkOffers() {
-            const availableTeams = teamsDB.filter(t => t.name !== player.team);
+            const allLeagues = Object.keys(leaguesDB);
+            const randomLeague = allLeagues[Math.floor(Math.random() * allLeagues.length)];
+            const availableTeams = leaguesDB[randomLeague].filter(t => t.name !== player.team);
+            if (availableTeams.length === 0) return;
+
             const chosenTeam = availableTeams[Math.floor(Math.random() * availableTeams.length)];
-            
             const transferBonus = Math.floor(Math.random() * 5000000) + 1000000;
             const newMatchSalary = getMatchSalary(chosenTeam.name);
 
-            currentOffer = { team: chosenTeam.name, bonus: transferBonus };
+            currentOffer = { league: randomLeague, team: chosenTeam.name, bonus: transferBonus };
 
             document.getElementById("offerText").textContent = 
-                `Il club ${chosenTeam.name} (Overall: ${chosenTeam.power}) vuole acquistarti! Ti offre un bonus alla firma di €${transferBonus.toLocaleString()} e un contratto da €${(newMatchSalary * 10).toLocaleString()} ogni 10 partite. Accetti il trasferimento?`;
+                `Il club ${chosenTeam.name} (${randomLeague}, Overall: ${chosenTeam.power}) vuole acquistarti! Ti offre un bonus alla firma di €${transferBonus.toLocaleString()} e un contratto da €${(newMatchSalary * 10).toLocaleString()} ogni 10 partite. Accetti il trasferimento?`;
             
             document.getElementById("offerModal").classList.remove("hidden");
         }
 
         function acceptOffer() {
             if (!currentOffer) return;
+            player.league = currentOffer.league;
             player.team = currentOffer.team;
             player.money += currentOffer.bonus;
-            logMessage(`🤝 TRASFERIMENTO ACCETTATO! Ora giochi nel ${currentOffer.team}! Bonus: +€${currentOffer.bonus.toLocaleString()}`);
+            player.points = 0;
+            resetLeaguePoints();
+            logMessage(`🤝 TRASFERIMENTO ACCETTATO! Ti trasferisci in ${currentOffer.league} al ${currentOffer.team}! Bonus: +€${currentOffer.bonus.toLocaleString()}`);
             document.getElementById("offerModal").classList.add("hidden");
             currentOffer = null;
             saveGame(); updateUI();
@@ -646,14 +754,15 @@
             const container = document.getElementById("leagueTable");
             container.innerHTML = "";
             
-            let myTeamObj = teamsDB.find(t => t.name === player.team);
+            const currentLeagueTeams = getActiveLeagueTeams();
+            let myTeamObj = currentLeagueTeams.find(t => t.name === player.team);
             if (myTeamObj) myTeamObj.points = player.points;
 
-            let sortedTeams = [...teamsDB];
-            sortedTeams.sort((a, b) => b.points - a.points);
+            let sortedTeams = [...currentLeagueTeams];
+            sortedTeams.sort((a, b) => (b.points || 0) - (a.points || 0));
 
             sortedTeams.forEach((t, i) => {
-                container.innerHTML += `<div class="table-row"><span>#${i+1} ${t.name}</span><strong>${t.points} PTS</strong></div>`;
+                container.innerHTML += `<div class="table-row"><span>#${i+1} ${t.name}</span><strong>${t.points || 0} PTS</strong></div>`;
             });
             showScreen("league");
         }

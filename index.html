@@ -116,17 +116,22 @@
         .career-screen { max-width: 600px; margin: auto; }
         input, select { width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 12px; border: 1px solid #33483a; background: #0c1811; color: white; font-size: 16px; outline: none; }
         
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; margin: 20px 0; }
-        .stat-card { background: rgba(255,255,255,0.04); padding: 12px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.08); }
-        .stat-card h4 { color: #38e878; font-size: 11px; text-transform: uppercase; }
-        .stat-card p { font-size: 18px; font-weight: bold; margin-top: 5px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); gap: 10px; margin: 20px 0; }
+        .stat-card { background: rgba(255,255,255,0.04); padding: 10px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.08); }
+        .stat-card h4 { color: #38e878; font-size: 10px; text-transform: uppercase; }
+        .stat-card p { font-size: 16px; font-weight: bold; margin-top: 4px; }
 
         .actions-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 20px; }
-        .log-box { background: #060e08; border: 1px solid #23382b; border-radius: 14px; padding: 15px; height: 130px; overflow-y: auto; text-align: left; font-size: 13px; margin-bottom: 20px; color: #d1dcd4; }
+        .log-box { background: #060e08; border: 1px solid #23382b; border-radius: 14px; padding: 15px; height: 110px; overflow-y: auto; text-align: left; font-size: 13px; margin-bottom: 15px; color: #d1dcd4; }
+        
+        /* Stile del Giornale */
+        .news-box { background: #fefec8; color: #111; border-radius: 12px; padding: 12px; margin-bottom: 15px; text-align: left; font-family: 'Georgia', serif; border: 2px solid #d4af37; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .news-title { font-size: 11px; font-weight: bold; text-transform: uppercase; color: #8b0000; letter-spacing: 1px; border-bottom: 1px solid #111; padding-bottom: 2px; margin-bottom: 6px; }
+        .news-headline { font-size: 15px; font-weight: 900; line-height: 1.2; }
+
         .league-table, .shop-list { display: flex; flex-direction: column; gap: 8px; margin-top: 15px; max-height: 320px; overflow-y: auto; }
         .table-row, .shop-item { background: rgba(255,255,255,0.04); padding: 12px 16px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #23382b; font-size: 14px; }
 
-        /* Finestra Modale per le Offerte di Mercato a Metà Stagione */
         .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: flex; align-items: center; justify-content: center; z-index: 1000; backdrop-filter: blur(5px); }
         .modal-content { background: #0c1811; padding: 30px; border-radius: 20px; max-width: 450px; width: 90%; border: 2px solid #facc15; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.9); }
 
@@ -145,12 +150,12 @@
             <div class="ball-icon">🏆</div>
             
             <h1 class="home-title">NEXT <span>FOOTBALL STAR</span></h1>
-            <p class="home-subtitle">Parti dalle giovanili, scala i campionati top al mondo, gestisci le offerte di mercato a metà stagione e conquista il Pallone d'Oro!</p>
+            <p class="home-subtitle">Segna goal, servi assist, finisci sui giornali e acquista mega yacht e isole private!</p>
 
             <div class="features-pills">
-                <div class="pill">🏆 Campionati & Classifiche</div>
-                <div class="pill">🛍️ Shop di Lusso</div>
-                <div class="pill">🤝 Mercato Invernale (19ª)</div>
+                <div class="pill">⚽ Goal & Assist</div>
+                <div class="pill">📰 Giornale Sportivo</div>
+                <div class="pill">🏝️ Isola Privata & Bugatti</div>
                 <div class="pill">💾 Salvataggio Auto</div>
             </div>
 
@@ -211,21 +216,28 @@
 
             <div class="stats-grid">
                 <div class="stat-card"><h4>GIORNATA</h4><p id="valMatchDay">1 / 38</p></div>
-                <div class="stat-card"><h4>PUNTI</h4><p id="valPoints">0 PTS</p></div>
+                <div class="stat-card"><h4>GOAL</h4><p id="valGoals">0</p></div>
+                <div class="stat-card"><h4>ASSIST</h4><p id="valAssists">0</p></div>
                 <div class="stat-card"><h4>OVERALL</h4><p id="valOverall">60</p></div>
                 <div class="stat-card"><h4>ENERGIA</h4><p id="valEnergy">100%</p></div>
                 <div class="stat-card"><h4>DENARO</h4><p id="valMoney">$500</p></div>
                 <div class="stat-card"><h4>FAN</h4><p id="valFans">100</p></div>
             </div>
 
-            <div class="log-box" id="gameLog">
-                <div> Benvenuto! Allenati duro: servono 5 allenamenti per salire di +1 Overall. A metà stagione (19ª giornata) riceverai offerte di mercato!</div>
+            <!-- GIORNALE SPORTIVO -->
+            <div class="news-box">
+                <div class="news-title">📰 GAZZETTA DELLO SPORT - ULTIME NOTIZIE</div>
+                <div class="news-headline" id="newsText">Inizia una nuova stagione! Tutti gli occhi sono puntati sul nuovo talento.</div>
             </div>
 
-            <!-- PULSANTI AZIONE ESPANSI -->
+            <div class="log-box" id="gameLog">
+                <div> Benvenuto! Allenati duro e guida la tua squadra alla vittoria!</div>
+            </div>
+
+            <!-- PULSANTI AZIONE -->
             <div class="actions-grid">
                 <button class="start-button btn-orange" style="font-size: 15px; padding: 12px 20px;" onclick="playMatch()">⚽ Gioca Giornata (-30% Energ)</button>
-                <button class="start-button" style="font-size: 15px; padding: 12px 20px;" onclick="train()">🏋️ Allenati (Progresso: <span id="trainProgress">0/5</span>)</button>
+                <button class="start-button" style="font-size: 15px; padding: 12px 20px;" onclick="train()">🏋️ Allenati (<span id="trainProgress">0/5</span>)</button>
                 <button class="start-button btn-purple" style="font-size: 15px; padding: 12px 20px;" onclick="sponsor()">📸 Sponsor (+$1.000)</button>
                 <button class="start-button btn-blue" style="font-size: 15px; padding: 12px 20px;" onclick="rest()">💤 Riposo (+50% Energ)</button>
                 <button class="start-button btn-gold" style="font-size: 15px; padding: 12px 20px;" onclick="openShop()">💎 Shop di Lusso</button>
@@ -244,17 +256,17 @@
         <!-- 5. SHOP DI LUSSO -->
         <section class="card career-screen hidden" id="shop">
             <h2>💎 SHOP DI LUSSO</h2>
-            <p style="color: #aab8ae; font-size: 14px; margin-bottom: 10px;">Spendi i tuoi guadagni per aumentare la tua popolarità!</p>
+            <p style="color: #aab8ae; font-size: 14px; margin-bottom: 10px;">Spendi i tuoi guadagni per oggetti incredibili!</p>
             <div class="shop-list" id="shopList"></div>
             <button class="start-button btn-blue" style="margin-top: 20px; font-size: 15px;" onclick="showScreen('hub')">⬅️ Torna al Gioco</button>
         </section>
 
     </main>
 
-    <!-- MODALE OFFERTA DI CALCIOMERCATO (A METÀ STAGIONE / 19ª GIORNATA) -->
+    <!-- MODALE OFFERTA DI CALCIOMERCATO -->
     <div id="offerModal" class="modal hidden">
         <div class="modal-content">
-            <h3 style="color: #facc15; margin-bottom: 15px;">🚨 OFFERTA DI MERCATO (19ª Giornata)</h3>
+            <h3 style="color: #facc15; margin-bottom: 15px;">🚨 OFFERTA DI MERCATO</h3>
             <p id="offerText" style="margin-bottom: 20px; font-size: 15px; line-height: 1.5;"></p>
             <div style="display: flex; justify-content: center; gap: 10px;">
                 <button class="start-button" style="font-size: 14px; padding: 10px 20px; background: #22c55e;" onclick="acceptOffer()">Accetta 🤝</button>
@@ -269,7 +281,7 @@
             jerseyNumber: 10, hairType: "Corti Classici", personality: "Leader Naturale",
             team: "Milano Red Devils", overall: 60, energy: 100, money: 500, fans: 100,
             salary: 1000000, age: 17, season: 1, matchDay: 1, points: 0, trophies: 0,
-            trainCount: 0, inventory: []
+            goals: 0, assists: 0, trainCount: 0, inventory: []
         };
 
         let currentOffer = null;
@@ -287,7 +299,10 @@
             { id: "watch", name: "⌚ Orologio di Lusso", price: 50000, fansBonus: 500 },
             { id: "car", name: "🏎️ Supercar Sportiva", price: 250000, fansBonus: 3000 },
             { id: "villa", name: "🏰 Villa Lussuosa", price: 300000, fansBonus: 5000 },
-            { id: "jet", name: "✈️ Jet Privato", price: 1500000, fansBonus: 25000 }
+            { id: "yacht", name: "🛥️ Yacht Elegante", price: 1000000, fansBonus: 10000 },
+            { id: "jet", name: "✈️ Jet Privato", price: 1500000, fansBonus: 25000 },
+            { id: "bugatti", name: "🏎️ Bugatti Chiron", price: 100000000, fansBonus: 500000 },
+            { id: "island", name: "🏝️ Isola Privata", price: 500000000, fansBonus: 3000000 }
         ];
 
         function saveGame() { localStorage.setItem("nextFootballStarData", JSON.stringify(player)); }
@@ -296,6 +311,8 @@
             const saved = localStorage.getItem("nextFootballStarData");
             if (saved) {
                 player = JSON.parse(saved);
+                if (player.goals === undefined) player.goals = 0;
+                if (player.assists === undefined) player.assists = 0;
                 if (!player.salary) player.salary = 1000000;
                 if (player.trainCount === undefined) player.trainCount = 0;
                 if (!player.inventory) player.inventory = [];
@@ -357,7 +374,8 @@
 
         function updateUI() {
             document.getElementById("valMatchDay").textContent = `${player.matchDay} / 38`;
-            document.getElementById("valPoints").textContent = `${player.points} PTS`;
+            document.getElementById("valGoals").textContent = player.goals;
+            document.getElementById("valAssists").textContent = player.assists;
             document.getElementById("valOverall").textContent = player.overall;
             document.getElementById("valEnergy").textContent = player.energy + "%";
             document.getElementById("valMoney").textContent = "$" + player.money.toLocaleString();
@@ -386,6 +404,27 @@
             });
         }
 
+        function generateNews(goals, assists, result, opponent) {
+            const newsEl = document.getElementById("newsText");
+            if (goals >= 3) {
+                newsEl.textContent = `🔥 DEVASTANTE! TRIO DI ${player.surname.toUpperCase()}! Distrutta la difesa del ${opponent}!`;
+            } else if (goals === 2) {
+                newsEl.textContent = `⭐ DOPPIETTA DA SOGNO! ${player.surname} trascina il ${player.team} contro il ${opponent}!`;
+            } else if (goals === 1 && assists >= 1) {
+                newsEl.textContent = `🎩 SPETTACOLO PURA! Goal e Assist per ${player.surname}, prestazione totale!`;
+            } else if (goals === 1) {
+                newsEl.textContent = `⚽ MARCATORE DECISIVO! Ci pensa ${player.surname} a trafiggere il ${opponent}!`;
+            } else if (assists >= 1) {
+                newsEl.textContent = `🎯 UOMO ASSIST! La visione di gioco di ${player.surname} regala il vantaggio!`;
+            } else if (result === "VITTORIA") {
+                newsEl.textContent = `💪 PROVA DI SQUADRA! Il ${player.team} vince contro il ${opponent}, ${player.surname} lotta su ogni pallone.`;
+            } else if (result === "PAREGGIO") {
+                newsEl.textContent = `⚖️ PAREGGIO COMBATTUTO! Punti divisi tra ${player.team} e ${opponent}.`;
+            } else {
+                newsEl.textContent = `❌ GIORNATA NO! Il ${opponent} supera il ${player.team}, si attende il riscatto di ${player.surname}.`;
+            }
+        }
+
         function playMatch() {
             if (player.energy < 30) return logMessage("Troppo stanco! Riposati.");
 
@@ -394,27 +433,44 @@
             const opponent = otherTeams[Math.floor(Math.random() * otherTeams.length)].name;
             const outcome = Math.random();
 
+            // Calcolo Goal e Assist in base al ruolo e Overall
+            let matchGoals = 0;
+            let matchAssists = 0;
+            
+            const performanceFactor = player.overall / 100;
+            if (Math.random() < performanceFactor * 0.6) matchGoals += 1;
+            if (Math.random() < performanceFactor * 0.3) matchGoals += 1;
+            if (Math.random() < performanceFactor * 0.5) matchAssists += 1;
+
+            player.goals += matchGoals;
+            player.assists += matchAssists;
+
             const matchSalary = Math.floor(player.salary / 38);
             player.money += matchSalary;
 
+            let resultText = "";
             if (outcome > 0.4) {
+                resultText = "VITTORIA";
                 player.points += 3;
                 player.money += 2500;
-                logMessage(`Giornata ${player.matchDay}: VITTORIA vs ${opponent}! +3 Pts, +$2.500 bonus e stipendio.`);
+                logMessage(`Giornata ${player.matchDay}: VITTORIA vs ${opponent}! (+${matchGoals}G, +${matchAssists}A) +$2.500 bonus.`);
             } else if (outcome > 0.2) {
+                resultText = "PAREGGIO";
                 player.points += 1;
                 player.money += 1000;
-                logMessage(`Giornata ${player.matchDay}: PAREGGIO vs ${opponent}. +1 Pt, +$1.000 e stipendio.`);
+                logMessage(`Giornata ${player.matchDay}: PAREGGIO vs ${opponent}. (+${matchGoals}G, +${matchAssists}A) +$1.000 bonus.`);
             } else {
-                logMessage(`Giornata ${player.matchDay}: SCONFITTA vs ${opponent}. Stipendio incassato.`);
+                resultText = "SCONFITTA";
+                logMessage(`Giornata ${player.matchDay}: SCONFITTA vs ${opponent}. (+${matchGoals}G, +${matchAssists}A)`);
             }
+
+            generateNews(matchGoals, matchAssists, resultText, opponent);
 
             const myTeamObj = teamsDB.find(t => t.name === player.team);
             if (myTeamObj) myTeamObj.points = player.points;
 
             simulateOtherMatches();
 
-            // Calciomercato attivato ESATTAMENTE alla 19ª giornata (metà stagione)
             if (player.matchDay === 19) {
                 checkOffers();
             }
@@ -422,14 +478,14 @@
             player.matchDay += 1;
 
             if (player.matchDay > 38) {
-                logMessage(`🎉 FINE STAGIONE ${player.season}! Punti totali: ${player.points}`);
+                logMessage(`🎉 FINE STAGIONE ${player.season}! Goal: ${player.goals}, Assist: ${player.assists}`);
                 teamsDB.sort((a, b) => b.points - a.points);
                 if (teamsDB[0].name === player.team) {
                     player.trophies += 1;
                     player.money += 5000000;
                     logMessage("🏆 COMPLIMENTI! HAI VINTO IL CAMPIONATO! +$5.000.000 Bonus!");
                 }
-                if (player.overall >= 85) {
+                if (player.overall >= 85 || player.goals >= 30) {
                     player.trophies += 1;
                     logMessage("🥇 STREPITOSO! HAI VINTO IL PALLONE D'ORO!");
                 }
@@ -444,8 +500,8 @@
             const availableTeams = teamsDB.filter(t => t.name !== player.team);
             const chosenTeam = availableTeams[Math.floor(Math.random() * availableTeams.length)];
             
-            const transferBonus = Math.floor(Math.random() * 50000001) + 5000000; // Da 5M a 55M
-            const yearlySalary = Math.floor(Math.random() * 9000001) + 1000000; // Da 1M a 10M
+            const transferBonus = Math.floor(Math.random() * 50000001) + 5000000; 
+            const yearlySalary = Math.floor(Math.random() * 9000001) + 1000000; 
 
             currentOffer = { team: chosenTeam.name, bonus: transferBonus, salary: yearlySalary };
 
@@ -480,9 +536,9 @@
             if (player.trainCount >= 5) {
                 player.overall += 1;
                 player.trainCount = 0;
-                logMessage(`🏋️ Allenamento durissimo completato! OVERALL AUMENTATO a ${player.overall}! 🔥`);
+                logMessage(`🏋️ Allenamento completato! OVERALL AUMENTATO a ${player.overall}! 🔥`);
             } else {
-                logMessage(`🏋️ Sessione completata (${player.trainCount}/5 allenamenti per il prossimo +1 Overall).`);
+                logMessage(`🏋️ Sessione completata (${player.trainCount}/5 per +1 Overall).`);
             }
 
             saveGame(); updateUI();
@@ -529,7 +585,7 @@
                     <div class="shop-item">
                         <div>
                             <strong>${item.name}</strong><br>
-                            <small>Prezzo: $${item.price.toLocaleString()} | +${item.fansBonus} Fan</small>
+                            <small>Prezzo: $${item.price.toLocaleString()} | +${item.fansBonus.toLocaleString()} Fan</small>
                         </div>
                         <button class="start-button btn-gold" style="font-size: 12px; padding: 8px 14px;" ${owned ? 'disabled style="opacity:0.5;"' : ''} onclick="buyItem('${item.id}')">
                             ${owned ? 'Acquistato' : 'Compra'}
@@ -551,7 +607,7 @@
             player.fans += item.fansBonus;
             player.inventory.push(item.id);
             
-            logMessage(`🛍️ Hai acquistato: ${item.name}! +${item.fansBonus} Fan.`);
+            logMessage(`🛍️ Hai acquistato: ${item.name}! +${item.fansBonus.toLocaleString()} Fan.`);
             saveGame(); updateUI(); openShop();
         }
     </script>

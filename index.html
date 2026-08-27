@@ -116,7 +116,7 @@
         .career-screen { max-width: 600px; margin: auto; }
         input, select { width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 12px; border: 1px solid #33483a; background: #0c1811; color: white; font-size: 16px; outline: none; }
         
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); gap: 10px; margin: 20px 0; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 10px; margin: 20px 0; }
         .stat-card { background: rgba(255,255,255,0.04); padding: 10px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.08); }
         .stat-card h4 { color: #38e878; font-size: 10px; text-transform: uppercase; }
         .stat-card p { font-size: 16px; font-weight: bold; margin-top: 4px; }
@@ -124,7 +124,6 @@
         .actions-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 20px; }
         .log-box { background: #060e08; border: 1px solid #23382b; border-radius: 14px; padding: 15px; height: 110px; overflow-y: auto; text-align: left; font-size: 13px; margin-bottom: 15px; color: #d1dcd4; }
         
-        /* Stile del Giornale */
         .news-box { background: #fefec8; color: #111; border-radius: 12px; padding: 12px; margin-bottom: 15px; text-align: left; font-family: 'Georgia', serif; border: 2px solid #d4af37; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
         .news-title { font-size: 11px; font-weight: bold; text-transform: uppercase; color: #8b0000; letter-spacing: 1px; border-bottom: 1px solid #111; padding-bottom: 2px; margin-bottom: 6px; }
         .news-headline { font-size: 15px; font-weight: 900; line-height: 1.2; }
@@ -153,10 +152,10 @@
             <p class="home-subtitle">Segna goal, servi assist, finisci sui giornali e acquista mega yacht e isole private!</p>
 
             <div class="features-pills">
+                <div class="pill">🎂 Carriera 16-40 Anni</div>
                 <div class="pill">⚽ Goal & Assist</div>
-                <div class="pill">📰 Giornale Sportivo</div>
+                <div class="pill">📰 News del Calcio</div>
                 <div class="pill">🏝️ Isola Privata & Bugatti</div>
-                <div class="pill">💾 Salvataggio Auto</div>
             </div>
 
             <div>
@@ -167,7 +166,7 @@
         <!-- 2. CREAZIONE GIOCATORE -->
         <section class="card career-screen hidden" id="career">
             <h2>CREA IL TUO GIOCATORE 👤</h2>
-            <p style="margin-bottom: 20px; color: #aab8ae;">Personalizza le caratteristiche della tua futura stella.</p>
+            <p style="margin-bottom: 20px; color: #aab8ae;">Personalizza le caratteristiche della tua futura stella (Età iniziale: 16 anni).</p>
             
             <input type="text" id="playerName" placeholder="Nome del giocatore">
             <input type="text" id="playerSurname" placeholder="Cognome del giocatore">
@@ -199,9 +198,20 @@
             <select id="nationality">
                 <option value="">Scegli la nazionalità 🌍</option>
                 <option value="🇮🇹 Italia">🇮🇹 Italia</option>
+                <option value="🇲🇦 Marocco">🇲🇦 Marocco</option>
+                <option value="🇵🇰 Pakistan">🇵🇰 Pakistan</option>
+                <option value="🇳🇴 Norvegia">🇳🇴 Norvegia</option>
+                <option value="🇹🇳 Tunisia">🇹🇳 Tunisia</option>
+                <option value="🇪🇬 Egitto">🇪🇬 Egitto</option>
+                <option value="🇹🇷 Turchia">🇹🇷 Turchia</option>
+                <option value="🇺🇸 Stati Uniti">🇺🇸 Stati Uniti</option>
+                <option value="🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inghilterra">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inghilterra</option>
+                <option value="🇨🇳 Cina">🇨🇳 Cina</option>
                 <option value="🇪🇸 Spagna">🇪🇸 Spagna</option>
                 <option value="🇫🇷 Francia">🇫🇷 Francia</option>
                 <option value="🇧🇷 Brasile">🇧🇷 Brasile</option>
+                <option value="🇦🇷 Argentina">🇦🇷 Argentina</option>
+                <option value="🇩🇪 Germania">🇩🇪 Germania</option>
             </select>
 
             <button class="start-button" onclick="createPlayer()">INIZIA LA CARRIERA 🚀</button>
@@ -212,33 +222,32 @@
             <h2 id="displayPlayerName">Nome Giocatore</h2>
             <p id="displayDetails" style="color: #38e878; margin-bottom: 5px;">Ruolo | Nazionalità</p>
             <p id="displayExtra" style="color: #d1dcd4; font-size: 14px; margin-bottom: 5px;">Maglia #-- | Capelli: -- | Personalità: --</p>
-            <p id="displayTeam" style="color: #facc15; font-weight: bold; margin-bottom: 15px;">Squadra: Milano Red Devils</p>
+            <p id="displayTeam" style="color: #facc15; font-weight: bold; margin-bottom: 15px;">Squadra: Lombardia Neroazzurra</p>
 
             <div class="stats-grid">
+                <div class="stat-card"><h4>ETÀ</h4><p id="valAge">16</p></div>
                 <div class="stat-card"><h4>GIORNATA</h4><p id="valMatchDay">1 / 38</p></div>
                 <div class="stat-card"><h4>GOAL</h4><p id="valGoals">0</p></div>
                 <div class="stat-card"><h4>ASSIST</h4><p id="valAssists">0</p></div>
                 <div class="stat-card"><h4>OVERALL</h4><p id="valOverall">60</p></div>
                 <div class="stat-card"><h4>ENERGIA</h4><p id="valEnergy">100%</p></div>
-                <div class="stat-card"><h4>DENARO</h4><p id="valMoney">$500</p></div>
+                <div class="stat-card"><h4>DENARO</h4><p id="valMoney">€500</p></div>
                 <div class="stat-card"><h4>FAN</h4><p id="valFans">100</p></div>
             </div>
 
-            <!-- GIORNALE SPORTIVO -->
             <div class="news-box">
-                <div class="news-title">📰 GAZZETTA DELLO SPORT - ULTIME NOTIZIE</div>
-                <div class="news-headline" id="newsText">Inizia una nuova stagione! Tutti gli occhi sono puntati sul nuovo talento.</div>
+                <div class="news-title">📰 THE FOOTBALL STAR TIMES</div>
+                <div class="news-headline" id="newsText">Inizia la carriera da giovane talento a 16 anni!</div>
             </div>
 
             <div class="log-box" id="gameLog">
-                <div> Benvenuto! Allenati duro e guida la tua squadra alla vittoria!</div>
+                <div>> Benvenuto! Allenati duro e guida la tua squadra alla vittoria!</div>
             </div>
 
-            <!-- PULSANTI AZIONE -->
             <div class="actions-grid">
                 <button class="start-button btn-orange" style="font-size: 15px; padding: 12px 20px;" onclick="playMatch()">⚽ Gioca Giornata (-30% Energ)</button>
                 <button class="start-button" style="font-size: 15px; padding: 12px 20px;" onclick="train()">🏋️ Allenati (<span id="trainProgress">0/5</span>)</button>
-                <button class="start-button btn-purple" style="font-size: 15px; padding: 12px 20px;" onclick="sponsor()">📸 Sponsor (+$1.000)</button>
+                <button class="start-button btn-purple" style="font-size: 15px; padding: 12px 20px;" onclick="sponsor()">📸 Sponsor (+€1.000)</button>
                 <button class="start-button btn-blue" style="font-size: 15px; padding: 12px 20px;" onclick="rest()">💤 Riposo (+50% Energ)</button>
                 <button class="start-button btn-gold" style="font-size: 15px; padding: 12px 20px;" onclick="openShop()">💎 Shop di Lusso</button>
                 <button class="start-button" style="background: #38bdf8; color: black; font-size: 15px; padding: 12px 20px;" onclick="openLeague()">🏆 Classifica</button>
@@ -261,6 +270,22 @@
             <button class="start-button btn-blue" style="margin-top: 20px; font-size: 15px;" onclick="showScreen('hub')">⬅️ Torna al Gioco</button>
         </section>
 
+        <!-- 6. SCHERMATA RITIRO / CARRIERA FINITA -->
+        <section class="card career-screen hidden" id="retirement">
+            <h2>👴 ORA DI APPENDERE GLI SCARPINI AL CHIODO!</h2>
+            <p style="color: #aab8ae; margin-top: 10px;">Hai compiuto 40 anni e ti ritiri ufficialmente dal calcio giocato.</p>
+            
+            <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 16px; margin: 25px 0; text-align: left; line-height: 1.8;">
+                <p>🏆 <strong>Trofei Vinti:</strong> <span id="retTrophies">0</span></p>
+                <p>⚽ <strong>Goal Totali:</strong> <span id="retGoals">0</span></p>
+                <p>🎯 <strong>Assist Totali:</strong> <span id="retAssists">0</span></p>
+                <p>💰 <strong>Patrimonio Finale:</strong> €<span id="retMoney">0</span></p>
+                <p>⭐ <strong>Fan Totali:</strong> <span id="retFans">0</span></p>
+            </div>
+
+            <button class="start-button btn-gold" onclick="resetGame()">REINIZIA UNA NUOVA CARRIERA 🔄</button>
+        </section>
+
     </main>
 
     <!-- MODALE OFFERTA DI CALCIOMERCATO -->
@@ -279,20 +304,36 @@
         let player = {
             name: "", surname: "", position: "", nationality: "",
             jerseyNumber: 10, hairType: "Corti Classici", personality: "Leader Naturale",
-            team: "Milano Red Devils", overall: 60, energy: 100, money: 500, fans: 100,
-            salary: 1000000, age: 17, season: 1, matchDay: 1, points: 0, trophies: 0,
+            team: "Lombardia Neroazzurra", overall: 60, energy: 100, money: 500, fans: 100,
+            age: 16, season: 1, matchDay: 1, points: 0, trophies: 0,
             goals: 0, assists: 0, trainCount: 0, inventory: []
         };
 
         let currentOffer = null;
 
+        // Squadre con nomi Anti-Copyright stile PES
         const teamsDB = [
-            { name: "Milano Red Devils", power: 75, points: 0 },
-            { name: "Torino Black & White", power: 78, points: 0 },
-            { name: "Madrid Kings", power: 85, points: 0 },
-            { name: "Catalonia Stars", power: 82, points: 0 },
-            { name: "Paris Blue Gem", power: 80, points: 0 },
-            { name: "London Red Cannons", power: 77, points: 0 }
+            // Top Club (Overall >= 80 -> Stipendio 300k / 10 partite)
+            { name: "Madrid Blancos", power: 87, points: 0 },
+            { name: "Manchester Blue", power: 86, points: 0 },
+            { name: "Bavaria Red", power: 85, points: 0 },
+            { name: "Catalunya Red-Blue", power: 85, points: 0 },
+            { name: "Lombardia Neroazzurra", power: 84, points: 0 },
+            { name: "Paris Red-Blue", power: 84, points: 0 },
+            { name: "London Red", power: 84, points: 0 },
+            { name: "Torino Bianconera", power: 82, points: 0 },
+            { name: "Milano Rossonera", power: 81, points: 0 },
+
+            // Mid/Low Club (Overall < 80 -> Stipendio 100k / 10 partite)
+            { name: "Partenope Azzurra", power: 79, points: 0 },
+            { name: "Roma Giallorossa", power: 79, points: 0 },
+            { name: "London Blue", power: 79, points: 0 },
+            { name: "Dortmund Yellow", power: 79, points: 0 },
+            { name: "Lazio Biancoceleste", power: 78, points: 0 },
+            { name: "Sevilla Red", power: 78, points: 0 },
+            { name: "Firenze Viola", power: 77, points: 0 },
+            { name: "Bologna Red-Blue", power: 77, points: 0 },
+            { name: "Torino Granata", power: 76, points: 0 }
         ];
 
         const shopDB = [
@@ -305,20 +346,36 @@
             { id: "island", name: "🏝️ Isola Privata", price: 500000000, fansBonus: 3000000 }
         ];
 
+        // Calcolo stipendio per singola partita in base all'overall della squadra
+        function getMatchSalary(teamName) {
+            const teamObj = teamsDB.find(t => t.name === teamName);
+            const teamPower = teamObj ? teamObj.power : 75;
+            if (teamPower >= 80) {
+                return 30000; // 300.000€ ogni 10 partite (30.000€ a partita)
+            } else {
+                return 10000; // 100.000€ ogni 10 partite (10.000€ a partita)
+            }
+        }
+
         function saveGame() { localStorage.setItem("nextFootballStarData", JSON.stringify(player)); }
 
         function checkSavedGame() {
             const saved = localStorage.getItem("nextFootballStarData");
             if (saved) {
                 player = JSON.parse(saved);
+                if (!player.age) player.age = 16;
                 if (player.goals === undefined) player.goals = 0;
                 if (player.assists === undefined) player.assists = 0;
-                if (!player.salary) player.salary = 1000000;
                 if (player.trainCount === undefined) player.trainCount = 0;
                 if (!player.inventory) player.inventory = [];
-                updatePlayerInfoDisplay();
-                updateUI();
-                showScreen("hub");
+
+                if (player.age >= 40) {
+                    showRetirementScreen();
+                } else {
+                    updatePlayerInfoDisplay();
+                    updateUI();
+                    showScreen("hub");
+                }
             } else { showScreen("career"); }
         }
 
@@ -330,7 +387,7 @@
         }
 
         function showScreen(screenId) {
-            ["home", "career", "hub", "league", "shop"].forEach(id => {
+            ["home", "career", "hub", "league", "shop", "retirement"].forEach(id => {
                 const el = document.getElementById(id);
                 if (el) el.classList.add("hidden");
             });
@@ -357,6 +414,7 @@
             player.personality = personality;
             player.position = position; 
             player.nationality = nationality;
+            player.age = 16;
 
             if (personality === "Prodigio Tecnico") player.overall += 3;
             if (personality === "Leader Naturale") player.fans += 100;
@@ -373,14 +431,19 @@
         }
 
         function updateUI() {
+            const currentSalaryPerMatch = getMatchSalary(player.team);
+            const teamObj = teamsDB.find(t => t.name === player.team);
+            const teamPower = teamObj ? teamObj.power : 75;
+
+            document.getElementById("valAge").textContent = player.age;
             document.getElementById("valMatchDay").textContent = `${player.matchDay} / 38`;
             document.getElementById("valGoals").textContent = player.goals;
             document.getElementById("valAssists").textContent = player.assists;
             document.getElementById("valOverall").textContent = player.overall;
             document.getElementById("valEnergy").textContent = player.energy + "%";
-            document.getElementById("valMoney").textContent = "$" + player.money.toLocaleString();
+            document.getElementById("valMoney").textContent = "€" + player.money.toLocaleString();
             document.getElementById("valFans").textContent = player.fans.toLocaleString();
-            document.getElementById("displayTeam").textContent = `Squadra: ${player.team} ($${(player.salary / 1000000).toFixed(1)}M/anno)`;
+            document.getElementById("displayTeam").textContent = `Squadra: ${player.team} (Ovr: ${teamPower} | €${(currentSalaryPerMatch * 10).toLocaleString()}/10 partite)`;
             document.getElementById("trainProgress").textContent = `${player.trainCount}/5`;
         }
 
@@ -407,11 +470,11 @@
         function generateNews(goals, assists, result, opponent) {
             const newsEl = document.getElementById("newsText");
             if (goals >= 3) {
-                newsEl.textContent = `🔥 DEVASTANTE! TRIO DI ${player.surname.toUpperCase()}! Distrutta la difesa del ${opponent}!`;
+                newsEl.textContent = `🔥 DEVASTANTE! TRIPLETA DI ${player.surname.toUpperCase()}! Distrutta la difesa del ${opponent}!`;
             } else if (goals === 2) {
                 newsEl.textContent = `⭐ DOPPIETTA DA SOGNO! ${player.surname} trascina il ${player.team} contro il ${opponent}!`;
             } else if (goals === 1 && assists >= 1) {
-                newsEl.textContent = `🎩 SPETTACOLO PURA! Goal e Assist per ${player.surname}, prestazione totale!`;
+                newsEl.textContent = `🎩 SPETTACOLO PURO! Goal e Assist per ${player.surname}, prestazione totale!`;
             } else if (goals === 1) {
                 newsEl.textContent = `⚽ MARCATORE DECISIVO! Ci pensa ${player.surname} a trafiggere il ${opponent}!`;
             } else if (assists >= 1) {
@@ -433,7 +496,6 @@
             const opponent = otherTeams[Math.floor(Math.random() * otherTeams.length)].name;
             const outcome = Math.random();
 
-            // Calcolo Goal e Assist in base al ruolo e Overall
             let matchGoals = 0;
             let matchAssists = 0;
             
@@ -445,7 +507,8 @@
             player.goals += matchGoals;
             player.assists += matchAssists;
 
-            const matchSalary = Math.floor(player.salary / 38);
+            // Accredito stipendio partita
+            const matchSalary = getMatchSalary(player.team);
             player.money += matchSalary;
 
             let resultText = "";
@@ -453,15 +516,15 @@
                 resultText = "VITTORIA";
                 player.points += 3;
                 player.money += 2500;
-                logMessage(`Giornata ${player.matchDay}: VITTORIA vs ${opponent}! (+${matchGoals}G, +${matchAssists}A) +$2.500 bonus.`);
+                logMessage(`Giornata ${player.matchDay}: VITTORIA vs ${opponent}! (+${matchGoals}G, +${matchAssists}A) +€${matchSalary.toLocaleString()} stipendio +€2.500 bonus.`);
             } else if (outcome > 0.2) {
                 resultText = "PAREGGIO";
                 player.points += 1;
                 player.money += 1000;
-                logMessage(`Giornata ${player.matchDay}: PAREGGIO vs ${opponent}. (+${matchGoals}G, +${matchAssists}A) +$1.000 bonus.`);
+                logMessage(`Giornata ${player.matchDay}: PAREGGIO vs ${opponent}. (+${matchGoals}G, +${matchAssists}A) +€${matchSalary.toLocaleString()} stipendio +€1.000 bonus.`);
             } else {
                 resultText = "SCONFITTA";
-                logMessage(`Giornata ${player.matchDay}: SCONFITTA vs ${opponent}. (+${matchGoals}G, +${matchAssists}A)`);
+                logMessage(`Giornata ${player.matchDay}: SCONFITTA vs ${opponent}. (+${matchGoals}G, +${matchAssists}A) +€${matchSalary.toLocaleString()} stipendio.`);
             }
 
             generateNews(matchGoals, matchAssists, resultText, opponent);
@@ -477,36 +540,56 @@
 
             player.matchDay += 1;
 
+            // Fine stagione
             if (player.matchDay > 38) {
                 logMessage(`🎉 FINE STAGIONE ${player.season}! Goal: ${player.goals}, Assist: ${player.assists}`);
                 teamsDB.sort((a, b) => b.points - a.points);
                 if (teamsDB[0].name === player.team) {
                     player.trophies += 1;
                     player.money += 5000000;
-                    logMessage("🏆 COMPLIMENTI! HAI VINTO IL CAMPIONATO! +$5.000.000 Bonus!");
+                    logMessage("🏆 COMPLIMENTI! HAI VINTO IL CAMPIONATO! +€5.000.000 Bonus!");
                 }
                 if (player.overall >= 85 || player.goals >= 30) {
                     player.trophies += 1;
                     logMessage("🥇 STREPITOSO! HAI VINTO IL PALLONE D'ORO!");
                 }
-                player.season += 1; player.age += 1; player.matchDay = 1; player.points = 0;
+                
+                player.season += 1; 
+                player.age += 1; 
+                player.matchDay = 1; 
+                player.points = 0;
                 resetLeaguePoints();
+
+                if (player.age >= 40) {
+                    saveGame();
+                    showRetirementScreen();
+                    return;
+                }
             }
 
             saveGame(); updateUI();
+        }
+
+        function showRetirementScreen() {
+            document.getElementById("retTrophies").textContent = player.trophies;
+            document.getElementById("retGoals").textContent = player.goals;
+            document.getElementById("retAssists").textContent = player.assists;
+            document.getElementById("retMoney").textContent = player.money.toLocaleString();
+            document.getElementById("retFans").textContent = player.fans.toLocaleString();
+            showScreen("retirement");
         }
 
         function checkOffers() {
             const availableTeams = teamsDB.filter(t => t.name !== player.team);
             const chosenTeam = availableTeams[Math.floor(Math.random() * availableTeams.length)];
             
-            const transferBonus = Math.floor(Math.random() * 50000001) + 5000000; 
-            const yearlySalary = Math.floor(Math.random() * 9000001) + 1000000; 
+            const transferBonus = Math.floor(Math.random() * 5000000) + 1000000;
+            const newMatchSalary = getMatchSalary(chosenTeam.name);
 
-            currentOffer = { team: chosenTeam.name, bonus: transferBonus, salary: yearlySalary };
+            currentOffer = { team: chosenTeam.name, bonus: transferBonus };
 
             document.getElementById("offerText").textContent = 
-                `Il club ${chosenTeam.name} vuole acquistarti nella sessione di gennaio! Ti offre un bonus alla firma di $${transferBonus.toLocaleString()} e un nuovo stipendio di $${(yearlySalary / 1000000).toFixed(1)}M all'anno. Accetti il trasferimento?`;
+                `Il club ${chosenTeam.name} (Overall: ${chosenTeam.power}) vuole acquistarti! Ti offre un bonus alla firma di €${transferBonus.toLocaleString()} e un contratto da €${(newMatchSalary * 10).toLocaleString()} ogni 10 partite. Accetti il trasferimento?`;
             
             document.getElementById("offerModal").classList.remove("hidden");
         }
@@ -515,8 +598,7 @@
             if (!currentOffer) return;
             player.team = currentOffer.team;
             player.money += currentOffer.bonus;
-            player.salary = currentOffer.salary;
-            logMessage(`🤝 TRASFERIMENTO ACCETTATO! Ora giochi nel ${currentOffer.team}! Bonus: +$${currentOffer.bonus.toLocaleString()}`);
+            logMessage(`🤝 TRASFERIMENTO ACCETTATO! Ora giochi nel ${currentOffer.team}! Bonus: +€${currentOffer.bonus.toLocaleString()}`);
             document.getElementById("offerModal").classList.add("hidden");
             currentOffer = null;
             saveGame(); updateUI();
@@ -549,7 +631,7 @@
             player.energy -= 10; 
             player.money += 1000; 
             player.fans += 200;
-            logMessage("Evento Sponsor completato! +$1.000 e +200 Fan.");
+            logMessage("Evento Sponsor completato! +€1.000 e +200 Fan.");
             saveGame(); updateUI();
         }
 
@@ -585,7 +667,7 @@
                     <div class="shop-item">
                         <div>
                             <strong>${item.name}</strong><br>
-                            <small>Prezzo: $${item.price.toLocaleString()} | +${item.fansBonus.toLocaleString()} Fan</small>
+                            <small>Prezzo: €${item.price.toLocaleString()} | +${item.fansBonus.toLocaleString()} Fan</small>
                         </div>
                         <button class="start-button btn-gold" style="font-size: 12px; padding: 8px 14px;" ${owned ? 'disabled style="opacity:0.5;"' : ''} onclick="buyItem('${item.id}')">
                             ${owned ? 'Acquistato' : 'Compra'}

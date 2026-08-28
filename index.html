@@ -25,6 +25,14 @@ gtag('config', 'G-LD76R6T3TM');
 </script>
 
 
+<!-- =========================================
+     GOOGLE ADSENSE
+     ========================================= -->
+<script async
+src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4740569819691854"
+crossorigin="anonymous"></script>
+
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -230,6 +238,18 @@ width:90%;border:2px solid #facc15;text-align:center;
 box-shadow:0 20px 50px rgba(0,0,0,.9)
 }
 
+/* ADSENSE */
+.adsense-box{
+width:100%;
+max-width:728px;
+min-height:90px;
+margin:25px auto 5px;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+}
+
 @keyframes float{
 0%,100%{transform:translateY(0)}
 50%{transform:translateY(-10px)}
@@ -281,6 +301,19 @@ ENTRA IN CAMPO 🚀
 <button class="start-button btn-gold" onclick="openReviews()">
 ⭐ RECENSIONI DEL GIOCO
 </button>
+
+<!-- =========================================
+     ADSENSE - HOME
+     ========================================= -->
+<div class="adsense-box">
+<ins class="adsbygoogle"
+     style="display:block;width:100%;min-height:90px"
+     data-ad-client="ca-pub-4740569819691854"
+     data-ad-slot="auto"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+</div>
+
 </section>
 
 
@@ -342,7 +375,7 @@ Crea il tuo profilo e inizia la scalata verso la gloria!
 <option value="RANDOM">🎲 Offerta Casuale</option>
 </select>
 
-<button class="start-button" onclick="createPlayer()">
+<button class="start-button" onclick="createPlayer">
 INIZIA LA CARRIERA 🚀
 </button>
 </section>
@@ -402,6 +435,19 @@ Inizia la carriera da giovane talento!
 <button class="start-button btn-red" onclick="resetGame()">🗑️ Resetta</button>
 
 </div>
+
+<!-- =========================================
+     ADSENSE - HUB
+     ========================================= -->
+<div class="adsense-box">
+<ins class="adsbygoogle"
+     style="display:block;width:100%;min-height:90px"
+     data-ad-client="ca-pub-4740569819691854"
+     data-ad-slot="auto"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+</div>
+
 </section>
 
 
@@ -658,6 +704,21 @@ REINIZIA CARRIERA 🔄
 
 
 <script>
+
+/* =========================================
+   ATTIVAZIONE ADSENSE
+   ========================================= */
+
+window.addEventListener("load",function(){
+
+try{
+(adsbygoogle = window.adsbygoogle || []).push({});
+}catch(e){
+console.log("AdSense non ancora disponibile:",e);
+}
+
+});
+
 
 const SAVE_KEY="nextFootballStarData_v3";
 const REVIEW_KEY="nextFootballStarReviews_v1";
@@ -1393,9 +1454,6 @@ player.coachTrust=Math.min(100,player.coachTrust+2);
 logMessage("🎯 Hai servito "+matchAssists+" assist!");
 }
 
-
-/* OVERALL OGNI 10 GOL */
-
 const newMilestones=Math.floor(player.goals/10);
 
 if(newMilestones>player.overallGoalMilestones){
@@ -1417,9 +1475,6 @@ logMessage("🏆 GOLDEN BOY! Sei stato eletto miglior giovane!");
 }
 
 }
-
-
-/* SCARPA D'ORO */
 
 if(player.goals>=30&&player.goldenBoot===0){
 player.goldenBoot=1;
@@ -2268,6 +2323,7 @@ updateUI();
 </script>
 </body>
 </html>
+
 
 
 

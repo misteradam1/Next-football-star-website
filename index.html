@@ -1,559 +1,506 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-
-<!-- =========================================
-     GOOGLE ADSENSE - IDENTIFICAZIONE SITO
-     ========================================= -->
-<meta name="google-adsense-account" content="ca-pub-4740569819691854">
-
-<!-- GOOGLE ADSENSE -->
-<script async
-src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4740569819691854"
-crossorigin="anonymous"></script>
-
-<!-- GOOGLE ANALYTICS -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LD76R6T3TM"></script>
-
-<script>
-window.dataLayer = window.dataLayer || [];
-
-function gtag(){
-    dataLayer.push(arguments);
-}
-
-gtag('js', new Date());
-gtag('config', 'G-LD76R6T3TM');
-</script>
-
-<!-- SECURE PRIVACY -->
-<script src="https://app.secureprivacy.ai/script/6a90166a663e72d94f78f2f7.js"></script>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="google-adsense-account" content="ca-pub-4740569819691854">
 
 <title>Next Football Star ⚽ Ultimate Edition</title>
 
 <style>
-
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
-    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
-    min-height:100vh;
-    color:white;
-    background:
-    radial-gradient(
-        circle at center,
-        #1b472e 0%,
-        #081a10 60%,
-        #020804 100%
-    );
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow-x:hidden
+font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+min-height:100vh;
+color:white;
+background:radial-gradient(circle at center,#1b472e 0%,#081a10 60%,#020804 100%);
+display:flex;
+justify-content:center;
+align-items:center;
+overflow-x:hidden;
 }
 
 .container{
-    width:100%;
-    max-width:900px;
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px
+width:100%;
+max-width:900px;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
 }
 
 .card{
-    width:100%;
-    padding:35px 25px;
-    border:1px solid rgba(56,232,120,.2);
-    border-radius:32px;
-    background:rgba(10,26,16,.85);
-    box-shadow:
-        0 30px 90px rgba(0,0,0,.7),
-        inset 0 1px 1px rgba(255,255,255,.1);
-    backdrop-filter:blur(16px);
-    position:relative;
-    overflow:hidden
+width:100%;
+padding:35px 25px;
+border:1px solid rgba(56,232,120,.2);
+border-radius:32px;
+background:rgba(10,26,16,.85);
+box-shadow:0 30px 90px rgba(0,0,0,.7),inset 0 1px 1px rgba(255,255,255,.1);
+backdrop-filter:blur(16px);
+position:relative;
+overflow:hidden;
 }
 
+.hidden{display:none!important}
+
+h1,h2,h3{position:relative;z-index:2}
+
 .home-pitch-bg{
-    position:absolute;
-    top:-50%;
-    left:-50%;
-    width:200%;
-    height:200%;
-    background:
-    radial-gradient(
-        circle,
-        rgba(56,232,120,.05) 10%,
-        transparent 20%
-    );
-    background-size:30px 30px;
-    transform:rotate(15deg);
-    pointer-events:none
+position:absolute;
+top:-50%;
+left:-50%;
+width:200%;
+height:200%;
+background:radial-gradient(circle,rgba(56,232,120,.05) 10%,transparent 20%);
+background-size:30px 30px;
+transform:rotate(15deg);
+pointer-events:none;
 }
 
 .hero-badge{
-    display:inline-block;
-    background:rgba(56,232,120,.15);
-    color:#38e878;
-    border:1px solid rgba(56,232,120,.4);
-    padding:6px 16px;
-    border-radius:20px;
-    font-size:13px;
-    font-weight:bold;
-    letter-spacing:1px;
-    margin-bottom:20px;
-    text-transform:uppercase
+display:inline-block;
+background:rgba(56,232,120,.15);
+color:#38e878;
+border:1px solid rgba(56,232,120,.4);
+padding:6px 16px;
+border-radius:20px;
+font-size:13px;
+font-weight:bold;
+letter-spacing:1px;
+margin-bottom:20px;
+text-transform:uppercase;
 }
 
 .ball-icon{
-    font-size:70px;
-    margin-bottom:15px;
-    display:inline-block;
-    filter:drop-shadow(0 10px 20px rgba(0,0,0,.5));
-    animation:float 3s ease-in-out infinite
+font-size:70px;
+margin-bottom:15px;
+display:inline-block;
+animation:float 3s ease-in-out infinite;
 }
 
 .home-title{
-    font-size:clamp(36px,8vw,64px);
-    font-weight:900;
-    line-height:1.05;
-    letter-spacing:-2px;
-    margin-bottom:15px
+font-size:clamp(36px,8vw,64px);
+font-weight:900;
+line-height:1.05;
+letter-spacing:-2px;
+margin-bottom:15px;
 }
 
 .home-title span{
-    background:linear-gradient(135deg,#45f27f,#18c95b);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent
+background:linear-gradient(135deg,#45f27f,#18c95b);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 .home-subtitle{
-    color:#a3c2b0;
-    font-size:16px;
-    max-width:550px;
-    margin:0 auto 25px;
-    line-height:1.5
+color:#a3c2b0;
+font-size:16px;
+max-width:550px;
+margin:0 auto 25px;
+line-height:1.5;
 }
 
 .features-pills{
-    display:flex;
-    justify-content:center;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-bottom:30px
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:30px;
 }
 
 .pill{
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.1);
-    padding:6px 12px;
-    border-radius:12px;
-    font-size:12px;
-    color:#d1dcd4
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.1);
+padding:6px 12px;
+border-radius:12px;
+font-size:12px;
+color:#d1dcd4;
 }
 
 .start-button{
-    border:none;
-    border-radius:16px;
-    padding:14px 28px;
-    font-size:16px;
-    font-weight:800;
-    color:#041209;
-    background:linear-gradient(135deg,#45f27f,#18c95b);
-    cursor:pointer;
-    transition:.25s;
-    box-shadow:0 10px 30px rgba(40,230,110,.3);
-    margin:5px
+border:none;
+border-radius:16px;
+padding:14px 28px;
+font-size:15px;
+font-weight:800;
+color:#041209;
+background:linear-gradient(135deg,#45f27f,#18c95b);
+cursor:pointer;
+transition:.25s;
+box-shadow:0 10px 30px rgba(40,230,110,.3);
+margin:5px;
 }
 
 .start-button:hover{
-    transform:translateY(-2px) scale(1.02);
-    box-shadow:0 15px 40px rgba(40,230,110,.4)
+transform:translateY(-2px) scale(1.02);
 }
 
-.start-button:disabled{
-    cursor:not-allowed;
-    transform:none;
-    opacity:.5
-}
+.btn-blue{background:linear-gradient(135deg,#38bdf8,#0284c7);color:white}
+.btn-orange{background:linear-gradient(135deg,#fb923c,#ea580c);color:white}
+.btn-purple{background:linear-gradient(135deg,#c084fc,#9333ea);color:white}
+.btn-gold{background:linear-gradient(135deg,#facc15,#ca8a04);color:black}
+.btn-red{background:linear-gradient(135deg,#f87171,#dc2626);color:white}
+.btn-pink{background:linear-gradient(135deg,#f472b6,#db2777);color:white}
 
-.btn-blue{
-    background:linear-gradient(135deg,#38bdf8,#0284c7);
-    color:white
-}
-
-.btn-orange{
-    background:linear-gradient(135deg,#fb923c,#ea580c);
-    color:white
-}
-
-.btn-purple{
-    background:linear-gradient(135deg,#c084fc,#9333ea);
-    color:white
-}
-
-.btn-gold{
-    background:linear-gradient(135deg,#facc15,#ca8a04);
-    color:black
-}
-
-.btn-red{
-    background:linear-gradient(135deg,#f87171,#dc2626);
-    color:white
-}
-
-.btn-pink{
-    background:linear-gradient(135deg,#f472b6,#db2777);
-    color:white
-}
-
-.btn-green{
-    background:linear-gradient(135deg,#4ade80,#16a34a);
-    color:white
-}
-
-.hidden{
-    display:none!important
-}
-
-.career-screen{
-    max-width:700px;
-    margin:auto
-}
-
-input,
-select,
-textarea{
-    width:100%;
-    padding:13px;
-    margin-bottom:12px;
-    border-radius:12px;
-    border:1px solid #33483a;
-    background:#0c1811;
-    color:white;
-    font-size:15px;
-    outline:none
+input,select,textarea{
+width:100%;
+padding:13px;
+margin-bottom:12px;
+border-radius:12px;
+border:1px solid #33483a;
+background:#0c1811;
+color:white;
+font-size:15px;
+outline:none;
 }
 
 textarea{
-    resize:vertical;
-    min-height:90px
+resize:vertical;
+min-height:90px;
 }
 
 .stats-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(75px,1fr));
-    gap:8px;
-    margin:15px 0
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(75px,1fr));
+gap:8px;
+margin:15px 0;
 }
 
 .stat-card{
-    background:rgba(255,255,255,.04);
-    padding:8px;
-    border-radius:12px;
-    border:1px solid rgba(255,255,255,.08)
+background:rgba(255,255,255,.04);
+padding:8px;
+border-radius:12px;
+border:1px solid rgba(255,255,255,.08);
 }
 
 .stat-card h4{
-    color:#38e878;
-    font-size:9px;
-    text-transform:uppercase
+color:#38e878;
+font-size:9px;
+text-transform:uppercase;
 }
 
 .stat-card p{
-    font-size:15px;
-    font-weight:bold;
-    margin-top:2px
+font-size:15px;
+font-weight:bold;
+margin-top:2px;
 }
 
 .status-banner{
-    background:rgba(56,232,120,.1);
-    border:1px solid rgba(56,232,120,.3);
-    border-radius:12px;
-    padding:8px 12px;
-    font-size:13px;
-    margin-bottom:15px;
-    display:flex;
-    justify-content:space-around;
-    flex-wrap:wrap;
-    gap:10px
+background:rgba(56,232,120,.1);
+border:1px solid rgba(56,232,120,.3);
+border-radius:12px;
+padding:8px 12px;
+font-size:13px;
+margin-bottom:15px;
+display:flex;
+justify-content:space-around;
+flex-wrap:wrap;
+gap:10px;
 }
 
 .actions-grid{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:8px;
-    margin-bottom:15px
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:8px;
+margin-bottom:15px;
 }
 
 .log-box{
-    background:#060e08;
-    border:1px solid #23382b;
-    border-radius:14px;
-    padding:12px;
-    height:110px;
-    overflow-y:auto;
-    text-align:left;
-    font-size:12px;
-    margin-bottom:12px;
-    color:#d1dcd4
+background:#060e08;
+border:1px solid #23382b;
+border-radius:14px;
+padding:12px;
+height:110px;
+overflow-y:auto;
+text-align:left;
+font-size:12px;
+margin-bottom:12px;
+color:#d1dcd4;
 }
 
 .news-box{
-    background:#fefec8;
-    color:#111;
-    border-radius:12px;
-    padding:10px 14px;
-    margin-bottom:12px;
-    text-align:left;
-    font-family:Georgia,serif;
-    border:2px solid #d4af37;
-    box-shadow:0 4px 10px rgba(0,0,0,.3)
+background:#fefec8;
+color:#111;
+border-radius:12px;
+padding:10px 14px;
+margin-bottom:12px;
+text-align:left;
+font-family:Georgia,serif;
+border:2px solid #d4af37;
 }
 
 .news-title{
-    font-size:10px;
-    font-weight:bold;
-    text-transform:uppercase;
-    color:#8b0000;
-    letter-spacing:1px;
-    border-bottom:1px solid #111;
-    padding-bottom:2px;
-    margin-bottom:4px
+font-size:10px;
+font-weight:bold;
+text-transform:uppercase;
+color:#8b0000;
+letter-spacing:1px;
+border-bottom:1px solid #111;
+padding-bottom:2px;
+margin-bottom:4px;
 }
 
 .news-headline{
-    font-size:14px;
-    font-weight:900;
-    line-height:1.2
-}
-
-.league-table,
-.shop-list,
-.social-feed,
-.family-list,
-.relationship-list,
-.clinic-list,
-.trophy-list,
-.review-list{
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-    margin-top:15px;
-    max-height:370px;
-    overflow-y:auto
-}
-
-.table-row,
-.shop-item,
-.post-card,
-.family-card,
-.relationship-card,
-.clinic-card,
-.trophy-card,
-.review-card{
-    background:rgba(255,255,255,.04);
-    padding:12px 16px;
-    border-radius:12px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    border:1px solid #23382b;
-    font-size:14px;
-    text-align:left;
-    gap:12px
-}
-
-.family-card,
-.relationship-card,
-.clinic-card,
-.trophy-card,
-.review-card{
-    flex-wrap:wrap
+font-size:14px;
+font-weight:900;
+line-height:1.2;
 }
 
 .section-box{
-    background:rgba(255,255,255,.035);
-    border:1px solid #23382b;
-    border-radius:16px;
-    padding:15px;
-    margin-top:12px;
-    text-align:left
+background:rgba(255,255,255,.035);
+border:1px solid #23382b;
+border-radius:16px;
+padding:15px;
+margin-top:12px;
+text-align:left;
 }
 
 .section-box h3{
-    color:#38e878;
-    margin-bottom:8px;
-    font-size:15px
+color:#38e878;
+margin-bottom:8px;
+font-size:15px;
 }
 
-.progress{
-    height:8px;
-    background:#17251b;
-    border-radius:10px;
-    overflow:hidden;
-    margin-top:6px;
-    min-width:120px
+/* MANICHINO */
+
+.creator-layout{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:25px;
+align-items:center;
 }
 
-.progress-bar{
-    height:100%;
-    background:linear-gradient(90deg,#38e878,#facc15);
-    border-radius:10px
+.player-preview{
+background:linear-gradient(180deg,#163d27,#08130c);
+border:1px solid rgba(56,232,120,.3);
+border-radius:22px;
+padding:20px;
+min-height:360px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
 }
 
-.award-big{
-    text-align:center;
-    padding:20px;
-    border-radius:16px;
-    background:
-    linear-gradient(
-        135deg,
-        rgba(250,204,21,.14),
-        rgba(255,255,255,.03)
-    );
-    border:1px solid rgba(250,204,21,.35);
-    margin-bottom:12px
+.man{
+position:relative;
+width:150px;
+height:270px;
 }
 
-.award-big .icon{
-    font-size:45px
+.head{
+position:absolute;
+width:72px;
+height:72px;
+border-radius:50%;
+left:39px;
+top:0;
+background:#c68642;
+border:3px solid rgba(0,0,0,.3);
+z-index:3;
 }
 
-.award-big h3{
-    color:#facc15;
-    margin-top:8px
+.hair{
+position:absolute;
+width:75px;
+height:28px;
+left:37px;
+top:-2px;
+border-radius:50% 50% 20% 20%;
+background:#17100b;
+z-index:4;
+}
+
+.body{
+position:absolute;
+width:105px;
+height:105px;
+left:22px;
+top:68px;
+background:#128b42;
+border-radius:20px 20px 10px 10px;
+border:3px solid rgba(0,0,0,.3);
+}
+
+.number{
+position:absolute;
+top:35px;
+width:100%;
+text-align:center;
+font-size:30px;
+font-weight:900;
+color:white;
+}
+
+.arm{
+position:absolute;
+width:28px;
+height:90px;
+top:76px;
+background:#c68642;
+border-radius:20px;
+}
+
+.arm.left{left:0;transform:rotate(10deg)}
+.arm.right{right:0;transform:rotate(-10deg)}
+
+.shorts{
+position:absolute;
+width:95px;
+height:55px;
+left:27px;
+top:166px;
+background:#111;
+border-radius:5px 5px 15px 15px;
+}
+
+.leg{
+position:absolute;
+width:30px;
+height:75px;
+top:210px;
+background:#c68642;
+border-radius:10px;
+}
+
+.leg.left{left:38px}
+.leg.right{right:38px}
+
+.boot{
+position:absolute;
+width:42px;
+height:20px;
+background:#050505;
+border-radius:10px;
+top:268px;
+}
+
+.boot.left{left:27px}
+.boot.right{right:27px}
+
+.preview-number{
+margin-top:15px;
+color:#facc15;
+font-weight:bold;
+}
+
+/* PARTITA */
+
+.match-score{
+font-size:25px;
+font-weight:900;
+margin:15px 0;
+}
+
+.minute{
+color:#facc15;
+font-size:18px;
+font-weight:bold;
+}
+
+.action-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+margin-top:20px;
+}
+
+.action-btn{
+padding:18px 10px;
+border:none;
+border-radius:15px;
+font-size:15px;
+font-weight:900;
+cursor:pointer;
+color:white;
+background:linear-gradient(135deg,#166534,#15803d);
+border:1px solid rgba(56,232,120,.3);
+}
+
+.action-btn:hover{
+transform:scale(1.02);
+}
+
+.match-log{
+background:#050b07;
+border:1px solid #263c2d;
+border-radius:15px;
+padding:12px;
+height:130px;
+overflow:auto;
+text-align:left;
+margin-top:15px;
+font-size:13px;
+}
+
+/* COPPE */
+
+.bracket{
+display:flex;
+flex-direction:column;
+gap:10px;
+margin-top:15px;
+}
+
+.bracket-card{
+background:rgba(255,255,255,.04);
+border:1px solid #23382b;
+border-radius:12px;
+padding:12px;
+text-align:left;
 }
 
 .stars{
-    color:#facc15;
-    font-size:25px;
-    letter-spacing:3px;
-    cursor:pointer
+color:#facc15;
+font-size:25px;
+letter-spacing:3px;
+cursor:pointer;
 }
 
-.rating-summary{
-    background:rgba(250,204,21,.08);
-    border:1px solid rgba(250,204,21,.25);
-    padding:15px;
-    border-radius:15px;
-    text-align:center;
-    margin-bottom:15px
-}
-
-.modal{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,.85);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index:1000;
-    backdrop-filter:blur(5px)
-}
-
-.modal-content{
-    background:#0c1811;
-    padding:25px;
-    border-radius:20px;
-    max-width:520px;
-    width:90%;
-    border:2px solid #facc15;
-    text-align:center;
-    box-shadow:0 20px 50px rgba(0,0,0,.9)
+.review-card{
+background:rgba(255,255,255,.04);
+padding:12px;
+border-radius:12px;
+border:1px solid #23382b;
+margin-top:8px;
+text-align:left;
 }
 
 .adsense-box{
-    width:100%;
-    max-width:728px;
-    min-height:90px;
-    margin:25px auto 5px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden
-}
-
-.global-counter{
-    display:inline-block;
-    padding:10px 18px;
-    margin:15px 0 5px;
-    border-radius:14px;
-    background:rgba(56,232,120,.08);
-    border:1px solid rgba(56,232,120,.25);
-    color:#d1dcd4;
-    font-size:13px
-}
-
-.global-counter strong{
-    color:#38e878;
-    font-size:18px
-}
-
-.contact-box{
-    margin-top:15px;
-    padding:15px;
-    border-radius:16px;
-    border:1px solid rgba(56,232,120,.25);
-    background:rgba(56,232,120,.05)
-}
-
-.contact-box a{
-    color:#38e878;
-    font-weight:bold;
-    text-decoration:none
-}
-
-.contact-box a:hover{
-    text-decoration:underline
+width:100%;
+max-width:728px;
+min-height:90px;
+margin:25px auto 5px;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
 }
 
 @keyframes float{
-    0%,100%{
-        transform:translateY(0)
-    }
-    50%{
-        transform:translateY(-10px)
-    }
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
 }
 
-@media(max-width:600px){
-
-    .card{
-        padding:25px 15px
-    }
-
-    .table-row,
-    .shop-item,
-    .post-card,
-    .family-card,
-    .relationship-card,
-    .clinic-card,
-    .trophy-card,
-    .review-card{
-        font-size:12px
-    }
-
-    .start-button{
-        font-size:13px;
-        padding:11px 15px
-    }
+@media(max-width:700px){
+.creator-layout{
+grid-template-columns:1fr;
 }
 
+.action-grid{
+grid-template-columns:1fr 1fr;
+}
+}
+
+@media(max-width:500px){
+.card{padding:25px 15px}
+.start-button{font-size:13px;padding:11px 15px}
+}
 </style>
 </head>
 
@@ -561,21 +508,15 @@ textarea{
 
 <main class="container">
 
-<!-- =========================================
-     HOME
-     ========================================= -->
+<!-- HOME -->
 
 <section class="card" id="home">
 
 <div class="home-pitch-bg"></div>
 
-<div class="hero-badge">
-⚽ Ultimate Football Career
-</div>
+<div class="hero-badge">⚽ Ultimate Football Career</div>
 
-<div class="ball-icon">
-🏆
-</div>
+<div class="ball-icon">🏆</div>
 
 <h1 class="home-title">
 NEXT <span>FOOTBALL STAR</span>
@@ -588,41 +529,20 @@ gestisci carriera, famiglia, amore, social, mercato e trofei!
 
 <div class="features-pills">
 <div class="pill">🌍 Mondiali</div>
-<div class="pill">🏆 Champions League</div>
+<div class="pill">🏆 Champions</div>
+<div class="pill">⚽ Match interattivi</div>
 <div class="pill">📱 Social</div>
 <div class="pill">❤️ Relazioni</div>
-<div class="pill">👨‍👩‍👦 Famiglia</div>
-<div class="pill">🏥 Clinica</div>
-<div class="pill">🥇 Premi individuali</div>
+<div class="pill">🏆 Coppe</div>
+<div class="pill">🌟 Pallone d'Oro</div>
 </div>
-
-<div class="global-counter">
-👥 Carriere create su questo dispositivo:
-<strong id="careerCounter">0</strong>
-</div>
-
-<br>
 
 <button class="start-button" onclick="checkSavedGame()">
 ENTRA IN CAMPO 🚀
 </button>
 
-<br>
-
 <button class="start-button btn-gold" onclick="openReviews()">
-⭐ RECENSIONI DEL GIOCO
-</button>
-
-<br>
-
-<button class="start-button btn-purple" onclick="openGlobalStats()">
-🌍 STATISTICHE
-</button>
-
-<br>
-
-<button class="start-button btn-blue" onclick="openContacts()">
-📩 CONTATTI
+⭐ RECENSIONI
 </button>
 
 <div class="adsense-box">
@@ -639,224 +559,165 @@ data-full-width-responsive="true"></ins>
 </section>
 
 
-<!-- =========================================
-     CREAZIONE GIOCATORE
-     ========================================= -->
+<!-- CREAZIONE -->
 
-<section class="card career-screen hidden" id="career">
+<section class="card hidden" id="career">
 
-<h2>
-CREA IL TUO GIOCATORE 👤
-</h2>
+<h2>👤 CREA IL TUO GIOCATORE</h2>
 
-<p style="margin-bottom:15px;color:#aab8ae;font-size:13px">
-Crea il tuo profilo e inizia la scalata verso la gloria!
+<p style="color:#aab8ae;margin:10px 0 20px">
+Personalizza il tuo futuro campione.
 </p>
 
-<input
-id="playerName"
-placeholder="Nome del giocatore"
->
+<div class="creator-layout">
 
-<input
-id="playerSurname"
-placeholder="Cognome del giocatore"
->
+<div class="player-preview">
+
+<div class="man">
+
+<div class="head" id="previewHead"></div>
+<div class="hair" id="previewHair"></div>
+
+<div class="arm left" id="previewArm1"></div>
+<div class="arm right" id="previewArm2"></div>
+
+<div class="body" id="previewBody">
+<div class="number" id="previewNumber">10</div>
+</div>
+
+<div class="shorts"></div>
+
+<div class="leg left" id="previewLeg1"></div>
+<div class="leg right" id="previewLeg2"></div>
+
+<div class="boot left"></div>
+<div class="boot right"></div>
+
+</div>
+
+<div class="preview-number">
+MAGLIA #<span id="previewNumberText">10</span>
+</div>
+
+</div>
+
+
+<div>
+
+<input id="playerName" placeholder="Nome">
+
+<input id="playerSurname" placeholder="Cognome">
 
 <input
 id="jerseyNumber"
 type="number"
-placeholder="Numero di Maglia (1-99)"
+placeholder="Numero 1-99"
 min="1"
 max="99"
+value="10"
+oninput="updatePreview()"
 >
 
-<select id="hairType">
+<select id="skinColor" onchange="updatePreview()">
 
-<option value="">
-Scegli i capelli 💇
-</option>
+<option value="#c68642">🤎 Marrone</option>
+<option value="#e0c096">💛 Giallo</option>
+<option value="#f1d0b5">🤍 Bianco</option>
+<option value="#f0a6a0">🩷 Rosa</option>
+<option value="#5a3825">🖤 Nero</option>
 
-<option>
-Corti Classici
-</option>
+</select>
 
-<option>
-Cresta Moderna
-</option>
+<select id="hairType" onchange="updatePreview()">
 
-<option>
-Ricci Afro
-</option>
-
-<option>
-Capelli Lunghi
-</option>
-
-<option>
-Rasato
-</option>
+<option value="short">💇 Corti Classici</option>
+<option value="crest">🔥 Cresta Moderna</option>
+<option value="afro">🌀 Ricci Afro</option>
+<option value="long">💇 Capelli Lunghi</option>
+<option value="bald">😎 Rasato</option>
 
 </select>
 
 <select id="personality">
 
-<option value="">
-Scegli la personalità 🧠
-</option>
-
-<option value="Leader Naturale">
-👑 Leader Naturale
-</option>
-
-<option value="Prodigio Tecnico">
-🎯 Prodigio Tecnico
-</option>
-
-<option value="Lavoratore Instancabile">
-🏋️ Lavoratore Instancabile
-</option>
+<option value="">🧠 Personalità</option>
+<option>👑 Leader Naturale</option>
+<option>🎯 Prodigio Tecnico</option>
+<option>🏋️ Lavoratore Instancabile</option>
 
 </select>
 
 <select id="position">
 
-<option value="">
-Scegli il ruolo ⚽
-</option>
-
-<option>
-Attaccante
-</option>
-
-<option>
-Centrocampista
-</option>
-
-<option>
-Difensore
-</option>
+<option value="">⚽ Ruolo</option>
+<option>Attaccante</option>
+<option>Centrocampista</option>
+<option>Difensore</option>
 
 </select>
 
-<select
-id="nationality"
-onchange="updateTeamDropdown()"
->
+<select id="nationality" onchange="updateTeamDropdown()">
 
-<option value="">
-Scegli la nazionalità 🌍
-</option>
+<option value="">🌍 Nazionalità</option>
 
 <option>🇮🇹 Italia</option>
 <option>🇪🇸 Spagna</option>
 <option>🇫🇷 Francia</option>
 <option>🇩🇪 Germania</option>
 <option>🇬🇧 Inghilterra</option>
-<option>🇵🇹 Portogallo</option>
-<option>🇳🇱 Paesi Bassi</option>
-<option>🇧🇪 Belgio</option>
-<option>🇦🇹 Austria</option>
-<option>🇨🇭 Svizzera</option>
-<option>🇵🇱 Polonia</option>
-<option>🇬🇷 Grecia</option>
-<option>🇭🇷 Croazia</option>
-<option>🇷🇸 Serbia</option>
-<option>🇸🇪 Svezia</option>
-<option>🇩🇰 Danimarca</option>
-<option>🇹🇷 Turchia</option>
+<option>🇧🇷 Brasile</option>
+<option>🇦🇷 Argentina</option>
 <option>🇲🇦 Marocco</option>
 <option>🇪🇬 Egitto</option>
+<option>🇹🇷 Turchia</option>
 <option>🇹🇳 Tunisia</option>
 <option>🇳🇴 Norvegia</option>
 <option>🇵🇰 Pakistan</option>
 <option>🇺🇸 Stati Uniti</option>
-<option>🇲🇽 Messico</option>
-<option>🇨🇴 Colombia</option>
-<option>🇨🇱 Cile</option>
-<option>🇧🇷 Brasile</option>
-<option>🇦🇷 Argentina</option>
-<option>🇯🇵 Giappone</option>
-<option>🇰🇷 Corea del Sud</option>
 <option>🇨🇳 Cina</option>
-<option>🇦🇺 Australia</option>
+<option>🇿🇦 Sudafrica</option>
 
 </select>
 
 <select id="startingTeam">
-
-<option value="RANDOM">
-🎲 Offerta Casuale
-</option>
-
+<option value="RANDOM">🎲 Offerta Casuale</option>
 </select>
 
-<button
-class="start-button"
-onclick="createPlayer()"
->
+<button class="start-button" onclick="createPlayer()">
 INIZIA LA CARRIERA 🚀
 </button>
 
-<br>
+</div>
 
-<button
-class="start-button btn-blue"
-onclick="showScreen('home')"
->
-⬅️ Torna
-</button>
+</div>
 
 </section>
 
 
-<!-- =========================================
-     HUB
-     ========================================= -->
+<!-- HUB -->
 
 <section class="card hidden" id="hub">
 
-<h2 id="displayPlayerName">
-Nome Giocatore
-</h2>
+<h2 id="displayPlayerName"></h2>
 
-<p
-id="displayDetails"
-style="color:#38e878;margin-bottom:3px"
->
-Ruolo | Nazionalità
+<p id="displayDetails" style="color:#38e878"></p>
+
+<p id="displayTeam"
+style="color:#facc15;font-weight:bold;margin:8px">
 </p>
-
-<p
-id="displayExtra"
-style="color:#d1dcd4;font-size:13px;margin-bottom:5px"
-></p>
-
-<p
-id="displayTeam"
-style="color:#facc15;font-weight:bold;margin-bottom:10px"
-></p>
 
 <div class="status-banner">
 
-<span>
-👔 Mister:
+<span>👔 Mister:
 <strong id="valCoachTrust">80%</strong>
 </span>
 
-<span>
-🏥 Salute:
+<span>🏥 Salute:
 <strong id="valHealth">Sano</strong>
 </span>
 
-<span>
-🏆 Champions:
-<strong id="valUclStatus">No</strong>
-</span>
-
-<span>
-❤️ Amore:
-<strong id="valLove">--</strong>
+<span>💰:
+<strong id="valMoney">€500</strong>
 </span>
 
 </div>
@@ -889,13 +750,13 @@ style="color:#facc15;font-weight:bold;margin-bottom:10px"
 </div>
 
 <div class="stat-card">
-<h4>ENERGIA</h4>
-<p id="valEnergy">100%</p>
+<h4>XP</h4>
+<p id="valXP">0</p>
 </div>
 
 <div class="stat-card">
-<h4>DENARO</h4>
-<p id="valMoney">€500</p>
+<h4>ENERGIA</h4>
+<p id="valEnergy">100%</p>
 </div>
 
 <div class="stat-card">
@@ -911,549 +772,187 @@ style="color:#facc15;font-weight:bold;margin-bottom:10px"
 📰 THE FOOTBALL STAR TIMES
 </div>
 
-<div
-class="news-headline"
-id="newsText"
->
-Inizia la carriera da giovane talento!
+<div class="news-headline" id="newsText">
+Inizia la tua carriera!
 </div>
 
 </div>
 
 <div class="log-box" id="gameLog">
-
-<div>
-&gt; Benvenuto! Inizia la tua scalata verso la gloria!
-</div>
-
+<div>> Benvenuto nella tua carriera!</div>
 </div>
 
 <div class="actions-grid">
 
-<button
-class="start-button btn-orange"
-onclick="playMatch()"
->
+<button class="start-button btn-orange"
+onclick="startMatch()">
 ⚽ Gioca Match
 </button>
 
-<button
-class="start-button"
-onclick="train()"
->
+<button class="start-button"
+onclick="train()">
 🏋️ Allenati
-(<span id="trainProgress">0/5</span>)
 </button>
 
-<button
-class="start-button btn-pink"
-onclick="openSocial()"
->
-📱 Social
-</button>
-
-<button
-class="start-button btn-purple"
-onclick="sponsor()"
->
-📸 Sponsor
-</button>
-
-<button
-class="start-button btn-blue"
-onclick="rest()"
->
+<button class="start-button btn-blue"
+onclick="rest()">
 💤 Riposo
 </button>
 
-<button
-class="start-button btn-gold"
-onclick="openShop()"
->
-💎 Shop
+<button class="start-button btn-purple"
+onclick="openCup()">
+🏆 Coppe
 </button>
 
-<button
-class="start-button btn-green"
-onclick="openFamily()"
->
-👨‍👩‍👦 Famiglia
-</button>
-
-<button
-class="start-button btn-pink"
-onclick="openRelationship()"
->
-❤️ Amore
-</button>
-
-<button
-class="start-button btn-blue"
-onclick="openClinic()"
->
-🏥 Clinica
-</button>
-
-<button
-class="start-button btn-gold"
-onclick="openTrophies()"
->
-🏆 Bacheca Trofei
-</button>
-
-<button
-class="start-button btn-blue"
-onclick="openLeague()"
->
-📊 Classifica
-</button>
-
-<button
-class="start-button btn-purple"
-onclick="openReviews()"
->
+<button class="start-button btn-gold"
+onclick="openReviews()">
 ⭐ Recensioni
 </button>
 
-<button
-class="start-button btn-red"
-onclick="resetGame()"
->
+<button class="start-button btn-pink"
+onclick="social()">
+📱 Social
+</button>
+
+<button class="start-button btn-green"
+onclick="family()">
+👨‍👩‍👦 Famiglia
+</button>
+
+<button class="start-button btn-pink"
+onclick="relationship()">
+❤️ Amore
+</button>
+
+<button class="start-button btn-blue"
+onclick="clinic()">
+🏥 Clinica
+</button>
+
+<button class="start-button btn-purple"
+onclick="careerStats()">
+📊 Carriera
+</button>
+
+<button class="start-button btn-red"
+onclick="resetGame()">
 🗑️ Resetta
 </button>
 
 </div>
 
-<div class="adsense-box">
-
-<ins class="adsbygoogle"
-style="display:block;width:100%;min-height:90px"
-data-ad-client="ca-pub-4740569819691854"
-data-ad-slot="auto"
-data-ad-format="auto"
-data-full-width-responsive="true"></ins>
-
-</div>
-
 </section>
 
 
-<!-- SOCIAL -->
+<!-- PARTITA -->
 
-<section
-class="card career-screen hidden"
-id="social"
->
+<section class="card hidden" id="match">
 
-<h2>
-📱 SOCIAL MEDIA
-</h2>
+<h2>⚽ MATCH INTERATTIVO</h2>
 
-<p
-style="color:#aab8ae;font-size:13px;margin-bottom:15px"
->
-Costruisci il tuo brand.
+<div class="minute">
+MINUTO <span id="matchMinute">1</span>'
+</div>
+
+<div class="match-score" id="matchScore">
+0 - 0
+</div>
+
+<p id="matchOpponent">
+Avversario
 </p>
 
-<div class="social-feed">
+<div class="status-banner">
 
-<div class="post-card">
+<span>⚡ Energia:
+<strong id="matchEnergy">100%</strong>
+</span>
 
-<div>
-<strong>🏋️ Hard Work</strong>
-<br>
-<small>
-Mai mollare un centimetro!
-</small>
-</div>
-
-<button
-class="start-button btn-pink"
-onclick="publishPost('workout')"
->
-Pubblica
-</button>
+<span>⭐ Overall:
+<strong id="matchOverall">60</strong>
+</span>
 
 </div>
-
-<div class="post-card">
-
-<div>
-<strong>🏎️ Vita da Star</strong>
-<br>
-<small>
-Solo il meglio.
-</small>
-</div>
-
-<button
-class="start-button btn-pink"
-onclick="publishPost('flex')"
->
-Pubblica
-</button>
-
-</div>
-
-<div class="post-card">
-
-<div>
-<strong>⚽ Skill Challenge</strong>
-<br>
-<small>
-Diventiamo virali!
-</small>
-</div>
-
-<button
-class="start-button btn-pink"
-onclick="publishPost('tiktok')"
->
-Pubblica
-</button>
-
-</div>
-
-</div>
-
-<button
-class="start-button btn-blue"
-onclick="showScreen('hub')"
->
-⬅️ Torna
-</button>
-
-</section>
-
-
-<!-- CLASSIFICA -->
-
-<section
-class="card career-screen hidden"
-id="league"
->
-
-<h2>
-🏆 CAMPIONATO
-</h2>
-
-<p
-id="divisionText"
-style="color:#38e878;margin-top:5px"
-></p>
-
-<div
-class="league-table"
-id="leagueTable"
-></div>
-
-<button
-class="start-button btn-blue"
-onclick="showScreen('hub')"
->
-⬅️ Torna
-</button>
-
-</section>
-
-
-<!-- SHOP -->
-
-<section
-class="card career-screen hidden"
-id="shop"
->
-
-<h2>
-💎 SHOP & STAFF
-</h2>
-
-<div
-class="shop-list"
-id="shopList"
-></div>
-
-<button
-class="start-button btn-blue"
-onclick="showScreen('hub')"
->
-⬅️ Torna
-</button>
-
-</section>
-
-
-<!-- FAMIGLIA -->
-
-<section
-class="card career-screen hidden"
-id="family"
->
-
-<h2>
-👨‍👩‍👦 FAMIGLIA
-</h2>
 
 <div class="section-box">
 
-<h3>
-🏠 La tua famiglia
-</h3>
+<h3>🔥 SEI IN POSSESSO</h3>
 
-<p id="familyText"></p>
+<p id="matchSituation">
+Hai ricevuto palla. Cosa fai?
+</p>
+
+<div class="action-grid">
+
+<button class="action-btn"
+onclick="matchAction('shoot')">
+⚽ TIRA
+</button>
+
+<button class="action-btn"
+onclick="matchAction('pass')">
+🎯 PASSA
+</button>
+
+<button class="action-btn"
+onclick="matchAction('dribble')">
+🏃 DRIBBLA
+</button>
+
+<button class="action-btn"
+onclick="matchAction('protect')">
+🛡️ PROTEGGI PALLA
+</button>
 
 </div>
 
-<div
-class="family-list"
-id="familyList"
-></div>
+</div>
 
-<button
-class="start-button btn-green"
-onclick="familyActivity()"
->
-👨‍👩‍👦 Passa tempo con la famiglia
-</button>
-
-<button
-class="start-button btn-blue"
-onclick="showScreen('hub')"
->
-⬅️ Torna
-</button>
+<div class="match-log" id="matchLog"></div>
 
 </section>
 
 
-<!-- AMORE -->
+<!-- COPPE -->
 
-<section
-class="card career-screen hidden"
-id="relationship"
->
+<section class="card hidden" id="cups">
 
-<h2>
-❤️ RELAZIONE
-</h2>
+<h2>🏆 COPPE</h2>
 
 <div class="section-box">
 
-<h3 id="girlfriendName">
-La tua ragazza
-</h3>
+<h3>🏆 COPPA NAZIONALE</h3>
 
-<p id="loveDescription"></p>
-
-<div class="progress">
-
-<div
-class="progress-bar"
-id="loveBar"
-style="width:50%"
-></div>
-
-</div>
-
-<p style="margin-top:8px">
-Relazione:
-<strong id="loveValue">
-50%
-</strong>
+<p id="nationalCupStatus">
+Non ancora iniziata.
 </p>
 
-</div>
-
-<div class="relationship-list">
-
-<div class="relationship-card">
-
-<div>
-<strong>🍝 Cena romantica</strong>
-<br>
-<small>
-+8 relazione • -€300
-</small>
-</div>
-
-<button
-class="start-button btn-pink"
-onclick="dateActivity()"
->
-Esci
+<button class="start-button btn-gold"
+onclick="startNationalCup()">
+GIOCA COPPA
 </button>
 
 </div>
 
-<div class="relationship-card">
+<div class="section-box">
 
-<div>
-<strong>🎁 Regalo</strong>
-<br>
-<small>
-+10 relazione • -€500
-</small>
-</div>
+<h3>⭐ CHAMPIONS LEAGUE</h3>
 
-<button
-class="start-button btn-gold"
-onclick="giveGift()"
->
-Regala
-</button>
-
-</div>
-
-<div class="relationship-card">
-
-<div>
-<strong>🌹 Grande regalo</strong>
-<br>
-<small>
-+18 relazione • -€2.000
-</small>
-</div>
-
-<button
-class="start-button btn-purple"
-onclick="bigGift()"
->
-Regala
-</button>
-
-</div>
-
-</div>
-
-<button
-class="start-button btn-blue"
-onclick="showScreen('hub')"
->
-⬅️ Torna
-</button>
-
-</section>
-
-
-<!-- CLINICA -->
-
-<section
-class="card career-screen hidden"
-id="clinic"
->
-
-<h2>
-🏥 CLINICA SPORTIVA
-</h2>
-
-<div class="clinic-list">
-
-<div class="clinic-card">
-
-<div>
-<strong>🩺 Visita medica</strong>
-<br>
-<small>
-Riduce di 1 giornata l'infortunio • €500
-</small>
-</div>
-
-<button
-class="start-button btn-blue"
-onclick="medicalVisit()"
->
-Cura
-</button>
-
-</div>
-
-<div class="clinic-card">
-
-<div>
-<strong>💉 Riabilitazione intensiva</strong>
-<br>
-<small>
-Riduce di 3 giornate • €2.000
-</small>
-</div>
-
-<button
-class="start-button btn-green"
-onclick="intensiveRecovery()"
->
-Cura
-</button>
-
-</div>
-
-<div class="clinic-card">
-
-<div>
-<strong>🏥 Recupero completo</strong>
-<br>
-<small>
-Guarisci immediatamente • €10.000
-</small>
-</div>
-
-<button
-class="start-button btn-gold"
-onclick="fullRecovery()"
->
-Cura
-</button>
-
-</div>
-
-</div>
-
-<button
-class="start-button btn-blue"
-onclick="showScreen('hub')"
->
-⬅️ Torna
-</button>
-
-</section>
-
-
-<!-- TROFEI -->
-
-<section
-class="card career-screen hidden"
-id="trophies"
->
-
-<h2>
-🏆 BACHECA DEI TROFEI
-</h2>
-
-<div class="award-big">
-
-<div class="icon">
-🏆
-</div>
-
-<h3>
-LA TUA LEGGENDA
-</h3>
-
-<p>
-Trofei conquistati:
-<strong id="trophyTotal">0</strong>
+<p id="uclStatus">
+Non ancora qualificato.
 </p>
 
+<button class="start-button btn-purple"
+onclick="startUCL()">
+GIOCA CHAMPIONS
+</button>
+
 </div>
 
-<div
-class="trophy-list"
-id="trophyList"
-></div>
+<div id="cupBracket" class="bracket"></div>
 
-<button
-class="start-button btn-blue"
-onclick="showScreen('hub')"
->
+<button class="start-button btn-blue"
+onclick="showScreen('hub')">
 ⬅️ Torna
 </button>
 
@@ -1462,42 +961,17 @@ onclick="showScreen('hub')"
 
 <!-- RECENSIONI -->
 
-<section
-class="card career-screen hidden"
-id="reviews"
->
+<section class="card hidden" id="reviews">
 
-<h2>
-⭐ RECENSIONI DEL GIOCO
-</h2>
-
-<div class="rating-summary">
-
-<h3 id="averageRating">
-⭐ 0.0 / 5
-</h3>
-
-<p id="reviewCount">
-Nessuna recensione ancora
-</p>
-
-</div>
+<h2>⭐ RECENSIONI</h2>
 
 <div class="section-box">
 
-<h3>
-Lascia una recensione
-</h3>
+<h3>Lascia una recensione</h3>
 
-<input
-id="reviewName"
-placeholder="Il tuo nome"
->
+<input id="reviewName" placeholder="Il tuo nome">
 
-<div
-class="stars"
-id="starSelector"
->
+<div class="stars" id="starSelector">
 
 <span onclick="selectRating(1)">☆</span>
 <span onclick="selectRating(2)">☆</span>
@@ -1507,37 +981,40 @@ id="starSelector"
 
 </div>
 
-<p
-id="selectedRating"
-style="margin:8px 0;color:#facc15"
->
-Seleziona da 1 a 5 stelle
+<p id="selectedRating">
+Seleziona le stelle
 </p>
 
 <textarea
 id="reviewText"
-placeholder="Scrivi la tua recensione..."
-></textarea>
+placeholder="Scrivi la tua recensione">
+</textarea>
 
 <button
 class="start-button btn-gold"
-onclick="submitReview()"
->
-PUBBLICA RECENSIONE ⭐
+onclick="submitReview()">
+PUBBLICA ⭐
 </button>
 
 </div>
 
-<div
-class="review-list"
-id="reviewList"
-></div>
+<div class="section-box">
 
-<button
-class="start-button btn-blue"
-onclick="showScreen('home')"
->
-⬅️ Torna alla Home
+<h3 id="averageRating">
+⭐ 0.0 / 5
+</h3>
+
+<p id="reviewCount">
+0 recensioni
+</p>
+
+<div id="reviewList"></div>
+
+</div>
+
+<button class="start-button btn-blue"
+onclick="showScreen('hub')">
+⬅️ Torna
 </button>
 
 </section>
@@ -1545,187 +1022,26 @@ onclick="showScreen('home')"
 
 <!-- STATISTICHE -->
 
-<section
-class="card career-screen hidden"
-id="globalStats"
->
+<section class="card hidden" id="careerStats">
 
-<h2>
-🌍 STATISTICHE
-</h2>
-
-<div class="award-big">
-
-<div class="icon">
-🌍
-</div>
-
-<h3>
-STATISTICHE DEL GIOCO
-</h3>
-
-<p>
-Dati salvati localmente su questo dispositivo.
-</p>
-
-</div>
-
-<div class="trophy-list">
-
-<div class="trophy-card">
-<span>
-👥 Carriere create
-</span>
-<strong id="statsCareers">
-0
-</strong>
-</div>
-
-<div class="trophy-card">
-<span>
-⭐ Recensioni
-</span>
-<strong id="statsReviews">
-0
-</strong>
-</div>
-
-<div class="trophy-card">
-<span>
-⚽ Gol della carriera attuale
-</span>
-<strong id="statsGoals">
-0
-</strong>
-</div>
-
-<div class="trophy-card">
-<span>
-🏆 Trofei della carriera attuale
-</span>
-<strong id="statsTrophies">
-0
-</strong>
-</div>
-
-</div>
-
-<p
-style="margin-top:15px;color:#aab8ae;font-size:12px"
->
-⚠️ Questi dati sono locali e non vengono condivisi con altri dispositivi.
-</p>
-
-<button
-class="start-button btn-blue"
-onclick="showScreen('home')"
->
-⬅️ Torna alla Home
-</button>
-
-</section>
-
-
-<!-- CONTATTI -->
-
-<section
-class="card career-screen hidden"
-id="contacts"
->
-
-<h2>
-📩 CONTATTI
-</h2>
-
-<div class="contact-box">
-
-<h3 style="color:#38e878;margin-bottom:10px">
-Hai bisogno di aiuto?
-</h3>
-
-<p style="color:#d1dcd4;line-height:1.5">
-Per informazioni, problemi, suggerimenti o segnalazioni
-puoi contattare lo sviluppatore.
-</p>
-
-<p style="margin-top:15px">
-📧
-<a href="mailto:mistergame931@gmail.com">
-mistergame931@gmail.com
-</a>
-</p>
-
-</div>
-
-<button
-class="start-button btn-blue"
-onclick="showScreen('home')"
->
-⬅️ Torna alla Home
-</button>
-
-</section>
-
-
-<!-- RITIRO -->
-
-<section
-class="card career-screen hidden"
-id="retirement"
->
-
-<h2>
-👴 SCARPINI AL CHIODO
-</h2>
-
-<p style="color:#aab8ae;margin-top:10px">
-Hai compiuto 40 anni e ti ritiri ufficialmente.
-</p>
+<h2>📊 STORIA DELLA CARRIERA</h2>
 
 <div class="section-box">
 
-<p>
-🏆 Trofei:
-<span id="retTrophies">0</span>
-</p>
-
-<p>
-🌍 Mondiali:
-<span id="retWorldCups">0</span>
-</p>
-
-<p>
-⭐ Champions:
-<span id="retUcl">0</span>
-</p>
-
-<p>
-⚽ Goal:
-<span id="retGoals">0</span>
-</p>
-
-<p>
-🎯 Assist:
-<span id="retAssists">0</span>
-</p>
-
-<p>
-💰 Patrimonio:
-€<span id="retMoney">0</span>
-</p>
-
-<p>
-⭐ Fan:
-<span id="retFans">0</span>
-</p>
+<p>⚽ Gol: <strong id="careerGoals">0</strong></p>
+<p>🎯 Assist: <strong id="careerAssists">0</strong></p>
+<p>🏆 Trofei: <strong id="careerTrophies">0</strong></p>
+<p>🌍 Mondiali: <strong id="careerWorldCups">0</strong></p>
+<p>⭐ Champions: <strong id="careerUCL">0</strong></p>
+<p>🌟 Palloni d'Oro: <strong id="careerBallon">0</strong></p>
+<p>📈 Overall massimo: <strong id="careerMaxOverall">60</strong></p>
+<p>💰 Patrimonio: €<strong id="careerMoney">500</strong></p>
 
 </div>
 
-<button
-class="start-button btn-gold"
-onclick="resetGame()"
->
-REINIZIA CARRIERA 🔄
+<button class="start-button btn-blue"
+onclick="showScreen('hub')">
+⬅️ Torna
 </button>
 
 </section>
@@ -1733,1501 +1049,350 @@ REINIZIA CARRIERA 🔄
 </main>
 
 
-<!-- =========================================
-     MODALE
-     ========================================= -->
-
-<div
-id="eventModal"
-class="modal hidden"
->
-
-<div class="modal-content">
-
-<h3
-id="modalTitle"
-style="color:#facc15;margin-bottom:15px"
->
-EVENTO
-</h3>
-
-<p
-id="modalText"
-style="margin-bottom:20px;font-size:14px;line-height:1.5"
-></p>
-
-<div
-id="modalButtons"
-style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap"
-></div>
-
-</div>
-
-</div>
-
-
 <script>
 
-/* =========================================
-   ADSENSE
-   ========================================= */
+/* =========================
+   DATABASE
+========================= */
 
-window.addEventListener("load",function(){
+const teamsDB={
 
-try{
+"🇮🇹 Italia":[
+"Lombardia Neroazzurra",
+"Torino Bianconera",
+"Milano Rossonera",
+"Partenope Azzurra",
+"Roma Giallorossa",
+"Bologna Rossoblu",
+"Firenze Viola",
+"Napoli Vesuvio",
+"Parma Gialloblu",
+"Palermo Rosanero",
+"Bari Biancorossa",
+"Venezia Arancio",
+"Pisa Nerazzurra",
+"Padova Biancoscudata",
+"Vicenza Biancorossa",
+"Catania Etna"
+],
 
-(adsbygoogle = window.adsbygoogle || []).push({});
+"🇪🇸 Spagna":[
+"Madrid Blancos",
+"Catalunya Red-Blue",
+"Madrid Colchoneros",
+"Sevilla Roja",
+"Valencia Naranja",
+"Bilbao Lions",
+"Zaragoza Real",
+"Malaga Azul",
+"Oviedo Azul",
+"Cordoba Verde",
+"Murcia Roja",
+"Alicante Stars"
+],
 
-}catch(e){
+"🇫🇷 Francia":[
+"Paris Red-Blue",
+"Marseille Sky Blue",
+"Lyon Lions",
+"Monaco Red-White",
+"Lille Great Danes",
+"Nice Eagles",
+"Bordeaux Navy",
+"Nantes Green",
+"Toulouse Violet",
+"Rennes Red",
+"Dijon Mustard",
+"Metz Garnets"
+],
 
-console.log("AdSense:",e);
+"🇩🇪 Germania":[
+"Bavaria Red",
+"Dortmund Yellow",
+"Berlin Capital",
+"Leipzig Bulls",
+"Leverkusen Red",
+"Frankfurt Eagles",
+"Hamburg Blue",
+"Hannover Red",
+"Dresden Yellow",
+"Nurnberg Red",
+"Munster Green",
+"Essen Red"
+],
 
-}
+"🇬🇧 Inghilterra":[
+"Manchester Blue",
+"Merseyside Red",
+"London Red",
+"London Blue",
+"Liverpool Blue",
+"Newcastle Black",
+"Birmingham Blues",
+"Leeds White",
+"Sunderland Red",
+"Bristol City",
+"Derby Rams",
+"Bolton White"
+],
 
-});
+"🇧🇷 Brasile":[
+"Rio Samba",
+"Sao Paulo Tricolor",
+"Rio Red-Black",
+"Belo Horizonte Stars",
+"Porto Alegre Blue",
+"Recife Sport",
+"Salvador Bahia",
+"Fortaleza Lions",
+"Goiania Green",
+"Curitiba Stars",
+"Natal Blue",
+"Brasilia FC"
+],
+
+"🇦🇷 Argentina":[
+"Buenos Aires Blue-Gold",
+"Buenos Aires Red-White",
+"Rosario Central",
+"Cordoba Talleres",
+"La Plata Stars",
+"Mendoza Red",
+"Tucuman Blue",
+"Mar del Plata",
+"Salta Eagles",
+"Santa Fe Stars",
+"Neuquen Blue",
+"Patagonia FC"
+],
+
+"🇲🇦 Marocco":[
+"Casablanca Red Eagles",
+"Casablanca Green Stars",
+"Rabat Military",
+"Berkane Orange",
+"Marrakech Red",
+"Agadir Waves",
+"Tangier Blue",
+"Fez Royals",
+"Meknes Stars",
+"Oujda Lions",
+"Kenitra Green",
+"Atlas FC"
+],
+
+"🇪🇬 Egitto":[
+"Cairo Red Devils",
+"Giza White Knights",
+"Pyramids Gold",
+"Alexandria Blue",
+"Suez Stars",
+"Port Said Green",
+"Luxor Kings",
+"Aswan Nile",
+"Tanta Lions",
+"Mansoura Stars",
+"Ismailia Yellow",
+"Nile FC"
+],
+
+"🇹🇷 Turchia":[
+"Istanbul Yellow-Navy",
+"Bosphorus Yellow-Red",
+"Black Eagles Bosphorus",
+"Trabzon Blue-Red",
+"Izmir Stars",
+"Ankara Lions",
+"Bursa Green",
+"Adana Red",
+"Samsun Red",
+"Konya Green",
+"Kayseri Red",
+"Antalya Stars"
+],
+
+"🇹🇳 Tunisia":[
+"Tunis Eagles",
+"Sfax Stars",
+"Sousse Red",
+"Bizerte Blue",
+"Gabes Green",
+"Monastir Stars",
+"Kairouan",
+"Beja Blue",
+"Zarzis Red",
+"Hammamet",
+"Djerba FC",
+"Carthage Stars"
+],
+
+"🇳🇴 Norvegia":[
+"Oslo Vikings",
+"Bergen Blue",
+"Trondheim Red",
+"Stavanger Stars",
+"Tromso Arctic",
+"Drammen Blue",
+"Kristiansand",
+"Fredrikstad",
+"Molde Green",
+"Bodo Stars",
+"Viking North",
+"Arctic FC"
+],
+
+"🇵🇰 Pakistan":[
+"Karachi Stars",
+"Lahore Lions",
+"Islamabad United",
+"Peshawar Green",
+"Multan Tigers",
+"Quetta Stars",
+"Faisalabad",
+"Rawalpindi",
+"Sialkot",
+"Hyderabad",
+"Punjab FC",
+"Pakistan United"
+],
+
+"🇺🇸 Stati Uniti":[
+"Los Angeles Gold",
+"New York Stars",
+"Miami Pink",
+"Texas United",
+"Seattle Green",
+"Chicago Blue",
+"Boston Revolution",
+"Atlanta Red",
+"Denver Peaks",
+"Portland Green",
+"Austin Stars",
+"California FC"
+],
+
+"🇨🇳 Cina":[
+"Shanghai Red",
+"Beijing Dragons",
+"Guangzhou Tigers",
+"Shenzhen Stars",
+"Wuhan Blue",
+"Chengdu Green",
+"Nanjing Red",
+"Hangzhou Stars",
+"Tianjin Blue",
+"Dalian Red",
+"Beijing United",
+"China Stars"
+],
+
+"🇿🇦 Sudafrica":[
+"Johannesburg Lions",
+"Cape Town Stars",
+"Durban Sharks",
+"Pretoria United",
+"Soweto Warriors",
+"Port Elizabeth FC",
+"Bloemfontein Stars",
+"Polokwane United",
+"Mbombela Eagles",
+"Kimberley FC",
+"East London Stars",
+"South Africa United"
+]
+
+};
 
 
-/* =========================================
-   CHIAVI LOCAL STORAGE
-   ========================================= */
-
-const SAVE_KEY="nextFootballStarData_v4";
-const REVIEW_KEY="nextFootballStarReviews_v2";
-const CAREER_COUNT_KEY="nextFootballStarCareerCount_v1";
-
-
-let currentOffer=null;
-let selectedRating=0;
-
-
-/* =========================================
+/* =========================
    PLAYER
-   ========================================= */
+========================= */
+
+const SAVE_KEY="nextFootballStarUltimate_v1";
+const REVIEW_KEY="nextFootballStarReviews_v1";
 
 let player={
-
 name:"",
 surname:"",
+jerseyNumber:10,
+skin:"#c68642",
+hairType:"short",
+personality:"",
 position:"",
 nationality:"",
-jerseyNumber:10,
-
-hairType:"Corti Classici",
-personality:"Leader Naturale",
-
-league:"🇮🇹 Italia",
+team:"",
 division:"A",
-team:"Lombardia Neroazzurra",
-
-overall:60,
-energy:100,
-money:500,
-fans:100,
 
 age:16,
 season:1,
 matchDay:1,
-points:0,
+
+overall:60,
+maxOverall:60,
+xp:0,
+
+energy:100,
+money:500,
+fans:100,
 
 goals:0,
 assists:0,
 
-trainCount:0,
-inventory:[],
-
 coachTrust:80,
-injuryDays:0,
-
-qualifiedUCL:false,
-uclRound:0,
 
 trophies:0,
 worldCups:0,
 uclTrophies:0,
+nationalCups:0,
+ballonDor:0,
 
-goldenBoy:0,
-goldenBoot:0,
+injuryDays:0,
 
-overallGoalMilestones:0,
+nationalCup:{
+active:false,
+round:0,
+wins:0
+},
 
-hasPhysio:false,
-
-girlfriendName:"Sofia",
-love:50,
-dates:0,
-gifts:0,
-
-familyHappiness:70,
-familyVisits:0,
-
-newsIndex:0,
-lastOfferSeason:0,
-
-teamsPoints:{}
-
+ucl:{
+active:false,
+round:0,
+wins:0
+}
 };
 
+let selectedRating=0;
 
-/* =========================================
-   DATABASE SQUADRE
-   ========================================= */
-
-const leaguesDB={
-
-"🇮🇹 Italia":{
-A:[
-["Lombardia Neroazzurra",84],
-["Torino Bianconera",82],
-["Milano Rossonera",81],
-["Partenope Azzurra",79],
-["Roma Giallorossa",79],
-["Lazio Biancoceleste",78],
-["Firenze Viola",77],
-["Bologna Rossoblu",76],
-["Genova Blucerchiata",75],
-["Bergamo Blu-Nera",80],
-["Napoli Vesuvio",78],
-["Sardegna Rossoblu",74]
-],
-B:[
-["Parma Gialloblu",72],
-["Palermo Rosanero",71],
-["Bari Biancorossa",70],
-["Venezia Arancio",69],
-["Spezia Aquilotti",68],
-["Pisa Nerazzurra",67],
-["Modena Gialloblu",66],
-["Brescia Leonessa",65],
-["Como Lariano",64],
-["Cremona Grigiorossa",63],
-["Padova Biancoscudata",62],
-["Reggiana Granata",61]
-],
-C:[
-["Catania Etna",61],
-["Perugia Grifoni",60],
-["Triestina Alabarda",59],
-["Taranto Rossoblu",58],
-["Foggia Rossonera",57],
-["Cesena Bianconera",56],
-["Vicenza Biancorossa",55],
-["Avellino Verde",54],
-["Rimini Adriatica",53],
-["Pescara Delfini",52],
-["Catanzaro Giallorossa",51],
-["Siena Bianconera",50]
-]
-},
-
-"🇪🇸 Spagna":{
-A:[
-["Madrid Blancos",88],
-["Catalunya Red-Blue",86],
-["Madrid Colchoneros",82],
-["Sevilla Roja",78],
-["Valencia Naranja",77],
-["Bilbao Lions",76],
-["Villarreal Yellow",75],
-["Sociedad Blue",74],
-["Betis Green",73],
-["Celta Sky",72],
-["Mallorca Red",70],
-["Girona Stars",76]
-],
-B:[
-["Zaragoza Real",70],
-["Malaga Azul",69],
-["Oviedo Azul",67],
-["Tenerife Blanca",66],
-["Valladolid Violet",65],
-["Levante Granota",64],
-["Eibar Red",63],
-["Elche Green",62],
-["Sporting Gijon",61],
-["Racing Santander",60],
-["Albacete White",59],
-["Leganes Blue",58]
-],
-C:[
-["Cordoba Verde",62],
-["Murcia Roja",61],
-["Salamanca Union",59],
-["Alicante Stars",58],
-["Cartagena Blue",57],
-["Huelva White",56],
-["Tarragona Gold",55],
-["Castellon Black",54],
-["Sabadell Red",53],
-["Marbella Sun",52],
-["Toledo Imperial",51],
-["Ibiza Island",50]
-]
-},
-
-"🇫🇷 Francia":{
-A:[
-["Paris Red-Blue",85],
-["Marseille Sky Blue",79],
-["Lyon Lions",78],
-["Monaco Red-White",77],
-["Lille Great Danes",75],
-["Nice Eagles",73],
-["Rennes Red",72],
-["Nantes Green",71],
-["Toulouse Violet",70],
-["Montpellier Stars",69],
-["Strasbourg Blue",68],
-["Bordeaux Navy",76]
-],
-B:[
-["Bordeaux Navy",70],
-["Nantes Green",68],
-["Toulouse Violet",66],
-["Rennes Red",65],
-["Grenoble Alps",64],
-["Caen Normandy",63],
-["Metz Garnets",62],
-["Dijon Mustard",61],
-["Amiens Blue",60],
-["Auxerre White",59],
-["Le Havre Sky",58],
-["Angers Black",57]
-],
-C:[
-["Dijon Mustard",61],
-["Grenoble Alps",60],
-["Metz Garnets",58],
-["Caen Normandy",57],
-["Laval Stars",56],
-["Nancy Red",55],
-["Sochaux Yellow",54],
-["Valenciennes",53],
-["Troyes Blue",52],
-["Ajaccio Red",51],
-["Bastia Corsica",50],
-["Pau Pyrenees",49]
-]
-},
-
-"🇩🇪 Germania":{
-A:[
-["Bavaria Red",86],
-["Dortmund Yellow",82],
-["Berlin Capital",78],
-["Leipzig Bulls",77],
-["Leverkusen Red",80],
-["Frankfurt Eagles",75],
-["Stuttgart Stars",74],
-["Bremen Green",73],
-["Gladbach White",72],
-["Wolfsburg Green",71],
-["Hoffenheim Blue",69],
-["Cologne Red",68]
-],
-B:[
-["Hamburg Blue",70],
-["Hannover Red",68],
-["Dresden Yellow",65],
-["Nurnberg Red",64],
-["Schalke Blue",63],
-["Hertha Berlin",62],
-["Karlsruhe Stars",61],
-["Dusseldorf Red",60],
-["Bochum Blue",59],
-["Paderborn Black",58],
-["Kiel Sea",57],
-["Rostock Blue",56]
-],
-C:[
-["Munster Green",60],
-["Aachen Black",59],
-["Essen Red",57],
-["Rostock Blue",56],
-["Saarbrucken Blue",55],
-["Duisburg White",54],
-["Osnabruck Purple",53],
-["Mannheim Red",52],
-["Regensburg Stars",51],
-["Ingolstadt Black",50],
-["Ulm White",49],
-["Jena Green",48]
-]
-},
-
-"🇬🇧 Inghilterra":{
-A:[
-["Manchester Blue",87],
-["Merseyside Red",86],
-["London Red",84],
-["London Blue",80],
-["Liverpool Blue",78],
-["Newcastle Black",76],
-["Arsenal North",83],
-["Tottenham White",79],
-["Aston Villa Claret",77],
-["West Ham Gold",73],
-["Everton Blue",72],
-["Brighton Seagulls",71]
-],
-B:[
-["Birmingham Blues",71],
-["Leeds White",70],
-["Sunderland Red",67],
-["Bristol City",65],
-["Norwich Green",64],
-["Middlesbrough Red",63],
-["Coventry Blue",62],
-["Watford Hornets",61],
-["Stoke Red",60],
-["Derby Rams",59],
-["Blackburn Rovers",58],
-["Swansea White",57]
-],
-C:[
-["Derby Rams",62],
-["Bolton White",60],
-["Reading Royals",59],
-["Blackpool Orange",57],
-["Portsmouth Blue",56],
-["Charlton Red",55],
-["Wigan Athletic",54],
-["Barnsley Red",53],
-["Bristol Rovers",52],
-["Leyton Orient",51],
-["Plymouth Green",50],
-["Exeter Red",49]
-]
-},
-
-"🇵🇹 Portogallo":{
-A:[
-["Lisbon Eagles",82],
-["Porto Dragons",81],
-["Lisbon Lions",78],
-["Braga Red",75],
-["Guimaraes Stars",72],
-["Boavista Black",69],
-["Famalicao Blue",67],
-["Rio Ave Green",66],
-["Estoril Sun",64],
-["Maritimo Island",63],
-["Gil Vicente",62],
-["Arouca Wolves",61]
-],
-B:[
-["Academica Coimbra",68],
-["Leixoes Blue",66],
-["Nacional Madeira",65],
-["Feirense Red",64],
-["Tondela Green",62],
-["Penafiel Black",61],
-["Varzim Sea",60],
-["Chaves Stars",59],
-["Farense White",58],
-["Vizela Blue",57],
-["Mafra Lions",56],
-["Oliveirense Red",55]
-],
-C:[
-["Covilha Mountain",55],
-["Leiria Union",54],
-["Belenenses Blue",53],
-["Amora Stars",52],
-["Alverca Red",51],
-["Caldas White",50],
-["Felgueiras Green",49],
-["Anadia Black",48],
-["Sanjoanense",47],
-["Trofense Blue",46],
-["Fafe Lions",45],
-["Lusitania",44]
-]
-},
-
-"🇳🇱 Paesi Bassi":{
-A:[
-["Amsterdam Red-White",84],
-["Rotterdam Red-White",80],
-["Eindhoven Stripes",79],
-["Alkmaar Stars",74],
-["Utrecht Dom",72],
-["Arnhem Eagles",69],
-["Twente Red",68],
-["Groningen Green",66],
-["Heerenveen Blue",65],
-["Nijmegen Red",63],
-["Zwolle Blue",61],
-["Sparta Rotterdam",60]
-],
-B:[
-["Den Bosch Blue",66],
-["Breda Yellow",65],
-["Maastricht Red",63],
-["Venlo Green",62],
-["Deventer Stars",60],
-["Dordrecht White",59],
-["Emmen Red",58],
-["Volendam Orange",57],
-["Helmond Black",55],
-["Almere Blue",54],
-["Eindhoven City",53],
-["Oss Stars",52]
-],
-C:[
-["Leiden Blue",51],
-["Haarlem Stars",50],
-["Tilburg Red",49],
-["Arnhem South",48],
-["Delft Green",47],
-["Zwolle City",46],
-["Alkmaar United",45],
-["Breda City",44],
-["Gouda Gold",43],
-["Utrecht City",42],
-["Rotterdam Stars",41],
-["Groningen North",40]
-]
-},
-
-"🇧🇪 Belgio":{
-A:[
-["Brussels Royal",80],
-["Bruges Blue-Black",79],
-["Liege Red",75],
-["Antwerp Giants",74],
-["Genk Blue",72],
-["Ghent White",70],
-["Charleroi Black",67],
-["Mechelen Yellow",65],
-["Kortrijk Red",62],
-["Leuven Stars",60],
-["Oostende Sea",58],
-["Westerlo Green",57]
-],
-B:[
-["Lommel Green",62],
-["Beerschot Purple",61],
-["RWDM Brussels",60],
-["Beveren Yellow",59],
-["Deinze Blue",58],
-["Seraing Red",56],
-["Lierse Stars",55],
-["Patro Eisden",54],
-["Francs Borains",53],
-["Waregem White",52],
-["Roeselare Red",51],
-["Virton Green",50]
-],
-C:[
-["Namur Stars",49],
-["Mons Red",48],
-["Hasselt Blue",47],
-["Tienen White",46],
-["Vise Black",45],
-["La Louviere",44],
-["Dender Blue",43],
-["Tubize Red",42],
-["Knokke Sea",41],
-["Mouscron Stars",40],
-["Heist Green",39],
-["Turnhout Red",38]
-]
-},
-
-"🇦🇹 Austria":{
-A:[
-["Vienna Red",78],
-["Salzburg Bulls",82],
-["Graz Black",72],
-["Linz Blue",69],
-["Klagenfurt Stars",64],
-["Wolfsberg White",62],
-["Altach Red",60],
-["Hartberg Green",59],
-["Austria Lustenau",57],
-["Tirol Mountain",56],
-["Rapid Vienna",77],
-["Admira Stars",55]
-],
-B:[
-["St Polten Blue",64],
-["Ried Green",63],
-["Horn Red",58],
-["Kapfenberg Stars",56],
-["Amstetten Blue",55],
-["Floridsdorf",54],
-["First Vienna",53],
-["Liefering Red",52],
-["Lafnitz Green",51],
-["Dornbirn White",50],
-["Steyr Stars",49],
-["Bregenz Blue",48]
-],
-C:[
-["Krems Red",47],
-["Wels Green",46],
-["Gmunden Blue",45],
-["Leoben Stars",44],
-["Traun White",43],
-["Wiener Neustadt",42],
-["Dornbirn City",41],
-["Kufstein Mountain",40],
-["Lustenau Stars",39],
-["Villach Blue",38],
-["Sturm Juniors",37],
-["Graz United",36]
-]
-},
-
-"🇨🇭 Svizzera":{
-A:[
-["Zurich Blue",77],
-["Basel Red-Blue",80],
-["Bern Young Boys",79],
-["Geneva Stars",72],
-["Lugano Black-White",69],
-["Lausanne Blue",65],
-["Lucerne White",64],
-["St Gallen Green",63],
-["Sion Red",60],
-["Winterthur Red",58],
-["Grasshoppers Zurich",70],
-["Servette Geneva",71]
-],
-B:[
-["Aarau Red",61],
-["Thun Red",60],
-["Vaduz Blue",58],
-["Bellinzona Stars",56],
-["Wil White",55],
-["Schaffhausen Black",54],
-["Xamax Red",53],
-["Kriens Green",52],
-["Stade Nyonnais",51],
-["Etoile Carouge",50],
-["Biel Stars",49],
-["Yverdon Green",48]
-],
-C:[
-["Delémont Red",47],
-["Bavois Blue",46],
-["Vevey Stars",45],
-["Bruhl Green",44],
-["Rapperswil White",43],
-["Paradiso Black",42],
-["Cham Blue",41],
-["Bulle Red",40],
-["Mendrisio Stars",39],
-["Köniz Green",38],
-["Lancy White",37],
-["Bellinzona Juniors",36]
-]
-},
-
-"🇵🇱 Polonia":{
-A:[
-["Warsaw Eagles",77],
-["Krakow Stars",75],
-["Poznan Blue",72],
-["Gdansk White",70],
-["Wroclaw Green",69],
-["Lodz Red",67],
-["Szczecin Navy",66],
-["Zabrze Red",65],
-["Gliwice Blue",64],
-["Bialystok Yellow",61],
-["Warsaw Army",60],
-["Lubin Copper",59]
-],
-B:[
-["Katowice Stars",61],
-["Gdynia Blue",60],
-["Plock White",59],
-["Legnica Green",58],
-["Rzeszow Red",56],
-["Tychy Green",55],
-["Opole Blue",54],
-["Kielce Red",53],
-["Niepolomice",52],
-["Chrobry Glogow",51],
-["Leczna Green",50],
-["Chojnice Stars",49]
-],
-C:[
-["Radom Red",48],
-["Bytom Blue",47],
-["Elblag Green",46],
-["Kalisz Stars",45],
-["Tarnow White",44],
-["Koszalin Blue",43],
-["Siedlce Red",42],
-["Olsztyn Green",41],
-["Zielona Gora",40],
-["Gniezno Stars",39],
-["Torun Blue",38],
-["Walbrzych Black",37]
-]
-},
-
-"🇬🇷 Grecia":{
-A:[
-["Athens Green",76],
-["Piraeus Red",78],
-["Thessaloniki Black-White",74],
-["Athens Yellow",72],
-["Heraklion Blue",63],
-["Patras Stars",61],
-["Volos Red",60],
-["Ioannina Blue",59],
-["Tripoli Yellow",58],
-["Lamia Green",57],
-["Larissa Red",56],
-["Panionios Blue",55]
-],
-B:[
-["Kalamata Green",54],
-["Kifisia Stars",53],
-["Levadiakos Green",52],
-["Panachaiki Red",51],
-["Iraklis Blue",50],
-["Kissamikos",49],
-["Niki Volos",48],
-["Apollon Athens",47],
-["AEL Stars",46],
-["Chania Blue",45],
-["Kavala White",44],
-["Rhodes Stars",43]
-],
-C:[
-["Corfu Blue",42],
-["Drama Black",41],
-["Serres Green",40],
-["Kozani Red",39],
-["Trikala Stars",38],
-["Arta White",37],
-["Sparta Blue",36],
-["Katerini Green",35],
-["Agrinio Stars",34],
-["Messolonghi",33],
-["Mytilene Blue",32],
-["Chios Stars",31]
-]
-},
-
-"🇭🇷 Croazia":{
-A:[
-["Zagreb Blue",78],
-["Split White",76],
-["Rijeka Stars",70],
-["Osijek Blue",66],
-["Pula Green",61],
-["Varazdin White",60],
-["Sibenik Orange",59],
-["Gorica Black",58],
-["Koprivnica Red",55],
-["Slaven Green",57],
-["Zadar Blue",54],
-["Dubrovnik Stars",52]
-],
-B:[
-["Cibalia Blue",51],
-["Sesvete Red",50],
-["Dugopolje White",49],
-["Orijent Rijeka",48],
-["Solin Blue",47],
-["Bjelovar Green",46],
-["Karlovac Stars",45],
-["Vukovar Red",44],
-["Dubrava Zagreb",43],
-["Jarun Blue",42],
-["Croatia Zmijavci",41],
-["Rudes White",40]
-],
-C:[
-["Zagorec Red",39],
-["Mladost Green",38],
-["Bistra Blue",37],
-["Jadran Porec",36],
-["Grobnic Stars",35],
-["Trnje Zagreb",34],
-["Kustosija",33],
-["Marsonia Red",32],
-["Neretva Green",31],
-["Opatija Blue",30],
-["Beli Manastir",29],
-["Karlovac Juniors",28]
-]
-},
-
-"🇷🇸 Serbia":{
-A:[
-["Belgrade Red",79],
-["Belgrade Black-White",78],
-["Novi Sad Stars",69],
-["Nis Eagles",65],
-["Kragujevac Red",62],
-["Subotica Blue",60],
-["Cukaricki White",59],
-["Vojvodina Red",68],
-["TSC Blue",64],
-["Radnicki Green",58],
-["Napredak Red",56],
-["Spartak Blue",55]
-],
-B:[
-["Metalac Blue",52],
-["Macva Red",51],
-["Radnik White",50],
-["Javor Green",49],
-["Zeleznicar Stars",48],
-["Grafichar",47],
-["Indjija Blue",46],
-["Sloboda Red",45],
-["Kolubara Green",44],
-["OFK Vrsac",43],
-["Trayal Yellow",42],
-["Borac Cacak",41]
-],
-C:[
-["Smederevo Red",40],
-["Loznica Green",39],
-["Zemun Blue",38],
-["Timok Stars",37],
-["Dunav White",36],
-["Kabel Novi Sad",35],
-["Tutin Green",34],
-["Jagodina",33],
-["Pirot Blue",32],
-["Zlatibor Stars",31],
-["Radnicki Sombor",30],
-["Backa Red",29]
-]
-},
-
-"🇸🇪 Svezia":{
-A:[
-["Stockholm Blue",75],
-["Malmo Sky",78],
-["Gothenburg Blue-White",72],
-["Helsingborg Red",66],
-["Norrkoping White",64],
-["AIK Stockholm",73],
-["Hammarby Green",71],
-["Djurgarden Blue",70],
-["Hacken Yellow",69],
-["Elfsborg Yellow",65],
-["Kalmar Red",61],
-["Sirius Blue",58]
-],
-B:[
-["Uppsala Stars",55],
-["Orebro White",54],
-["Vasteras Green",53],
-["Trelleborg Blue",52],
-["Landskrona Black",51],
-["Sundsvall Red",50],
-["Jonkoping Stars",49],
-["Gefle Blue",48],
-["Ostersund Red",47],
-["Brage Green",46],
-["Orgryte White",45],
-["Skovde Blue",44]
-],
-C:[
-["Lund Stars",43],
-["Halmstad City",42],
-["Varnamo Green",41],
-["Trollhattan Red",40],
-["Oskarshamn Blue",39],
-["Falun White",38],
-["Umea Stars",37],
-["Boden Green",36],
-["Sandviken Red",35],
-["Motala Blue",34],
-["Pitea White",33],
-["Karlstad Stars",32]
-]
-},
-
-"🇩🇰 Danimarca":{
-A:[
-["Copenhagen Blue",80],
-["Brondby Yellow",76],
-["Aarhus White",70],
-["Odense Stripes",66],
-["Aalborg Red",64],
-["Midtjylland Black",75],
-["Nordsjaelland Red",67],
-["Randers Blue",62],
-["Silkeborg Red",60],
-["Viborg Green",59],
-["Lyngby Blue",57],
-["Vejle Red",55]
-],
-B:[
-["Horsens Yellow",54],
-["Sonderjyske Blue",53],
-["Fredericia Stars",52],
-["Hobro Green",51],
-["Kolding Red",50],
-["Esbjerg Blue",49],
-["Hillerod White",48],
-["B93 Copenhagen",47],
-["Naestved Green",46],
-["Helsingor Red",45],
-["Koge Blue",44],
-["Vendsyssel White",43]
-],
-C:[
-["Aarhus Fremad",42],
-["Middelfart Green",41],
-["Thisted Blue",40],
-["Skive Red",39],
-["HIK Copenhagen",38],
-["Brabrand Stars",37],
-["Frem Copenhagen",36],
-["Nykobing Red",35],
-["Roskilde Green",34],
-["Holbaek Blue",33],
-["Vejgaard White",32],
-["Avarta Red",31]
-]
-},
-
-"🇹🇷 Turchia":{
-A:[
-["Istanbul Yellow-Navy",80],
-["Bosphorus Yellow-Red",81],
-["Black Eagles Bosphorus",78],
-["Trabzon Blue-Red",75],
-["Izmir Stars",72],
-["Ankara Capital",70],
-["Bursa Green",68],
-["Adana Red",66],
-["Antalya Sun",64],
-["Konya Green",62],
-["Samsun Red",61],
-["Kayseri Stars",60]
-],
-B:[
-["Ankara Lions",68],
-["Bursa Green",66],
-["Adana Red",64],
-["Sakarya Green",62],
-["Goztepe Red-Yellow",61],
-["Kocaeli Stars",60],
-["Boluspor Red",58],
-["Manisa Blue",57],
-["Erzurum Snow",56],
-["Bandirma Stars",55],
-["Altay Black-White",54],
-["Genclerbirligi Red",53]
-],
-C:[
-["Samsun Red",60],
-["Konya Green",59],
-["Kayseri Red",57],
-["Istanbul Stars",56],
-["Mersin Blue",55],
-["Diyarbakir Green",54],
-["Van Lake",53],
-["Elazig Red",52],
-["Corum Stars",51],
-["Isparta Rose",50],
-["Afyon Black",49],
-["Kastamonu Red",48]
-]
-},
-
-"🇲🇦 Marocco":{
-A:[
-["Casablanca Red Eagles",76],
-["Casablanca Green Stars",75],
-["Rabat Military",74],
-["Berkane Orange",73],
-["Marrakech Red",70],
-["Tangier Blue",68],
-["Agadir Waves",67],
-["Fez Royals",65],
-["Meknes Stars",62],
-["Oujda Lions",60],
-["Kenitra Green",58],
-["Tetouan White",57]
-],
-B:[
-["Agadir Waves",67],
-["Tangier Blue",65],
-["Fez Royals",63],
-["Kenitra Green",61],
-["Safi Ocean",60],
-["El Jadida Stars",59],
-["Beni Mellal",57],
-["Khouribga Green",56],
-["Settat Red",54],
-["Ouarzazate Stars",53],
-["Taza Blue",52],
-["Khemisset Green",51]
-],
-C:[
-["Meknes Stars",59],
-["Oujda Lions",57],
-["Kenitra Green",55],
-["Nador Blue",54],
-["Laayoune Stars",53],
-["Essaouira Sea",52],
-["Tiznit Green",50],
-["Dakhla Blue",49],
-["Errachidia Stars",48],
-["Chefchaouen Blue",47],
-["Larache Red",46],
-["Benguerir Green",45]
-]
-},
-
-"🇪🇬 Egitto":{
-A:[
-["Cairo Red Devils",77],
-["Giza White Knights",76],
-["Pyramids Gold",75],
-["Alexandria Blue",71],
-["Suez Stars",68],
-["Ismailia Yellow",66],
-["Port Said Green",64],
-["Luxor Kings",62],
-["Aswan Nile",60],
-["Tanta Lions",59],
-["Mansoura Stars",58],
-["Fayoum Green",56]
-],
-B:[
-["Port Said Green",64],
-["Luxor Kings",62],
-["Aswan Nile",60],
-["Tanta Lions",57],
-["Mansoura Stars",56],
-["Ismailia Yellow",55],
-["Sohag Red",54],
-["Minya Blue",53],
-["Qena Green",52],
-["Damanhur Stars",51],
-["Suez City",50],
-["Zagazig White",49]
-],
-C:[
-["Tanta Lions",57],
-["Mansoura Stars",56],
-["Ismailia Yellow",55],
-["Banha Green",53],
-["Damietta Blue",52],
-["Assiut Red",51],
-["Minya Stars",50],
-["Sohag Nile",49],
-["Qena Gold",48],
-["Luxor United",47],
-["Aswan Stars",46],
-["Fayoum Blue",45]
-]
-},
-
-"🇧🇷 Brasile":{
-A:[
-["Rio Samba",82],
-["Sao Paulo Tricolor",81],
-["Rio Red-Black",80],
-["Belo Horizonte Stars",76],
-["Porto Alegre Blue",74],
-["Salvador Bahia",72],
-["Recife Sport",70],
-["Fortaleza Lions",68],
-["Curitiba Stars",66],
-["Brasilia United",64],
-["Goiania Green",62],
-["Fluminense Blue",79]
-],
-B:[
-["Recife Sport",68],
-["Salvador Bahia",66],
-["Fortaleza Lions",64],
-["Goiania Green",60],
-["Curitiba Stars",59],
-["Natal Blue",57],
-["Campinas Stars",56],
-["Santos White",55],
-["Vitoria Green",54],
-["Maceio Red",53],
-["Belem Blue",52],
-["Manaus Stars",51]
-],
-C:[
-["Goiania Green",60],
-["Curitiba Stars",59],
-["Natal Blue",57],
-["Joao Pessoa",55],
-["Cuiaba Green",54],
-["Londrina Stars",53],
-["Joinville Blue",52],
-["Maringa Red",51],
-["Pelotas Green",50],
-["Uberlandia Blue",49],
-["Sao Jose Stars",48],
-["Campina Grande",47]
-]
-},
-
-"🇦🇷 Argentina":{
-A:[
-["Buenos Aires Blue-Gold",82],
-["Buenos Aires Red-White",80],
-["Rosario Central",74],
-["Cordoba Talleres",72],
-["La Plata Stars",70],
-["Mendoza Red",68],
-["Avellaneda Red",77],
-["Santa Fe Union",66],
-["Lanus Garnet",65],
-["Banfield Green",63],
-["Tucuman Blue",61],
-["Velez Stars",73]
-],
-B:[
-["Mendoza Red",65],
-["Tucuman Blue",63],
-["Mar del Plata",61],
-["Quilmes Blue",60],
-["San Martin Red",59],
-["Gimnasia Green",58],
-["Chacarita Stars",57],
-["All Boys White",56],
-["Temperley Blue",55],
-["Ferro Green",54],
-["Atlanta Stars",53],
-["Nueva Chicago",52]
-],
-C:[
-["Salta Eagles",58],
-["Santa Fe Stars",56],
-["Neuquen Blue",54],
-["Jujuy Green",53],
-["Mendoza United",52],
-["Rafaela White",51],
-["Tigre Stars",50],
-["Moron Red",49],
-["Almagro Blue",48],
-["Brown Stars",47],
-["Platense White",46],
-["Estudiantes South",45]
-]
-},
-
-"🇺🇸 Stati Uniti":{
-A:[
-["Los Angeles Gold",78],
-["New York Stars",77],
-["Miami Pink",75],
-["Texas United",73],
-["Seattle Green",72],
-["Chicago Fire",70],
-["Boston Revolution",68],
-["Atlanta Red",66],
-["Portland Green",64],
-["Philadelphia Blue",63],
-["Dallas Stars",62],
-["San Jose Gold",60]
-],
-B:[
-["Chicago Blue",68],
-["Boston Revolution",65],
-["Atlanta Red",64],
-["Denver Peaks",60],
-["Austin Stars",59],
-["Charlotte Blue",58],
-["Detroit City",57],
-["Las Vegas Lights",56],
-["Tampa Bay",55],
-["Phoenix Rising",54],
-["Sacramento Stars",53],
-["Baltimore Blue",52]
-],
-C:[
-["Denver Peaks",60],
-["Portland Green",58],
-["Austin Stars",56],
-["Reno Blue",54],
-["Tulsa Stars",53],
-["Oakland Green",52],
-["San Antonio Red",51],
-["Louisville Blue",50],
-["Pittsburgh River",49],
-["Indianapolis Stars",48],
-["Nashville Green",47],
-["Cleveland Blue",46]
-]
-},
-
-"🇳🇴 Norvegia":{
-A:[
-["Oslo Vikings",70],
-["Bergen Blue",67],
-["Trondheim Red",65],
-["Stavanger Stars",62],
-["Tromso Arctic",60],
-["Molde Green",68],
-["Bodo Stars",66],
-["Drammen Blue",58],
-["Kristiansand",57],
-["Haugesund Red",56],
-["Sarpsborg Blue",55],
-["Lillestrom Yellow",54]
-],
-B:[
-["Tromso Arctic",59],
-["Drammen Blue",57],
-["Kristiansand",55],
-["Fredrikstad",54],
-["Alesund Blue",53],
-["Kongsvinger Red",52],
-["Moss Green",51],
-["Sandnes Stars",50],
-["Ranheim Blue",49],
-["Sogndal White",48],
-["Bryne Red",47],
-["Mjondalen Green",46]
-],
-C:[
-["Fredrikstad",52],
-["Molde Green",51],
-["Bodo Stars",50],
-["Alta Arctic",49],
-["Kjelsas Blue",48],
-["Egersund Red",47],
-["Levanger Green",46],
-["Arendal Stars",45],
-["Stjordals",44],
-["Notodden Blue",43],
-["Follo Red",42],
-["Grorud Green",41]
-]
-},
-
-"🇹🇳 Tunisia":{
-A:[
-["Tunis Eagles",70],
-["Sfax Stars",67],
-["Sousse Red",65],
-["Bizerte Blue",61],
-["Monastir Stars",60],
-["Gabes Green",58],
-["Kairouan",56],
-["Medenine Red",55],
-["Beja Blue",54],
-["Zarzis Red",53],
-["Hammamet",52],
-["Gafsa Stars",51]
-],
-B:[
-["Gabes Green",58],
-["Monastir Stars",56],
-["Kairouan",54],
-["Beja Blue",51],
-["Zarzis Red",50],
-["Hammamet",49],
-["Djerba Stars",48],
-["Kasserine Green",47],
-["Jendouba Blue",46],
-["Mahdia Red",45],
-["Siliana Stars",44],
-["Kebili Green",43]
-],
-C:[
-["Beja Blue",51],
-["Zarzis Red",50],
-["Hammamet",49],
-["Nabeul Stars",48],
-["Tozeur Green",47],
-["Tataouine Red",46],
-["Mateur Blue",45],
-["Douz Stars",44],
-["El Kef Green",43],
-["Moknine Red",42],
-["Korba Blue",41],
-["Ben Guerdane",40]
-]
-},
-
-"🇵🇰 Pakistan":{
-A:[
-["Karachi Stars",62],
-["Lahore Lions",60],
-["Islamabad United",59],
-["Peshawar Green",56],
-["Rawalpindi",54],
-["Multan Tigers",53],
-["Quetta Stars",51],
-["Faisalabad",49],
-["Hyderabad",47],
-["Sialkot Blue",46],
-["Gujranwala Red",45],
-["Bahawalpur Stars",44]
-],
-B:[
-["Multan Tigers",53],
-["Quetta Stars",51],
-["Faisalabad",49],
-["Sialkot Blue",45],
-["Gujranwala Red",44],
-["Bahawalpur Stars",43],
-["Sukkur Green",42],
-["Abbottabad Blue",41],
-["Mardan Stars",40],
-["Larkana Red",39],
-["Peshawar City",38],
-["Lahore City",37]
-],
-C:[
-["Rawalpindi",47],
-["Sialkot",45],
-["Hyderabad",44],
-["Sukkur Stars",43],
-["Mirpur Green",42],
-["Gujrat Blue",41],
-["Sargodha Red",40],
-["Jhelum Stars",39],
-["Okara Green",38],
-["Kasur Blue",37],
-["Dera Ghazi Khan",36],
-["Rahim Yar Khan",35]
-]
-},
-
-"🇨🇳 Cina":{
-A:[
-["Shanghai Red",72],
-["Beijing Dragons",70],
-["Guangzhou Tigers",68],
-["Shenzhen Stars",64],
-["Wuhan Blue",62],
-["Chengdu Green",60],
-["Nanjing Red",58],
-["Tianjin Blue",57],
-["Dalian Red",56],
-["Hangzhou Stars",55],
-["Qingdao Blue",54],
-["Jinan Green",53]
-],
-B:[
-["Wuhan Blue",60],
-["Chengdu Green",58],
-["Nanjing Red",56],
-["Hangzhou Stars",53],
-["Tianjin Blue",51],
-["Dalian Red",49],
-["Kunming Green",48],
-["Xiamen Blue",47],
-["Changsha Red",46],
-["Shenyang Stars",45],
-["Harbin White",44],
-["Suzhou Green",43]
-],
-C:[
-["Hangzhou Stars",53],
-["Tianjin Blue",51],
-["Dalian Red",49],
-["Kunming Green",48],
-["Xiamen Blue",47],
-["Changsha Red",46],
-["Shenyang Stars",45],
-["Harbin White",44],
-["Suzhou Green",43],
-["Fuzhou Stars",42],
-["Ningbo Blue",41],
-["Wuxi Red",40]
-]
-},
-
-"🇯🇵 Giappone":{
-A:[
-["Tokyo Blue",78],
-["Yokohama Stars",76],
-["Osaka Red",74],
-["Kobe Purple",69],
-["Nagoya Gold",67],
-["Saitama Reds",73],
-["Kashima Antlers",72],
-["Hiroshima Green",66],
-["Fukuoka Blue",62],
-["Kyoto Purple",61],
-["Niigata Orange",59],
-["Sendai Stars",57]
-],
-B:[
-["Chiba Green",56],
-["Okayama Blue",55],
-["Oita Trinita",54],
-["Yamagata Red",53],
-["Mito Blue",52],
-["Tokushima Stars",51],
-["Ehime Orange",50],
-["Fujieda Green",49],
-["Iwaki Blue",48],
-["Tochigi White",47],
-["Kofu Red",46],
-["Kumamoto Stars",45]
-],
-C:[
-["Nara Green",44],
-["Nagano Blue",43],
-["Toyama Red",42],
-["Kanazawa Gold",41],
-["Matsumoto Stars",40],
-["Kagoshima Blue",39],
-["Okinawa Sea",38],
-["Miyazaki Green",37],
-["Kochi Red",36],
-["Fukushima Stars",35],
-["Aomori Blue",34],
-["Tottori White",33]
-]
-},
-
-"🇰🇷 Corea del Sud":{
-A:[
-["Seoul Red",77],
-["Busan Blue",71],
-["Incheon Stars",68],
-["Daegu Blue",66],
-["Ulsan Green",75],
-["Jeonbuk Motors",74],
-["Suwon Blue",70],
-["Daejeon Purple",63],
-["Gwangju Yellow",60],
-["Jeju Orange",59],
-["Pohang Steelers",69],
-["Gangwon Stars",58]
-],
-B:[
-["Seongnam Black",57],
-["Gyeongnam Red",56],
-["Anyang Purple",55],
-["Bucheon Red",54],
-["Gimcheon Stars",53],
-["Chungnam Blue",52],
-["Busan City",51],
-["Ansan Green",50],
-["Cheonan Blue",49],
-["Suwon City",48],
-["Seoul E-Land",47],
-["Chungbuk Stars",46]
-],
-C:[
-["Hwaseong Blue",45],
-["Gimpo Stars",44],
-["Paju Green",43],
-["Siheung Red",42],
-["Yangju White",41],
-["Mokpo Blue",40],
-["Daejeon City",39],
-["Ulsan Juniors",38],
-["Jeonju Green",37],
-["Gangneung Stars",36],
-["Gyeongju Blue",35],
-["Busan Juniors",34]
-]
-},
-
-"🇦🇺 Australia":{
-A:[
-["Sydney Stars",75],
-["Melbourne Blue",73],
-["Brisbane Roar",69],
-["Perth Glory",67],
-["Adelaide United",66],
-["Wellington Phoenix",64],
-["Newcastle Jets",60],
-["Western United",59],
-["Central Coast",58],
-["Macarthur Stars",57],
-["Canberra Blue",55],
-["Gold Coast",54]
-],
-B:[
-["Tasmania Green",53],
-["Darwin Stars",52],
-["Wollongong Blue",51],
-["Adelaide City",50],
-["Sydney Olympic",49],
-["Melbourne Knights",48],
-["Brisbane City",47],
-["Perth Red",46],
-["Canberra United",45],
-["Newcastle City",44],
-["Gold Coast Knights",43],
-["Hume City",42]
-],
-C:[
-["South Melbourne",41],
-["Oakleigh Cannons",40],
-["Bentleigh Green",39],
-["Heidelberg Stars",38],
-["Avondale Blue",37],
-["Dandenong Red",36],
-["Altona Magic",35],
-["Port Melbourne",34],
-["Green Gully",33],
-["Moreland City",32],
-["Brunswick Stars",31],
-["Melbourne Victory Juniors",30]
-]
-
-}
-
-};
+let currentMatch=null;
 
 
-/* =========================================
-   CONVERSIONE SQUADRE
-   ========================================= */
-
-function getTeams(){
-
-const raw =
-leaguesDB[player.league]?.[player.division];
-
-if(!raw){
-
-return [
-{
-name:"Squadra FC",
-power:70
-}
-];
-
-}
-
-return raw.map(t=>({
-name:t[0],
-power:t[1]
-}));
-
-}
-
-
-/* =========================================
+/* =========================
    SAVE
-   ========================================= */
+========================= */
 
 function saveGame(){
+localStorage.setItem(SAVE_KEY,JSON.stringify(player));
+}
 
-localStorage.setItem(
-SAVE_KEY,
-JSON.stringify(player)
-);
+function loadGame(){
+
+const saved=localStorage.getItem(SAVE_KEY);
+
+if(!saved)return false;
+
+try{
+player={...player,...JSON.parse(saved)};
+return true;
+}catch(e){
+return false;
+}
 
 }
 
 
-/* =========================================
-   SCHERMATE
-   ========================================= */
+/* =========================
+   SCREENS
+========================= */
 
 function showScreen(id){
 
@@ -3235,78 +1400,97 @@ function showScreen(id){
 "home",
 "career",
 "hub",
-"social",
-"league",
-"shop",
-"family",
-"relationship",
-"clinic",
-"trophies",
+"match",
+"cups",
 "reviews",
-"globalStats",
-"contacts",
-"retirement"
-
+"careerStats"
 ].forEach(x=>{
-
 const el=document.getElementById(x);
-
-if(el){
-el.classList.add("hidden");
-}
-
+if(el)el.classList.add("hidden");
 });
 
 const target=document.getElementById(id);
 
-if(target){
-target.classList.remove("hidden");
-}
+if(target)target.classList.remove("hidden");
 
 }
 
 
-/* =========================================
-   LOG
-   ========================================= */
+/* =========================
+   PREVIEW
+========================= */
 
-function logMessage(msg){
+function updatePreview(){
 
-const box=document.getElementById("gameLog");
+const skin=document.getElementById("skinColor").value;
+const hair=document.getElementById("hairType").value;
+const number=document.getElementById("jerseyNumber").value||10;
 
-if(!box)return;
+document
+.getElementById("previewHead")
+.style.background=skin;
 
-const div=document.createElement("div");
+document
+.getElementById("previewArm1")
+.style.background=skin;
 
-div.textContent="> "+msg;
+document
+.getElementById("previewArm2")
+.style.background=skin;
 
-box.appendChild(div);
+document
+.getElementById("previewLeg1")
+.style.background=skin;
 
-box.scrollTop=box.scrollHeight;
+document
+.getElementById("previewLeg2")
+.style.background=skin;
+
+const hairEl=document.getElementById("previewHair");
+
+hairEl.style.height="28px";
+hairEl.style.width="75px";
+hairEl.style.left="37px";
+hairEl.style.top="-2px";
+hairEl.style.borderRadius="50% 50% 20% 20%";
+
+if(hair==="crest"){
+hairEl.style.height="42px";
+hairEl.style.top="-14px";
+}
+
+if(hair==="afro"){
+hairEl.style.width="88px";
+hairEl.style.height="60px";
+hairEl.style.left="31px";
+hairEl.style.top="-10px";
+hairEl.style.borderRadius="50%";
+}
+
+if(hair==="long"){
+hairEl.style.height="70px";
+hairEl.style.top="0";
+hairEl.style.borderRadius="50%";
+}
+
+if(hair==="bald"){
+hairEl.style.height="5px";
+hairEl.style.top="0";
+}
+
+document.getElementById("previewNumber").textContent=number;
+document.getElementById("previewNumberText").textContent=number;
 
 }
 
 
-/* =========================================
-   RANDOM
-   ========================================= */
-
-function randomItem(arr){
-
-return arr[
-Math.floor(Math.random()*arr.length)
-];
-
-}
-
-
-/* =========================================
-   TEAM DROPDOWN
-   ========================================= */
+/* =========================
+   TEAM
+========================= */
 
 function updateTeamDropdown(){
 
-const nat=
+const nationality=
 document.getElementById("nationality").value;
 
 const select=
@@ -3315,96 +1499,39 @@ document.getElementById("startingTeam");
 select.innerHTML=
 '<option value="RANDOM">🎲 Offerta Casuale</option>';
 
-if(leaguesDB[nat]){
+const teams=teamsDB[nationality]||[];
 
-const group=
-document.createElement("optgroup");
+teams.forEach(team=>{
 
-group.label=
-"Squadre del tuo paese - Divisione A";
+const option=document.createElement("option");
 
-leaguesDB[nat].A.forEach(t=>{
+option.value=team;
+option.textContent=team+" • Divisione A";
 
-const option=
-document.createElement("option");
-
-option.value=
-nat+"|A|"+t[0];
-
-option.textContent=
-t[0]+" (Ovr "+t[1]+")";
-
-group.appendChild(option);
+select.appendChild(option);
 
 });
 
-select.appendChild(group);
-
-}
-
 }
 
 
-/* =========================================
-   CONTATORE CARRIERE
-   ========================================= */
-
-function getCareerCount(){
-
-return Number(
-localStorage.getItem(CAREER_COUNT_KEY)||0
-);
-
-}
-
-function increaseCareerCount(){
-
-const newCount=
-getCareerCount()+1;
-
-localStorage.setItem(
-CAREER_COUNT_KEY,
-newCount
-);
-
-updateCareerCounter();
-
-}
-
-function updateCareerCounter(){
-
-const count=
-getCareerCount();
-
-const el=
-document.getElementById("careerCounter");
-
-if(el){
-el.textContent=
-count.toLocaleString("it-IT");
-}
-
-}
-
-
-/* =========================================
-   CREAZIONE
-   ========================================= */
+/* =========================
+   CREATE PLAYER
+========================= */
 
 function createPlayer(){
 
 const name=
-document.getElementById("playerName")
-.value.trim();
+document.getElementById("playerName").value.trim();
 
 const surname=
-document.getElementById("playerSurname")
-.value.trim();
+document.getElementById("playerSurname").value.trim();
 
 const number=
-Number(
-document.getElementById("jerseyNumber").value
-);
+Number(document.getElementById("jerseyNumber").value);
+
+const skin=
+document.getElementById("skinColor").value;
 
 const hair=
 document.getElementById("hairType").value;
@@ -3421,136 +1548,85 @@ document.getElementById("nationality").value;
 const chosen=
 document.getElementById("startingTeam").value;
 
-
 if(
-!name ||
-!surname ||
-!number ||
-number<1 ||
-number>99 ||
-!hair ||
-!personality ||
-!position ||
+!name||
+!surname||
+number<1||
+number>99||
+!personality||
+!position||
 !nationality
 ){
 
-alert(
-"Compila correttamente tutti i campi! ⚠️"
-);
+alert("⚠️ Compila tutti i campi!");
 
 return;
 
 }
 
-
 player.name=name;
 player.surname=surname;
 player.jerseyNumber=number;
+player.skin=skin;
 player.hairType=hair;
 player.personality=personality;
 player.position=position;
 player.nationality=nationality;
 
-player.age=16;
-
-
-if(chosen==="RANDOM"){
-
-player.league=nationality;
-player.division="A";
-
 player.team=
-randomItem(
-leaguesDB[nationality].A
-)[0];
+chosen==="RANDOM"
+?
+randomItem(teamsDB[nationality])
+:
+chosen;
 
-}else{
+player.age=16;
+player.overall=60;
+player.maxOverall=60;
+player.xp=0;
+player.energy=100;
+player.money=500;
+player.fans=100;
+player.goals=0;
+player.assists=0;
+player.matchDay=1;
+player.season=1;
 
-const p=
-chosen.split("|");
-
-player.league=p[0];
-player.division=p[1];
-player.team=p[2];
-
+if(personality.includes("Prodigio")){
+player.overall=62;
+player.maxOverall=62;
 }
 
-
-if(
-personality==="Prodigio Tecnico"
-){
-player.overall+=3;
-}
-
-if(
-personality==="Leader Naturale"
-){
-
+if(personality.includes("Leader")){
 player.fans+=100;
-player.coachTrust+=10;
-
+player.coachTrust=90;
 }
-
-
-increaseCareerCount();
 
 saveGame();
 
-updatePlayerInfoDisplay();
 updateUI();
 
-showScreen("hub");
-
 logMessage(
-"🎉 Carriera iniziata! Il mondo del calcio parla già di te."
+"🎉 Carriera iniziata! "+player.name+
+" è pronto a diventare una leggenda."
 );
 
-updateNews(true);
+showScreen("hub");
 
 }
 
 
-/* =========================================
-   CARICAMENTO
-   ========================================= */
+/* =========================
+   LOAD
+========================= */
 
 function checkSavedGame(){
 
-const saved=
-localStorage.getItem(SAVE_KEY);
+if(loadGame()){
 
-if(saved){
-
-try{
-
-player={
-...player,
-...JSON.parse(saved)
-};
-
-}catch(e){
-
-localStorage.removeItem(SAVE_KEY);
-
-showScreen("career");
-
-return;
-
-}
-
-if(player.age>=40){
-
-showRetirementScreen();
-
-}else{
-
-updatePlayerInfoDisplay();
 updateUI();
-updateNews();
 showScreen("hub");
 
-}
-
 }else{
 
 showScreen("career");
@@ -3560,248 +1636,122 @@ showScreen("career");
 }
 
 
-/* =========================================
-   RESET
-   ========================================= */
-
-function resetGame(){
-
-if(
-confirm(
-"Vuoi cancellare completamente la carriera?"
-)
-){
-
-localStorage.removeItem(SAVE_KEY);
-
-location.reload();
-
-}
-
-}
-
-
-/* =========================================
-   DISPLAY
-   ========================================= */
-
-function updatePlayerInfoDisplay(){
-
-document.getElementById(
-"displayPlayerName"
-).textContent=
-player.name+" "+player.surname;
-
-
-document.getElementById(
-"displayDetails"
-).textContent=
-player.position+
-" | "+
-player.nationality;
-
-
-document.getElementById(
-"displayExtra"
-).textContent=
-"Maglia #"+
-player.jerseyNumber+
-" | Capelli: "+
-player.hairType+
-" | "+
-player.personality;
-
-}
-
-
-/* =========================================
-   UPDATE UI
-   ========================================= */
+/* =========================
+   UI
+========================= */
 
 function updateUI(){
 
-const teams=
-getTeams();
+document.getElementById("displayPlayerName")
+.textContent=
+player.name+" "+player.surname;
 
-const team=
-teams.find(
-t=>t.name===player.team
-);
+document.getElementById("displayDetails")
+.textContent=
+player.position+" | "+player.nationality+
+" | #"+player.jerseyNumber;
 
-const power=
-team?team.power:70;
+document.getElementById("displayTeam")
+.textContent=
+"🏟️ "+player.team+
+" • Divisione "+player.division;
 
+document.getElementById("valAge")
+.textContent=player.age;
 
-document.getElementById(
-"valAge"
-).textContent=
-player.age;
+document.getElementById("valMatchDay")
+.textContent=player.matchDay+" / 38";
 
+document.getElementById("valGoals")
+.textContent=player.goals;
 
-document.getElementById(
-"valMatchDay"
-).textContent=
-player.matchDay+
-" / 38";
+document.getElementById("valAssists")
+.textContent=player.assists;
 
+document.getElementById("valOverall")
+.textContent=player.overall;
 
-document.getElementById(
-"valGoals"
-).textContent=
-player.goals;
+document.getElementById("valXP")
+.textContent=player.xp;
 
+document.getElementById("valEnergy")
+.textContent=player.energy+"%";
 
-document.getElementById(
-"valAssists"
-).textContent=
-player.assists;
+document.getElementById("valMoney")
+.textContent=
+"€"+player.money.toLocaleString();
 
-
-document.getElementById(
-"valOverall"
-).textContent=
-player.overall;
-
-
-document.getElementById(
-"valEnergy"
-).textContent=
-player.energy+"%";
-
-
-document.getElementById(
-"valMoney"
-).textContent=
-"€"+
-player.money.toLocaleString();
-
-
-document.getElementById(
-"valFans"
-).textContent=
+document.getElementById("valFans")
+.textContent=
 player.fans.toLocaleString();
 
-
-document.getElementById(
-"displayTeam"
-).textContent=
-"Lega: "+
-player.league+
-" | Divisione "+
-player.division+
-" | Club: "+
-player.team+
-" (Ovr: "+
-power+
-")";
-
-
-document.getElementById(
-"trainProgress"
-).textContent=
-player.trainCount+"/5";
-
-
-document.getElementById(
-"valCoachTrust"
-).textContent=
+document.getElementById("valCoachTrust")
+.textContent=
 player.coachTrust+"%";
 
-
-document.getElementById(
-"valHealth"
-).textContent=
-player.injuryDays>0?
-"🚑 Infortunato ("+
-player.injuryDays+
-")":
+document.getElementById("valHealth")
+.textContent=
+player.injuryDays>0
+?
+"🚑 "+player.injuryDays
+:
 "🟢 Sano";
 
-
-document.getElementById(
-"valUclStatus"
-).textContent=
-player.qualifiedUCL?
-"🌟 Qualificato!":
-"Non qualificato";
+}
 
 
-document.getElementById(
-"valLove"
-).textContent=
-player.love+"%";
+/* =========================
+   XP / OVERALL
+========================= */
+
+function xpRequired(){
+
+return Math.floor(
+1000+
+Math.pow(player.overall-60,1.65)*180
+);
+
+}
+
+function addXP(amount){
+
+player.xp+=amount;
+
+let needed=xpRequired();
+
+while(player.xp>=needed && player.overall<99){
+
+player.xp-=needed;
+
+player.overall++;
+
+player.maxOverall=
+Math.max(player.maxOverall,player.overall);
+
+logMessage(
+"📈 Miglioramento! Overall → "+
+player.overall
+);
+
+needed=xpRequired();
+
+}
+
+saveGame();
+updateUI();
 
 }
 
 
-/* =========================================
-   NEWS
-   ========================================= */
-
-const newsTemplates=[
-
-"🚨 NUOVO TALENTO! {name} ha segnato {goals} gol e sta facendo parlare di sé!",
-
-"🔥 {name} continua a stupire: il giovane talento è sempre più decisivo!",
-
-"⭐ Tutti parlano di {name}: il futuro del calcio potrebbe avere un nuovo protagonista!",
-
-"⚽ {name} ha trovato il gol! I tifosi sono in delirio!",
-
-"💰 Il mercato osserva attentamente {name}. Diversi club stanno chiedendo informazioni!",
-
-"🏆 {name} sogna un trofeo e promette battaglia fino alla fine!",
-
-"📈 Cresce la valutazione di {name}: il suo Overall è ora {overall}!",
-
-"👑 {name} sempre più leader dello spogliatoio!",
-
-"🌟 Esplode il talento di {name}: prestazione da applausi!"
-
-];
-
-
-function updateNews(force=false){
-
-if(
-!force &&
-Math.random()>0.35
-)return;
-
-
-const template=
-randomItem(newsTemplates);
-
-
-const name=
-player.name+
-" "+
-player.surname;
-
-
-document.getElementById(
-"newsText"
-).textContent=
-
-template
-.replaceAll("{name}",name)
-.replaceAll("{goals}",player.goals)
-.replaceAll("{overall}",player.overall);
-
-}
-
-
-/* =========================================
-   ALLENAMENTO
-   ========================================= */
+/* =========================
+   TRAIN
+========================= */
 
 function train(){
 
 if(player.energy<15){
 
-logMessage(
-"⚡ Troppo stanco per allenarti!"
-);
+logMessage("⚡ Non hai abbastanza energia.");
 
 return;
 
@@ -3809,32 +1759,20 @@ return;
 
 player.energy-=15;
 
-player.trainCount++;
+let gain=90;
 
+if(player.overall>=80)gain=65;
+if(player.overall>=90)gain=45;
 
-if(player.trainCount>=5){
-
-player.trainCount=0;
+addXP(gain);
 
 player.coachTrust=
-Math.min(
-100,
-player.coachTrust+2
-);
+Math.min(100,player.coachTrust+1);
 
 logMessage(
-"🏋️ Allenamento completato! Hai migliorato la tua forma."
+"🏋️ Allenamento completato! +"+
+gain+" XP."
 );
-
-}else{
-
-logMessage(
-"🏋️ Sessione completata ("+
-player.trainCount+
-"/5)."
-);
-
-}
 
 saveGame();
 updateUI();
@@ -3842,1795 +1780,680 @@ updateUI();
 }
 
 
-/* =========================================
+/* =========================
    MATCH
-   ========================================= */
+========================= */
 
-function playMatch(){
+function startMatch(){
 
 if(player.injuryDays>0){
 
-logMessage(
-"🚑 Sei infortunato. Vai in clinica o riposati."
-);
+logMessage("🚑 Sei infortunato.");
 
 return;
 
 }
-
 
 if(player.energy<30){
 
-logMessage(
-"⚡ Troppo stanco! Riposati."
-);
+logMessage("⚡ Devi riposarti.");
 
 return;
 
 }
 
-
-if(player.coachTrust<30){
-
-logMessage(
-"⚠️ Il Mister ti lascia in tribuna!"
-);
-
-player.energy=
-Math.min(
-100,
-player.energy+10
-);
-
-advanceMatchDay();
-
-return;
-
-}
-
-
-player.energy-=30;
-
+player.energy-=20;
 
 const teams=
-getTeams();
+teamsDB[player.nationality]||[];
 
 const opponents=
-teams.filter(
-t=>t.name!==player.team
-);
+teams.filter(t=>t!==player.team);
 
 const opponent=
-randomItem(opponents)||
-{
-name:"Avversario",
-power:70
+randomItem(opponents)||"FC Avversario";
+
+currentMatch={
+
+minute:1,
+homeGoals:0,
+awayGoals:0,
+opponent:opponent,
+actions:0,
+finished:false
+
 };
 
+document.getElementById("matchOpponent")
+.textContent=
+player.team+" vs "+opponent;
 
-let performance=
-(player.overall/100)+
-(player.coachTrust/300);
+document.getElementById("matchScore")
+.textContent="0 - 0";
 
-let opponentFactor=
-opponent.power/120;
+document.getElementById("matchMinute")
+.textContent="1";
 
-let winChance=
-.45+
-(performance-opponentFactor)*.25;
+document.getElementById("matchEnergy")
+.textContent=player.energy+"%";
+
+document.getElementById("matchOverall")
+.textContent=player.overall;
+
+document.getElementById("matchSituation")
+.textContent=
+"Hai ricevuto palla. Scegli la tua azione!";
+
+document.getElementById("matchLog")
+.innerHTML=
+"🔥 La partita è iniziata!";
+
+showScreen("match");
+
+}
 
 
-const resultRoll=
-Math.random();
+/* =========================
+   INTERACTIVE ACTIONS
+========================= */
+
+function matchAction(action){
+
+if(!currentMatch||currentMatch.finished)return;
+
+currentMatch.actions++;
+
+let result="";
+
+let base=
+player.overall/100;
+
+if(action==="shoot"){
+
+const chance=
+Math.min(.85,
+.12+
+base*.55+
+(player.position==="Attaccante"?0.12:0)
+);
+
+const roll=Math.random();
+
+if(roll<chance){
+
+currentMatch.homeGoals++;
+
+player.goals++;
+
+addXP(180);
+
+player.fans+=150;
+
+result="⚽ GOOOOOL! Hai segnato!";
+
+}else{
+
+result=
+"🧤 Il portiere para il tuo tiro!";
+
+}
+
+}
+
+else if(action==="pass"){
+
+const chance=
+Math.min(.95,.45+base*.4);
+
+if(Math.random()<chance){
+
+if(Math.random()<.22){
+
+player.assists++;
+
+addXP(150);
+
+result=
+"🎯 PASSAGGIO PERFETTO! Assist!";
+
+}else{
+
+addXP(45);
+
+result=
+"🎯 Passaggio riuscito. L'azione continua.";
+
+}
+
+}else{
+
+result=
+"❌ Passaggio intercettato!";
+
+}
+
+}
+
+else if(action==="dribble"){
+
+const chance=
+Math.min(.85,.25+base*.5);
+
+if(Math.random()<chance){
+
+addXP(70);
+
+result=
+"🔥 DRIBBLING RIUSCITO! Hai superato l'avversario.";
+
+}else{
+
+result=
+"🛑 Dribbling fallito. Hai perso palla.";
+
+}
+
+}
+
+else if(action==="protect"){
+
+addXP(25);
+
+result=
+"🛡️ Hai protetto bene il pallone.";
+
+}
+
+const matchLog=
+document.getElementById("matchLog");
+
+const line=document.createElement("div");
+
+line.textContent=
+"["+
+currentMatch.minute+
+"'] "+result;
+
+matchLog.appendChild(line);
+
+matchLog.scrollTop=
+matchLog.scrollHeight;
+
+currentMatch.minute+=
+Math.floor(Math.random()*8)+4;
+
+if(Math.random()<.25){
+
+currentMatch.awayGoals++;
+
+const line2=
+document.createElement("div");
+
+line2.textContent=
+"["+
+currentMatch.minute+
+"'] 😱 L'avversario segna!";
+
+matchLog.appendChild(line2);
+
+}
+
+document.getElementById("matchScore")
+.textContent=
+currentMatch.homeGoals+
+" - "+
+currentMatch.awayGoals;
+
+document.getElementById("matchMinute")
+.textContent=
+Math.min(currentMatch.minute,90);
+
+if(currentMatch.minute>=90||
+currentMatch.actions>=8){
+
+finishMatch();
+
+}
+
+}
 
 
-if(
-resultRoll<
-Math.max(
-.15,
-Math.min(.85,winChance)
-)
-){
+/* =========================
+   FINISH MATCH
+========================= */
 
-player.points+=3;
+function finishMatch(){
+
+if(!currentMatch)return;
+
+currentMatch.finished=true;
+
+const home=currentMatch.homeGoals;
+const away=currentMatch.awayGoals;
+
+let result;
+
+if(home>away){
+
 player.money+=2500;
+player.fans+=500;
+addXP(120);
 
-logMessage(
-"🏆 VITTORIA contro "+
-opponent.name+
-"! +3 punti"
-);
+result=
+"🏆 VITTORIA! "+home+"-"+away;
 
-}else if(
-resultRoll<.7
-){
+}
 
-player.points+=1;
+else if(home===away){
+
 player.money+=1000;
+addXP(60);
 
-logMessage(
-"🤝 PAREGGIO contro "+
-opponent.name+
-"! +1 punto"
-);
-
-}else{
-
-logMessage(
-"❌ SCONFITTA contro "+
-opponent.name
-);
+result=
+"🤝 PAREGGIO! "+home+"-"+away;
 
 }
 
+else{
 
-let goalChance=
-player.overall/150;
+addXP(25);
 
-
-if(
-player.position==="Attaccante"
-){
-
-goalChance+=.10;
+result=
+"❌ SCONFITTA "+home+"-"+away;
 
 }
 
+const log=document.getElementById("matchLog");
 
-let matchGoals=0;
+const end=document.createElement("div");
 
+end.innerHTML=
+"<br><strong>"+result+"</strong>";
 
-if(
-Math.random()<goalChance
-){
-
-matchGoals++;
-
-}
-
-
-if(
-Math.random()<goalChance*.35
-){
-
-matchGoals++;
-
-}
-
-
-player.goals+=matchGoals;
-
-
-let matchAssists=0;
-
-
-if(
-Math.random()<player.overall/180
-){
-
-matchAssists++;
-
-}
-
-
-player.assists+=matchAssists;
-
-
-if(matchGoals>0){
-
-player.coachTrust=
-Math.min(
-100,
-player.coachTrust+4
-);
-
-player.fans+=
-matchGoals*300;
-
-logMessage(
-"⚽ Hai segnato "+
-matchGoals+
-" gol!"
-);
-
-}
-
-
-if(matchAssists>0){
-
-player.coachTrust=
-Math.min(
-100,
-player.coachTrust+2
-);
-
-logMessage(
-"🎯 Hai servito "+
-matchAssists+
-" assist!"
-);
-
-}
-
-
-const newMilestones=
-Math.floor(
-player.goals/10
-);
-
-
-if(
-newMilestones>
-player.overallGoalMilestones
-){
-
-const gained=
-newMilestones-
-player.overallGoalMilestones;
-
-
-player.overall+=gained;
-
-player.overallGoalMilestones=
-newMilestones;
-
-
-logMessage(
-"📈 INCREDIBILE! Hai raggiunto "+
-(newMilestones*10)+
-" gol: Overall +"+
-gained+
-" → "+
-player.overall+
-"!"
-);
-
-
-if(
-newMilestones>=3 &&
-player.age<=21 &&
-player.goldenBoy===0
-){
-
-player.goldenBoy=1;
-player.trophies++;
-
-logMessage(
-"🏆 GOLDEN BOY! Sei stato eletto miglior giovane!"
-);
-
-}
-
-}
-
-
-if(
-player.goals>=30 &&
-player.goldenBoot===0
-){
-
-player.goldenBoot=1;
-
-player.trophies++;
-
-player.money+=250000;
-
-logMessage(
-"🥇 SCARPA D'ORO! Hai raggiunto 30 gol!"
-);
-
-}
-
-
-if(
-Math.random()<
-(
-player.personality==="Lavoratore Instancabile"?
-.03:
-.07
-)
-){
-
-player.injuryDays=
-Math.floor(
-Math.random()*3
-)+1;
-
-logMessage(
-"💥 INFORTUNIO! Rimarrai fuori per "+
-player.injuryDays+
-" giornate."
-);
-
-}
-
-
-if(
-Math.random()<.04
-){
-
-updateNews(true);
-
-}else{
-
-updateNews();
-
-}
-
-
-advanceMatchDay();
-
-}
-
-
-/* =========================================
-   GIORNATA
-   ========================================= */
-
-function advanceMatchDay(){
-
-if(
-player.matchDay===19 &&
-player.lastOfferSeason!==player.season
-){
-
-player.lastOfferSeason=
-player.season;
-
-saveGame();
-
-showTransferOffer();
-
-return;
-
-}
-
+log.appendChild(end);
 
 player.matchDay++;
 
-
-if(
-player.matchDay>38
-){
-
-endSeason();
-
-return;
-
-}
-
-
-if(
-player.injuryDays>0
-){
-
-player.injuryDays=
-Math.max(
-0,
-player.injuryDays-1
-);
-
-}
-
-
-saveGame();
-updateUI();
-
-}
-
-
-/* =========================================
-   OFFERTE
-   ========================================= */
-
-function showTransferOffer(){
-
-const allCountries=
-Object.keys(leaguesDB);
-
-let country=
-randomItem(allCountries);
-
-let divisions=
-["A","B","C"];
-
-let division=
-randomItem(divisions);
-
-let possible=
-getLeagueTeams(
-country,
-division
-)
-.filter(
-t=>t.name!==player.team
-);
-
-
-if(!possible.length){
-
-possible=
-getLeagueTeams(
-country,
-"A"
-)
-.filter(
-t=>t.name!==player.team
-);
-
-division="A";
-
-}
-
-
-const team=
-randomItem(possible);
-
-
-const bonus=
-Math.floor(
-Math.random()*4000000
-)+1000000;
-
-
-currentOffer={
-league:country,
-division:division,
-team:team.name,
-bonus:bonus
-};
-
-
-document.getElementById(
-"modalTitle"
-).textContent=
-"🚨 OFFERTA DI MERCATO!";
-
-
-document.getElementById(
-"modalText"
-).textContent=
-team.name+
-" vuole acquistarti! Divisione "+
-division+
-". Bonus alla firma: €"+
-bonus.toLocaleString()+
-". Vuoi accettare?";
-
-
-document.getElementById(
-"modalButtons"
-).innerHTML=`
-
-<button
-class="start-button btn-green"
-onclick="acceptOffer()"
->
-🤝 ACCETTA
-</button>
-
-<button
-class="start-button btn-red"
-onclick="rejectOffer()"
->
-❌ RIFIUTA
-</button>
-
-`;
-
-
-document.getElementById(
-"eventModal"
-).classList.remove("hidden");
-
-}
-
-
-function getLeagueTeams(country,division){
-
-return (
-leaguesDB[country]?.[division]||[]
-).map(t=>({
-name:t[0],
-power:t[1]
-}));
-
-}
-
-
-function acceptOffer(){
-
-if(!currentOffer)return;
-
-
-player.league=
-currentOffer.league;
-
-player.division=
-currentOffer.division;
-
-player.team=
-currentOffer.team;
-
-player.money+=
-currentOffer.bonus;
-
-player.points=0;
-
-player.coachTrust=80;
-
-
-logMessage(
-"🤝 TRASFERIMENTO! Ora giochi per "+
-player.team+
-" ("+
-player.league+
-" Divisione "+
-player.division+
-"). +€"+
-currentOffer.bonus.toLocaleString()
-);
-
-
-currentOffer=null;
-
-
-document.getElementById(
-"eventModal"
-).classList.add("hidden");
-
-
-saveGame();
-
-updateUI();
-
-updateNews(true);
-
-}
-
-
-function rejectOffer(){
-
-logMessage(
-"❌ Hai rifiutato l'offerta. Resti al "+
-player.team+
-"."
-);
-
-
-currentOffer=null;
-
-
-document.getElementById(
-"eventModal"
-).classList.add("hidden");
-
-
-player.matchDay++;
-
-
-saveGame();
-
-updateUI();
-
-}
-
-
-/* =========================================
-   STAGIONE
-   ========================================= */
-
-function endSeason(){
-
-const teams=
-getTeams();
-
-
-let standings=
-teams.map(t=>{
-
-let pts=
-player.teamsPoints[t.name]||
-Math.floor(Math.random()*20);
-
-
-if(t.name===player.team){
-
-pts=player.points;
-
-}
-
-
-return {
-...t,
-points:pts
-};
-
-});
-
-
-standings.sort(
-(a,b)=>b.points-a.points
-);
-
-
-const rank=
-standings.findIndex(
-t=>t.name===player.team
-)+1;
-
-
-logMessage(
-"🎉 FINE STAGIONE! Sei arrivato "+
-rank+
-"°."
-);
-
-
-if(rank===1){
-
-player.trophies++;
-
-player.money+=5000000;
-
-logMessage(
-"🏆 CAMPIONE DELLA DIVISIONE! +€5.000.000"
-);
-
-}
-
-
-if(rank<=4){
-
-player.qualifiedUCL=true;
-
-logMessage(
-"🌟 QUALIFICATO ALLA CHAMPIONS LEAGUE!"
-);
-
-}else{
-
-player.qualifiedUCL=false;
-
-}
-
-
-if(
-rank<=2 &&
-player.division!=="A"
-){
-
-player.division=
-player.division==="C"?
-"B":
-"A";
-
-
-player.team=
-randomItem(
-getTeams()
-).name;
-
-
-logMessage(
-"⬆️ PROMOZIONE! Ora giochi in Divisione "+
-player.division+"!"
-);
-
-}
-
-
-if(
-rank>=standings.length-2 &&
-player.division!=="C"
-){
-
-player.division=
-player.division==="A"?
-"B":
-"C";
-
-
-player.team=
-randomItem(
-getTeams()
-).name;
-
-
-logMessage(
-"⬇️ RETROCESSIONE. Ora giochi in Divisione "+
-player.division+"."
-);
-
-}
-
-
-if(
-player.goals>=30 &&
-player.goldenBoot===0
-){
-
-player.goldenBoot=1;
-
-player.trophies++;
-
-logMessage(
-"🥇 HAI VINTO LA SCARPA D'ORO!"
-);
-
-}
-
-
-if(
-player.age<=21 &&
-player.overall>=75 &&
-player.goldenBoy===0
-){
-
-player.goldenBoy=1;
-
-player.trophies++;
-
-logMessage(
-"🌟 GOLDEN BOY! Premio al miglior giovane!"
-);
-
-}
-
-
-if(
-[20,24,28,32,36].includes(
-player.age
-)
-){
-
-triggerWorldCup();
-
-}
-
-
-player.season++;
-
-player.age++;
+if(player.matchDay>38){
 
 player.matchDay=1;
-
-player.points=0;
-
-player.lastOfferSeason=0;
-
-player.teamsPoints={};
-
-player.uclRound=0;
+player.season++;
+player.age++;
 
 player.energy=100;
 
-
-if(player.age>=40){
-
-saveGame();
-
-showRetirementScreen();
-
-return;
+logMessage(
+"🎉 Nuova stagione! Ora hai "+
+player.age+" anni."
+);
 
 }
 
-
-logMessage(
-"🆕 Inizia la stagione "+
-player.season+"!"
-);
-
-
 saveGame();
-
 updateUI();
 
-updateNews(true);
-
-}
-
-
-/* =========================================
-   MONDIALI
-   ========================================= */
-
-function triggerWorldCup(){
-
-document.getElementById(
-"modalTitle"
-).textContent=
-"🌍 COPPA DEL MONDO";
-
-
-document.getElementById(
-"modalText"
-).textContent=
-"Sei stato convocato dalla Nazionale "+
-player.nationality+
-"! Vuoi giocare il Mondiale?";
-
-
-document.getElementById(
-"modalButtons"
-).innerHTML=`
-
-<button
-class="start-button btn-gold"
-onclick="playWorldCup()"
->
-⚽ GIOCA
-</button>
-
-`;
-
-
-document.getElementById(
-"eventModal"
-).classList.remove("hidden");
-
-}
-
-
-function playWorldCup(){
-
-document.getElementById(
-"eventModal"
-).classList.add("hidden");
-
-
-let chance=
-Math.random()+
-player.overall/180;
-
-
-if(chance>1.05){
-
-player.worldCups++;
-
-player.trophies++;
-
-player.fans+=50000;
-
-player.money+=10000000;
-
-
-logMessage(
-"🌍🏆 CAMPIONE DEL MONDO! +€10.000.000"
-);
-
-
-alert(
-"🏆 HAI VINTO LA COPPA DEL MONDO!"
-);
-
-
-}else{
-
-logMessage(
-"🌍 Eliminati dal Mondiale."
-);
-
-
-alert(
-"❌ Il Mondiale finisce ai Quarti di Finale."
-);
-
-}
-
-
-saveGame();
-
-updateUI();
-
-}
-
-
-/* =========================================
-   SOCIAL
-   ========================================= */
-
-function openSocial(){
-
-showScreen("social");
-
-}
-
-
-function publishPost(type){
-
-if(type==="workout"){
-
-player.coachTrust=
-Math.min(
-100,
-player.coachTrust+5
-);
-
-player.fans+=300;
-
-logMessage(
-"📱 Post allenamento: +300 fan!"
-);
-
-}
-
-
-if(type==="flex"){
-
-player.fans+=2000;
-
-player.coachTrust=
-Math.max(
-0,
-player.coachTrust-5
-);
-
-logMessage(
-"📱 Post diventato popolare: +2.000 fan!"
-);
-
-}
-
-
-if(type==="tiktok"){
-
-const viral=
-Math.floor(
-Math.random()*3000
-)+1000;
-
-player.fans+=viral;
-
-player.money+=1500;
-
-logMessage(
-"📱 TikTok virale! +"+
-viral+
-" fan e +€1.500"
-);
-
-}
-
-
-saveGame();
-
-updateUI();
+setTimeout(()=>{
 
 showScreen("hub");
 
-}
+logMessage(result);
 
-
-/* =========================================
-   SPONSOR
-   ========================================= */
-
-function sponsor(){
-
-if(player.energy<10){
-
-logMessage(
-"⚡ Troppo stanco!"
-);
-
-return;
+},1200);
 
 }
 
 
-player.energy-=10;
-
-player.money+=1000;
-
-player.fans+=200;
-
-
-logMessage(
-"📸 Sponsor completato! +€1.000 e +200 fan."
-);
-
-
-saveGame();
-
-updateUI();
-
-}
-
-
-/* =========================================
-   RIPOSO
-   ========================================= */
+/* =========================
+   REST
+========================= */
 
 function rest(){
 
 player.energy=
-Math.min(
-100,
-player.energy+50
-);
-
+Math.min(100,player.energy+50);
 
 if(player.injuryDays>0){
 
-const recovery=
-player.hasPhysio?2:1;
+player.injuryDays--;
+
+}
+
+logMessage("💤 Hai recuperato energie.");
+
+saveGame();
+updateUI();
+
+}
 
 
-player.injuryDays=
-Math.max(
-0,
-player.injuryDays-recovery
-);
+/* =========================
+   SOCIAL
+========================= */
 
+function social(){
+
+player.fans+=
+Math.floor(Math.random()*1500)+500;
+
+player.money+=1000;
 
 logMessage(
-"💤 Riposo: infortunio ridotto di "+
-recovery+
-" giornate."
+"📱 Il tuo post è diventato popolare!"
+);
+
+saveGame();
+updateUI();
+
+}
+
+
+/* =========================
+   FAMILY
+========================= */
+
+function family(){
+
+player.fans+=50;
+
+logMessage(
+"👨‍👩‍👦 Hai passato tempo con la famiglia."
+);
+
+saveGame();
+updateUI();
+
+}
+
+
+/* =========================
+   RELATIONSHIP
+========================= */
+
+function relationship(){
+
+if(player.money>=300){
+
+player.money-=300;
+
+logMessage(
+"❤️ Cena romantica completata!"
 );
 
 }else{
 
 logMessage(
-"💤 Energia recuperata."
+"💰 Non hai abbastanza soldi."
 );
 
 }
 
-
 saveGame();
-
 updateUI();
 
 }
 
 
-/* =========================================
-   CLASSIFICA
-   ========================================= */
+/* =========================
+   CLINIC
+========================= */
 
-function openLeague(){
+function clinic(){
 
-const teams=
-getTeams();
-
-
-let rows=
-teams.map(t=>{
-
-let points=
-t.name===player.team?
-player.points:
-(
-player.teamsPoints[t.name]||
-Math.floor(Math.random()*20)
-);
-
-
-return {
-...t,
-points
-};
-
-});
-
-
-rows.sort(
-(a,b)=>b.points-a.points
-);
-
-
-const container=
-document.getElementById(
-"leagueTable"
-);
-
-
-container.innerHTML="";
-
-
-rows.forEach((t,i)=>{
-
-const mine=
-t.name===player.team;
-
-
-container.innerHTML+=`
-
-<div
-class="table-row"
-style="${
-mine?
-'border:1px solid #38e878;background:rgba(56,232,120,.1);':
-''
-}"
->
-
-<span>
-#${i+1}
-${t.name}
-</span>
-
-<strong>
-${t.points} PTS
-</strong>
-
-</div>
-
-`;
-
-});
-
-
-document.getElementById(
-"divisionText"
-).textContent=
-player.league+
-" • Divisione "+
-player.division;
-
-
-showScreen("league");
-
-}
-
-
-/* =========================================
-   SHOP
-   ========================================= */
-
-const shopDB=[
-
-{
-id:"physio",
-name:"🩺 Fisioterapista Top",
-price:100000,
-bonus:0
-},
-
-{
-id:"watch",
-name:"⌚ Orologio di Lusso",
-price:50000,
-bonus:500
-},
-
-{
-id:"car",
-name:"🏎️ Supercar Sportiva",
-price:250000,
-bonus:3000
-},
-
-{
-id:"villa",
-name:"🏰 Villa Lussuosa",
-price:300000,
-bonus:5000
-},
-
-{
-id:"yacht",
-name:"🛥️ Yacht Elegante",
-price:1000000,
-bonus:10000
-},
-
-{
-id:"jet",
-name:"✈️ Jet Privato",
-price:1500000,
-bonus:25000
-}
-
-];
-
-
-function openShop(){
-
-const container=
-document.getElementById("shopList");
-
-container.innerHTML="";
-
-
-shopDB.forEach(item=>{
-
-const owned=
-player.inventory.includes(item.id);
-
-
-container.innerHTML+=`
-
-<div class="shop-item">
-
-<div>
-
-<strong>
-${item.name}
-</strong>
-
-<br>
-
-<small>
-€${item.price.toLocaleString()}
-${
-item.bonus?
-" • +"+item.bonus.toLocaleString()+" Fan":
-""
-}
-</small>
-
-</div>
-
-<button
-class="start-button btn-gold"
-${owned?"disabled":""}
-onclick="buyItem('${item.id}')"
->
-${owned?"Acquistato":"Compra"}
-</button>
-
-</div>
-
-`;
-
-});
-
-
-showScreen("shop");
-
-}
-
-
-function buyItem(id){
-
-const item=
-shopDB.find(
-x=>x.id===id
-);
-
-
-if(!item)return;
-
-
-if(
-player.inventory.includes(id)
-){
-
-return;
-
-}
-
-
-if(
-player.money<item.price
-){
-
-alert(
-"Non hai abbastanza soldi!"
-);
-
-return;
-
-}
-
-
-player.money-=item.price;
-
-
-if(item.bonus){
-
-player.fans+=item.bonus;
-
-}
-
-
-if(id==="physio"){
-
-player.hasPhysio=true;
-
-}
-
-
-player.inventory.push(
-item.id
-);
-
-
-logMessage(
-"🛍️ Acquistato: "+
-item.name
-);
-
-
-saveGame();
-
-updateUI();
-
-openShop();
-
-}
-
-
-/* =========================================
-   FAMIGLIA
-   ========================================= */
-
-function openFamily(){
-
-document.getElementById(
-"familyText"
-).textContent=
-"La tua famiglia è orgogliosa di te. La felicità familiare è al "+
-player.familyHappiness+
-"%.";
-
-
-const list=
-document.getElementById(
-"familyList"
-);
-
-
-list.innerHTML=`
-
-<div class="family-card">
-
-<div>
-<strong>👨 Papà</strong>
-<br>
-<small>
-Orgoglioso della tua carriera
-</small>
-</div>
-
-<span>
-❤️ ${player.familyHappiness}%
-</span>
-
-</div>
-
-
-<div class="family-card">
-
-<div>
-<strong>👩 Mamma</strong>
-<br>
-<small>
-Vuole vederti felice
-</small>
-</div>
-
-<span>
-❤️ ${player.familyHappiness}%
-</span>
-
-</div>
-
-
-<div class="family-card">
-
-<div>
-<strong>
-👦 Fratello / Sorella
-</strong>
-
-<br>
-
-<small>
-Il tuo primo tifoso
-</small>
-
-</div>
-
-<span>
-⭐ ${player.familyVisits} momenti insieme
-</span>
-
-</div>
-
-`;
-
-
-showScreen("family");
-
-}
-
-
-function familyActivity(){
-
-player.familyVisits++;
-
-player.familyHappiness=
-Math.min(
-100,
-player.familyHappiness+8
-);
-
-player.fans+=50;
-
-
-logMessage(
-"👨‍👩‍👦 Hai passato del tempo con la famiglia. +8 felicità."
-);
-
-
-saveGame();
-
-updateUI();
-
-openFamily();
-
-}
-
-
-/* =========================================
-   RELAZIONE
-   ========================================= */
-
-function openRelationship(){
-
-document.getElementById(
-"girlfriendName"
-).textContent=
-"❤️ "+
-player.girlfriendName;
-
-
-document.getElementById(
-"loveDescription"
-).textContent=
-"La vostra relazione è al "+
-player.love+
-"%. Uscite insieme e fai attenzione a non trascurarla.";
-
-
-document.getElementById(
-"loveValue"
-).textContent=
-player.love+"%";
-
-
-document.getElementById(
-"loveBar"
-).style.width=
-player.love+"%";
-
-
-showScreen("relationship");
-
-}
-
-
-function dateActivity(){
-
-if(player.money<300){
-
-alert(
-"Non hai abbastanza soldi per la cena!"
-);
-
-return;
-
-}
-
-
-player.money-=300;
-
-player.love=
-Math.min(
-100,
-player.love+8
-);
-
-player.dates++;
-
-
-logMessage(
-"❤️ Bellissima serata con "+
-player.girlfriendName+
-"! +8 relazione."
-);
-
-
-saveGame();
-
-updateUI();
-
-openRelationship();
-
-}
-
-
-function giveGift(){
-
-if(player.money<500){
-
-alert(
-"Non hai abbastanza soldi!"
-);
-
-return;
-
-}
-
-
-player.money-=500;
-
-player.love=
-Math.min(
-100,
-player.love+10
-);
-
-player.gifts++;
-
-
-logMessage(
-"🎁 Hai fatto un regalo a "+
-player.girlfriendName+
-"! +10 relazione."
-);
-
-
-saveGame();
-
-updateUI();
-
-openRelationship();
-
-}
-
-
-function bigGift(){
-
-if(player.money<2000){
-
-alert(
-"Non hai abbastanza soldi!"
-);
-
-return;
-
-}
-
-
-player.money-=2000;
-
-player.love=
-Math.min(
-100,
-player.love+18
-);
-
-player.gifts++;
-
-
-logMessage(
-"🌹 Grande regalo! La relazione è salita di 18%."
-);
-
-
-saveGame();
-
-updateUI();
-
-openRelationship();
-
-}
-
-
-/* =========================================
-   CLINICA
-   ========================================= */
-
-function openClinic(){
-
-showScreen("clinic");
-
-}
-
-
-function medicalVisit(){
-
-if(player.injuryDays<=0){
-
-alert(
-"Non sei infortunato!"
-);
-
-return;
-
-}
-
-
-if(player.money<500){
-
-alert(
-"Non hai abbastanza soldi!"
-);
-
-return;
-
-}
-
-
-player.money-=500;
-
-player.injuryDays=
-Math.max(
-0,
-player.injuryDays-1
-);
-
-
-logMessage(
-"🩺 Visita completata."
-);
-
-
-saveGame();
-
-updateUI();
-
-}
-
-
-function intensiveRecovery(){
-
-if(player.injuryDays<=0){
-
-alert(
-"Non sei infortunato!"
-);
-
-return;
-
-}
-
-
-if(player.money<2000){
-
-alert(
-"Non hai abbastanza soldi!"
-);
-
-return;
-
-}
-
-
-player.money-=2000;
-
-player.injuryDays=
-Math.max(
-0,
-player.injuryDays-3
-);
-
-
-logMessage(
-"💉 Riabilitazione intensiva completata."
-);
-
-
-saveGame();
-
-updateUI();
-
-}
-
-
-function fullRecovery(){
-
-if(player.injuryDays<=0){
-
-alert(
-"Non sei infortunato!"
-);
-
-return;
-
-}
-
-
-if(player.money<10000){
-
-alert(
-"Non hai abbastanza soldi!"
-);
-
-return;
-
-}
-
-
-player.money-=10000;
+if(player.injuryDays>0){
 
 player.injuryDays=0;
 
-
 logMessage(
-"🏥 Recupero completo! Sei tornato al 100%."
+"🏥 Sei completamente guarito!"
 );
 
+saveGame();
+updateUI();
+
+}else{
+
+logMessage(
+"🟢 Non sei infortunato."
+);
+
+}
+
+}
+
+
+/* =========================
+   COPPE
+========================= */
+
+function openCup(){
+
+document.getElementById("nationalCupStatus")
+.textContent=
+player.nationalCup.active
+?
+"Turno "+player.nationalCup.round
+:
+"Non iniziata";
+
+document.getElementById("uclStatus")
+.textContent=
+player.ucl.active
+?
+"Turno "+player.ucl.round
+:
+"Non iniziata";
+
+showScreen("cups");
+
+}
+
+
+/* =========================
+   NATIONAL CUP
+========================= */
+
+function startNationalCup(){
+
+if(player.nationalCup.active){
+
+playCupMatch("national");
+
+return;
+
+}
+
+player.nationalCup={
+
+active:true,
+round:1,
+wins:0
+
+};
+
+document.getElementById("nationalCupStatus")
+.textContent=
+"Sedicesimi di finale";
+
+playCupMatch("national");
+
+}
+
+
+/* =========================
+   UCL
+========================= */
+
+function startUCL(){
+
+if(player.overall<70){
+
+alert(
+"⭐ Devi raggiungere almeno Overall 70 per giocare la Champions."
+);
+
+return;
+
+}
+
+if(player.ucl.active){
+
+playCupMatch("ucl");
+
+return;
+
+}
+
+player.ucl={
+
+active:true,
+round:1,
+wins:0
+
+};
+
+document.getElementById("uclStatus")
+.textContent=
+"Fase a eliminazione";
+
+playCupMatch("ucl");
+
+}
+
+
+/* =========================
+   CUP MATCH
+========================= */
+
+function playCupMatch(type){
+
+const cup=
+type==="national"
+?
+player.nationalCup
+:
+player.ucl;
+
+const rounds=
+type==="national"
+?
+[
+"Sedicesimi",
+"Ottavi",
+"Quarti",
+"Semifinale",
+"Finale"
+]
+:
+[
+"Ottavi",
+"Quarti",
+"Semifinale",
+"Finale"
+];
+
+const roundName=
+rounds[cup.round-1]||
+"Finale";
+
+const opponent=
+randomItem(
+(teamsDB[player.nationality]||[])
+.filter(t=>t!==player.team)
+)||"FC Avversario";
+
+const power=
+Math.random();
+
+let win;
+
+if(power<
+.48+
+(player.overall/200)
+){
+
+win=true;
+
+}else{
+
+win=false;
+
+}
+
+const bracket=
+document.getElementById("cupBracket");
+
+const card=
+document.createElement("div");
+
+card.className="bracket-card";
+
+if(win){
+
+cup.wins++;
+
+card.innerHTML=
+"🏆 <strong>"+
+roundName+
+"</strong><br>"+
+player.team+
+" ✅ batte "+
+opponent;
+
+cup.round++;
+
+if(cup.round>rounds.length){
+
+if(type==="national"){
+
+player.nationalCups++;
+player.trophies++;
+player.money+=1000000;
+
+}else{
+
+player.uclTrophies++;
+player.trophies++;
+player.money+=5000000;
+
+}
+
+cup.active=false;
+
+card.innerHTML+=
+"<br><br>🏆 <strong>HAI VINTO LA COPPA!</strong>";
+
+}else{
+
+card.innerHTML+=
+"<br>➡️ Passi al turno successivo!";
+
+}
+
+}else{
+
+card.innerHTML=
+"❌ <strong>"+
+roundName+
+"</strong><br>"+
+player.team+
+" perde contro "+
+opponent;
+
+cup.active=false;
+
+}
+
+bracket.prepend(card);
 
 saveGame();
-
 updateUI();
 
 }
 
 
-/* =========================================
-   TROFEI
-   ========================================= */
-
-function openTrophies(){
-
-document.getElementById(
-"trophyTotal"
-).textContent=
-player.trophies;
-
-
-const list=
-document.getElementById(
-"trophyList"
-);
-
-
-list.innerHTML=`
-
-<div class="trophy-card">
-<span>🏆 Trofei totali</span>
-<strong>${player.trophies}</strong>
-</div>
-
-<div class="trophy-card">
-<span>🌍 Coppe del Mondo</span>
-<strong>${player.worldCups}</strong>
-</div>
-
-<div class="trophy-card">
-<span>⭐ Champions League</span>
-<strong>${player.uclTrophies}</strong>
-</div>
-
-<div class="trophy-card">
-<span>🥇 Scarpe d'Oro</span>
-<strong>${player.goldenBoot}</strong>
-</div>
-
-<div class="trophy-card">
-<span>🌟 Golden Boy</span>
-<strong>${player.goldenBoy}</strong>
-</div>
-
-<div class="trophy-card">
-<span>⚽ Gol totali</span>
-<strong>${player.goals}</strong>
-</div>
-
-<div class="trophy-card">
-<span>🎯 Assist totali</span>
-<strong>${player.assists}</strong>
-</div>
-
-`;
-
-
-showScreen("trophies");
-
-}
-
-
-/* =========================================
-   RECENSIONI LOCALI
-   ========================================= */
+/* =========================
+   REVIEWS
+========================= */
 
 function getReviews(){
 
@@ -5648,7 +2471,6 @@ return [];
 
 }
 
-
 function saveReviews(reviews){
 
 localStorage.setItem(
@@ -5658,186 +2480,119 @@ JSON.stringify(reviews)
 
 }
 
-
 function openReviews(){
 
-const reviews=
-getReviews();
+const reviews=getReviews();
 
+let average=0;
 
-const average=
-reviews.length?
+if(reviews.length){
+
+average=
 reviews.reduce(
-(sum,r)=>sum+r.rating,
-0
-)/reviews.length:
-0;
+(sum,r)=>sum+r.rating,0
+)/reviews.length;
 
+}
 
-document.getElementById(
-"averageRating"
-).textContent=
-"⭐ "+
-average.toFixed(1)+
-" / 5";
+document.getElementById("averageRating")
+.textContent=
+"⭐ "+average.toFixed(1)+" / 5";
 
-
-document.getElementById(
-"reviewCount"
-).textContent=
+document.getElementById("reviewCount")
+.textContent=
 reviews.length+
-(
-reviews.length===1?
-" recensione":
-" recensioni"
-);
-
+(reviews.length===1
+?" recensione"
+:" recensioni");
 
 const list=
-document.getElementById(
-"reviewList"
-);
-
+document.getElementById("reviewList");
 
 list.innerHTML="";
 
+reviews.slice().reverse().forEach(r=>{
 
-reviews
-.slice()
-.reverse()
-.forEach(r=>{
+const card=
+document.createElement("div");
+
+card.className="review-card";
 
 const stars=
 "★".repeat(r.rating)+
 "☆".repeat(5-r.rating);
 
+card.innerHTML=
+"<strong>"+
+escapeHTML(r.name)+
+"</strong>"+
+"<div style='color:#facc15;font-size:20px'>"+
+stars+
+"</div>"+
+"<p>"+
+escapeHTML(r.text)+
+"</p>"+
+"<small>"+
+escapeHTML(r.date)+
+"</small>";
 
-list.innerHTML+=`
-
-<div class="review-card">
-
-<div style="width:100%">
-
-<strong>
-${escapeHTML(r.name)}
-</strong>
-
-<div
-style="color:#facc15;font-size:20px"
->
-${stars}
-</div>
-
-<p
-style="margin-top:6px;color:#d1dcd4"
->
-${escapeHTML(r.text)}
-</p>
-
-<small
-style="color:#82988a"
->
-${r.date}
-</small>
-
-</div>
-
-</div>
-
-`;
+list.appendChild(card);
 
 });
-
 
 showScreen("reviews");
 
 }
 
-
 function selectRating(rating){
 
 selectedRating=rating;
-
 
 const spans=
 document.querySelectorAll(
 "#starSelector span"
 );
 
-
-spans.forEach(
-(span,i)=>{
+spans.forEach((span,i)=>{
 
 span.textContent=
-i<rating?
-"★":
-"☆";
+i<rating?"★":"☆";
 
 });
 
-
-document.getElementById(
-"selectedRating"
-).textContent=
-rating?
-"Hai scelto "+
-rating+
-" / 5 stelle":
-"Seleziona da 1 a 5 stelle";
+document.getElementById("selectedRating")
+.textContent=
+rating
+?
+"Hai scelto "+rating+" / 5"
+:
+"Seleziona le stelle";
 
 }
-
 
 function submitReview(){
 
 const name=
-document.getElementById(
-"reviewName"
-).value.trim();
-
+document.getElementById("reviewName")
+.value.trim();
 
 const text=
-document.getElementById(
-"reviewText"
-).value.trim();
+document.getElementById("reviewText")
+.value.trim();
 
-
-if(!name){
+if(!name||
+!text||
+!selectedRating){
 
 alert(
-"Inserisci il tuo nome."
+"⚠️ Inserisci nome, recensione e stelle."
 );
 
 return;
 
 }
 
-
-if(!selectedRating){
-
-alert(
-"Scegli da 1 a 5 stelle."
-);
-
-return;
-
-}
-
-
-if(!text){
-
-alert(
-"Scrivi una recensione."
-);
-
-return;
-
-}
-
-
-const reviews=
-getReviews();
-
+const reviews=getReviews();
 
 reviews.push({
 
@@ -5849,173 +2604,159 @@ date:new Date()
 
 });
 
-
 saveReviews(reviews);
 
+document.getElementById("reviewName")
+.value="";
 
-document.getElementById(
-"reviewName"
-).value="";
-
-
-document.getElementById(
-"reviewText"
-).value="";
-
+document.getElementById("reviewText")
+.value="";
 
 selectedRating=0;
 
 selectRating(0);
-
-
-alert(
-"⭐ Recensione pubblicata!"
-);
-
 
 openReviews();
 
 }
 
 
+/* =========================
+   ESCAPE
+========================= */
+
 function escapeHTML(text){
 
 return String(text)
 
-.replaceAll(
-"&",
-"&amp;"
-)
-
-.replaceAll(
-"<",
-"&lt;"
-)
-
-.replaceAll(
-">",
-"&gt;"
-)
-
-.replaceAll(
-'"',
-"&quot;"
-)
-
-.replaceAll(
-"'",
-"&#039;"
-);
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
 
 }
 
 
-/* =========================================
-   STATISTICHE
-   ========================================= */
+/* =========================
+   CAREER STATS
+========================= */
 
-function openGlobalStats(){
+function careerStats(){
 
-document.getElementById(
-"statsCareers"
-).textContent=
-getCareerCount();
+document.getElementById("careerGoals")
+.textContent=player.goals;
 
+document.getElementById("careerAssists")
+.textContent=player.assists;
 
-document.getElementById(
-"statsReviews"
-).textContent=
-getReviews().length;
+document.getElementById("careerTrophies")
+.textContent=player.trophies;
 
+document.getElementById("careerWorldCups")
+.textContent=player.worldCups;
 
-document.getElementById(
-"statsGoals"
-).textContent=
-player.goals||0;
+document.getElementById("careerUCL")
+.textContent=player.uclTrophies;
 
+document.getElementById("careerBallon")
+.textContent=player.ballonDor;
 
-document.getElementById(
-"statsTrophies"
-).textContent=
-player.trophies||0;
+document.getElementById("careerMaxOverall")
+.textContent=player.maxOverall;
 
-
-showScreen("globalStats");
-
-}
-
-
-/* =========================================
-   CONTATTI
-   ========================================= */
-
-function openContacts(){
-
-showScreen("contacts");
-
-}
-
-
-/* =========================================
-   RITIRO
-   ========================================= */
-
-function showRetirementScreen(){
-
-document.getElementById(
-"retTrophies"
-).textContent=
-player.trophies;
-
-
-document.getElementById(
-"retWorldCups"
-).textContent=
-player.worldCups;
-
-
-document.getElementById(
-"retUcl"
-).textContent=
-player.uclTrophies;
-
-
-document.getElementById(
-"retGoals"
-).textContent=
-player.goals;
-
-
-document.getElementById(
-"retAssists"
-).textContent=
-player.assists;
-
-
-document.getElementById(
-"retMoney"
-).textContent=
+document.getElementById("careerMoney")
+.textContent=
 player.money.toLocaleString();
 
-
-document.getElementById(
-"retFans"
-).textContent=
-player.fans.toLocaleString();
-
-
-showScreen("retirement");
+showScreen("careerStats");
 
 }
 
 
-/* =========================================
-   AVVIO
-   ========================================= */
+/* =========================
+   LOG
+========================= */
 
-updateCareerCounter();
+function logMessage(msg){
 
+const box=
+document.getElementById("gameLog");
+
+if(!box)return;
+
+const div=
+document.createElement("div");
+
+div.textContent="> "+msg;
+
+box.appendChild(div);
+
+box.scrollTop=
+box.scrollHeight;
+
+}
+
+
+/* =========================
+   UTILITY
+========================= */
+
+function randomItem(arr){
+
+return arr[
+Math.floor(Math.random()*arr.length)
+];
+
+}
+
+function resetGame(){
+
+if(confirm(
+"Vuoi cancellare completamente la carriera?"
+)){
+
+localStorage.removeItem(SAVE_KEY);
+
+location.reload();
+
+}
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+document.addEventListener(
+"DOMContentLoaded",
+()=>{
+
+updatePreview();
 updateUI();
+
+}
+);
+
+window.addEventListener(
+"load",
+()=>{
+
+try{
+
+(adsbygoogle=
+window.adsbygoogle||[])
+.push({});
+
+}catch(e){
+
+console.log("AdSense:",e);
+
+}
+
+}
+);
 
 </script>
 

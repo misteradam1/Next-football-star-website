@@ -28,6 +28,8 @@ gtag('config', 'G-LD76R6T3TM');
 <!-- =========================================
      GOOGLE ADSENSE
      ========================================= -->
+<meta name="google-adsense-account" content="ca-pub-4740569819691854">
+
 <script async
 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4740569819691854"
 crossorigin="anonymous"></script>
@@ -238,7 +240,6 @@ width:90%;border:2px solid #facc15;text-align:center;
 box-shadow:0 20px 50px rgba(0,0,0,.9)
 }
 
-/* ADSENSE */
 .adsense-box{
 width:100%;
 max-width:728px;
@@ -268,7 +269,6 @@ overflow:hidden;
 
 <main class="container">
 
-<!-- HOME -->
 <section class="card" id="home">
 <div class="home-pitch-bg"></div>
 
@@ -302,9 +302,6 @@ ENTRA IN CAMPO 🚀
 ⭐ RECENSIONI DEL GIOCO
 </button>
 
-<!-- =========================================
-     ADSENSE - HOME
-     ========================================= -->
 <div class="adsense-box">
 <ins class="adsbygoogle"
      style="display:block;width:100%;min-height:90px"
@@ -317,10 +314,10 @@ ENTRA IN CAMPO 🚀
 </section>
 
 
-<!-- CREAZIONE -->
 <section class="card career-screen hidden" id="career">
 
 <h2>CREA IL TUO GIOCATORE 👤</h2>
+
 <p style="margin-bottom:15px;color:#aab8ae;font-size:13px">
 Crea il tuo profilo e inizia la scalata verso la gloria!
 </p>
@@ -375,13 +372,14 @@ Crea il tuo profilo e inizia la scalata verso la gloria!
 <option value="RANDOM">🎲 Offerta Casuale</option>
 </select>
 
-<button class="start-button" onclick="createPlayer">
+<!-- CORRETTO: createPlayer() -->
+<button class="start-button" onclick="createPlayer()">
 INIZIA LA CARRIERA 🚀
 </button>
+
 </section>
 
 
-<!-- HUB -->
 <section class="card hidden" id="hub">
 
 <h2 id="displayPlayerName">Nome Giocatore</h2>
@@ -436,9 +434,6 @@ Inizia la carriera da giovane talento!
 
 </div>
 
-<!-- =========================================
-     ADSENSE - HUB
-     ========================================= -->
 <div class="adsense-box">
 <ins class="adsbygoogle"
      style="display:block;width:100%;min-height:90px"
@@ -451,9 +446,10 @@ Inizia la carriera da giovane talento!
 </section>
 
 
-<!-- SOCIAL -->
 <section class="card career-screen hidden" id="social">
+
 <h2>📱 SOCIAL MEDIA</h2>
+
 <p style="color:#aab8ae;font-size:13px;margin-bottom:15px">
 Costruisci il tuo brand.
 </p>
@@ -461,48 +457,66 @@ Costruisci il tuo brand.
 <div class="social-feed">
 
 <div class="post-card">
-<div><strong>🏋️ Hard Work</strong><br>
-<small>Mai mollare un centimetro!</small></div>
+<div>
+<strong>🏋️ Hard Work</strong><br>
+<small>Mai mollare un centimetro!</small>
+</div>
 <button class="start-button btn-pink" onclick="publishPost('workout')">Pubblica</button>
 </div>
 
 <div class="post-card">
-<div><strong>🏎️ Vita da Star</strong><br>
-<small>Solo il meglio.</small></div>
+<div>
+<strong>🏎️ Vita da Star</strong><br>
+<small>Solo il meglio.</small>
+</div>
 <button class="start-button btn-pink" onclick="publishPost('flex')">Pubblica</button>
 </div>
 
 <div class="post-card">
-<div><strong>⚽ Skill Challenge</strong><br>
-<small>Diventiamo virali!</small></div>
+<div>
+<strong>⚽ Skill Challenge</strong><br>
+<small>Diventiamo virali!</small>
+</div>
 <button class="start-button btn-pink" onclick="publishPost('tiktok')">Pubblica</button>
 </div>
 
 </div>
 
 <button class="start-button btn-blue" onclick="showScreen('hub')">⬅️ Torna</button>
+
 </section>
 
 
-<!-- CLASSIFICA -->
 <section class="card career-screen hidden" id="league">
+
 <h2>🏆 CAMPIONATO</h2>
+
 <p id="divisionText" style="color:#38e878;margin-top:5px"></p>
+
 <div class="league-table" id="leagueTable"></div>
-<button class="start-button btn-blue" onclick="showScreen('hub')">⬅️ Torna</button>
+
+<button class="start-button btn-blue" onclick="showScreen('hub')">
+⬅️ Torna
+</button>
+
 </section>
 
 
-<!-- SHOP -->
 <section class="card career-screen hidden" id="shop">
+
 <h2>💎 SHOP & STAFF</h2>
+
 <div class="shop-list" id="shopList"></div>
-<button class="start-button btn-blue" onclick="showScreen('hub')">⬅️ Torna</button>
+
+<button class="start-button btn-blue" onclick="showScreen('hub')">
+⬅️ Torna
+</button>
+
 </section>
 
 
-<!-- FAMIGLIA -->
 <section class="card career-screen hidden" id="family">
+
 <h2>👨‍👩‍👦 FAMIGLIA</h2>
 
 <div class="section-box">
@@ -519,58 +533,80 @@ Costruisci il tuo brand.
 <button class="start-button btn-blue" onclick="showScreen('hub')">
 ⬅️ Torna
 </button>
+
 </section>
 
 
-<!-- AMORE -->
 <section class="card career-screen hidden" id="relationship">
 
 <h2>❤️ RELAZIONE</h2>
 
 <div class="section-box">
+
 <h3 id="girlfriendName">La tua ragazza</h3>
+
 <p id="loveDescription"></p>
 
 <div class="progress">
 <div class="progress-bar" id="loveBar" style="width:50%"></div>
 </div>
 
-<p style="margin-top:8px">Relazione: <strong id="loveValue">50%</strong></p>
+<p style="margin-top:8px">
+Relazione: <strong id="loveValue">50%</strong>
+</p>
+
 </div>
 
 <div class="relationship-list">
 
 <div class="relationship-card">
+
 <div>
 <strong>🍝 Cena romantica</strong><br>
 <small>+8 relazione • -€300</small>
 </div>
-<button class="start-button btn-pink" onclick="dateActivity()">Esci</button>
+
+<button class="start-button btn-pink" onclick="dateActivity()">
+Esci
+</button>
+
 </div>
 
 <div class="relationship-card">
+
 <div>
 <strong>🎁 Regalo</strong><br>
 <small>+10 relazione • -€500</small>
 </div>
-<button class="start-button btn-gold" onclick="giveGift()">Regala</button>
+
+<button class="start-button btn-gold" onclick="giveGift()">
+Regala
+</button>
+
 </div>
 
 <div class="relationship-card">
+
 <div>
 <strong>🌹 Grande regalo</strong><br>
 <small>+18 relazione • -€2.000</small>
 </div>
-<button class="start-button btn-purple" onclick="bigGift()">Regala</button>
-</div>
+
+<button class="start-button btn-purple" onclick="bigGift()">
+Regala
+</button>
 
 </div>
 
-<button class="start-button btn-blue" onclick="showScreen('hub')">⬅️ Torna</button>
+</div>
+
+<button class="start-button btn-blue" onclick="showScreen('hub')">
+⬅️ Torna
+</button>
+
 </section>
 
 
-<!-- CLINICA -->
 <section class="card career-screen hidden" id="clinic">
 
 <h2>🏥 CLINICA SPORTIVA</h2>
@@ -578,72 +614,107 @@ Costruisci il tuo brand.
 <div class="clinic-list">
 
 <div class="clinic-card">
+
 <div>
 <strong>🩺 Visita medica</strong><br>
 <small>Riduce di 1 giornata l'infortunio • €500</small>
 </div>
-<button class="start-button btn-blue" onclick="medicalVisit()">Cura</button>
+
+<button class="start-button btn-blue" onclick="medicalVisit()">
+Cura
+</button>
+
 </div>
 
 <div class="clinic-card">
+
 <div>
 <strong>💉 Riabilitazione intensiva</strong><br>
 <small>Riduce di 3 giornate • €2.000</small>
 </div>
-<button class="start-button btn-green" onclick="intensiveRecovery()">Cura</button>
+
+<button class="start-button btn-green" onclick="intensiveRecovery()">
+Cura
+</button>
+
 </div>
 
 <div class="clinic-card">
+
 <div>
 <strong>🏥 Recupero completo</strong><br>
 <small>Guarisci immediatamente • €10.000</small>
 </div>
-<button class="start-button btn-gold" onclick="fullRecovery()">Cura</button>
-</div>
+
+<button class="start-button btn-gold" onclick="fullRecovery()">
+Cura
+</button>
 
 </div>
 
-<button class="start-button btn-blue" onclick="showScreen('hub')">⬅️ Torna</button>
+</div>
+
+<button class="start-button btn-blue" onclick="showScreen('hub')">
+⬅️ Torna
+</button>
+
 </section>
 
 
-<!-- TROFEI -->
 <section class="card career-screen hidden" id="trophies">
 
 <h2>🏆 BACHECA DEI TROFEI</h2>
 
 <div class="award-big">
+
 <div class="icon">🏆</div>
+
 <h3>LA TUA LEGGENDA</h3>
-<p>Trofei conquistati: <strong id="trophyTotal">0</strong></p>
+
+<p>
+Trofei conquistati:
+<strong id="trophyTotal">0</strong>
+</p>
+
 </div>
 
 <div class="trophy-list" id="trophyList"></div>
 
-<button class="start-button btn-blue" onclick="showScreen('hub')">⬅️ Torna</button>
+<button class="start-button btn-blue" onclick="showScreen('hub')">
+⬅️ Torna
+</button>
+
 </section>
 
 
-<!-- RECENSIONI -->
 <section class="card career-screen hidden" id="reviews">
 
 <h2>⭐ RECENSIONI DEL GIOCO</h2>
 
 <div class="rating-summary">
+
 <h3 id="averageRating">⭐ 0.0 / 5</h3>
-<p id="reviewCount">Nessuna recensione ancora</p>
+
+<p id="reviewCount">
+Nessuna recensione ancora
+</p>
+
 </div>
 
 <div class="section-box">
+
 <h3>Lascia una recensione</h3>
 
 <input id="reviewName" placeholder="Il tuo nome">
+
 <div class="stars" id="starSelector">
+
 <span onclick="selectRating(1)">☆</span>
 <span onclick="selectRating(2)">☆</span>
 <span onclick="selectRating(3)">☆</span>
 <span onclick="selectRating(4)">☆</span>
 <span onclick="selectRating(5)">☆</span>
+
 </div>
 
 <p id="selectedRating" style="margin:8px 0;color:#facc15">
@@ -655,6 +726,7 @@ Seleziona da 1 a 5 stelle
 <button class="start-button btn-gold" onclick="submitReview()">
 PUBBLICA RECENSIONE ⭐
 </button>
+
 </div>
 
 <div class="review-list" id="reviewList"></div>
@@ -666,7 +738,6 @@ PUBBLICA RECENSIONE ⭐
 </section>
 
 
-<!-- RITIRO -->
 <section class="card career-screen hidden" id="retirement">
 
 <h2>👴 SCARPINI AL CHIODO</h2>
@@ -676,6 +747,7 @@ Hai compiuto 40 anni e ti ritiri ufficialmente.
 </p>
 
 <div class="section-box">
+
 <p>🏆 Trofei: <span id="retTrophies">0</span></p>
 <p>🌍 Mondiali: <span id="retWorldCups">0</span></p>
 <p>⭐ Champions: <span id="retUcl">0</span></p>
@@ -683,38 +755,49 @@ Hai compiuto 40 anni e ti ritiri ufficialmente.
 <p>🎯 Assist: <span id="retAssists">0</span></p>
 <p>💰 Patrimonio: €<span id="retMoney">0</span></p>
 <p>⭐ Fan: <span id="retFans">0</span></p>
+
 </div>
 
 <button class="start-button btn-gold" onclick="resetGame()">
 REINIZIA CARRIERA 🔄
 </button>
+
 </section>
 
 </main>
 
 
-<!-- MODALE -->
 <div id="eventModal" class="modal hidden">
+
 <div class="modal-content">
-<h3 id="modalTitle" style="color:#facc15;margin-bottom:15px">EVENTO</h3>
+
+<h3 id="modalTitle" style="color:#facc15;margin-bottom:15px">
+EVENTO
+</h3>
+
 <p id="modalText" style="margin-bottom:20px;font-size:14px;line-height:1.5"></p>
-<div id="modalButtons" style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap"></div>
+
+<div id="modalButtons"
+style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap">
 </div>
+
+</div>
+
 </div>
 
 
 <script>
 
-/* =========================================
-   ATTIVAZIONE ADSENSE
-   ========================================= */
-
 window.addEventListener("load",function(){
 
 try{
+
 (adsbygoogle = window.adsbygoogle || []).push({});
+
 }catch(e){
+
 console.log("AdSense non ancora disponibile:",e);
+
 }
 
 });
@@ -782,10 +865,9 @@ newsIndex:0,
 lastOfferSeason:0,
 
 teamsPoints:{}
+
 };
 
-
-/* DATABASE SQUADRE */
 
 const leaguesDB={
 
@@ -1115,10 +1197,9 @@ C:[
 {name:"Dalian Red",power:49}
 ]
 }
+
 };
 
-
-/* SHOP */
 
 const shopDB=[
 {id:"physio",name:"🩺 Fisioterapista Top",price:100000,bonus:0},
@@ -1130,78 +1211,141 @@ const shopDB=[
 ];
 
 
-/* UTILITA' */
-
 function getTeams(){
-return leaguesDB[player.league]?.[player.division] || leaguesDB["🇮🇹 Italia"].A;
+return leaguesDB[player.league]?.[player.division] ||
+leaguesDB["🇮🇹 Italia"].A;
 }
+
 
 function saveGame(){
 localStorage.setItem(SAVE_KEY,JSON.stringify(player));
 }
 
+
 function showScreen(id){
-["home","career","hub","social","league","shop","family","relationship","clinic","trophies","reviews","retirement"]
-.forEach(x=>{
+
+[
+"home",
+"career",
+"hub",
+"social",
+"league",
+"shop",
+"family",
+"relationship",
+"clinic",
+"trophies",
+"reviews",
+"retirement"
+].forEach(x=>{
+
 const el=document.getElementById(x);
+
 if(el)el.classList.add("hidden");
+
 });
+
 const target=document.getElementById(id);
+
 if(target)target.classList.remove("hidden");
+
 }
+
 
 function logMessage(msg){
+
 const box=document.getElementById("gameLog");
+
 if(!box)return;
+
 const div=document.createElement("div");
+
 div.textContent="> "+msg;
+
 box.appendChild(div);
+
 box.scrollTop=box.scrollHeight;
+
 }
+
 
 function randomItem(arr){
+
 return arr[Math.floor(Math.random()*arr.length)];
+
 }
 
 
-/* CREAZIONE */
-
 function updateTeamDropdown(){
+
 const nat=document.getElementById("nationality").value;
+
 const select=document.getElementById("startingTeam");
 
 select.innerHTML='<option value="RANDOM">🎲 Offerta Casuale</option>';
 
 if(leaguesDB[nat]){
+
 const group=document.createElement("optgroup");
+
 group.label="Squadre del tuo paese";
 
 leaguesDB[nat].A.forEach(t=>{
+
 const option=document.createElement("option");
+
 option.value=nat+"|A|"+t.name;
+
 option.textContent=t.name+" (Ovr "+t.power+")";
+
 group.appendChild(option);
+
 });
 
 select.appendChild(group);
+
 }
+
 }
+
 
 function createPlayer(){
 
 const name=document.getElementById("playerName").value.trim();
+
 const surname=document.getElementById("playerSurname").value.trim();
+
 const number=Number(document.getElementById("jerseyNumber").value);
+
 const hair=document.getElementById("hairType").value;
+
 const personality=document.getElementById("personality").value;
+
 const position=document.getElementById("position").value;
+
 const nationality=document.getElementById("nationality").value;
+
 const chosen=document.getElementById("startingTeam").value;
 
-if(!name||!surname||!number||number<1||number>99||!hair||!personality||!position||!nationality){
+
+if(
+!name||
+!surname||
+!number||
+number<1||
+number>99||
+!hair||
+!personality||
+!position||
+!nationality
+){
+
 alert("Compila correttamente tutti i campi! ⚠️");
+
 return;
+
 }
+
 
 player.name=name;
 player.surname=surname;
@@ -1212,71 +1356,120 @@ player.position=position;
 player.nationality=nationality;
 player.age=16;
 
+
 if(chosen==="RANDOM"){
+
 player.league=nationality;
+
 player.division="A";
+
 player.team=randomItem(leaguesDB[nationality].A).name;
+
 }else{
+
 const p=chosen.split("|");
+
 player.league=p[0];
 player.division=p[1];
 player.team=p[2];
+
 }
 
-if(personality==="Prodigio Tecnico")player.overall+=3;
+
+if(personality==="Prodigio Tecnico")
+player.overall+=3;
+
+
 if(personality==="Leader Naturale"){
+
 player.fans+=100;
+
 player.coachTrust+=10;
+
 }
+
 
 saveGame();
+
 updatePlayerInfoDisplay();
+
 updateUI();
+
 showScreen("hub");
-logMessage("🎉 Carriera iniziata! Il mondo del calcio parla già di te.");
+
+logMessage(
+"🎉 Carriera iniziata! Il mondo del calcio parla già di te."
+);
+
 updateNews();
+
 }
 
-
-/* CARICAMENTO */
 
 function checkSavedGame(){
 
 const saved=localStorage.getItem(SAVE_KEY);
 
 if(saved){
+
 try{
-player={...player,...JSON.parse(saved)};
+
+player={
+...player,
+...JSON.parse(saved)
+};
+
 }catch(e){
+
 localStorage.removeItem(SAVE_KEY);
+
 showScreen("career");
+
 return;
+
 }
+
 
 if(player.age>=40){
+
 showRetirementScreen();
+
 }else{
+
 updatePlayerInfoDisplay();
+
 updateUI();
+
 updateNews();
+
 showScreen("hub");
+
 }
+
 }else{
+
 showScreen("career");
+
 }
+
 }
+
 
 function resetGame(){
+
 if(confirm("Vuoi cancellare completamente la carriera?")){
+
 localStorage.removeItem(SAVE_KEY);
+
 location.reload();
-}
+
 }
 
+}
 
-/* DISPLAY */
 
 function updatePlayerInfoDisplay(){
+
 document.getElementById("displayPlayerName").textContent=
 player.name+" "+player.surname;
 
@@ -1287,22 +1480,39 @@ document.getElementById("displayExtra").textContent=
 "Maglia #"+player.jerseyNumber+
 " | Capelli: "+player.hairType+
 " | "+player.personality;
+
 }
+
 
 function updateUI(){
 
 const teams=getTeams();
+
 const team=teams.find(t=>t.name===player.team);
+
 const power=team?team.power:70;
 
+
 document.getElementById("valAge").textContent=player.age;
-document.getElementById("valMatchDay").textContent=player.matchDay+" / 38";
+
+document.getElementById("valMatchDay").textContent=
+player.matchDay+" / 38";
+
 document.getElementById("valGoals").textContent=player.goals;
+
 document.getElementById("valAssists").textContent=player.assists;
+
 document.getElementById("valOverall").textContent=player.overall;
-document.getElementById("valEnergy").textContent=player.energy+"%";
-document.getElementById("valMoney").textContent="€"+player.money.toLocaleString();
-document.getElementById("valFans").textContent=player.fans.toLocaleString();
+
+document.getElementById("valEnergy").textContent=
+player.energy+"%";
+
+document.getElementById("valMoney").textContent=
+"€"+player.money.toLocaleString();
+
+document.getElementById("valFans").textContent=
+player.fans.toLocaleString();
+
 
 document.getElementById("displayTeam").textContent=
 "Lega: "+player.league+
@@ -1310,38 +1520,55 @@ document.getElementById("displayTeam").textContent=
 " | Club: "+player.team+
 " (Ovr: "+power+")";
 
+
 document.getElementById("trainProgress").textContent=
 player.trainCount+"/5";
 
+
 document.getElementById("valCoachTrust").textContent=
 player.coachTrust+"%";
+
 
 document.getElementById("valHealth").textContent=
 player.injuryDays>0?
 "🚑 Infortunato ("+player.injuryDays+")":
 "🟢 Sano";
 
+
 document.getElementById("valUclStatus").textContent=
-player.qualifiedUCL?"🌟 Qualificato!":"Non qualificato";
+player.qualifiedUCL?
+"🌟 Qualificato!":
+"Non qualificato";
+
 
 document.getElementById("valLove").textContent=
 player.love+"%";
+
 }
 
 
-/* GIORNALE */
-
 const newsTemplates=[
+
 "🚨 NUOVO TALENTO! {name} ha segnato {goals} gol e sta facendo parlare di sé!",
+
 "🔥 {name} continua a stupire: il giovane talento è sempre più decisivo!",
+
 "⭐ Tutti parlano di {name}: il futuro del calcio potrebbe avere un nuovo protagonista!",
+
 "⚽ {name} ha trovato il gol! I tifosi sono in delirio!",
+
 "💰 Il mercato osserva attentamente {name}. Diversi club stanno chiedendo informazioni!",
+
 "🏆 {name} sogna un trofeo e promette battaglia fino alla fine!",
+
 "📈 Cresce la valutazione di {name}: il suo Overall è ora {overall}!",
+
 "👑 {name} sempre più leader dello spogliatoio!",
+
 "🌟 Esplode il talento di {name}: prestazione da applausi!"
+
 ];
+
 
 function updateNews(force=false){
 
@@ -1350,591 +1577,1086 @@ if(!force&&Math.random()>0.35)return;
 const template=randomItem(newsTemplates);
 
 document.getElementById("newsText").textContent=
+
 template
+
 .replaceAll("{name}",player.name+" "+player.surname)
+
 .replaceAll("{goals}",player.goals)
+
 .replaceAll("{overall}",player.overall);
+
 }
 
-
-/* ALLENAMENTO */
 
 function train(){
 
 if(player.energy<15){
+
 logMessage("⚡ Troppo stanco per allenarti!");
+
 return;
+
 }
 
 player.energy-=15;
+
 player.trainCount++;
 
+
 if(player.trainCount>=5){
+
 player.trainCount=0;
+
 player.coachTrust=Math.min(100,player.coachTrust+2);
-logMessage("🏋️ Allenamento completato! Hai migliorato la tua forma.");
+
+logMessage(
+"🏋️ Allenamento completato! Hai migliorato la tua forma."
+);
+
 }else{
-logMessage("🏋️ Sessione completata ("+player.trainCount+"/5).");
+
+logMessage(
+"🏋️ Sessione completata ("+player.trainCount+"/5)."
+);
+
 }
+
 
 saveGame();
+
 updateUI();
+
 }
 
-
-/* MATCH */
 
 function playMatch(){
 
 if(player.injuryDays>0){
-logMessage("🚑 Sei infortunato. Vai in clinica o riposati.");
+
+logMessage(
+"🚑 Sei infortunato. Vai in clinica o riposati."
+);
+
 return;
+
 }
+
 
 if(player.energy<30){
+
 logMessage("⚡ Troppo stanco! Riposati.");
+
 return;
+
 }
 
+
 if(player.coachTrust<30){
+
 logMessage("⚠️ Il Mister ti lascia in tribuna!");
+
 player.energy=Math.min(100,player.energy+10);
+
 advanceMatchDay();
+
 return;
+
 }
+
 
 player.energy-=30;
 
-const teams=getTeams();
-const opponents=teams.filter(t=>t.name!==player.team);
-const opponent=randomItem(opponents)||{name:"Avversario",power:70};
 
-let performance=(player.overall/100)+(player.coachTrust/300);
+const teams=getTeams();
+
+const opponents=teams.filter(t=>t.name!==player.team);
+
+const opponent=
+randomItem(opponents)||
+{name:"Avversario",power:70};
+
+
+let performance=
+(player.overall/100)+(player.coachTrust/300);
+
 let opponentFactor=opponent.power/120;
 
-let winChance=.45+(performance-opponentFactor)*.25;
+let winChance=
+.45+(performance-opponentFactor)*.25;
 
-if(Math.random()<Math.max(.15,Math.min(.85,winChance))){
+
+if(
+Math.random()<
+Math.max(.15,Math.min(.85,winChance))
+){
+
 player.points+=3;
+
 player.money+=2500;
-logMessage("🏆 VITTORIA contro "+opponent.name+"! +3 punti");
+
+logMessage(
+"🏆 VITTORIA contro "+opponent.name+"! +3 punti"
+);
+
 }else if(Math.random()<.5){
+
 player.points+=1;
+
 player.money+=1000;
-logMessage("🤝 PAREGGIO contro "+opponent.name+"! +1 punto");
+
+logMessage(
+"🤝 PAREGGIO contro "+opponent.name+"! +1 punto"
+);
+
 }else{
-logMessage("❌ SCONFITTA contro "+opponent.name);
+
+logMessage(
+"❌ SCONFITTA contro "+opponent.name
+);
+
 }
+
 
 let goalChance=player.overall/150;
 
-if(player.position==="Attaccante")goalChance+=.10;
+
+if(player.position==="Attaccante")
+goalChance+=.10;
+
 
 let matchGoals=0;
 
-if(Math.random()<goalChance)matchGoals++;
-if(Math.random()<goalChance*.35)matchGoals++;
+
+if(Math.random()<goalChance)
+matchGoals++;
+
+
+if(Math.random()<goalChance*.35)
+matchGoals++;
+
 
 player.goals+=matchGoals;
 
+
 let matchAssists=0;
 
-if(Math.random()<player.overall/180)matchAssists++;
+
+if(Math.random()<player.overall/180)
+matchAssists++;
+
 
 player.assists+=matchAssists;
 
+
 if(matchGoals>0){
-player.coachTrust=Math.min(100,player.coachTrust+4);
+
+player.coachTrust=
+Math.min(100,player.coachTrust+4);
+
 player.fans+=matchGoals*300;
-logMessage("⚽ Hai segnato "+matchGoals+" gol!");
+
+logMessage(
+"⚽ Hai segnato "+matchGoals+" gol!"
+);
+
 }
+
 
 if(matchAssists>0){
-player.coachTrust=Math.min(100,player.coachTrust+2);
-logMessage("🎯 Hai servito "+matchAssists+" assist!");
+
+player.coachTrust=
+Math.min(100,player.coachTrust+2);
+
+logMessage(
+"🎯 Hai servito "+matchAssists+" assist!"
+);
+
 }
 
-const newMilestones=Math.floor(player.goals/10);
+
+const newMilestones=
+Math.floor(player.goals/10);
+
 
 if(newMilestones>player.overallGoalMilestones){
 
-const gained=newMilestones-player.overallGoalMilestones;
+const gained=
+newMilestones-player.overallGoalMilestones;
 
 player.overall+=gained;
+
 player.overallGoalMilestones=newMilestones;
 
+
 logMessage(
-"📈 INCREDIBILE! Hai raggiunto "+(newMilestones*10)+
-" gol: Overall +"+gained+" → "+player.overall+"!"
+"📈 INCREDIBILE! Hai raggiunto "+
+(newMilestones*10)+
+" gol: Overall +"+
+gained+
+" → "+
+player.overall+
+"!"
 );
 
-if(newMilestones>=3&&player.age<=21&&player.goldenBoy===0){
+
+if(
+newMilestones>=3&&
+player.age<=21&&
+player.goldenBoy===0
+){
+
 player.goldenBoy=1;
+
 player.trophies++;
-logMessage("🏆 GOLDEN BOY! Sei stato eletto miglior giovane!");
-}
+
+logMessage(
+"🏆 GOLDEN BOY! Sei stato eletto miglior giovane!"
+);
 
 }
 
-if(player.goals>=30&&player.goldenBoot===0){
+}
+
+
+if(
+player.goals>=30&&
+player.goldenBoot===0
+){
+
 player.goldenBoot=1;
+
 player.trophies++;
+
 player.money+=250000;
-logMessage("🥇 SCARPA D'ORO! Hai raggiunto 30 gol!");
+
+logMessage(
+"🥇 SCARPA D'ORO! Hai raggiunto 30 gol!"
+);
+
 }
 
-if(Math.random()<
-(player.personality==="Lavoratore Instancabile"?0.03:.07)){
 
-player.injuryDays=Math.floor(Math.random()*3)+1;
+if(
+Math.random()<
+(player.personality==="Lavoratore Instancabile"?0.03:.07)
+){
+
+player.injuryDays=
+Math.floor(Math.random()*3)+1;
 
 logMessage(
 "💥 INFORTUNIO! Rimarrai fuori per "+
-player.injuryDays+" giornate."
+player.injuryDays+
+" giornate."
 );
+
 }
 
-if(Math.random()<.04)updateNews(true);
-else updateNews();
+
+if(Math.random()<.04)
+updateNews(true);
+else
+updateNews();
+
 
 advanceMatchDay();
+
 }
 
-
-/* GIORNATA */
 
 function advanceMatchDay(){
 
-if(player.matchDay===19 && player.lastOfferSeason!==player.season){
+if(
+player.matchDay===19&&
+player.lastOfferSeason!==player.season
+){
+
 player.lastOfferSeason=player.season;
+
 saveGame();
+
 showTransferOffer();
+
 return;
+
 }
+
 
 player.matchDay++;
 
+
 if(player.matchDay>38){
+
 endSeason();
+
 return;
+
 }
+
 
 if(player.injuryDays>0){
-player.injuryDays=Math.max(0,player.injuryDays-1);
+
+player.injuryDays=
+Math.max(0,player.injuryDays-1);
+
 }
+
 
 saveGame();
+
 updateUI();
+
+updateNews();
+
 }
 
-
-/* OFFERTE */
 
 function showTransferOffer(){
 
-const allCountries=Object.keys(leaguesDB);
+const allCountries=
+Object.keys(leaguesDB);
 
-let country=randomItem(allCountries);
+
+let country=
+randomItem(allCountries);
+
 let divisions=["A","B","C"];
-let division=randomItem(divisions);
 
-let possible=leaguesDB[country][division]
+let division=
+randomItem(divisions);
+
+
+let possible=
+leaguesDB[country][division]
 .filter(t=>t.name!==player.team);
 
+
 if(!possible.length){
-possible=leaguesDB[country].A.filter(t=>t.name!==player.team);
+
+possible=
+leaguesDB[country].A
+.filter(t=>t.name!==player.team);
+
 division="A";
+
 }
 
+
 const team=randomItem(possible);
+
 
 const bonus=
 Math.floor(Math.random()*4000000)+1000000;
 
+
 currentOffer={
+
 league:country,
 division:division,
 team:team.name,
 bonus:bonus
+
 };
+
 
 document.getElementById("modalTitle").textContent=
 "🚨 OFFERTA DI MERCATO!";
 
+
 document.getElementById("modalText").textContent=
-team.name+" vuole acquistarti! "+
-"Divisione "+division+
+team.name+
+" vuole acquistarti! "+
+"Divisione "+
+division+
 ". Bonus alla firma: €"+
 bonus.toLocaleString()+
 ". Vuoi accettare?";
 
+
 document.getElementById("modalButtons").innerHTML=`
-<button class="start-button btn-green" onclick="acceptOffer()">🤝 ACCETTA</button>
-<button class="start-button btn-red" onclick="rejectOffer()">❌ RIFIUTA</button>
+
+<button class="start-button btn-green"
+onclick="acceptOffer()">
+🤝 ACCETTA
+</button>
+
+<button class="start-button btn-red"
+onclick="rejectOffer()">
+❌ RIFIUTA
+</button>
+
 `;
 
-document.getElementById("eventModal").classList.remove("hidden");
+
+document.getElementById("eventModal")
+.classList.remove("hidden");
+
 }
+
 
 function acceptOffer(){
 
 if(!currentOffer)return;
 
-player.league=currentOffer.league;
-player.division=currentOffer.division;
-player.team=currentOffer.team;
 
-player.money+=currentOffer.bonus;
+player.league=
+currentOffer.league;
+
+player.division=
+currentOffer.division;
+
+player.team=
+currentOffer.team;
+
+player.money+=
+currentOffer.bonus;
+
 player.points=0;
+
 player.coachTrust=80;
+
 
 logMessage(
 "🤝 TRASFERIMENTO! Ora giochi per "+
-player.team+" ("+player.league+" Divisione "+player.division+
-"). +€"+currentOffer.bonus.toLocaleString()
+player.team+
+" ("+
+player.league+
+" Divisione "+
+player.division+
+"). +€"+
+currentOffer.bonus.toLocaleString()
 );
+
 
 currentOffer=null;
 
-document.getElementById("eventModal").classList.add("hidden");
+
+document.getElementById("eventModal")
+.classList.add("hidden");
+
 
 saveGame();
+
 updateUI();
+
 updateNews(true);
+
 }
+
 
 function rejectOffer(){
 
-logMessage("❌ Hai rifiutato l'offerta. Resti al "+player.team+".");
+logMessage(
+"❌ Hai rifiutato l'offerta. Resti al "+
+player.team+
+"."
+);
+
 
 currentOffer=null;
 
-document.getElementById("eventModal").classList.add("hidden");
+
+document.getElementById("eventModal")
+.classList.add("hidden");
+
 
 player.matchDay++;
 
+
 saveGame();
+
 updateUI();
+
 }
 
-
-/* STAGIONE */
 
 function endSeason(){
 
 const teams=getTeams();
 
+
 let standings=teams.map(t=>{
-let pts=player.teamsPoints[t.name]||0;
 
-if(t.name===player.team)pts=player.points;
+let pts=
+player.teamsPoints[t.name]||0;
 
-return {...t,points:pts};
+
+if(t.name===player.team)
+pts=player.points;
+
+
+return {
+...t,
+points:pts
+};
+
 });
 
-standings.sort((a,b)=>b.points-a.points);
 
-const rank=standings.findIndex(t=>t.name===player.team)+1;
+standings.sort(
+(a,b)=>b.points-a.points
+);
 
-logMessage("🎉 FINE STAGIONE! Sei arrivato "+rank+"°.");
+
+const rank=
+standings.findIndex(
+t=>t.name===player.team
+)+1;
+
+
+logMessage(
+"🎉 FINE STAGIONE! Sei arrivato "+
+rank+
+"°."
+);
+
 
 if(rank===1){
+
 player.trophies++;
+
 player.money+=5000000;
-logMessage("🏆 CAMPIONE DELLA DIVISIONE! +€5.000.000");
+
+logMessage(
+"🏆 CAMPIONE DELLA DIVISIONE! +€5.000.000"
+);
+
 }
+
 
 if(rank<=4){
+
 player.qualifiedUCL=true;
-logMessage("🌟 QUALIFICATO ALLA CHAMPIONS LEAGUE!");
+
+logMessage(
+"🌟 QUALIFICATO ALLA CHAMPIONS LEAGUE!"
+);
+
 }else{
+
 player.qualifiedUCL=false;
+
 }
 
-if(rank<=2&&player.division!=="A"){
+
+if(
+rank<=2&&
+player.division!=="A"
+){
 
 player.division=
 player.division==="C"?"B":"A";
 
-player.team=randomItem(getTeams()).name;
+player.team=
+randomItem(getTeams()).name;
+
 
 logMessage(
-"⬆️ PROMOZIONE! Ora giochi in Divisione "+player.division+"!"
+"⬆️ PROMOZIONE! Ora giochi in Divisione "+
+player.division+
+"!"
 );
 
 }
 
-if(rank>=standings.length-2&&player.division!=="C"){
+
+if(
+rank>=standings.length-2&&
+player.division!=="C"
+){
 
 player.division=
 player.division==="A"?"B":"C";
 
-player.team=randomItem(getTeams()).name;
+player.team=
+randomItem(getTeams()).name;
+
 
 logMessage(
-"⬇️ RETROCESSIONE. Ora giochi in Divisione "+player.division+"."
+"⬇️ RETROCESSIONE. Ora giochi in Divisione "+
+player.division+
+"."
 );
 
 }
 
-if(player.goals>=30&&player.goldenBoot===0){
+
+if(
+player.goals>=30&&
+player.goldenBoot===0
+){
+
 player.goldenBoot=1;
+
 player.trophies++;
-logMessage("🥇 HAI VINTO LA SCARPA D'ORO!");
+
+logMessage(
+"🥇 HAI VINTO LA SCARPA D'ORO!"
+);
+
 }
 
-if(player.age<=21&&player.overall>=75&&player.goldenBoy===0){
+
+if(
+player.age<=21&&
+player.overall>=75&&
+player.goldenBoy===0
+){
+
 player.goldenBoy=1;
+
 player.trophies++;
-logMessage("🌟 GOLDEN BOY! Premio al miglior giovane!");
+
+logMessage(
+"🌟 GOLDEN BOY! Premio al miglior giovane!"
+);
+
 }
 
-if([20,24,28,32,36].includes(player.age)){
+
+if(
+[20,24,28,32,36].includes(player.age)
+){
+
 triggerWorldCup();
+
 }
+
 
 player.season++;
+
 player.age++;
+
 player.matchDay=1;
+
 player.points=0;
+
 player.lastOfferSeason=0;
+
 player.teamsPoints={};
+
 player.uclRound=0;
+
 player.energy=100;
 
+
 if(player.age>=40){
+
 saveGame();
+
 showRetirementScreen();
+
 return;
+
 }
 
-logMessage("🆕 Inizia la stagione "+player.season+"!");
+
+logMessage(
+"🆕 Inizia la stagione "+
+player.season+
+"!"
+);
+
 
 saveGame();
+
 updateUI();
+
 updateNews(true);
+
 }
 
-
-/* MONDIALI */
 
 function triggerWorldCup(){
 
 document.getElementById("modalTitle").textContent=
 "🌍 COPPA DEL MONDO";
 
+
 document.getElementById("modalText").textContent=
 "Sei stato convocato dalla Nazionale "+
 player.nationality+
 "! Vuoi giocare il Mondiale?";
 
+
 document.getElementById("modalButtons").innerHTML=`
-<button class="start-button btn-gold" onclick="playWorldCup()">⚽ GIOCA</button>
+
+<button class="start-button btn-gold"
+onclick="playWorldCup()">
+⚽ GIOCA
+</button>
+
 `;
 
-document.getElementById("eventModal").classList.remove("hidden");
+
+document.getElementById("eventModal")
+.classList.remove("hidden");
+
 }
+
 
 function playWorldCup(){
 
-document.getElementById("eventModal").classList.add("hidden");
+document.getElementById("eventModal")
+.classList.add("hidden");
 
-let chance=Math.random()+player.overall/180;
+
+let chance=
+Math.random()+player.overall/180;
+
 
 if(chance>1.05){
 
 player.worldCups++;
+
 player.trophies++;
+
 player.fans+=50000;
+
 player.money+=10000000;
 
-logMessage("🌍🏆 CAMPIONE DEL MONDO! +€10.000.000");
-alert("🏆 HAI VINTO LA COPPA DEL MONDO!");
+
+logMessage(
+"🌍🏆 CAMPIONE DEL MONDO! +€10.000.000"
+);
+
+
+alert(
+"🏆 HAI VINTO LA COPPA DEL MONDO!"
+);
+
+
 }else{
-logMessage("🌍 Eliminati dal Mondiale.");
-alert("❌ Il Mondiale finisce ai Quarti di Finale.");
+
+logMessage(
+"🌍 Eliminati dal Mondiale."
+);
+
+
+alert(
+"❌ Il Mondiale finisce ai Quarti di Finale."
+);
+
 }
+
 
 saveGame();
+
 updateUI();
+
 }
 
-
-/* SOCIAL */
 
 function openSocial(){
+
 showScreen("social");
+
 }
+
 
 function publishPost(type){
 
 if(type==="workout"){
-player.coachTrust=Math.min(100,player.coachTrust+5);
+
+player.coachTrust=
+Math.min(100,player.coachTrust+5);
+
 player.fans+=300;
-logMessage("📱 Post allenamento: +300 fan!");
+
+logMessage(
+"📱 Post allenamento: +300 fan!"
+);
+
 }
+
 
 if(type==="flex"){
+
 player.fans+=2000;
-player.coachTrust=Math.max(0,player.coachTrust-5);
-logMessage("📱 Post diventato popolare: +2.000 fan!");
+
+player.coachTrust=
+Math.max(0,player.coachTrust-5);
+
+logMessage(
+"📱 Post diventato popolare: +2.000 fan!"
+);
+
 }
+
 
 if(type==="tiktok"){
-const viral=Math.floor(Math.random()*3000)+1000;
+
+const viral=
+Math.floor(Math.random()*3000)+1000;
+
 player.fans+=viral;
+
 player.money+=1500;
-logMessage("📱 TikTok virale! +"+viral+" fan e +€1.500");
+
+logMessage(
+"📱 TikTok virale! +"+
+viral+
+" fan e +€1.500"
+);
+
 }
+
 
 saveGame();
+
 updateUI();
+
 showScreen("hub");
+
 }
 
-
-/* SPONSOR */
 
 function sponsor(){
 
 if(player.energy<10){
+
 logMessage("⚡ Troppo stanco!");
+
 return;
+
 }
+
 
 player.energy-=10;
+
 player.money+=1000;
+
 player.fans+=200;
 
-logMessage("📸 Sponsor completato! +€1.000 e +200 fan.");
+
+logMessage(
+"📸 Sponsor completato! +€1.000 e +200 fan."
+);
+
 
 saveGame();
+
 updateUI();
+
 }
 
-
-/* RIPOSO */
 
 function rest(){
 
-player.energy=Math.min(100,player.energy+50);
+player.energy=
+Math.min(100,player.energy+50);
+
 
 if(player.injuryDays>0){
 
-const recovery=player.hasPhysio?2:1;
+const recovery=
+player.hasPhysio?2:1;
 
-player.injuryDays=Math.max(0,player.injuryDays-recovery);
 
-logMessage("💤 Riposo: infortunio ridotto di "+recovery+" giornate.");
+player.injuryDays=
+Math.max(
+0,
+player.injuryDays-recovery
+);
+
+
+logMessage(
+"💤 Riposo: infortunio ridotto di "+
+recovery+
+" giornate."
+);
+
 }else{
-logMessage("💤 Energia recuperata.");
+
+logMessage(
+"💤 Energia recuperata."
+);
+
 }
+
 
 saveGame();
+
 updateUI();
+
 }
 
-
-/* CLASSIFICA */
 
 function openLeague(){
 
 const teams=getTeams();
 
+
 let rows=teams.map(t=>{
 
-let points=t.name===player.team?
+let points=
+t.name===player.team?
 player.points:
-(player.teamsPoints[t.name]||Math.floor(Math.random()*20));
+(player.teamsPoints[t.name]||
+Math.floor(Math.random()*20));
 
-return {...t,points};
+
+return {
+...t,
+points
+};
+
 });
 
-rows.sort((a,b)=>b.points-a.points);
 
-const container=document.getElementById("leagueTable");
+rows.sort(
+(a,b)=>b.points-a.points
+);
+
+
+const container=
+document.getElementById("leagueTable");
+
+
 container.innerHTML="";
+
 
 rows.forEach((t,i)=>{
 
-const mine=t.name===player.team;
+const mine=
+t.name===player.team;
+
 
 container.innerHTML+=`
-<div class="table-row" style="${mine?
-'border:1px solid #38e878;background:rgba(56,232,120,.1);':''}">
+
+<div class="table-row"
+style="${mine?
+'border:1px solid #38e878;background:rgba(56,232,120,.1);':
+''}">
+
 <span>#${i+1} ${t.name}</span>
+
 <strong>${t.points} PTS</strong>
-</div>`;
+
+</div>
+
+`;
+
 });
 
+
 document.getElementById("divisionText").textContent=
-player.league+" • Divisione "+player.division;
+player.league+
+" • Divisione "+
+player.division;
+
 
 showScreen("league");
+
 }
 
-
-/* SHOP */
 
 function openShop(){
 
-const container=document.getElementById("shopList");
+const container=
+document.getElementById("shopList");
+
+
 container.innerHTML="";
+
 
 shopDB.forEach(item=>{
 
-const owned=player.inventory.includes(item.id);
+const owned=
+player.inventory.includes(item.id);
+
 
 container.innerHTML+=`
+
 <div class="shop-item">
+
 <div>
+
 <strong>${item.name}</strong><br>
-<small>€${item.price.toLocaleString()}
-${item.bonus?" • +"+item.bonus.toLocaleString()+" Fan":""}</small>
+
+<small>
+€${item.price.toLocaleString()}
+${item.bonus?
+" • +"+item.bonus.toLocaleString()+" Fan":
+""}
+</small>
+
 </div>
-<button class="start-button btn-gold"
+
+<button
+class="start-button btn-gold"
 ${owned?"disabled":""}
 onclick="buyItem('${item.id}')">
+
 ${owned?"Acquistato":"Compra"}
+
 </button>
-</div>`;
+
+</div>
+
+`;
+
 });
 
+
 showScreen("shop");
+
 }
+
 
 function buyItem(id){
 
-const item=shopDB.find(x=>x.id===id);
+const item=
+shopDB.find(x=>x.id===id);
+
 
 if(!item)return;
 
-if(player.inventory.includes(id)){
+
+if(player.inventory.includes(id))
 return;
-}
+
 
 if(player.money<item.price){
-alert("Non hai abbastanza soldi!");
+
+alert(
+"Non hai abbastanza soldi!"
+);
+
 return;
+
 }
+
 
 player.money-=item.price;
 
-if(item.bonus)player.fans+=item.bonus;
 
-if(id==="physio")player.hasPhysio=true;
+if(item.bonus)
+player.fans+=item.bonus;
+
+
+if(id==="physio")
+player.hasPhysio=true;
+
 
 player.inventory.push(item.id);
 
-logMessage("🛍️ Acquistato: "+item.name);
+
+logMessage(
+"🛍️ Acquistato: "+
+item.name
+);
+
 
 saveGame();
+
 updateUI();
+
 openShop();
+
 }
 
-
-/* FAMIGLIA */
 
 function openFamily(){
 
@@ -1942,200 +2664,361 @@ document.getElementById("familyText").textContent=
 "La tua famiglia è orgogliosa di te. La felicità familiare è al "+
 player.familyHappiness+"%.";
 
-const list=document.getElementById("familyList");
+
+const list=
+document.getElementById("familyList");
+
 
 list.innerHTML=`
 
 <div class="family-card">
+
 <div>
 <strong>👨 Papà</strong><br>
 <small>Orgoglioso della tua carriera</small>
 </div>
+
 <span>❤️ ${player.familyHappiness}%</span>
+
 </div>
 
+
 <div class="family-card">
+
 <div>
 <strong>👩 Mamma</strong><br>
 <small>Vuole vederti felice</small>
 </div>
+
 <span>❤️ ${player.familyHappiness}%</span>
+
 </div>
 
+
 <div class="family-card">
+
 <div>
 <strong>👦 Fratello / Sorella</strong><br>
 <small>Il tuo primo tifoso</small>
 </div>
+
 <span>⭐ ${player.familyVisits} momenti insieme</span>
+
 </div>
+
 `;
 
+
 showScreen("family");
+
 }
+
 
 function familyActivity(){
 
 player.familyVisits++;
-player.familyHappiness=Math.min(100,player.familyHappiness+8);
+
+player.familyHappiness=
+Math.min(100,player.familyHappiness+8);
+
 player.fans+=50;
 
-logMessage("👨‍👩‍👦 Hai passato del tempo con la famiglia. +8 felicità.");
+
+logMessage(
+"👨‍👩‍👦 Hai passato del tempo con la famiglia. +8 felicità."
+);
+
 
 saveGame();
+
 updateUI();
+
 openFamily();
+
 }
 
-
-/* RELAZIONE */
 
 function openRelationship(){
 
 document.getElementById("girlfriendName").textContent=
 "❤️ "+player.girlfriendName;
 
-document.getElementById("loveDescription").textContent=
-"La vostra relazione è al "+player.love+"%. Uscite insieme e fai attenzione a non trascurarla.";
 
-document.getElementById("loveValue").textContent=player.love+"%";
-document.getElementById("loveBar").style.width=player.love+"%";
+document.getElementById("loveDescription").textContent=
+"La vostra relazione è al "+
+player.love+
+"%. Uscite insieme e fai attenzione a non trascurarla.";
+
+
+document.getElementById("loveValue").textContent=
+player.love+"%";
+
+
+document.getElementById("loveBar").style.width=
+player.love+"%";
+
 
 showScreen("relationship");
+
 }
+
 
 function dateActivity(){
 
 if(player.money<300){
-alert("Non hai abbastanza soldi per la cena!");
+
+alert(
+"Non hai abbastanza soldi per la cena!"
+);
+
 return;
+
 }
+
 
 player.money-=300;
-player.love=Math.min(100,player.love+8);
+
+player.love=
+Math.min(100,player.love+8);
+
 player.dates++;
 
-logMessage("❤️ Bellissima serata con "+player.girlfriendName+"! +8 relazione.");
+
+logMessage(
+"❤️ Bellissima serata con "+
+player.girlfriendName+
+"! +8 relazione."
+);
+
 
 saveGame();
+
 updateUI();
+
 openRelationship();
+
 }
+
 
 function giveGift(){
 
 if(player.money<500){
-alert("Non hai abbastanza soldi!");
+
+alert(
+"Non hai abbastanza soldi!"
+);
+
 return;
+
 }
+
 
 player.money-=500;
-player.love=Math.min(100,player.love+10);
+
+player.love=
+Math.min(100,player.love+10);
+
 player.gifts++;
 
-logMessage("🎁 Hai fatto un regalo a "+player.girlfriendName+"! +10 relazione.");
+
+logMessage(
+"🎁 Hai fatto un regalo a "+
+player.girlfriendName+
+"! +10 relazione."
+);
+
 
 saveGame();
+
 updateUI();
+
 openRelationship();
+
 }
+
 
 function bigGift(){
 
 if(player.money<2000){
-alert("Non hai abbastanza soldi!");
+
+alert(
+"Non hai abbastanza soldi!"
+);
+
 return;
+
 }
+
 
 player.money-=2000;
-player.love=Math.min(100,player.love+18);
+
+player.love=
+Math.min(100,player.love+18);
+
 player.gifts++;
 
-logMessage("🌹 Grande regalo! La relazione è salita di 18%.");
+
+logMessage(
+"🌹 Grande regalo! La relazione è salita di 18%."
+);
+
 
 saveGame();
+
 updateUI();
+
 openRelationship();
+
 }
 
-
-/* CLINICA */
 
 function openClinic(){
+
 showScreen("clinic");
+
 }
+
 
 function medicalVisit(){
 
 if(player.injuryDays<=0){
-alert("Non sei infortunato!");
+
+alert(
+"Non sei infortunato!"
+);
+
 return;
+
 }
+
 
 if(player.money<500){
-alert("Non hai abbastanza soldi!");
+
+alert(
+"Non hai abbastanza soldi!"
+);
+
 return;
+
 }
+
 
 player.money-=500;
-player.injuryDays=Math.max(0,player.injuryDays-1);
 
-logMessage("🩺 Visita completata.");
+player.injuryDays=
+Math.max(
+0,
+player.injuryDays-1
+);
+
+
+logMessage(
+"🩺 Visita completata."
+);
+
 
 saveGame();
+
 updateUI();
+
 }
+
 
 function intensiveRecovery(){
 
 if(player.injuryDays<=0){
-alert("Non sei infortunato!");
+
+alert(
+"Non sei infortunato!"
+);
+
 return;
+
 }
+
 
 if(player.money<2000){
-alert("Non hai abbastanza soldi!");
+
+alert(
+"Non hai abbastanza soldi!"
+);
+
 return;
+
 }
+
 
 player.money-=2000;
-player.injuryDays=Math.max(0,player.injuryDays-3);
 
-logMessage("💉 Riabilitazione intensiva completata.");
+player.injuryDays=
+Math.max(
+0,
+player.injuryDays-3
+);
+
+
+logMessage(
+"💉 Riabilitazione intensiva completata."
+);
+
 
 saveGame();
+
 updateUI();
+
 }
+
 
 function fullRecovery(){
 
 if(player.injuryDays<=0){
-alert("Non sei infortunato!");
+
+alert(
+"Non sei infortunato!"
+);
+
 return;
+
 }
+
 
 if(player.money<10000){
-alert("Non hai abbastanza soldi!");
+
+alert(
+"Non hai abbastanza soldi!"
+);
+
 return;
+
 }
+
 
 player.money-=10000;
+
 player.injuryDays=0;
 
-logMessage("🏥 Recupero completo! Sei tornato al 100%.");
+
+logMessage(
+"🏥 Recupero completo! Sei tornato al 100%."
+);
+
 
 saveGame();
+
 updateUI();
+
 }
 
-
-/* TROFEI */
 
 function openTrophies(){
 
-document.getElementById("trophyTotal").textContent=player.trophies;
+document.getElementById("trophyTotal").textContent=
+player.trophies;
 
-const list=document.getElementById("trophyList");
+
+const list=
+document.getElementById("trophyList");
+
 
 list.innerHTML=`
 
@@ -2173,156 +3056,280 @@ list.innerHTML=`
 <span>🎯 Assist totali</span>
 <strong>${player.assists}</strong>
 </div>
+
 `;
 
+
 showScreen("trophies");
+
 }
 
-
-/* RECENSIONI */
 
 function getReviews(){
 
 try{
-return JSON.parse(localStorage.getItem(REVIEW_KEY)||"[]");
+
+return JSON.parse(
+localStorage.getItem(REVIEW_KEY)||"[]"
+);
+
 }catch(e){
+
 return [];
-}
+
 }
 
-function saveReviews(reviews){
-localStorage.setItem(REVIEW_KEY,JSON.stringify(reviews));
 }
+
+
+function saveReviews(reviews){
+
+localStorage.setItem(
+REVIEW_KEY,
+JSON.stringify(reviews)
+);
+
+}
+
 
 function openReviews(){
 
-const reviews=getReviews();
+const reviews=
+getReviews();
+
 
 const average=
 reviews.length?
-reviews.reduce((sum,r)=>sum+r.rating,0)/reviews.length:
+reviews.reduce(
+(sum,r)=>sum+r.rating,0
+)/reviews.length:
 0;
+
 
 document.getElementById("averageRating").textContent=
 "⭐ "+average.toFixed(1)+" / 5";
 
+
 document.getElementById("reviewCount").textContent=
 reviews.length+
-(reviews.length===1?" recensione":" recensioni");
+(reviews.length===1?
+" recensione":
+" recensioni");
 
-const list=document.getElementById("reviewList");
+
+const list=
+document.getElementById("reviewList");
+
+
 list.innerHTML="";
+
 
 reviews.slice().reverse().forEach(r=>{
 
-const stars="★".repeat(r.rating)+"☆".repeat(5-r.rating);
+const stars=
+"★".repeat(r.rating)+
+"☆".repeat(5-r.rating);
+
 
 list.innerHTML+=`
+
 <div class="review-card">
+
 <div style="width:100%">
-<strong>${escapeHTML(r.name)}</strong>
-<div style="color:#facc15;font-size:20px">${stars}</div>
-<p style="margin-top:6px;color:#d1dcd4">${escapeHTML(r.text)}</p>
-<small style="color:#82988a">${r.date}</small>
+
+<strong>
+${escapeHTML(r.name)}
+</strong>
+
+<div style="color:#facc15;font-size:20px">
+${stars}
 </div>
-</div>`;
+
+<p style="margin-top:6px;color:#d1dcd4">
+${escapeHTML(r.text)}
+</p>
+
+<small style="color:#82988a">
+${r.date}
+</small>
+
+</div>
+
+</div>
+
+`;
+
 });
 
+
 showScreen("reviews");
+
 }
+
 
 function selectRating(rating){
 
 selectedRating=rating;
 
-const spans=document.querySelectorAll("#starSelector span");
+
+const spans=
+document.querySelectorAll(
+"#starSelector span"
+);
+
 
 spans.forEach((span,i)=>{
-span.textContent=i<rating?"★":"☆";
+
+span.textContent=
+i<rating?"★":"☆";
+
 });
+
 
 document.getElementById("selectedRating").textContent=
 rating?
 "Hai scelto "+rating+" / 5 stelle":
 "Seleziona da 1 a 5 stelle";
+
 }
+
 
 function submitReview(){
 
-const name=document.getElementById("reviewName").value.trim();
-const text=document.getElementById("reviewText").value.trim();
+const name=
+document.getElementById("reviewName")
+.value.trim();
+
+
+const text=
+document.getElementById("reviewText")
+.value.trim();
+
 
 if(!name){
-alert("Inserisci il tuo nome.");
+
+alert(
+"Inserisci il tuo nome."
+);
+
 return;
+
 }
+
 
 if(!selectedRating){
-alert("Scegli da 1 a 5 stelle.");
+
+alert(
+"Scegli da 1 a 5 stelle."
+);
+
 return;
+
 }
+
 
 if(!text){
-alert("Scrivi una recensione.");
+
+alert(
+"Scrivi una recensione."
+);
+
 return;
+
 }
 
-const reviews=getReviews();
+
+const reviews=
+getReviews();
+
 
 reviews.push({
+
 name:name,
 rating:selectedRating,
 text:text,
-date:new Date().toLocaleDateString("it-IT")
+date:new Date()
+.toLocaleDateString("it-IT")
+
 });
+
 
 saveReviews(reviews);
 
+
 document.getElementById("reviewName").value="";
+
 document.getElementById("reviewText").value="";
 
+
 selectedRating=0;
+
 selectRating(0);
 
-alert("⭐ Recensione pubblicata!");
+
+alert(
+"⭐ Recensione pubblicata!"
+);
+
 
 openReviews();
+
 }
+
 
 function escapeHTML(text){
 
 return String(text)
+
 .replaceAll("&","&amp;")
+
 .replaceAll("<","&lt;")
+
 .replaceAll(">","&gt;")
+
 .replaceAll('"',"&quot;")
+
 .replaceAll("'","&#039;");
+
 }
 
-
-/* RITIRO */
 
 function showRetirementScreen(){
 
-document.getElementById("retTrophies").textContent=player.trophies;
-document.getElementById("retWorldCups").textContent=player.worldCups;
-document.getElementById("retUcl").textContent=player.uclTrophies;
-document.getElementById("retGoals").textContent=player.goals;
-document.getElementById("retAssists").textContent=player.assists;
-document.getElementById("retMoney").textContent=player.money.toLocaleString();
-document.getElementById("retFans").textContent=player.fans.toLocaleString();
+document.getElementById("retTrophies").textContent=
+player.trophies;
+
+document.getElementById("retWorldCups").textContent=
+player.worldCups;
+
+document.getElementById("retUcl").textContent=
+player.uclTrophies;
+
+document.getElementById("retGoals").textContent=
+player.goals;
+
+document.getElementById("retAssists").textContent=
+player.assists;
+
+document.getElementById("retMoney").textContent=
+player.money.toLocaleString();
+
+document.getElementById("retFans").textContent=
+player.fans.toLocaleString();
+
 
 showScreen("retirement");
+
 }
 
-
-/* AVVIO */
 
 updateUI();
 
 </script>
+
 </body>
 </html>
+
 
 
 

@@ -1,8 +1,33 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+
+<!-- =========================================
+     SECURE PRIVACY - COOKIE CONSENT
+     ========================================= -->
+<script src="https://app.secureprivacy.ai/script/6a90166a663e72d94f78f2f7.js"></script>
+
+
+<!-- =========================================
+     GOOGLE ANALYTICS
+     ========================================= -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LD76R6T3TM"></script>
+
+<script>
+window.dataLayer = window.dataLayer || [];
+
+function gtag(){
+  dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+gtag('config', 'G-LD76R6T3TM');
+</script>
+
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Next Football Star ⚽ Ultimate Edition</title>
 
 <style>
@@ -1323,8 +1348,6 @@ const teams=getTeams();
 const opponents=teams.filter(t=>t.name!==player.team);
 const opponent=randomItem(opponents)||{name:"Avversario",power:70};
 
-const myTeam=teams.find(t=>t.name===player.team)||{power:70};
-
 let performance=(player.overall/100)+(player.coachTrust/300);
 let opponentFactor=opponent.power/120;
 
@@ -1351,11 +1374,12 @@ let matchGoals=0;
 if(Math.random()<goalChance)matchGoals++;
 if(Math.random()<goalChance*.35)matchGoals++;
 
+player.goals+=matchGoals;
+
 let matchAssists=0;
 
 if(Math.random()<player.overall/180)matchAssists++;
 
-player.goals+=matchGoals;
 player.assists+=matchAssists;
 
 if(matchGoals>0){
@@ -1365,7 +1389,6 @@ logMessage("⚽ Hai segnato "+matchGoals+" gol!");
 }
 
 if(matchAssists>0){
-player.assists+=0;
 player.coachTrust=Math.min(100,player.coachTrust+2);
 logMessage("🎯 Hai servito "+matchAssists+" assist!");
 }
@@ -1426,12 +1449,6 @@ advanceMatchDay();
 /* GIORNATA */
 
 function advanceMatchDay(){
-
-/*
-IMPORTANTE:
-la 19ª giornata viene controllata PRIMA di incrementare
-la giornata, così l'offerta non viene saltata.
-*/
 
 if(player.matchDay===19 && player.lastOfferSeason!==player.season){
 player.lastOfferSeason=player.season;
@@ -1579,9 +1596,6 @@ logMessage("🌟 QUALIFICATO ALLA CHAMPIONS LEAGUE!");
 player.qualifiedUCL=false;
 }
 
-
-/* PROMOZIONE */
-
 if(rank<=2&&player.division!=="A"){
 
 player.division=
@@ -1595,8 +1609,6 @@ logMessage(
 
 }
 
-/* RETROCESSIONE */
-
 if(rank>=standings.length-2&&player.division!=="C"){
 
 player.division=
@@ -1609,9 +1621,6 @@ logMessage(
 );
 
 }
-
-
-/* PREMI */
 
 if(player.goals>=30&&player.goldenBoot===0){
 player.goldenBoot=1;
@@ -1628,9 +1637,6 @@ logMessage("🌟 GOLDEN BOY! Premio al miglior giovane!");
 if([20,24,28,32,36].includes(player.age)){
 triggerWorldCup();
 }
-
-
-/* NUOVA STAGIONE */
 
 player.season++;
 player.age++;
@@ -1863,7 +1869,7 @@ if(item.bonus)player.fans+=item.bonus;
 
 if(id==="physio")player.hasPhysio=true;
 
-player.inventory.push(id);
+player.inventory.push(item.id);
 
 logMessage("🛍️ Acquistato: "+item.name);
 
@@ -2118,7 +2124,7 @@ showScreen("trophies");
 }
 
 
-/* RECENSIONI DEL GIOCO */
+/* RECENSIONI */
 
 function getReviews(){
 
@@ -2181,7 +2187,9 @@ span.textContent=i<rating?"★":"☆";
 });
 
 document.getElementById("selectedRating").textContent=
-"Hai scelto "+rating+" / 5 stelle";
+rating?
+"Hai scelto "+rating+" / 5 stelle":
+"Seleziona da 1 a 5 stelle";
 }
 
 function submitReview(){
@@ -2260,6 +2268,7 @@ updateUI();
 </script>
 </body>
 </html>
+
 
 
 

@@ -33,9 +33,6 @@ crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
  
-<!-- Supabase client -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
- 
 <title>Next Football Star ⚽ Ultimate Edition</title>
  
 <style>
@@ -2039,241 +2036,6 @@ const SHOP_ITEMS=[
 PLAYER
 ========================= */
  
-/* =========================
-SUPABASE
-========================= */
- 
-// ⚠️ SOSTITUISCI questi due valori con quelli del tuo progetto
-// (Supabase Dashboard → Project Settings → API).
-const SUPABASE_URL="https://TUO-PROGETTO.supabase.co";
-const SUPABASE_ANON_KEY="TUA-CHIAVE-ANON-PUBLIC";
- 
-let supabase=null;
- 
-try{
- 
-if(
-typeof window.supabase!=="undefined"&&
-!SUPABASE_URL.includes("TUO-PROGETTO")
-){
- 
-supabase=
-window.supabase.createClient(
-SUPABASE_URL,
-SUPABASE_ANON_KEY
-);
- 
-}
- 
-}catch(e){
- 
-console.log("Supabase non configurato:",e);
- 
-}
- 
-const DEVICE_ID_KEY="nextFootballStarDeviceId_v1";
- 
-function getDeviceId(){
- 
-let id=
-localStorage.getItem(DEVICE_ID_KEY);
- 
-if(!id){
- 
-id=
-(crypto.randomUUID
-?
-crypto.randomUUID()
-:
-"dev-"+Date.now()+"-"+Math.random().toString(36).slice(2));
- 
-localStorage.setItem(DEVICE_ID_KEY,id);
- 
-}
- 
-return id;
- 
-}
- 
-const DEVICE_ID=getDeviceId();
- 
-async function supaSaveGame(playerData){
- 
-if(!supabase)return;
- 
-try{
- 
-await supabase
-.from("game_saves")
-.upsert({
- 
-device_id:DEVICE_ID,
-player:playerData,
-updated_at:new Date().toISOString()
- 
-},{onConflict:"device_id"});
- 
-}catch(e){
- 
-console.log("Supabase saveGame error:",e);
- 
-}
- 
-}
- 
-async function supaLoadGame(){
- 
-if(!supabase)return null;
- 
-try{
- 
-const{data,error}=
-await supabase
-.from("game_saves")
-.select("player")
-.eq("device_id",DEVICE_ID)
-.maybeSingle();
- 
-if(error||!data)return null;
- 
-return data.player;
- 
-}catch(e){
- 
-console.log("Supabase loadGame error:",e);
-return null;
- 
-}
- 
-}
- 
-async function supaUpsertCareer(entry){
- 
-if(!supabase)return;
- 
-try{
- 
-await supabase
-.from("careers")
-.upsert({
- 
-device_id:DEVICE_ID,
-name:entry.name,
-overall:entry.overall,
-goals:entry.goals,
-fans:entry.fans,
-career_date:entry.date
- 
-},{onConflict:"device_id"});
- 
-}catch(e){
- 
-console.log("Supabase career error:",e);
- 
-}
- 
-}
- 
-async function supaFetchCareers(){
- 
-if(!supabase)return null;
- 
-try{
- 
-const{data,error}=
-await supabase
-.from("careers")
-.select("*")
-.order("overall",{ascending:false})
-.order("goals",{ascending:false})
-.order("fans",{ascending:false})
-.limit(50);
- 
-if(error)return null;
- 
-return data.map(c=>({
-id:c.id,
-name:c.name,
-overall:c.overall,
-goals:c.goals,
-fans:c.fans,
-date:c.career_date
-}));
- 
-}catch(e){
- 
-console.log("Supabase fetch careers error:",e);
-return null;
- 
-}
- 
-}
- 
-async function supaFetchReviews(){
- 
-if(!supabase)return null;
- 
-try{
- 
-const{data,error}=
-await supabase
-.from("reviews")
-.select("*")
-.order("created_at",{ascending:false})
-.limit(100);
- 
-if(error)return null;
- 
-return data.map(r=>({
-name:r.name,
-rating:r.rating,
-text:r.review_text,
-date:r.review_date
-}));
- 
-}catch(e){
- 
-console.log("Supabase fetch reviews error:",e);
-return null;
- 
-}
- 
-}
- 
-async function supaInsertReview(review){
- 
-if(!supabase)return false;
- 
-try{
- 
-const{error}=
-await supabase
-.from("reviews")
-.insert({
- 
-name:review.name,
-rating:review.rating,
-review_text:review.text,
-review_date:review.date
- 
-});
- 
-return!error;
- 
-}catch(e){
- 
-console.log("Supabase insert review error:",e);
-return false;
- 
-}
- 
-}
- 
- 
-/* =========================
-PLAYER
-========================= */
- 
 const SAVE_KEY="nextFootballStarUltimate_v2";
 const REVIEW_KEY="nextFootballStarReviews_v2";
 const CAREERS_KEY="nextFootballStarCareers_v2";
@@ -2351,8 +2113,6 @@ JSON.stringify(player)
 );
  
 saveCareerToRanking();
- 
-supaSaveGame(player);
  
 }
  
@@ -4414,11 +4174,9 @@ careers.push(data);
  
 saveCareers(careers);
  
-supaUpsertCareer(data);
- 
 }
  
-async function openLeaderboard(){
+function openLeaderboard(){
  
 const localCareers=
 getCareers()
@@ -4429,24 +4187,13 @@ b.goals-a.goals||
 b.fans-a.fans
 );
  
-renderLeaderboard(localCareers,!supabase);
+renderLeaderboard(localCareers);
  
 showScreen("leaderboard");
  
-if(!supabase)return;
- 
-const cloudCareers=
-await supaFetchCareers();
- 
-if(cloudCareers){
- 
-renderLeaderboard(cloudCareers,true);
- 
 }
  
-}
- 
-function renderLeaderboard(careers,isGlobal){
+function renderLeaderboard(careers){
  
 document.getElementById("careerCount")
 .textContent=
@@ -4459,20 +4206,6 @@ careers.length
 careers[0].overall
 :
 0;
- 
-const subtitle=
-document.getElementById("leaderboardSubtitle");
- 
-if(subtitle){
- 
-subtitle.textContent=
-isGlobal
-?
-"Classifica globale di tutti i giocatori."
-:
-"Classifica delle carriere create su questo dispositivo.";
- 
-}
  
 const list=
 document.getElementById("leaderboardList");
@@ -4554,7 +4287,7 @@ JSON.stringify(reviews)
  
 }
  
-async function openReviews(){
+function openReviews(){
  
 const localReviews=
 getReviews();
@@ -4562,17 +4295,6 @@ getReviews();
 renderReviews(localReviews);
  
 showScreen("reviews");
- 
-if(!supabase)return;
- 
-const cloudReviews=
-await supaFetchReviews();
- 
-if(cloudReviews){
- 
-renderReviews(cloudReviews);
- 
-}
  
 }
  
@@ -4680,7 +4402,7 @@ rating+
  
 }
  
-async function submitReview(){
+function submitReview(){
  
 const name=
 document.getElementById("reviewName")
@@ -4721,12 +4443,6 @@ getReviews();
 reviews.push(newReview);
  
 saveReviews(reviews);
- 
-if(supabase){
- 
-await supaInsertReview(newReview);
- 
-}
  
 document.getElementById("reviewName")
 .value="";
@@ -4878,35 +4594,9 @@ document.addEventListener(
  
 updatePreview();
 updateUI();
-tryHydrateFromCloud();
  
 }
 );
- 
-async function tryHydrateFromCloud(){
- 
-if(!supabase)return;
- 
-// se c'è già un salvataggio su questo browser, quello vince
-if(localStorage.getItem(SAVE_KEY))return;
- 
-const cloudPlayer=
-await supaLoadGame();
- 
-if(cloudPlayer){
- 
-localStorage.setItem(
-SAVE_KEY,
-JSON.stringify(cloudPlayer)
-);
- 
-logMessage(
-"☁️ Carriera ripristinata dal cloud."
-);
- 
-}
- 
-}
  
  
 /* =========================

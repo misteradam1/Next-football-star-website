@@ -3,34 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Google Analytics / Google tag -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LD76R6T3TM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-LD76R6T3TM');
-</script>
-
+ 
 <meta name="google-adsense-account" content="ca-pub-4740569819691854">
 <meta name="description" content="Next Football Star: crea il tuo giocatore, scala le divisioni, vinci Coppe e Champions League e diventa una leggenda del calcio in questo gioco di carriera interattivo.">
 <meta property="og:title" content="Next Football Star ⚽ Ultimate Edition">
 <meta property="og:description" content="Dai campi di periferia ai Mondiali: gestisci carriera, famiglia, social e trofei nel tuo gioco di carriera calcistica.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0b2015">
-
+ 
 <!-- Google AdSense -->
 <script async
 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4740569819691854"
 crossorigin="anonymous"></script>
-
+ 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+ 
 <title>Next Football Star ⚽ Ultimate Edition</title>
-
+ 
 <style>
 :root{
 --pitch-dark:#020804;
@@ -45,13 +36,13 @@ crossorigin="anonymous"></script>
 --font-display:'Rajdhani','Segoe UI',sans-serif;
 --font-body:'Manrope','Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
 }
-
+ 
 *{
 box-sizing:border-box;
 margin:0;
 padding:0
 }
-
+ 
 body{
 font-family:var(--font-body);
 min-height:100vh;
@@ -63,12 +54,12 @@ justify-content:center;
 align-items:center;
 overflow-x:hidden;
 }
-
+ 
 h1,h2,h3{
 font-family:var(--font-display);
 letter-spacing:.3px;
 }
-
+ 
 button:focus-visible,
 input:focus-visible,
 select:focus-visible,
@@ -77,7 +68,7 @@ textarea:focus-visible,
 outline:2px solid var(--accent);
 outline-offset:2px;
 }
-
+ 
 @media (prefers-reduced-motion:reduce){
 *{
 animation-duration:.001ms!important;
@@ -85,7 +76,7 @@ animation-iteration-count:1!important;
 transition-duration:.001ms!important;
 }
 }
-
+ 
 .container{
 width:100%;
 max-width:950px;
@@ -96,7 +87,7 @@ align-items:center;
 text-align:center;
 padding:20px;
 }
-
+ 
 .card{
 width:100%;
 padding:35px 25px;
@@ -110,16 +101,16 @@ backdrop-filter:blur(16px);
 position:relative;
 overflow:hidden;
 }
-
+ 
 .hidden{
 display:none!important
 }
-
+ 
 h1,h2,h3{
 position:relative;
 z-index:2
 }
-
+ 
 .home-pitch-bg{
 position:absolute;
 top:-50%;
@@ -132,7 +123,7 @@ background-size:30px 30px;
 transform:rotate(15deg);
 pointer-events:none;
 }
-
+ 
 .hero-badge{
 display:inline-block;
 background:rgba(56,232,120,.15);
@@ -146,14 +137,14 @@ letter-spacing:1px;
 margin-bottom:20px;
 text-transform:uppercase;
 }
-
+ 
 .ball-icon{
 font-size:70px;
 margin-bottom:15px;
 display:inline-block;
 animation:float 3s ease-in-out infinite;
 }
-
+ 
 .home-title{
 font-size:clamp(36px,8vw,64px);
 font-weight:900;
@@ -161,13 +152,13 @@ line-height:1.05;
 letter-spacing:-2px;
 margin-bottom:15px;
 }
-
+ 
 .home-title span{
 background:linear-gradient(135deg,#45f27f,#18c95b);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
-
+ 
 .home-subtitle{
 color:#a3c2b0;
 font-size:16px;
@@ -175,7 +166,7 @@ max-width:600px;
 margin:0 auto 25px;
 line-height:1.5;
 }
-
+ 
 .features-pills{
 display:flex;
 justify-content:center;
@@ -183,7 +174,7 @@ gap:10px;
 flex-wrap:wrap;
 margin-bottom:30px;
 }
-
+ 
 .pill{
 background:rgba(255,255,255,.05);
 border:1px solid rgba(255,255,255,.1);
@@ -192,7 +183,7 @@ border-radius:12px;
 font-size:12px;
 color:#d1dcd4;
 }
-
+ 
 .start-button{
 border:none;
 border-radius:16px;
@@ -206,58 +197,62 @@ transition:.25s;
 box-shadow:0 10px 30px rgba(40,230,110,.3);
 margin:5px;
 }
-
+ 
 .start-button:hover{
 transform:translateY(-2px) scale(1.02);
 }
-
+ 
+/* Secondary: default choice for everyday actions — quiet, so the
+   primary green and the few meaningful accents below still stand out */
 .btn-secondary{
 background:rgba(255,255,255,.06);
 color:#e7f0ea;
 border:1px solid rgba(255,255,255,.14);
 box-shadow:none;
 }
-
+ 
 .btn-secondary:hover{
 background:rgba(255,255,255,.1);
 border-color:rgba(56,232,120,.4);
 }
-
+ 
+/* Kept as meaningful accents, used sparingly and only where the
+   color itself carries information */
 .btn-blue{
 background:linear-gradient(135deg,#38bdf8,#0284c7);
 color:white
 }
-
+ 
 .btn-purple{
 background:linear-gradient(135deg,#c084fc,#9333ea);
 color:white
 }
-
+ 
 .btn-gold{
 background:linear-gradient(135deg,#facc15,#ca8a04);
 color:black
 }
-
+ 
 .btn-red{
 background:linear-gradient(135deg,#f87171,#dc2626);
 color:white
 }
-
+ 
 .btn-orange{
 background:linear-gradient(135deg,#fb923c,#ea580c);
 color:white
 }
-
+ 
 .btn-pink{
 background:linear-gradient(135deg,#f472b6,#db2777);
 color:white
 }
-
+ 
 .btn-green{
 background:linear-gradient(135deg,#4ade80,#15803d);
 color:white
 }
-
+ 
 .actions-heading{
 width:100%;
 text-align:left;
@@ -268,11 +263,11 @@ text-transform:uppercase;
 color:#6f8a78;
 margin:14px 0 4px;
 }
-
+ 
 .actions-heading:first-child{
 margin-top:0;
 }
-
+ 
 input,select,textarea{
 width:100%;
 padding:13px;
@@ -284,38 +279,38 @@ color:white;
 font-size:15px;
 outline:none;
 }
-
+ 
 textarea{
 resize:vertical;
 min-height:90px;
 }
-
+ 
 .stats-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(75px,1fr));
 gap:8px;
 margin:15px 0;
 }
-
+ 
 .stat-card{
 background:rgba(255,255,255,.04);
 padding:8px;
 border-radius:12px;
 border:1px solid rgba(255,255,255,.08);
 }
-
+ 
 .stat-card h4{
 color:#38e878;
 font-size:9px;
 text-transform:uppercase;
 }
-
+ 
 .stat-card p{
 font-size:15px;
 font-weight:bold;
 margin-top:2px;
 }
-
+ 
 .status-banner{
 background:rgba(56,232,120,.1);
 border:1px solid rgba(56,232,120,.3);
@@ -328,7 +323,7 @@ justify-content:space-around;
 flex-wrap:wrap;
 gap:10px;
 }
-
+ 
 .actions-grid{
 display:flex;
 flex-wrap:wrap;
@@ -336,12 +331,12 @@ justify-content:center;
 gap:8px;
 margin-bottom:6px;
 }
-
+ 
 .actions-grid .start-button{
 flex:1 1 130px;
 margin:0;
 }
-
+ 
 .log-box{
 background:#060e08;
 border:1px solid #23382b;
@@ -354,7 +349,7 @@ font-size:12px;
 margin-bottom:12px;
 color:#d1dcd4;
 }
-
+ 
 .news-box{
 background:#fefec8;
 color:#111;
@@ -365,7 +360,7 @@ text-align:left;
 font-family:Georgia,serif;
 border:2px solid #d4af37;
 }
-
+ 
 .news-title{
 font-size:10px;
 font-weight:bold;
@@ -376,13 +371,13 @@ border-bottom:1px solid #111;
 padding-bottom:2px;
 margin-bottom:4px;
 }
-
+ 
 .news-headline{
 font-size:14px;
 font-weight:900;
 line-height:1.2;
 }
-
+ 
 .section-box{
 background:rgba(255,255,255,.035);
 border:1px solid #23382b;
@@ -391,20 +386,20 @@ padding:15px;
 margin-top:12px;
 text-align:left;
 }
-
+ 
 .section-box h3{
 color:#38e878;
 margin-bottom:8px;
 font-size:15px;
 }
-
+ 
 .creator-layout{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:25px;
 align-items:center;
 }
-
+ 
 .player-preview{
 background:linear-gradient(180deg,#163d27,#08130c);
 border:1px solid rgba(56,232,120,.3);
@@ -416,13 +411,13 @@ flex-direction:column;
 align-items:center;
 justify-content:center;
 }
-
+ 
 .man{
 position:relative;
 width:150px;
 height:290px;
 }
-
+ 
 .head{
 position:absolute;
 width:72px;
@@ -434,7 +429,7 @@ background:#c68642;
 border:3px solid rgba(0,0,0,.3);
 z-index:3;
 }
-
+ 
 .hair{
 position:absolute;
 width:75px;
@@ -445,7 +440,7 @@ border-radius:50% 50% 20% 20%;
 background:#17100b;
 z-index:4;
 }
-
+ 
 .body{
 position:absolute;
 width:105px;
@@ -456,7 +451,7 @@ background:#128b42;
 border-radius:20px 20px 10px 10px;
 border:3px solid rgba(0,0,0,.3);
 }
-
+ 
 .number{
 position:absolute;
 top:35px;
@@ -466,7 +461,7 @@ font-size:30px;
 font-weight:900;
 color:white;
 }
-
+ 
 .arm{
 position:absolute;
 width:28px;
@@ -475,17 +470,17 @@ top:76px;
 background:#c68642;
 border-radius:20px;
 }
-
+ 
 .arm.left{
 left:0;
 transform:rotate(10deg)
 }
-
+ 
 .arm.right{
 right:0;
 transform:rotate(-10deg)
 }
-
+ 
 .shorts{
 position:absolute;
 width:95px;
@@ -495,7 +490,7 @@ top:166px;
 background:#111;
 border-radius:5px 5px 15px 15px;
 }
-
+ 
 .leg{
 position:absolute;
 width:30px;
@@ -504,15 +499,15 @@ top:210px;
 background:#c68642;
 border-radius:10px;
 }
-
+ 
 .leg.left{
 left:38px
 }
-
+ 
 .leg.right{
 right:38px
 }
-
+ 
 .boot{
 position:absolute;
 width:42px;
@@ -521,40 +516,40 @@ background:#050505;
 border-radius:10px;
 top:268px;
 }
-
+ 
 .boot.left{
 left:27px
 }
-
+ 
 .boot.right{
 right:27px
 }
-
+ 
 .preview-number{
 margin-top:15px;
 color:#facc15;
 font-weight:bold;
 }
-
+ 
 .match-score{
 font-size:25px;
 font-weight:900;
 margin:15px 0;
 }
-
+ 
 .minute{
 color:#facc15;
 font-size:18px;
 font-weight:bold;
 }
-
+ 
 .action-grid{
 display:grid;
 grid-template-columns:repeat(2,1fr);
 gap:10px;
 margin-top:20px;
 }
-
+ 
 .action-btn{
 padding:18px 10px;
 border:none;
@@ -566,11 +561,11 @@ color:white;
 background:linear-gradient(135deg,#166534,#15803d);
 border:1px solid rgba(56,232,120,.3);
 }
-
+ 
 .action-btn:hover{
 transform:scale(1.02);
 }
-
+ 
 .match-log{
 background:#050b07;
 border:1px solid #263c2d;
@@ -582,14 +577,14 @@ text-align:left;
 margin-top:15px;
 font-size:13px;
 }
-
+ 
 .bracket{
 display:flex;
 flex-direction:column;
 gap:10px;
 margin-top:15px;
 }
-
+ 
 .bracket-card{
 background:rgba(255,255,255,.04);
 border:1px solid #23382b;
@@ -597,14 +592,14 @@ border-radius:12px;
 padding:12px;
 text-align:left;
 }
-
+ 
 .stars{
 color:#facc15;
 font-size:25px;
 letter-spacing:3px;
 cursor:pointer;
 }
-
+ 
 .review-card{
 background:rgba(255,255,255,.04);
 padding:12px;
@@ -613,7 +608,7 @@ border:1px solid #23382b;
 margin-top:8px;
 text-align:left;
 }
-
+ 
 .adsense-box{
 width:100%;
 max-width:728px;
@@ -624,14 +619,14 @@ justify-content:center;
 align-items:center;
 overflow:hidden;
 }
-
+ 
 .shop-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 gap:12px;
 margin-top:15px;
 }
-
+ 
 .shop-item{
 background:rgba(255,255,255,.05);
 border:1px solid #294533;
@@ -639,25 +634,110 @@ border-radius:16px;
 padding:18px;
 text-align:center;
 }
-
+ 
 .shop-icon{
 font-size:42px;
 margin-bottom:8px;
 }
-
+ 
 .shop-price{
 color:#facc15;
 font-weight:900;
 margin:8px;
 }
-
+ 
+.shop-item.owned{
+opacity:.55;
+}
+ 
+.shop-item .shop-desc{
+color:#aab8ae;
+font-size:12px;
+min-height:32px;
+}
+ 
+.shop-tabs{
+display:flex;
+flex-wrap:wrap;
+gap:6px;
+justify-content:center;
+margin:15px 0;
+}
+ 
+.shop-tab{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.12);
+color:#d1dcd4;
+padding:7px 13px;
+border-radius:20px;
+font-size:12px;
+font-weight:700;
+cursor:pointer;
+}
+ 
+.shop-tab.active{
+background:rgba(56,232,120,.18);
+border-color:var(--accent);
+color:var(--accent);
+}
+ 
+/* TRANSFER OFFER MODAL */
+ 
+.modal-overlay{
+position:fixed;
+inset:0;
+background:rgba(2,8,4,.78);
+backdrop-filter:blur(4px);
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:999;
+padding:20px;
+}
+ 
+.modal-card{
+width:100%;
+max-width:420px;
+background:linear-gradient(180deg,#153822,#081209);
+border:1px solid rgba(56,232,120,.35);
+border-radius:24px;
+padding:28px 24px;
+text-align:center;
+box-shadow:0 30px 90px rgba(0,0,0,.8);
+}
+ 
+.modal-card h3{
+color:var(--accent);
+font-size:20px;
+margin-bottom:10px;
+}
+ 
+.modal-offer-amount{
+font-family:var(--font-display);
+font-size:34px;
+font-weight:700;
+color:var(--gold);
+margin:12px 0;
+}
+ 
+.modal-actions{
+display:flex;
+gap:10px;
+margin-top:18px;
+}
+ 
+.modal-actions .start-button{
+flex:1;
+margin:0;
+}
+ 
 .leaderboard{
 display:flex;
 flex-direction:column;
 gap:8px;
 margin-top:15px;
 }
-
+ 
 .rank-row{
 display:grid;
 grid-template-columns:45px 1fr 90px;
@@ -669,24 +749,24 @@ padding:12px;
 border-radius:12px;
 text-align:left;
 }
-
+ 
 .rank-position{
 font-size:20px;
 font-weight:900;
 color:#facc15;
 text-align:center;
 }
-
+ 
 .rank-name{
 font-weight:800;
 }
-
+ 
 .rank-score{
 text-align:right;
 color:#38e878;
 font-weight:900;
 }
-
+ 
 .social-post{
 background:rgba(255,255,255,.045);
 border:1px solid #294533;
@@ -695,18 +775,18 @@ padding:15px;
 margin-top:10px;
 text-align:left;
 }
-
+ 
 .social-post button{
 margin-top:10px;
 }
-
+ 
 .social-choice{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
 gap:10px;
 margin-top:15px;
 }
-
+ 
 .social-choice button{
 padding:15px;
 border:none;
@@ -717,7 +797,7 @@ color:white;
 background:#14532d;
 border:1px solid #38e878;
 }
-
+ 
 .online-badge{
 display:inline-block;
 padding:5px 10px;
@@ -727,12 +807,12 @@ color:#38e878;
 font-size:12px;
 margin:4px;
 }
-
+ 
 .contact{
 color:#38e878;
 font-weight:bold;
 }
-
+ 
 @keyframes float{
 0%,100%{
 transform:translateY(0)
@@ -741,22 +821,22 @@ transform:translateY(0)
 transform:translateY(-10px)
 }
 }
-
+ 
 @media(max-width:700px){
 .creator-layout{
 grid-template-columns:1fr;
 }
-
+ 
 .action-grid{
 grid-template-columns:1fr 1fr;
 }
 }
-
+ 
 @media(max-width:500px){
 .card{
 padding:25px 15px
 }
-
+ 
 .start-button{
 font-size:13px;
 padding:11px 15px
@@ -764,32 +844,34 @@ padding:11px 15px
 }
 </style>
 </head>
-
+ 
 <body>
-
+ 
 <main class="container">
-
+ 
+<!-- HOME -->
+ 
 <section class="card" id="home">
-
+ 
 <div class="home-pitch-bg"></div>
-
+ 
 <div class="hero-badge">
 ⚽ Ultimate Football Career
 </div>
-
+ 
 <div class="ball-icon">
 🏆
 </div>
-
+ 
 <h1 class="home-title">
 NEXT <span>FOOTBALL STAR</span>
 </h1>
-
+ 
 <p class="home-subtitle">
 Diventa una leggenda: dai campi di periferia ai Mondiali,
 gestisci carriera, famiglia, amore, social, mercato e trofei!
 </p>
-
+ 
 <div class="features-pills">
 <div class="pill">🌍 Mondiali</div>
 <div class="pill">🏆 Champions</div>
@@ -800,114 +882,145 @@ gestisci carriera, famiglia, amore, social, mercato e trofei!
 <div class="pill">🌍 Classifica</div>
 <div class="pill">⭐ Pallone d'Oro</div>
 </div>
-
-<button class="start-button" onclick="checkSavedGame()">
+ 
+<button class="start-button"
+onclick="checkSavedGame()">
 ENTRA IN CAMPO 🚀
 </button>
-
-<button class="start-button btn-gold" onclick="openReviews()">
+ 
+<button class="start-button btn-gold"
+onclick="openReviews()">
 ⭐ RECENSIONI
 </button>
-
-<button class="start-button btn-secondary" onclick="openLeaderboard()">
+ 
+<button class="start-button btn-secondary"
+onclick="openLeaderboard()">
 🌍 CLASSIFICA
 </button>
-
+ 
 <div class="adsense-box">
+ 
+<!--
+IMPORTANTE: "data-ad-slot" qui sotto è un segnaposto.
+Vai su adsense.google.com → Annunci → Per unità annuncio,
+crea un'unità display e incolla qui l'ID numerico che ti
+viene assegnato (es. 1234567890) al posto di "0000000000".
+Senza un ID reale l'annuncio non verrà mai mostrato.
+-->
 <ins class="adsbygoogle"
-style="display:block;width:100%;min-height:90px"
+style="display:block"
 data-ad-client="ca-pub-4740569819691854"
-data-ad-slot="auto"
+data-ad-slot="0000000000"
 data-ad-format="auto"
 data-full-width-responsive="true"></ins>
+ 
 </div>
-
+ 
 </section>
-
+ 
+ 
+<!-- CREAZIONE -->
+ 
 <section class="card hidden" id="career">
-
-<h2>👤 CREA IL TUO GIOCATORE</h2>
-
-<p style="color:#aab8ae;margin:10px 0 20px">
+ 
+<h2 id="careerScreenTitle">👤 CREA IL TUO GIOCATORE</h2>
+ 
+<p id="careerScreenSubtitle" style="color:#aab8ae;margin:10px 0 20px">
 Personalizza il tuo futuro campione.
 </p>
-
+ 
 <div class="creator-layout">
-
+ 
 <div class="player-preview">
-
+ 
 <div class="man">
-
+ 
 <div class="head" id="previewHead"></div>
 <div class="hair" id="previewHair"></div>
-
+ 
 <div class="arm left" id="previewArm1"></div>
 <div class="arm right" id="previewArm2"></div>
-
+ 
 <div class="body" id="previewBody">
 <div class="number" id="previewNumber">10</div>
 </div>
-
+ 
 <div class="shorts"></div>
-
+ 
 <div class="leg left" id="previewLeg1"></div>
 <div class="leg right" id="previewLeg2"></div>
-
+ 
 <div class="boot left"></div>
 <div class="boot right"></div>
-
+ 
 </div>
-
+ 
 <div class="preview-number">
 MAGLIA #<span id="previewNumberText">10</span>
 </div>
-
+ 
 </div>
-
+ 
 <div>
-
+ 
 <input id="playerName" placeholder="Nome" aria-label="Nome del giocatore">
-
+ 
 <input id="playerSurname" placeholder="Cognome" aria-label="Cognome del giocatore">
-
-<input id="jerseyNumber" type="number" placeholder="Numero 1-99"
-min="1" max="99" value="10" oninput="updatePreview"
-aria-label="Numero di maglia">
-
+ 
+<input
+id="jerseyNumber"
+type="number"
+placeholder="Numero 1-99"
+min="1"
+max="99"
+value="10"
+oninput="updatePreview()"
+aria-label="Numero di maglia"
+>
+ 
 <select id="skinColor" onchange="updatePreview()">
+ 
 <option value="#c68642">🤎 Marrone</option>
 <option value="#e0c096">💛 Giallo</option>
 <option value="#f1d0b5">🤍 Bianco</option>
 <option value="#f0a6a0">🩷 Rosa</option>
-<option value="#111111">🖤 Nero</option>
-<option value="#8d5524">🇿🇦 Sudafrica</option>
+<option value="#4a2c17">🖤 Nero</option>
+ 
 </select>
-
+ 
 <select id="hairType" onchange="updatePreview()">
+ 
 <option value="short">💇 Corti Classici</option>
 <option value="crest">🔥 Cresta Moderna</option>
 <option value="afro">🌀 Ricci Afro</option>
 <option value="long">💇 Capelli Lunghi</option>
 <option value="bald">😎 Rasato</option>
+ 
 </select>
-
+ 
 <select id="personality">
+ 
 <option value="">🧠 Personalità</option>
 <option>👑 Leader Naturale</option>
 <option>🎯 Prodigio Tecnico</option>
 <option>🏋️ Lavoratore Instancabile</option>
+ 
 </select>
-
+ 
 <select id="position">
+ 
 <option value="">⚽ Ruolo</option>
 <option>Attaccante</option>
 <option>Centrocampista</option>
 <option>Difensore</option>
 <option>Portiere</option>
+ 
 </select>
-
+ 
 <select id="nationality" onchange="updateTeamDropdown()">
+ 
 <option value="">🌍 Nazionalità</option>
+ 
 <option>🇮🇹 Italia</option>
 <option>🇪🇸 Spagna</option>
 <option>🇫🇷 Francia</option>
@@ -927,357 +1040,522 @@ aria-label="Numero di maglia">
 <option>🇯🇵 Giappone</option>
 <option>🇵🇹 Portogallo</option>
 <option>🇳🇱 Paesi Bassi</option>
+ 
 </select>
-
+ 
 <select id="startingTeam">
 <option value="RANDOM">🎲 Offerta Casuale</option>
 </select>
-
-<button class="start-button" onclick="createPlayer()">
+ 
+<button class="start-button" id="careerSubmitBtn"
+onclick="createPlayer()">
 INIZIA LA CARRIERA 🚀
 </button>
-
+ 
+<button class="start-button btn-secondary hidden" id="careerCancelBtn"
+onclick="cancelEditProfile()">
+❌ Annulla
+</button>
+ 
 </div>
 </div>
 </section>
-
+ 
+ 
+<!-- HUB -->
+ 
 <section class="card hidden" id="hub">
-
+ 
 <h2 id="displayPlayerName"></h2>
-
+ 
 <p id="displayDetails" style="color:#38e878"></p>
-
-<p id="displayTeam" style="color:#facc15;font-weight:bold;margin:8px"></p>
-
+ 
+<p id="displayTeam"
+style="color:#facc15;font-weight:bold;margin:8px">
+</p>
+ 
 <div>
 <span class="online-badge">🟢 Carriera salvata</span>
 <span class="online-badge">📊 Ranking locale</span>
 </div>
-
+ 
 <div class="status-banner">
-<span>👔 Mister: <strong id="valCoachTrust">80%</strong></span>
-<span>🏥 Salute: <strong id="valHealth">Sano</strong></span>
-<span>💰: <strong id="valMoney">€500</strong></span>
+ 
+<span>👔 Mister:
+<strong id="valCoachTrust">80%</strong>
+</span>
+ 
+<span>🏥 Salute:
+<strong id="valHealth">Sano</strong>
+</span>
+ 
+<span>💰:
+<strong id="valMoney">€500</strong>
+</span>
+ 
 </div>
-
+ 
 <div class="stats-grid">
-
-<div class="stat-card"><h4>ETÀ</h4><p id="valAge">16</p></div>
-<div class="stat-card"><h4>GIORNATA</h4><p id="valMatchDay">1 / 38</p></div>
-<div class="stat-card"><h4>GOAL</h4><p id="valGoals">0</p></div>
-<div class="stat-card"><h4>ASSIST</h4><p id="valAssists">0</p></div>
-<div class="stat-card"><h4>OVERALL</h4><p id="valOverall">60</p></div>
-<div class="stat-card"><h4>XP</h4><p id="valXP">0</p></div>
-<div class="stat-card"><h4>ENERGIA</h4><p id="valEnergy">100%</p></div>
-<div class="stat-card"><h4>FAN</h4><p id="valFans">100</p></div>
-
+ 
+<div class="stat-card">
+<h4>ETÀ</h4>
+<p id="valAge">16</p>
 </div>
-
+ 
+<div class="stat-card">
+<h4>GIORNATA</h4>
+<p id="valMatchDay">1 / 38</p>
+</div>
+ 
+<div class="stat-card">
+<h4>GOAL</h4>
+<p id="valGoals">0</p>
+</div>
+ 
+<div class="stat-card">
+<h4>ASSIST</h4>
+<p id="valAssists">0</p>
+</div>
+ 
+<div class="stat-card">
+<h4>OVERALL</h4>
+<p id="valOverall">60</p>
+</div>
+ 
+<div class="stat-card">
+<h4>XP</h4>
+<p id="valXP">0</p>
+</div>
+ 
+<div class="stat-card">
+<h4>ENERGIA</h4>
+<p id="valEnergy">100%</p>
+</div>
+ 
+<div class="stat-card">
+<h4>FAN</h4>
+<p id="valFans">100</p>
+</div>
+ 
+<div class="stat-card">
+<h4>VALORE</h4>
+<p id="valMarket">€0</p>
+</div>
+ 
+</div>
+ 
 <div class="news-box">
-<div class="news-title">📰 THE FOOTBALL STAR TIMES</div>
-<div class="news-headline" id="newsText">Inizia la tua carriera!</div>
+ 
+<div class="news-title">
+📰 THE FOOTBALL STAR TIMES
 </div>
-
+ 
+<div class="news-headline" id="newsText">
+Inizia la tua carriera!
+</div>
+ 
+</div>
+ 
 <div class="log-box" id="gameLog">
-<div>&gt; Benvenuto nella tua carriera!</div>
+<div>> Benvenuto nella tua carriera!</div>
 </div>
-
+ 
 <div class="actions-heading">In campo</div>
-
 <div class="actions-grid">
-
-<button class="start-button" onclick="startMatch()">⚽ Gioca Match</button>
-<button class="start-button btn-secondary" onclick="train()">🏋️ Allenati</button>
-<button class="start-button btn-secondary" onclick="rest()">💤 Riposo</button>
-<button class="start-button btn-secondary" onclick="clinic()">🏥 Clinica</button>
-<button class="start-button btn-purple" onclick="openCup()">🏆 Coppe</button>
-
+ 
+<button class="start-button"
+onclick="startMatch()">
+⚽ Gioca Match
+</button>
+ 
+<button class="start-button btn-secondary"
+onclick="train()">
+🏋️ Allenati
+</button>
+ 
+<button class="start-button btn-secondary"
+onclick="rest()">
+💤 Riposo
+</button>
+ 
+<button class="start-button btn-secondary"
+onclick="clinic()">
+🏥 Clinica
+</button>
+ 
+<button class="start-button btn-purple"
+onclick="openCup()">
+🏆 Coppe
+</button>
+ 
 </div>
-
+ 
 <div class="actions-heading">Vita privata</div>
-
 <div class="actions-grid">
-
-<button class="start-button btn-secondary" onclick="family()">👨‍👩‍👦 Famiglia</button>
-<button class="start-button btn-secondary" onclick="relationship()">❤️ Amore</button>
-
+ 
+<button class="start-button btn-secondary"
+onclick="family()">
+👨‍👩‍👦 Famiglia
+</button>
+ 
+<button class="start-button btn-secondary"
+onclick="relationship()">
+❤️ Amore
+</button>
+ 
 </div>
-
+ 
 <div class="actions-heading">Business &amp; fama</div>
-
 <div class="actions-grid">
-
-<button class="start-button btn-secondary" onclick="openSocial()">📱 Social</button>
-<button class="start-button btn-gold" onclick="openShop()">🛒 Shop</button>
-<button class="start-button btn-secondary" onclick="openReviews()">⭐ Recensioni</button>
-<button class="start-button btn-secondary" onclick="openLeaderboard()">🌍 Classifica</button>
-<button class="start-button btn-secondary" onclick="careerStats()">📊 Carriera</button>
-
+ 
+<button class="start-button btn-secondary"
+onclick="openSocial()">
+📱 Social
+</button>
+ 
+<button class="start-button btn-gold"
+onclick="openShop()">
+🛒 Shop
+</button>
+ 
+<button class="start-button btn-secondary"
+onclick="openReviews()">
+⭐ Recensioni
+</button>
+ 
+<button class="start-button btn-secondary"
+onclick="openLeaderboard()">
+🌍 Classifica
+</button>
+ 
+<button class="start-button btn-secondary"
+onclick="careerStats()">
+📊 Carriera
+</button>
+ 
+<button class="start-button btn-secondary"
+onclick="openEditProfile()">
+✏️ Profilo
+</button>
+ 
 </div>
-
+ 
 <div class="actions-heading">Sistema</div>
-
 <div class="actions-grid">
-<button class="start-button btn-red" onclick="resetGame()">🗑️ Resetta</button>
+ 
+<button class="start-button btn-red"
+onclick="resetGame()">
+🗑️ Resetta
+</button>
+ 
 </div>
-
+ 
 </section>
-
+ 
+ 
+<!-- MATCH -->
+ 
 <section class="card hidden" id="match">
-
+ 
 <h2>⚽ MATCH INTERATTIVO</h2>
-
+ 
 <div class="minute">
 MINUTO <span id="matchMinute">1</span>'
 </div>
-
-<div class="match-score" id="matchScore">0 - 0</div>
-
-<p id="matchOpponent">Avversario</p>
-
-<div class="status-banner">
-
-<span>⚡ Energia: <strong id="matchEnergy">100%</strong></span>
-<span>⭐ Overall: <strong id="matchOverall">60</strong></span>
-
+ 
+<div class="match-score" id="matchScore">
+0 - 0
 </div>
-
+ 
+<p id="matchOpponent">
+Avversario
+</p>
+ 
+<div class="status-banner">
+ 
+<span>⚡ Energia:
+<strong id="matchEnergy">100%</strong>
+</span>
+ 
+<span>⭐ Overall:
+<strong id="matchOverall">60</strong>
+</span>
+ 
+</div>
+ 
 <div class="section-box">
-
+ 
 <h3>🔥 SEI IN POSSESSO</h3>
-
+ 
 <p id="matchSituation">
 Hai ricevuto palla. Cosa fai?
 </p>
-
+ 
 <div class="action-grid">
-
-<button class="action-btn" onclick="matchAction('shoot')">⚽ TIRA</button>
-<button class="action-btn" onclick="matchAction('pass')">🎯 PASSA</button>
-<button class="action-btn" onclick="matchAction('dribble')">🏃 DRIBBLA</button>
-<button class="action-btn" onclick="matchAction('protect')">🛡️ PROTEGGI</button>
-
+ 
+<button class="action-btn"
+onclick="matchAction('shoot')">
+⚽ TIRA
+</button>
+ 
+<button class="action-btn"
+onclick="matchAction('pass')">
+🎯 PASSA
+</button>
+ 
+<button class="action-btn"
+onclick="matchAction('dribble')">
+🏃 DRIBBLA
+</button>
+ 
+<button class="action-btn"
+onclick="matchAction('protect')">
+🛡️ PROTEGGI
+</button>
+ 
 </div>
 </div>
-
+ 
 <div class="match-log" id="matchLog"></div>
-
-<button class="start-button btn-secondary" onclick="showScreen('hub')">
+ 
+<button class="start-button btn-secondary"
+onclick="showScreen('hub')">
 ⬅️ Esci
 </button>
-
+ 
 </section>
-
+ 
+ 
+<!-- COPPE -->
+ 
 <section class="card hidden" id="cups">
-
+ 
 <h2>🏆 COPPE</h2>
-
+ 
 <div class="section-box">
-
+ 
 <h3>🏆 COPPA NAZIONALE</h3>
-
-<p id="nationalCupStatus">Non ancora iniziata.</p>
-
-<button class="start-button btn-gold" onclick="startNationalCup()">
+ 
+<p id="nationalCupStatus">
+Non ancora iniziata.
+</p>
+ 
+<button class="start-button btn-gold"
+onclick="startNationalCup()">
 GIOCA COPPA
 </button>
-
+ 
 </div>
-
+ 
 <div class="section-box">
-
+ 
 <h3>⭐ CHAMPIONS LEAGUE</h3>
-
-<p id="uclStatus">Non ancora qualificato.</p>
-
-<button class="start-button btn-purple" onclick="startUCL()">
+ 
+<p id="uclStatus">
+Non ancora qualificato.
+</p>
+ 
+<button class="start-button btn-purple"
+onclick="startUCL()">
 GIOCA CHAMPIONS
 </button>
-
+ 
 </div>
-
+ 
 <div id="cupBracket" class="bracket"></div>
-
-<button class="start-button btn-secondary" onclick="showScreen('hub')">
+ 
+<button class="start-button btn-secondary"
+onclick="showScreen('hub')">
 ⬅️ Torna
 </button>
-
+ 
 </section>
-
+ 
+ 
+<!-- SOCIAL -->
+ 
 <section class="card hidden" id="social">
-
+ 
 <h2>📱 SOCIAL</h2>
-
+ 
 <p style="color:#aab8ae;margin:10px 0">
 Scegli cosa pubblicare. Ogni post influenza fan, soldi e reputazione.
 </p>
-
+ 
 <div class="section-box">
-
+ 
 <h3>📲 COSA VUOI PUBBLICARE?</h3>
-
+ 
 <div class="social-choice">
-
-<button onclick="publishPost('training')">🏋️ Foto Allenamento</button>
-<button onclick="publishPost('match')">⚽ Foto della Partita</button>
-<button onclick="publishPost('lifestyle')">😎 Vita da Star</button>
-<button onclick="publishPost('team')">🤝 Post con la Squadra</button>
-<button onclick="publishPost('fans')">❤️ Ringraziamento ai Fan</button>
-<button onclick="publishPost('controversy')">🔥 Post Provocatorio</button>
-
+ 
+<button onclick="publishPost('training')">
+🏋️ Foto Allenamento
+</button>
+ 
+<button onclick="publishPost('match')">
+⚽ Foto della Partita
+</button>
+ 
+<button onclick="publishPost('lifestyle')">
+😎 Vita da Star
+</button>
+ 
+<button onclick="publishPost('team')">
+🤝 Post con la Squadra
+</button>
+ 
+<button onclick="publishPost('fans')">
+❤️ Ringraziamento ai Fan
+</button>
+ 
+<button onclick="publishPost('controversy')">
+🔥 Post Provocatorio
+</button>
+ 
 </div>
+ 
 </div>
-
+ 
 <div class="section-box">
-
+ 
 <h3>📰 I TUOI POST</h3>
+ 
 <div id="socialFeed"></div>
-
+ 
 </div>
-
-<button class="start-button btn-secondary" onclick="showScreen('hub')">
+ 
+<button class="start-button btn-secondary"
+onclick="showScreen('hub')">
 ⬅️ Torna
 </button>
-
+ 
 </section>
-
+ 
+ 
+<!-- SHOP -->
+ 
 <section class="card hidden" id="shop">
-
+ 
 <h2>🛒 SHOP</h2>
-
-<p>💰 Il tuo denaro: <strong id="shopMoney">€500</strong></p>
-
-<div class="shop-grid">
-
-<div class="shop-item">
-<div class="shop-icon">⚡</div>
-<h3>Energia Plus</h3>
-<p>Recupera 30 energia.</p>
-<div class="shop-price">€500</div>
-<button class="start-button btn-secondary" onclick="buyItem('energy')">COMPRA</button>
-</div>
-
-<div class="shop-item">
-<div class="shop-icon">👟</div>
-<h3>Scarpe Pro</h3>
-<p>Allenamenti più efficaci.</p>
-<div class="shop-price">€5.000</div>
-<button class="start-button btn-secondary" onclick="buyItem('boots')">COMPRA</button>
-</div>
-
-<div class="shop-item">
-<div class="shop-icon">👕</div>
-<h3>Divisa Premium</h3>
-<p>Aumenta la popolarità.</p>
-<div class="shop-price">€10.000</div>
-<button class="start-button btn-secondary" onclick="buyItem('kit')">COMPRA</button>
-</div>
-
-<div class="shop-item">
-<div class="shop-icon">📱</div>
-<h3>Smartphone Pro</h3>
-<p>Social più efficaci.</p>
-<div class="shop-price">€15.000</div>
-<button class="start-button btn-secondary" onclick="buyItem('phone')">COMPRA</button>
-</div>
-
-<div class="shop-item">
-<div class="shop-icon">🚗</div>
-<h3>Auto Sportiva</h3>
-<p>Più prestigio e fan.</p>
-<div class="shop-price">€100.000</div>
-<button class="start-button btn-secondary" onclick="buyItem('car')">COMPRA</button>
-</div>
-
-<div class="shop-item">
-<div class="shop-icon">🏠</div>
-<h3>Casa di Lusso</h3>
-<p>Grande aumento di prestigio.</p>
-<div class="shop-price">€500.000</div>
-<button class="start-button btn-secondary" onclick="buyItem('house')">COMPRA</button>
-</div>
-
-</div>
-
-<button class="start-button btn-secondary" onclick="showScreen('hub')">
+ 
+<p>
+💰 Il tuo denaro:
+<strong id="shopMoney">€500</strong>
+</p>
+ 
+<div class="shop-tabs" id="shopTabs"></div>
+ 
+<div class="shop-grid" id="shopGrid"></div>
+ 
+<button class="start-button btn-secondary"
+onclick="showScreen('hub')">
 ⬅️ Torna
 </button>
-
+ 
 </section>
-
+ 
+ 
+<!-- CLASSIFICA -->
+ 
 <section class="card hidden" id="leaderboard">
-
+ 
 <h2>🌍 CLASSIFICA LOCALE</h2>
-
+ 
 <p style="color:#aab8ae;margin:10px 0">
 Classifica delle carriere create su questo dispositivo.
 </p>
-
+ 
 <div class="status-banner">
-
-<span>👥 Carriere create: <strong id="careerCount">0</strong></span>
-<span>🏆 Record Overall: <strong id="globalBest">0</strong></span>
-
+ 
+<span>👥 Carriere create:
+<strong id="careerCount">0</strong>
+</span>
+ 
+<span>🏆 Record Overall:
+<strong id="globalBest">0</strong>
+</span>
+ 
 </div>
-
+ 
 <div class="leaderboard" id="leaderboardList"></div>
-
-<button class="start-button btn-secondary" onclick="showScreen('hub')">
+ 
+<button class="start-button btn-secondary"
+onclick="showScreen('hub')">
 ⬅️ Torna
 </button>
-
+ 
 </section>
-
+ 
+ 
+<!-- RECENSIONI -->
+ 
 <section class="card hidden" id="reviews">
-
+ 
 <h2>⭐ RECENSIONI</h2>
-
+ 
 <div class="section-box">
-
+ 
 <h3>Lascia una recensione</h3>
-
+ 
 <input id="reviewName" placeholder="Il tuo nome" aria-label="Il tuo nome">
-
+ 
 <div class="stars" id="starSelector">
-
+ 
 <span onclick="selectRating(1)">☆</span>
 <span onclick="selectRating(2)">☆</span>
 <span onclick="selectRating(3)">☆</span>
 <span onclick="selectRating(4)">☆</span>
 <span onclick="selectRating(5)">☆</span>
-
+ 
 </div>
-
-<p id="selectedRating">Seleziona le stelle</p>
-
-<textarea id="reviewText" placeholder="Scrivi la tua recensione"></textarea>
-
-<button class="start-button btn-gold" onclick="submitReview()">
+ 
+<p id="selectedRating">
+Seleziona le stelle
+</p>
+ 
+<textarea
+id="reviewText"
+placeholder="Scrivi la tua recensione">
+</textarea>
+ 
+<button
+class="start-button btn-gold"
+onclick="submitReview()">
 PUBBLICA ⭐
 </button>
-
+ 
 </div>
-
+ 
 <div class="section-box">
-
-<h3 id="averageRating">⭐ 0.0 / 5</h3>
-<p id="reviewCount">0 recensioni</p>
+ 
+<h3 id="averageRating">
+⭐ 0.0 / 5
+</h3>
+ 
+<p id="reviewCount">
+0 recensioni
+</p>
+ 
 <div id="reviewList"></div>
-
+ 
 </div>
-
-<button class="start-button btn-secondary" onclick="showScreen('hub')">
+ 
+<button class="start-button btn-secondary"
+onclick="showScreen('hub')">
 ⬅️ Torna
 </button>
-
+ 
 </section>
-
+ 
+ 
+<!-- STATISTICHE -->
+ 
 <section class="card hidden" id="careerStats">
-
+ 
 <h2>📊 STORIA DELLA CARRIERA</h2>
-
+ 
 <div class="section-box">
-
+ 
 <p>⚽ Gol: <strong id="careerGoals">0</strong></p>
 <p>🎯 Assist: <strong id="careerAssists">0</strong></p>
 <p>🏆 Trofei: <strong id="careerTrophies">0</strong></p>
@@ -1286,158 +1564,462 @@ PUBBLICA ⭐
 <p>🌟 Palloni d'Oro: <strong id="careerBallon">0</strong></p>
 <p>📈 Overall massimo: <strong id="careerMaxOverall">60</strong></p>
 <p>💰 Patrimonio: €<strong id="careerMoney">500</strong></p>
-
+<p>🏷️ Valore di mercato: €<strong id="careerMarket">0</strong></p>
+ 
 </div>
-
-<button class="start-button btn-secondary" onclick="showScreen('hub')">
+ 
+<button class="start-button btn-secondary"
+onclick="showScreen('hub')">
 ⬅️ Torna
 </button>
-
+ 
 </section>
-
+ 
+<div class="modal-overlay hidden" id="transferOfferModal" role="dialog" aria-labelledby="offerTitle">
+ 
+<div class="modal-card">
+ 
+<h3 id="offerTitle">📩 OFFERTA DI MERCATO!</h3>
+ 
+<p id="offerClub" style="font-weight:800;font-size:17px">Club Misterioso</p>
+ 
+<p style="color:#aab8ae;margin-top:6px">
+vuole acquistare il tuo cartellino e ti offre un bonus alla firma di:
+</p>
+ 
+<div class="modal-offer-amount" id="offerAmount">€0</div>
+ 
+<div class="modal-actions">
+ 
+<button class="start-button btn-secondary" onclick="declineOffer()">
+❌ Rifiuta
+</button>
+ 
+<button class="start-button" onclick="acceptOffer()">
+✍️ Firma
+</button>
+ 
+</div>
+ 
+</div>
+ 
+</div>
+ 
 </main>
-
+ 
+ 
 <script>
-
+ 
 /* =========================
 DATABASE SQUADRE
 ========================= */
-
+ 
 const teamsDB={
-
+ 
 "🇮🇹 Italia":[
-"Lombardia Neroazzurra","Torino Bianconera","Milano Rossonera",
-"Partenope Azzurra","Roma Giallorossa","Bologna Rossoblu",
-"Firenze Viola","Napoli Vesuvio","Parma Gialloblu",
-"Palermo Rosanero","Bari Biancorossa","Venezia Arancio",
-"Pisa Nerazzurra","Padova Biancoscudata","Vicenza Biancorossa",
+"Lombardia Neroazzurra",
+"Torino Bianconera",
+"Milano Rossonera",
+"Partenope Azzurra",
+"Roma Giallorossa",
+"Bologna Rossoblu",
+"Firenze Viola",
+"Napoli Vesuvio",
+"Parma Gialloblu",
+"Palermo Rosanero",
+"Bari Biancorossa",
+"Venezia Arancio",
+"Pisa Nerazzurra",
+"Padova Biancoscudata",
+"Vicenza Biancorossa",
 "Catania Etna"
 ],
-
+ 
 "🇪🇸 Spagna":[
-"Madrid Blancos","Catalunya Red-Blue","Madrid Colchoneros",
-"Sevilla Roja","Valencia Naranja","Bilbao Lions",
-"Zaragoza Real","Malaga Azul","Oviedo Azul","Cordoba Verde",
-"Murcia Roja","Alicante Stars"
+"Madrid Blancos",
+"Catalunya Red-Blue",
+"Madrid Colchoneros",
+"Sevilla Roja",
+"Valencia Naranja",
+"Bilbao Lions",
+"Zaragoza Real",
+"Malaga Azul",
+"Oviedo Azul",
+"Cordoba Verde",
+"Murcia Roja",
+"Alicante Stars"
 ],
-
+ 
 "🇫🇷 Francia":[
-"Paris Red-Blue","Marseille Sky Blue","Lyon Lions",
-"Monaco Red-White","Lille Great Danes","Nice Eagles",
-"Bordeaux Navy","Nantes Green","Toulouse Violet",
-"Rennes Red","Dijon Mustard","Metz Garnets"
+"Paris Red-Blue",
+"Marseille Sky Blue",
+"Lyon Lions",
+"Monaco Red-White",
+"Lille Great Danes",
+"Nice Eagles",
+"Bordeaux Navy",
+"Nantes Green",
+"Toulouse Violet",
+"Rennes Red",
+"Dijon Mustard",
+"Metz Garnets"
 ],
-
+ 
 "🇩🇪 Germania":[
-"Bavaria Red","Dortmund Yellow","Berlin Capital","Leipzig Bulls",
-"Leverkusen Red","Frankfurt Eagles","Hamburg Blue","Hannover Red",
-"Dresden Yellow","Nurnberg Red","Munster Green","Essen Red"
+"Bavaria Red",
+"Dortmund Yellow",
+"Berlin Capital",
+"Leipzig Bulls",
+"Leverkusen Red",
+"Frankfurt Eagles",
+"Hamburg Blue",
+"Hannover Red",
+"Dresden Yellow",
+"Nurnberg Red",
+"Munster Green",
+"Essen Red"
 ],
-
+ 
 "🇬🇧 Inghilterra":[
-"Manchester Blue","Merseyside Red","London Red","London Blue",
-"Liverpool Blue","Newcastle Black","Birmingham Blues",
-"Leeds White","Sunderland Red","Bristol City","Derby Rams",
+"Manchester Blue",
+"Merseyside Red",
+"London Red",
+"London Blue",
+"Liverpool Blue",
+"Newcastle Black",
+"Birmingham Blues",
+"Leeds White",
+"Sunderland Red",
+"Bristol City",
+"Derby Rams",
 "Bolton White"
 ],
-
+ 
 "🇧🇷 Brasile":[
-"Rio Samba","Sao Paulo Tricolor","Rio Red-Black",
-"Belo Horizonte Stars","Porto Alegre Blue","Recife Sport",
-"Salvador Bahia","Fortaleza Lions","Goiania Green",
-"Curitiba Stars","Natal Blue","Brasilia FC"
+"Rio Samba",
+"Sao Paulo Tricolor",
+"Rio Red-Black",
+"Belo Horizonte Stars",
+"Porto Alegre Blue",
+"Recife Sport",
+"Salvador Bahia",
+"Fortaleza Lions",
+"Goiania Green",
+"Curitiba Stars",
+"Natal Blue",
+"Brasilia FC"
 ],
-
+ 
 "🇦🇷 Argentina":[
-"Buenos Aires Blue-Gold","Buenos Aires Red-White","Rosario Central",
-"Cordoba Talleres","La Plata Stars","Mendoza Red","Tucuman Blue",
-"Mar del Plata","Salta Eagles","Santa Fe Stars","Neuquen Blue",
+"Buenos Aires Blue-Gold",
+"Buenos Aires Red-White",
+"Rosario Central",
+"Cordoba Talleres",
+"La Plata Stars",
+"Mendoza Red",
+"Tucuman Blue",
+"Mar del Plata",
+"Salta Eagles",
+"Santa Fe Stars",
+"Neuquen Blue",
 "Patagonia FC"
 ],
-
+ 
 "🇲🇦 Marocco":[
-"Casablanca Red Eagles","Casablanca Green Stars","Rabat Military",
-"Berkane Orange","Marrakech Red","Agadir Waves","Tangier Blue",
-"Fez Royals","Meknes Stars","Oujda Lions","Kenitra Green","Atlas FC"
+"Casablanca Red Eagles",
+"Casablanca Green Stars",
+"Rabat Military",
+"Berkane Orange",
+"Marrakech Red",
+"Agadir Waves",
+"Tangier Blue",
+"Fez Royals",
+"Meknes Stars",
+"Oujda Lions",
+"Kenitra Green",
+"Atlas FC"
 ],
-
+ 
 "🇪🇬 Egitto":[
-"Cairo Red Devils","Giza White Knights","Pyramids Gold",
-"Alexandria Blue","Suez Stars","Port Said Green","Luxor Kings",
-"Aswan Nile","Tanta Lions","Mansoura Stars","Ismailia Yellow","Nile FC"
+"Cairo Red Devils",
+"Giza White Knights",
+"Pyramids Gold",
+"Alexandria Blue",
+"Suez Stars",
+"Port Said Green",
+"Luxor Kings",
+"Aswan Nile",
+"Tanta Lions",
+"Mansoura Stars",
+"Ismailia Yellow",
+"Nile FC"
 ],
-
+ 
 "🇹🇷 Turchia":[
-"Istanbul Yellow-Navy","Bosphorus Yellow-Red","Black Eagles Bosphorus",
-"Trabzon Blue-Red","Izmir Stars","Ankara Lions","Bursa Green",
-"Adana Red","Samsun Red","Konya Green","Kayseri Red","Antalya Stars"
+"Istanbul Yellow-Navy",
+"Bosphorus Yellow-Red",
+"Black Eagles Bosphorus",
+"Trabzon Blue-Red",
+"Izmir Stars",
+"Ankara Lions",
+"Bursa Green",
+"Adana Red",
+"Samsun Red",
+"Konya Green",
+"Kayseri Red",
+"Antalya Stars"
 ],
-
+ 
 "🇹🇳 Tunisia":[
-"Tunis Eagles","Sfax Stars","Sousse Red","Bizerte Blue","Gabes Green",
-"Monastir Stars","Kairouan","Beja Blue","Zarzis Red","Hammamet",
-"Djerba FC","Carthage Stars"
+"Tunis Eagles",
+"Sfax Stars",
+"Sousse Red",
+"Bizerte Blue",
+"Gabes Green",
+"Monastir Stars",
+"Kairouan",
+"Beja Blue",
+"Zarzis Red",
+"Hammamet",
+"Djerba FC",
+"Carthage Stars"
 ],
-
+ 
 "🇳🇴 Norvegia":[
-"Oslo Vikings","Bergen Blue","Trondheim Red","Stavanger Stars",
-"Tromso Arctic","Drammen Blue","Kristiansand","Fredrikstad",
-"Molde Green","Bodo Stars","Viking North","Arctic FC"
+"Oslo Vikings",
+"Bergen Blue",
+"Trondheim Red",
+"Stavanger Stars",
+"Tromso Arctic",
+"Drammen Blue",
+"Kristiansand",
+"Fredrikstad",
+"Molde Green",
+"Bodo Stars",
+"Viking North",
+"Arctic FC"
 ],
-
+ 
 "🇵🇰 Pakistan":[
-"Karachi Stars","Lahore Lions","Islamabad United","Peshawar Green",
-"Multan Tigers","Quetta Stars","Faisalabad","Rawalpindi","Sialkot",
-"Hyderabad","Punjab FC","Pakistan United"
+"Karachi Stars",
+"Lahore Lions",
+"Islamabad United",
+"Peshawar Green",
+"Multan Tigers",
+"Quetta Stars",
+"Faisalabad",
+"Rawalpindi",
+"Sialkot",
+"Hyderabad",
+"Punjab FC",
+"Pakistan United"
 ],
-
+ 
 "🇺🇸 Stati Uniti":[
-"Los Angeles Gold","New York Stars","Miami Pink","Texas United",
-"Seattle Green","Chicago Blue","Boston Revolution","Atlanta Red",
-"Denver Peaks","Portland Green","Austin Stars","California FC"
+"Los Angeles Gold",
+"New York Stars",
+"Miami Pink",
+"Texas United",
+"Seattle Green",
+"Chicago Blue",
+"Boston Revolution",
+"Atlanta Red",
+"Denver Peaks",
+"Portland Green",
+"Austin Stars",
+"California FC"
 ],
-
+ 
 "🇨🇳 Cina":[
-"Shanghai Red","Beijing Dragons","Guangzhou Tigers","Shenzhen Stars",
-"Wuhan Blue","Chengdu Green","Nanjing Red","Hangzhou Stars",
-"Tianjin Blue","Dalian Red","Beijing United","China Stars"
+"Shanghai Red",
+"Beijing Dragons",
+"Guangzhou Tigers",
+"Shenzhen Stars",
+"Wuhan Blue",
+"Chengdu Green",
+"Nanjing Red",
+"Hangzhou Stars",
+"Tianjin Blue",
+"Dalian Red",
+"Beijing United",
+"China Stars"
 ],
-
+ 
 "🇿🇦 Sudafrica":[
-"Johannesburg Lions","Cape Town Stars","Durban Sharks","Pretoria United",
-"Soweto Warriors","Port Elizabeth FC","Bloemfontein Stars",
-"Polokwane United","Mbombela Eagles","Kimberley FC",
-"East London Stars","South Africa United"
+"Johannesburg Lions",
+"Cape Town Stars",
+"Durban Sharks",
+"Pretoria United",
+"Soweto Warriors",
+"Port Elizabeth FC",
+"Bloemfontein Stars",
+"Polokwane United",
+"Mbombela Eagles",
+"Kimberley FC",
+"East London Stars",
+"South Africa United"
 ],
-
+ 
 "🇯🇵 Giappone":[
-"Tokyo Samurai","Osaka Stars","Yokohama Blue","Nagoya Red",
-"Kyoto Purple","Kobe Wings","Sapporo North","Hiroshima Green",
-"Fukuoka Blue","Sendai Eagles","Chiba United","Nagasaki FC"
+"Tokyo Samurai",
+"Osaka Stars",
+"Yokohama Blue",
+"Nagoya Red",
+"Kyoto Purple",
+"Kobe Wings",
+"Sapporo North",
+"Hiroshima Green",
+"Fukuoka Blue",
+"Sendai Eagles",
+"Chiba United",
+"Nagasaki FC"
 ],
-
+ 
 "🇵🇹 Portogallo":[
-"Lisbon Eagles","Porto Dragons","Braga Warriors","Coimbra Stars",
-"Faro Blue","Madeira FC","Guimaraes Kings","Setubal Red",
-"Aveiro United","Leiria Stars","Portimao","Portugal FC"
+"Lisbon Eagles",
+"Porto Dragons",
+"Braga Warriors",
+"Coimbra Stars",
+"Faro Blue",
+"Madeira FC",
+"Guimaraes Kings",
+"Setubal Red",
+"Aveiro United",
+"Leiria Stars",
+"Portimao",
+"Portugal FC"
 ],
-
+ 
 "🇳🇱 Paesi Bassi":[
-"Amsterdam Stars","Rotterdam Red","Eindhoven Blue","Utrecht Lions",
-"Arnhem Eagles","Alkmaar Stars","Groningen Green","Tilburg Blue",
-"Nijmegen Red","Enschede FC","Den Haag United","Holland FC"
+"Amsterdam Stars",
+"Rotterdam Red",
+"Eindhoven Blue",
+"Utrecht Lions",
+"Arnhem Eagles",
+"Alkmaar Stars",
+"Groningen Green",
+"Tilburg Blue",
+"Nijmegen Red",
+"Enschede FC",
+"Den Haag United",
+"Holland FC"
 ]
-
+ 
 };
-
+ 
+ 
+const SHOP_ITEMS=[
+{id:'energia1',icon:'⚡',name:'Energia Plus I',desc:'Recupera 30 energia all\'istante.',price:500,category:'Energia',consumable:true,energy:30},
+{id:'energia2',icon:'⚡',name:'Energia Plus II',desc:'Recupera 45 energia all\'istante.',price:1200,category:'Energia',consumable:true,energy:45},
+{id:'energia3',icon:'⚡',name:'Energia Plus III',desc:'Recupera 60 energia all\'istante.',price:2500,category:'Energia',consumable:true,energy:60},
+{id:'energia4',icon:'⚡',name:'Energia Plus IV',desc:'Recupera 80 energia all\'istante.',price:5000,category:'Energia',consumable:true,energy:80},
+{id:'energia5',icon:'⚡',name:'Energia Plus V',desc:'Recupera 100 energia all\'istante.',price:9000,category:'Energia',consumable:true,energy:100},
+{id:'energia6',icon:'⚡',name:'Energia Infinita',desc:'Recupera 100 energia all\'istante.',price:15000,category:'Energia',consumable:true,energy:100},
+{id:'scarpe1',icon:'👟',name:'Scarpe Pro I',desc:'+10% XP negli allenamenti.',price:5000,category:'Allenamento',trainingBonus:10,fans:50},
+{id:'scarpe2',icon:'👟',name:'Scarpe Pro II',desc:'+18% XP negli allenamenti.',price:12000,category:'Allenamento',trainingBonus:18,fans:100},
+{id:'scarpe3',icon:'👟',name:'Scarpe Pro III',desc:'+26% XP negli allenamenti.',price:25000,category:'Allenamento',trainingBonus:26,fans:150},
+{id:'scarpe4',icon:'👟',name:'Scarpe Pro IV',desc:'+35% XP negli allenamenti.',price:45000,category:'Allenamento',trainingBonus:35,fans:200},
+{id:'scarpe5',icon:'👟',name:'Scarpe Pro V',desc:'+45% XP negli allenamenti.',price:80000,category:'Allenamento',trainingBonus:45,fans:250},
+{id:'guanti',icon:'🧤',name:'Guanti da Portiere Pro',desc:'Presa più sicura, +stile in campo.',price:4000,category:'Allenamento',fans:300},
+{id:'parastinchi',icon:'🦵',name:'Parastinchi Carbonio',desc:'Protezione top di gamma.',price:3500,category:'Allenamento',fans:250},
+{id:'fascia',icon:'🎗️',name:'Fascia da Capitano Griffata',desc:'Aumenta il carisma in squadra.',price:6000,category:'Allenamento',fans:400},
+{id:'zaino',icon:'🎒',name:'Zaino Sportivo Griffato',desc:'Uno stile da vero professionista.',price:2500,category:'Allenamento',fans:200},
+{id:'borraccia',icon:'🥤',name:'Borraccia Smart',desc:'Monitora idratazione e performance.',price:1800,category:'Allenamento',fans:150},
+{id:'divisa',icon:'👕',name:'Divisa Premium',desc:'Aumenta la popolarità con i tifosi.',price:10000,category:'Stile',fans:1000},
+{id:'tuta',icon:'🧥',name:'Tuta Firmata',desc:'Un look da campione anche fuori dal campo.',price:8000,category:'Stile',fans:700},
+{id:'scarpini_le',icon:'👞',name:'Scarpini Edizione Limitata',desc:'Solo pochi esemplari al mondo.',price:40000,category:'Stile',fans:3000},
+{id:'orologio',icon:'⌚',name:'Orologio di Lusso',desc:'Il tempo è prezioso, anche in campo.',price:60000,category:'Stile',fans:3500},
+{id:'occhiali',icon:'🕶️',name:'Occhiali da Sole Griffati',desc:'Stile impeccabile sotto i riflettori.',price:5000,category:'Stile',fans:500},
+{id:'collana',icon:'📿',name:'Collana d\'Oro',desc:'Un classico intramontabile.',price:15000,category:'Stile',fans:900},
+{id:'giacca',icon:'🧥',name:'Giacca Griffata',desc:'Perfetta per le interviste post-partita.',price:12000,category:'Stile',fans:800},
+{id:'sneaker_le',icon:'👟',name:'Sneaker Limited Edition',desc:'La coda fuori dal negozio ne vale la pena.',price:20000,category:'Stile',fans:1500},
+{id:'profumo',icon:'🌸',name:'Profumo Firmato',desc:'La tua fragranza personale.',price:3000,category:'Stile',fans:300},
+{id:'cappello',icon:'🧢',name:'Cappello Griffato',desc:'Un dettaglio che non passa inosservato.',price:2000,category:'Stile',fans:250},
+{id:'borsa',icon:'👜',name:'Borsa Griffata',desc:'Da abbinare a ogni look.',price:25000,category:'Stile',fans:1600},
+{id:'anello',icon:'💍',name:'Anello Diamantato',desc:'Brilla quanto le tue giocate.',price:45000,category:'Stile',fans:2800},
+{id:'bracciale',icon:'📿',name:'Bracciale d\'Oro',desc:'Un tocco di lusso al polso.',price:18000,category:'Stile',fans:1100},
+{id:'cintura',icon:'🎽',name:'Cintura Griffata',desc:'Rifinitura di classe per ogni outfit.',price:4000,category:'Stile',fans:350},
+{id:'guardaroba',icon:'🛍️',name:'Guardaroba Fashion Week',desc:'Un armadio intero firmato dai grandi stilisti.',price:90000,category:'Stile',fans:6000},
+{id:'smartphone1',icon:'📱',name:'Smartphone Pro I',desc:'Contenuti social più coinvolgenti.',price:15000,category:'Tech',socialMult:1.5,fans:400},
+{id:'smartphone2',icon:'📱',name:'Smartphone Pro II',desc:'Qualità da studio, direttamente in tasca.',price:40000,category:'Tech',socialMult:2.0,fans:900},
+{id:'drone',icon:'🚁',name:'Drone per Allenamenti',desc:'Analizza i movimenti dall\'alto.',price:10000,category:'Tech',fans:400},
+{id:'auricolari',icon:'🎧',name:'Auricolari Pro',desc:'Concentrazione totale in ogni sessione.',price:3000,category:'Tech',fans:200},
+{id:'laptop',icon:'💻',name:'Laptop Gaming',desc:'Per staccare la spina tra un match e l\'altro.',price:6000,category:'Tech',fans:300},
+{id:'smartwatch',icon:'⌚',name:'Smartwatch Pro',desc:'Monitora ogni parametro della forma fisica.',price:8000,category:'Tech',fans:350},
+{id:'fotocamera',icon:'📷',name:'Fotocamera Professionale',desc:'Scatti da copertina.',price:12000,category:'Tech',fans:500},
+{id:'podcast',icon:'🎙️',name:'Studio Podcast Personale',desc:'La tua voce arriva ovunque.',price:35000,category:'Tech',fans:2500},
+{id:'streaming',icon:'🖥️',name:'Postazione Streaming',desc:'Connetti con i fan in diretta.',price:20000,category:'Tech',fans:1800},
+{id:'vr',icon:'🥽',name:'Visore Realtà Virtuale',desc:'Allenamento tattico immersivo.',price:25000,category:'Tech',fans:700},
+{id:'auto1',icon:'🚗',name:'Auto Sportiva I',desc:'Più prestigio e fan.',price:100000,category:'Veicoli',fans:5000},
+{id:'auto2',icon:'🏎️',name:'Auto Sportiva II',desc:'Un salto di classe nel garage.',price:250000,category:'Veicoli',fans:9000},
+{id:'auto3',icon:'🚘',name:'Auto Sportiva III',desc:'Il modello che tutti sognano.',price:500000,category:'Veicoli',fans:15000},
+{id:'moto',icon:'🏍️',name:'Moto Sportiva',desc:'Adrenalina pura fuori dal campo.',price:60000,category:'Veicoli',fans:3000},
+{id:'suv',icon:'🚙',name:'SUV di Lusso',desc:'Comodità e stile per la famiglia.',price:150000,category:'Veicoli',fans:6000},
+{id:'auto_elettrica',icon:'🔋',name:'Auto Elettrica Ultra',desc:'Tecnologia e sostenibilità.',price:200000,category:'Veicoli',fans:7000},
+{id:'elicottero',icon:'🚁',name:'Elicottero Privato',desc:'Arriva ovunque in pochi minuti.',price:1200000,category:'Veicoli',fans:30000},
+{id:'yacht',icon:'🛥️',name:'Yacht di Lusso',desc:'Il relax perfetto dopo la stagione.',price:2000000,category:'Veicoli',fans:50000},
+{id:'jet',icon:'✈️',name:'Jet Privato',desc:'Voli su misura da vera superstar.',price:5000000,category:'Veicoli',fans:100000},
+{id:'superyacht',icon:'⛴️',name:'Superyacht Oceanico',desc:'Il simbolo definitivo del successo.',price:8000000,category:'Veicoli',fans:150000},
+{id:'monolocale',icon:'🏢',name:'Monolocale in Città',desc:'Il primo passo verso l\'indipendenza.',price:40000,category:'Case',fans:1500},
+{id:'appartamento',icon:'🏬',name:'Appartamento in Città',desc:'Comodo e vicino al centro sportivo.',price:120000,category:'Case',fans:4000},
+{id:'attico',icon:'🏙️',name:'Attico Panoramico',desc:'Vista mozzafiato sulla città.',price:350000,category:'Case',fans:9000},
+{id:'villa_piscina',icon:'🏡',name:'Villa con Piscina',desc:'Il tuo angolo di relax privato.',price:500000,category:'Case',fans:12000},
+{id:'casa_lusso',icon:'🏠',name:'Casa di Lusso',desc:'Grande aumento di prestigio.',price:500000,category:'Case',fans:15000},
+{id:'mega_villa',icon:'🏰',name:'Mega Villa con Campo Privato',desc:'Allenati senza uscire di casa.',price:3000000,category:'Case',fans:60000},
+{id:'casa_mare',icon:'🏖️',name:'Casa al Mare',desc:'La meta perfetta per l\'estate.',price:400000,category:'Case',fans:10000},
+{id:'chalet',icon:'🏔️',name:'Chalet in Montagna',desc:'Per rigenerarti lontano dai riflettori.',price:350000,category:'Case',fans:8000},
+{id:'penthouse_ny',icon:'🌆',name:'Penthouse a New York',desc:'Un indirizzo da leggenda globale.',price:6000000,category:'Case',fans:120000},
+{id:'isola_privata',icon:'🏝️',name:'Isola Privata',desc:'L\'apice del successo internazionale.',price:15000000,category:'Case',fans:300000},
+{id:'sponsor_bevande',icon:'🥤',name:'Contratto Sponsor Bevande',desc:'Un accordo pubblicitario redditizio.',price:50000,category:'Business',moneyBonus:80000,fans:2000},
+{id:'sponsor_abb',icon:'👔',name:'Contratto Sponsor Abbigliamento',desc:'Il tuo volto su ogni maglietta.',price:80000,category:'Business',moneyBonus:130000,fans:3000},
+{id:'sponsor_auto',icon:'🏁',name:'Contratto Sponsor Automobilistico',desc:'Un brand di lusso ti vuole come testimonial.',price:150000,category:'Business',moneyBonus:250000,fans:5000},
+{id:'management',icon:'💼',name:'Agenzia di Management Top',desc:'Trattative migliori per il tuo futuro.',price:100000,category:'Business',moneyBonus:60000,fans:4000},
+{id:'fondazione',icon:'🤝',name:'Fondazione Benefica',desc:'Il tuo nome per una buona causa.',price:60000,category:'Business',moneyBonus:10000,fans:8000},
+{id:'inv_immobiliare',icon:'🏗️',name:'Investimento Immobiliare',desc:'Il mattone non tradisce mai.',price:200000,category:'Business',moneyBonus:260000,fans:1500},
+{id:'inv_azionario',icon:'📈',name:'Investimento Azionario',desc:'Il mercato premia i coraggiosi.',price:150000,category:'Business',moneyBonus:190000,fans:1000},
+{id:'inv_crypto',icon:'🪙',name:'Investimento Crypto',desc:'Alto rischio, alto rendimento.',price:100000,category:'Business',moneyBonus:160000,fans:1500},
+{id:'linea_abb',icon:'👕',name:'Linea di Abbigliamento Personale',desc:'Il tuo marchio conquista gli scaffali.',price:300000,category:'Business',moneyBonus:420000,fans:6000},
+{id:'ristorante',icon:'🍽️',name:'Ristorante di Proprietà',desc:'Un locale con il tuo nome in insegna.',price:180000,category:'Business',moneyBonus:140000,fans:3500},
+{id:'chef',icon:'👨‍🍳',name:'Personal Chef',desc:'Alimentazione su misura per le prestazioni.',price:30000,category:'Benessere',energy:15,fans:500},
+{id:'nutrizionista',icon:'🥗',name:'Nutrizionista Sportivo',desc:'Ottimizza ogni pasto della settimana.',price:20000,category:'Benessere',energy:12,fans:400},
+{id:'fisio',icon:'💆',name:'Fisioterapista Personale',desc:'Recupero più rapido dagli sforzi.',price:40000,category:'Benessere',energy:18,fans:600},
+{id:'centro_benessere',icon:'🧖',name:'Centro Benessere Privato',desc:'Relax totale a portata di mano.',price:60000,category:'Benessere',energy:20,fans:700},
+{id:'piscina_recupero',icon:'🏊',name:'Piscina di Recupero',desc:'Allenamenti in acqua per il fisico.',price:50000,category:'Benessere',energy:15,fans:550},
+{id:'sauna',icon:'🧖‍♂️',name:'Sauna Privata',desc:'Rigenerazione muscolare quotidiana.',price:25000,category:'Benessere',energy:10,fans:400},
+{id:'massaggiatore',icon:'💪',name:'Massaggiatore Personale',desc:'Zero tensioni, massima performance.',price:22000,category:'Benessere',energy:10,fans:380},
+{id:'psicologo',icon:'🧠',name:'Psicologo dello Sport',desc:'Testa libera, gioco più lucido.',price:28000,category:'Benessere',energy:8,fans:300},
+{id:'crioterapia',icon:'🧊',name:'Centro Crioterapia',desc:'Recupero rapido dopo ogni partita.',price:45000,category:'Benessere',energy:14,fans:500},
+{id:'coach_mentale',icon:'🧘',name:'Coach Mentale',desc:'Gestisci la pressione delle grandi sfide.',price:35000,category:'Benessere',energy:10,fans:350},
+{id:'social_manager',icon:'📲',name:'Social Media Manager',desc:'+30% fan su ogni post pubblicato.',price:60000,category:'Social',socialMult:1.3,fans:2000},
+{id:'shooting',icon:'📸',name:'Servizio Fotografico Professionale',desc:'Contenuti di qualità cinematografica.',price:15000,category:'Social',fans:1200},
+{id:'campagna_pub',icon:'📢',name:'Campagna Pubblicitaria',desc:'Il tuo nome ovunque, per settimane.',price:100000,category:'Social',fans:8000},
+{id:'documentario',icon:'🎬',name:'Documentario Personale',desc:'La tua storia raccontata al mondo.',price:250000,category:'Social',fans:20000},
+{id:'biografia',icon:'📖',name:'Biografia Ufficiale',desc:'La tua carriera messa nero su bianco.',price:50000,category:'Social',fans:4000},
+{id:'fan_club',icon:'🎉',name:'Fan Club Ufficiale',desc:'Una community tutta tua.',price:30000,category:'Social',fans:5000},
+{id:'app_personale',icon:'📱',name:'App Personale a Proprio Nome',desc:'I fan ti seguono ovunque vai.',price:120000,category:'Social',fans:9000},
+{id:'linea_videogiochi',icon:'🎮',name:'Linea di Videogiochi a Proprio Nome',desc:'Diventi protagonista anche nei videogame.',price:400000,category:'Social',fans:25000},
+{id:'sala_giochi',icon:'🎮',name:'Sala Giochi Privata',desc:'Svago di alto livello a casa tua.',price:25000,category:'Extra',fans:1000},
+{id:'home_cinema',icon:'🎥',name:'Home Cinema',desc:'Le tue partite riviste in grande stile.',price:30000,category:'Extra',fans:1200},
+{id:'padel',icon:'🎾',name:'Campo da Padel Privato',desc:'Un modo diverso per allenarti.',price:45000,category:'Extra',fans:1500},
+{id:'studio_musica',icon:'🎵',name:'Studio di Registrazione Musicale',desc:'Anche i campioni hanno un lato artistico.',price:60000,category:'Extra',fans:2000},
+{id:'garage_auto',icon:'🚗',name:'Garage per Collezione Auto',desc:'Spazio per i tuoi gioielli a quattro ruote.',price:200000,category:'Extra',fans:4000},
+{id:'cantina',icon:'🍷',name:'Cantina di Vini Pregiati',desc:'Un tocco di raffinatezza.',price:35000,category:'Extra',fans:900},
+{id:'serra',icon:'🌿',name:'Serra Botanica di Lusso',desc:'Un\'oasi di pace personale.',price:20000,category:'Extra',fans:700},
+{id:'biblioteca',icon:'📚',name:'Biblioteca Privata',desc:'Cultura e ispirazione a portata di mano.',price:15000,category:'Extra',fans:500},
+{id:'collezione_orologi',icon:'⏱️',name:'Collezione di Orologi Rari',desc:'Un investimento che è anche passione.',price:500000,category:'Extra',fans:12000},
+{id:'opera_arte',icon:'🖼️',name:'Opera d\'Arte da Collezione',desc:'Il tuo salotto diventa una galleria.',price:300000,category:'Extra',fans:8000},
+{id:'fondazione_sportiva',icon:'🏟️',name:'Fondazione Sportiva Giovanile',desc:'Dai un futuro ai talenti di domani.',price:250000,category:'Extra',fans:18000}
+];
+ 
+ 
 /* =========================
 PLAYER
 ========================= */
-
+ 
 const SAVE_KEY="nextFootballStarUltimate_v2";
 const REVIEW_KEY="nextFootballStarReviews_v2";
 const CAREERS_KEY="nextFootballStarCareers_v2";
-
+ 
 let player={
 name:"",
 surname:"",
@@ -1449,121 +2031,144 @@ position:"",
 nationality:"",
 team:"",
 division:"A",
-
+ 
 age:16,
 season:1,
 matchDay:1,
-
+ 
 overall:60,
 maxOverall:60,
 xp:0,
-
+ 
 energy:100,
 money:500,
 fans:100,
-
+ 
 goals:0,
 assists:0,
-
+ 
 coachTrust:80,
-
+ 
 trophies:0,
 worldCups:0,
 uclTrophies:0,
 nationalCups:0,
 ballonDor:0,
-
+ 
 injuryDays:0,
-
+ 
 socialPosts:[],
-
-inventory:{
-boots:false,
-kit:false,
-phone:false,
-car:false,
-house:false
-},
-
+ 
+ownedItems:[],
+ 
 nationalCup:{
 active:false,
 round:0,
 wins:0
 },
-
+ 
 ucl:{
 active:false,
 round:0,
 wins:0
 }
 };
-
+ 
 let selectedRating=0;
 let currentMatch=null;
-
+let currentShopCategory="Tutti";
+let pendingOffer=null;
+let actionsSinceOffer=0;
+ 
+ 
 /* =========================
 SAVE
 ========================= */
-
+ 
 function saveGame(){
-
+ 
 localStorage.setItem(
 SAVE_KEY,
 JSON.stringify(player)
 );
-
+ 
 saveCareerToRanking();
-
+ 
 }
-
+ 
+ 
 /* =========================
 LOAD
 ========================= */
-
+ 
 function loadGame(){
-
-const saved=localStorage.getItem(SAVE_KEY);
-
+ 
+const saved=
+localStorage.getItem(SAVE_KEY);
+ 
 if(!saved)return false;
-
+ 
 try{
-
+ 
 player={
 ...player,
 ...JSON.parse(saved)
 };
-
-if(!player.inventory){
-player.inventory={
-boots:false,
-kit:false,
-phone:false,
-car:false,
-house:false
-};
+ 
+if(!player.ownedItems){
+player.ownedItems=[];
 }
-
+ 
+// migrazione da vecchi salvataggi con oggetti fissi
+if(player.inventory){
+ 
+const legacyMap={
+boots:"scarpe1",
+kit:"divisa",
+phone:"smartphone1",
+car:"auto1",
+house:"casa_lusso"
+};
+ 
+Object.keys(legacyMap).forEach(key=>{
+ 
+if(
+player.inventory[key]&&
+!player.ownedItems.includes(legacyMap[key])
+){
+ 
+player.ownedItems.push(legacyMap[key]);
+ 
+}
+ 
+});
+ 
+delete player.inventory;
+ 
+}
+ 
 if(!player.socialPosts){
 player.socialPosts=[];
 }
-
+ 
 return true;
-
+ 
 }catch(e){
-
+ 
 console.error(e);
 return false;
-
+ 
 }
-
+ 
 }
-
+ 
+ 
 /* =========================
 SCREEN
 ========================= */
-
+ 
 function showScreen(id){
-
+ 
 [
 "home",
 "career",
@@ -1576,33 +2181,40 @@ function showScreen(id){
 "shop",
 "leaderboard"
 ].forEach(x=>{
-
+ 
 const el=document.getElementById(x);
-
+ 
 if(el){
 el.classList.add("hidden");
 }
-
+ 
 });
-
-const target=document.getElementById(id);
-
+ 
+const target=
+document.getElementById(id);
+ 
 if(target){
 target.classList.remove("hidden");
 }
-
+ 
 }
-
+ 
+ 
 /* =========================
 PREVIEW
 ========================= */
-
+ 
 function updatePreview(){
-
-const skin=document.getElementById("skinColor").value;
-const hair=document.getElementById("hairType").value;
-const number=document.getElementById("jerseyNumber").value||10;
-
+ 
+const skin=
+document.getElementById("skinColor").value;
+ 
+const hair=
+document.getElementById("hairType").value;
+ 
+const number=
+document.getElementById("jerseyNumber").value||10;
+ 
 [
 "previewHead",
 "previewArm1",
@@ -1610,90 +2222,197 @@ const number=document.getElementById("jerseyNumber").value||10;
 "previewLeg1",
 "previewLeg2"
 ].forEach(id=>{
-
-document.getElementById(id).style.background=skin;
-
+ 
+document.getElementById(id)
+.style.background=skin;
+ 
 });
-
-const hairEl=document.getElementById("previewHair");
-
+ 
+const hairEl=
+document.getElementById("previewHair");
+ 
 hairEl.style.height="28px";
 hairEl.style.width="75px";
 hairEl.style.left="37px";
 hairEl.style.top="-2px";
-hairEl.style.borderRadius="50% 50% 20% 20%";
-
+hairEl.style.borderRadius=
+"50% 50% 20% 20%";
+ 
 if(hair==="crest"){
+ 
 hairEl.style.height="42px";
 hairEl.style.top="-14px";
+ 
 }
-
+ 
 if(hair==="afro"){
+ 
 hairEl.style.width="88px";
 hairEl.style.height="60px";
 hairEl.style.left="31px";
 hairEl.style.top="-10px";
 hairEl.style.borderRadius="50%";
+ 
 }
-
+ 
 if(hair==="long"){
+ 
 hairEl.style.height="70px";
 hairEl.style.top="0";
 hairEl.style.borderRadius="50%";
+ 
 }
-
+ 
 if(hair==="bald"){
+ 
 hairEl.style.height="5px";
 hairEl.style.top="0";
+ 
 }
-
-document.getElementById("previewNumber").textContent=number;
-document.getElementById("previewNumberText").textContent=number;
-
+ 
+document.getElementById("previewNumber")
+.textContent=number;
+ 
+document.getElementById("previewNumberText")
+.textContent=number;
+ 
 }
-
+ 
+ 
 /* =========================
 TEAM
 ========================= */
-
+ 
 function updateTeamDropdown(){
-
-const nationality=document.getElementById("nationality").value;
-const select=document.getElementById("startingTeam");
-
-select.innerHTML='<option value="RANDOM">🎲 Offerta Casuale</option>';
-
-const teams=teamsDB[nationality]||[];
-
+ 
+const nationality=
+document.getElementById("nationality").value;
+ 
+const select=
+document.getElementById("startingTeam");
+ 
+select.innerHTML=
+'<option value="RANDOM">🎲 Offerta Casuale</option>';
+ 
+const teams=
+teamsDB[nationality]||[];
+ 
 teams.forEach(team=>{
-
-const option=document.createElement("option");
-
+ 
+const option=
+document.createElement("option");
+ 
 option.value=team;
-option.textContent=team+" • Divisione A";
-
+option.textContent=
+team+" • Divisione A";
+ 
 select.appendChild(option);
-
+ 
 });
-
+ 
 }
-
+ 
+ 
 /* =========================
-CREATE PLAYER
+CREATE / EDIT PLAYER
 ========================= */
-
+ 
+let editMode=false;
+ 
+function openEditProfile(){
+ 
+editMode=true;
+ 
+document.getElementById("playerName").value=player.name;
+document.getElementById("playerSurname").value=player.surname;
+document.getElementById("jerseyNumber").value=player.jerseyNumber;
+document.getElementById("skinColor").value=player.skin;
+document.getElementById("hairType").value=player.hairType;
+document.getElementById("personality").value=player.personality;
+document.getElementById("position").value=player.position;
+document.getElementById("nationality").value=player.nationality;
+ 
+updateTeamDropdown();
+ 
+document.getElementById("startingTeam").value=player.team;
+ 
+updatePreview();
+ 
+document.getElementById("careerScreenTitle")
+.textContent="✏️ MODIFICA IL TUO GIOCATORE";
+ 
+document.getElementById("careerScreenSubtitle")
+.textContent="Aggiorna il tuo profilo: i progressi in carriera restano invariati.";
+ 
+document.getElementById("careerSubmitBtn")
+.textContent="💾 SALVA MODIFICHE";
+ 
+document.getElementById("careerCancelBtn")
+.classList.remove("hidden");
+ 
+showScreen("career");
+ 
+}
+ 
+function cancelEditProfile(){
+ 
+editMode=false;
+ 
+resetCareerForm();
+ 
+showScreen("hub");
+ 
+}
+ 
+function resetCareerForm(){
+ 
+document.getElementById("careerScreenTitle")
+.textContent="👤 CREA IL TUO GIOCATORE";
+ 
+document.getElementById("careerScreenSubtitle")
+.textContent="Personalizza il tuo futuro campione.";
+ 
+document.getElementById("careerSubmitBtn")
+.textContent="INIZIA LA CARRIERA 🚀";
+ 
+document.getElementById("careerCancelBtn")
+.classList.add("hidden");
+ 
+}
+ 
 function createPlayer(){
-
-const name=document.getElementById("playerName").value.trim();
-const surname=document.getElementById("playerSurname").value.trim();
-const number=Number(document.getElementById("jerseyNumber").value);
-const skin=document.getElementById("skinColor").value;
-const hair=document.getElementById("hairType").value;
-const personality=document.getElementById("personality").value;
-const position=document.getElementById("position").value;
-const nationality=document.getElementById("nationality").value;
-const chosen=document.getElementById("startingTeam").value;
-
+ 
+const name=
+document.getElementById("playerName")
+.value.trim();
+ 
+const surname=
+document.getElementById("playerSurname")
+.value.trim();
+ 
+const number=
+Number(
+document.getElementById("jerseyNumber").value
+);
+ 
+const skin=
+document.getElementById("skinColor").value;
+ 
+const hair=
+document.getElementById("hairType").value;
+ 
+const personality=
+document.getElementById("personality").value;
+ 
+const position=
+document.getElementById("position").value;
+ 
+const nationality=
+document.getElementById("nationality").value;
+ 
+const chosen=
+document.getElementById("startingTeam").value;
+ 
 if(
 !name||
 !surname||
@@ -1703,16 +2422,51 @@ number>99||
 !position||
 !nationality
 ){
-
+ 
 alert("⚠️ Compila tutti i campi!");
 return;
-
+ 
 }
-
+ 
+const team=
+chosen==="RANDOM"
+?
+randomItem(teamsDB[nationality])
+:
+chosen;
+ 
+if(editMode){
+ 
+player.name=name;
+player.surname=surname;
+player.jerseyNumber=number;
+player.skin=skin;
+player.hairType=hair;
+player.personality=personality;
+player.position=position;
+player.nationality=nationality;
+player.team=team||player.team;
+ 
+editMode=false;
+ 
+resetCareerForm();
+ 
+saveGame();
+updateUI();
+ 
+logMessage(
+"✏️ Profilo aggiornato!"
+);
+ 
+showScreen("hub");
+ 
+return;
+ 
+}
+ 
 player={
-
 ...player,
-
+ 
 name,
 surname,
 jerseyNumber:number,
@@ -1721,171 +2475,188 @@ hairType:hair,
 personality,
 position,
 nationality,
-
-team:
-chosen==="RANDOM"
-?
-randomItem(teamsDB[nationality])
-:
-chosen,
-
+ 
+team,
+ 
 division:"A",
-
+ 
 age:16,
 season:1,
 matchDay:1,
-
+ 
 overall:60,
 maxOverall:60,
 xp:0,
-
+ 
 energy:100,
 money:500,
 fans:100,
-
+ 
 goals:0,
 assists:0,
-
+ 
 coachTrust:80,
-
+ 
 trophies:0,
 worldCups:0,
 uclTrophies:0,
 nationalCups:0,
 ballonDor:0,
-
+ 
 injuryDays:0,
-
+ 
 socialPosts:[],
-
-inventory:{
-boots:false,
-kit:false,
-phone:false,
-car:false,
-house:false
-},
-
+ 
+ownedItems:[],
+ 
 nationalCup:{
 active:false,
 round:0,
 wins:0
 },
-
+ 
 ucl:{
 active:false,
 round:0,
 wins:0
 }
-
+ 
 };
-
+ 
 if(personality.includes("Prodigio")){
-
+ 
 player.overall=62;
 player.maxOverall=62;
-
+ 
 }
-
+ 
 if(personality.includes("Leader")){
-
+ 
 player.fans+=100;
 player.coachTrust=90;
-
+ 
 }
-
+ 
 registerNewCareer();
+ 
 saveGame();
 updateUI();
-
+ 
 logMessage(
 "🎉 Carriera iniziata! "+
 player.name+
 " è pronto a diventare una leggenda."
 );
-
+ 
 showScreen("hub");
-
+ 
 }
-
+ 
+ 
 /* =========================
 CHECK SAVED GAME
 ========================= */
-
+ 
 function checkSavedGame(){
-
+ 
 if(loadGame()){
-
+ 
 updateUI();
 showScreen("hub");
-
+ 
 }else{
-
+ 
 showScreen("career");
-
+ 
 }
-
+ 
 }
-
+ 
+ 
 /* =========================
 UI
 ========================= */
-
+ 
 function updateUI(){
-
-const fullName=(player.name+" "+player.surname).trim();
-
-document.getElementById("displayPlayerName").textContent=
+ 
+const fullName=
+(player.name+" "+player.surname).trim();
+ 
+document.getElementById("displayPlayerName")
+.textContent=
 fullName||"Il tuo giocatore";
-
-document.getElementById("displayDetails").textContent=
+ 
+document.getElementById("displayDetails")
+.textContent=
 player.position+
 " | "+
 player.nationality+
 " | #"+
 player.jerseyNumber;
-
-document.getElementById("displayTeam").textContent=
+ 
+document.getElementById("displayTeam")
+.textContent=
 "🏟️ "+
 player.team+
 " • Divisione "+
 player.division;
-
-document.getElementById("valAge").textContent=player.age;
-
-document.getElementById("valMatchDay").textContent=
+ 
+document.getElementById("valAge")
+.textContent=player.age;
+ 
+document.getElementById("valMatchDay")
+.textContent=
 player.matchDay+" / 38";
-
-document.getElementById("valGoals").textContent=player.goals;
-document.getElementById("valAssists").textContent=player.assists;
-document.getElementById("valOverall").textContent=player.overall;
-document.getElementById("valXP").textContent=player.xp;
-document.getElementById("valEnergy").textContent=player.energy+"%";
-
-document.getElementById("valMoney").textContent=
+ 
+document.getElementById("valGoals")
+.textContent=player.goals;
+ 
+document.getElementById("valAssists")
+.textContent=player.assists;
+ 
+document.getElementById("valOverall")
+.textContent=player.overall;
+ 
+document.getElementById("valXP")
+.textContent=player.xp;
+ 
+document.getElementById("valEnergy")
+.textContent=player.energy+"%";
+ 
+document.getElementById("valMoney")
+.textContent=
 "€"+player.money.toLocaleString();
-
-document.getElementById("valFans").textContent=
+ 
+document.getElementById("valFans")
+.textContent=
 player.fans.toLocaleString();
-
-document.getElementById("valCoachTrust").textContent=
+ 
+document.getElementById("valMarket")
+.textContent=
+"€"+
+computeMarketValue().toLocaleString();
+ 
+document.getElementById("valCoachTrust")
+.textContent=
 player.coachTrust+"%";
-
-document.getElementById("valHealth").textContent=
+ 
+document.getElementById("valHealth")
+.textContent=
 player.injuryDays>0
 ?
 "🚑 "+player.injuryDays
 :
 "🟢 Sano";
-
+ 
 }
-
+ 
+ 
 /* =========================
 XP / OVERALL
 ========================= */
-
+ 
 function xpRequired(){
-
+ 
 return Math.floor(
 1200+
 Math.pow(
@@ -1893,178 +2664,203 @@ Math.max(0,player.overall-60),
 1.75
 )*230
 );
-
+ 
 }
-
+ 
 function addXP(amount){
-
+ 
 player.xp+=amount;
-
+ 
 let needed=xpRequired();
-
+ 
 while(
 player.xp>=needed&&
 player.overall<99
 ){
-
+ 
 player.xp-=needed;
+ 
 player.overall++;
-
+ 
 player.maxOverall=
 Math.max(
 player.maxOverall,
 player.overall
 );
-
+ 
 logMessage(
 "📈 Miglioramento! Overall → "+
 player.overall
 );
-
+ 
 needed=xpRequired();
-
+ 
 }
-
+ 
 saveGame();
 updateUI();
-
+ 
 }
-
+ 
+ 
 /* =========================
 TRAIN
 ========================= */
-
+ 
 function train(){
-
+ 
 if(player.energy<15){
-
+ 
 logMessage(
 "⚡ Non hai abbastanza energia."
 );
-
+ 
 return;
-
+ 
 }
-
+ 
 player.energy-=15;
-
+ 
 let gain=75;
-
+ 
 if(player.overall>=70)gain=60;
 if(player.overall>=80)gain=48;
 if(player.overall>=90)gain=35;
-
-if(player.inventory.boots){
-gain+=15;
+ 
+const trainingBonus=
+getTrainingBonusPct();
+ 
+if(trainingBonus>0){
+gain=Math.floor(
+gain*(1+trainingBonus/100)
+);
 }
-
+ 
 addXP(gain);
-
+ 
 player.coachTrust=
 Math.min(
 100,
 player.coachTrust+1
 );
-
+ 
 logMessage(
 "🏋️ Allenamento completato! +"+
 gain+
 " XP."
 );
-
+ 
 saveGame();
 updateUI();
-
+maybeTriggerOffer();
+ 
 }
-
+ 
+ 
 /* =========================
 MATCH
 ========================= */
-
+ 
 function startMatch(){
-
+ 
 if(player.injuryDays>0){
-
+ 
 logMessage(
 "🚑 Sei infortunato."
 );
-
+ 
 return;
-
+ 
 }
-
+ 
 if(player.energy<30){
-
+ 
 logMessage(
 "⚡ Devi riposarti."
 );
-
+ 
 return;
-
+ 
 }
-
+ 
 player.energy-=20;
-
-const teams=teamsDB[player.nationality]||[];
-
-const opponents=teams.filter(
+ 
+const teams=
+teamsDB[player.nationality]||[];
+ 
+const opponents=
+teams.filter(
 t=>t!==player.team
 );
-
-const opponent=randomItem(opponents)||"FC Avversario";
-
+ 
+const opponent=
+randomItem(opponents)||
+"FC Avversario";
+ 
 currentMatch={
-
+ 
 minute:1,
 homeGoals:0,
 awayGoals:0,
 opponent,
 actions:0,
 finished:false
-
+ 
 };
-
-document.getElementById("matchOpponent").textContent=
-player.team+" vs "+opponent;
-
-document.getElementById("matchScore").textContent="0 - 0";
-document.getElementById("matchMinute").textContent="1";
-
-document.getElementById("matchEnergy").textContent=
+ 
+document.getElementById("matchOpponent")
+.textContent=
+player.team+
+" vs "+
+opponent;
+ 
+document.getElementById("matchScore")
+.textContent="0 - 0";
+ 
+document.getElementById("matchMinute")
+.textContent="1";
+ 
+document.getElementById("matchEnergy")
+.textContent=
 player.energy+"%";
-
-document.getElementById("matchOverall").textContent=
+ 
+document.getElementById("matchOverall")
+.textContent=
 player.overall;
-
-document.getElementById("matchSituation").textContent=
+ 
+document.getElementById("matchSituation")
+.textContent=
 "Hai ricevuto palla. Scegli la tua azione!";
-
-document.getElementById("matchLog").innerHTML=
+ 
+document.getElementById("matchLog")
+.innerHTML=
 "🔥 La partita è iniziata!";
-
+ 
 showScreen("match");
-
+ 
 }
-
+ 
+ 
 /* =========================
 MATCH ACTION
 ========================= */
-
+ 
 function matchAction(action){
-
+ 
 if(
 !currentMatch||
 currentMatch.finished
 )return;
-
+ 
 currentMatch.actions++;
-
+ 
 let result="";
-
-const base=player.overall/100;
-
+ 
+const base=
+player.overall/100;
+ 
 if(action==="shoot"){
-
+ 
 const chance=
 Math.min(
 .80,
@@ -2072,346 +2868,407 @@ Math.min(
 base*.48+
 (player.position==="Attaccante"?0.12:0)
 );
-
+ 
 if(Math.random()<chance){
-
+ 
 currentMatch.homeGoals++;
+ 
 player.goals++;
-
+ 
 addXP(150);
-
+ 
 player.fans+=120;
-
-result="⚽ GOOOOOL! Hai segnato!";
-
+ 
+result=
+"⚽ GOOOOOL! Hai segnato!";
+ 
 }else{
-
-result="🧤 Il portiere para il tuo tiro!";
-
+ 
+result=
+"🧤 Il portiere para il tuo tiro!";
+ 
 }
-
+ 
 }
-
+ 
 else if(action==="pass"){
-
+ 
 const chance=
 Math.min(
 .93,
 .42+
 base*.40
 );
-
+ 
 if(Math.random()<chance){
-
+ 
 if(Math.random()<.18){
-
+ 
 player.assists++;
-
+ 
 addXP(125);
-
-result="🎯 PASSAGGIO PERFETTO! Assist!";
-
+ 
+result=
+"🎯 PASSAGGIO PERFETTO! Assist!";
+ 
 }else{
-
+ 
 addXP(35);
-
-result="🎯 Passaggio riuscito.";
-
+ 
+result=
+"🎯 Passaggio riuscito.";
+ 
 }
-
+ 
 }else{
-
-result="❌ Passaggio intercettato!";
-
+ 
+result=
+"❌ Passaggio intercettato!";
+ 
 }
-
+ 
 }
-
+ 
 else if(action==="dribble"){
-
+ 
 const chance=
 Math.min(
 .80,
 .22+
 base*.45
 );
-
+ 
 if(Math.random()<chance){
-
+ 
 addXP(60);
-
-result="🔥 DRIBBLING RIUSCITO!";
-
+ 
+result=
+"🔥 DRIBBLING RIUSCITO!";
+ 
 }else{
-
-result="🛑 Dribbling fallito.";
-
+ 
+result=
+"🛑 Dribbling fallito.";
+ 
 }
-
+ 
 }
-
+ 
 else if(action==="protect"){
-
+ 
 addXP(20);
-
-result="🛡️ Hai protetto bene il pallone.";
-
+ 
+result=
+"🛡️ Hai protetto bene il pallone.";
+ 
 }
-
-const matchLog=document.getElementById("matchLog");
-
-const line=document.createElement("div");
-
+ 
+const matchLog=
+document.getElementById("matchLog");
+ 
+const line=
+document.createElement("div");
+ 
 line.textContent=
 "["+
 currentMatch.minute+
 "'] "+
 result;
-
+ 
 matchLog.appendChild(line);
-matchLog.scrollTop=matchLog.scrollHeight;
-
-currentMatch.minute+=Math.floor(Math.random()*8)+4;
-
+ 
+matchLog.scrollTop=
+matchLog.scrollHeight;
+ 
+currentMatch.minute+=
+Math.floor(
+Math.random()*8
+)+4;
+ 
 if(
 Math.random()<.23&&
 currentMatch.minute<90
 ){
-
+ 
 currentMatch.awayGoals++;
-
-const line2=document.createElement("div");
-
+ 
+const line2=
+document.createElement("div");
+ 
 line2.textContent=
 "["+
 currentMatch.minute+
 "'] 😱 L'avversario segna!";
-
+ 
 matchLog.appendChild(line2);
-
+ 
 }
-
-document.getElementById("matchScore").textContent=
+ 
+document.getElementById("matchScore")
+.textContent=
 currentMatch.homeGoals+
 " - "+
 currentMatch.awayGoals;
-
-document.getElementById("matchMinute").textContent=
+ 
+document.getElementById("matchMinute")
+.textContent=
 Math.min(
 currentMatch.minute,
 90
 );
-
+ 
 if(
 currentMatch.minute>=90||
 currentMatch.actions>=8
 ){
-
+ 
 finishMatch();
-
+ 
 }
-
+ 
 }
-
+ 
+ 
 /* =========================
 FINISH MATCH
 ========================= */
-
+ 
 function finishMatch(){
-
+ 
 if(!currentMatch)return;
-
+ 
 currentMatch.finished=true;
-
-const home=currentMatch.homeGoals;
-const away=currentMatch.awayGoals;
-
+ 
+const home=
+currentMatch.homeGoals;
+ 
+const away=
+currentMatch.awayGoals;
+ 
 let result;
-
+ 
 if(home>away){
-
+ 
 player.money+=2500;
 player.fans+=500;
-
+ 
 addXP(100);
-
-result="🏆 VITTORIA! "+home+"-"+away;
-
+ 
+result=
+"🏆 VITTORIA! "+
+home+
+"-"+
+away;
+ 
 }
-
+ 
 else if(home===away){
-
+ 
 player.money+=1000;
-
+ 
 addXP(50);
-
-result="🤝 PAREGGIO! "+home+"-"+away;
-
+ 
+result=
+"🤝 PAREGGIO! "+
+home+
+"-"+
+away;
+ 
 }
-
+ 
 else{
-
+ 
 addXP(20);
-
-result="❌ SCONFITTA "+home+"-"+away;
-
+ 
+result=
+"❌ SCONFITTA "+
+home+
+"-"+
+away;
+ 
 }
-
-const log=document.getElementById("matchLog");
-
-const end=document.createElement("div");
-
-end.innerHTML="<br><strong>"+result+"</strong>";
-
+ 
+const log=
+document.getElementById("matchLog");
+ 
+const end=
+document.createElement("div");
+ 
+end.innerHTML=
+"<br><strong>"+
+result+
+"</strong>";
+ 
 log.appendChild(end);
-
+ 
 player.matchDay++;
-
+ 
 if(player.matchDay>38){
-
+ 
 player.matchDay=1;
+ 
 player.season++;
+ 
 player.age++;
+ 
 player.energy=100;
-
+ 
 logMessage(
 "🎉 Nuova stagione! Ora hai "+
 player.age+
 " anni."
 );
-
+ 
 }
-
+ 
 saveGame();
 updateUI();
-
+ 
 setTimeout(()=>{
-
+ 
 showScreen("hub");
+ 
 logMessage(result);
-
+ 
+maybeTriggerOffer();
+ 
 },1000);
-
+ 
 }
-
+ 
+ 
 /* =========================
 REST
 ========================= */
-
+ 
 function rest(){
-
+ 
 player.energy=
 Math.min(
 100,
 player.energy+50
 );
-
+ 
 if(player.injuryDays>0){
+ 
 player.injuryDays--;
+ 
 }
-
+ 
 logMessage(
 "💤 Hai recuperato energie."
 );
-
+ 
 saveGame();
 updateUI();
-
+maybeTriggerOffer();
+ 
 }
-
+ 
+ 
 /* =========================
 SOCIAL
 ========================= */
-
+ 
 function openSocial(){
-
+ 
 renderSocialFeed();
+ 
 showScreen("social");
-
+ 
 }
-
+ 
 function publishPost(type){
-
+ 
 const posts={
-
+ 
 training:{
 title:"🏋️ Allenamento duro",
 text:"Oggi si lavora duro. Voglio diventare sempre più forte!",
 fans:500,
 money:300
 },
-
+ 
 match:{
 title:"⚽ Giorno di partita",
 text:"Pronto a dare tutto in campo!",
 fans:800,
 money:500
 },
-
+ 
 lifestyle:{
 title:"😎 Vita da Star",
 text:"Una giornata speciale fuori dal campo.",
 fans:350,
 money:800
 },
-
+ 
 team:{
 title:"🤝 Uniti come squadra",
 text:"Con i miei compagni possiamo fare grandi cose.",
 fans:600,
 money:400
 },
-
+ 
 fans:{
 title:"❤️ Grazie ai miei fan",
 text:"Grazie a tutti per il supporto!",
 fans:1000,
 money:200
 },
-
+ 
 controversy:{
 title:"🔥 Post provocatorio",
 text:"Io non ho paura di nessuno. Voglio arrivare in cima.",
 fans:1800,
 money:1200
 }
-
+ 
 };
-
-const post=posts[type];
-
+ 
+const post=
+posts[type];
+ 
 if(!post)return;
-
-let fanGain=post.fans;
-let moneyGain=post.money;
-
-if(player.inventory.phone){
-
+ 
+let fanGain=
+post.fans;
+ 
+let moneyGain=
+post.money;
+ 
+const socialMult=
+getSocialMultiplier();
+ 
+if(socialMult>1){
+ 
 fanGain=Math.floor(
-fanGain*1.5
+fanGain*socialMult
 );
-
+ 
 }
-
+ 
 player.fans+=fanGain;
 player.money+=moneyGain;
-
+ 
 player.socialPosts.push({
-
+ 
 title:post.title,
 text:post.text,
 date:new Date().toLocaleDateString("it-IT"),
-likes:Math.floor(Math.random()*5000)+500
-
+likes:Math.floor(
+Math.random()*5000
+)+500
+ 
 });
-
+ 
 if(player.socialPosts.length>20){
-
+ 
 player.socialPosts=
 player.socialPosts.slice(-20);
-
+ 
 }
-
+ 
 logMessage(
 "📱 Hai pubblicato: "+
 post.title+
@@ -2419,38 +3276,42 @@ post.title+
 fanGain+
 " fan"
 );
-
+ 
 saveGame();
 updateUI();
 renderSocialFeed();
-
+maybeTriggerOffer();
+ 
 }
-
+ 
 function renderSocialFeed(){
-
-const feed=document.getElementById("socialFeed");
-
+ 
+const feed=
+document.getElementById("socialFeed");
+ 
 if(!feed)return;
-
+ 
 feed.innerHTML="";
-
-const posts=player.socialPosts||[];
-
+ 
+const posts=
+player.socialPosts||[];
+ 
 if(posts.length===0){
-
+ 
 feed.innerHTML=
 "<p style='color:#9caf9f'>Non hai ancora pubblicato nulla.</p>";
-
+ 
 return;
-
+ 
 }
-
+ 
 posts.slice().reverse().forEach(post=>{
-
-const div=document.createElement("div");
-
+ 
+const div=
+document.createElement("div");
+ 
 div.className="social-post";
-
+ 
 div.innerHTML=
 "<strong>"+
 escapeHTML(post.title)+
@@ -2463,178 +3324,365 @@ post.likes+
 " Mi piace • "+
 escapeHTML(post.date)+
 "</small>";
-
+ 
 feed.appendChild(div);
-
+ 
 });
-
+ 
 }
-
+ 
+ 
 /* =========================
 FAMILY
 ========================= */
-
+ 
 function family(){
-
+ 
 player.fans+=50;
-
+ 
 player.coachTrust=
 Math.min(
 100,
 player.coachTrust+2
 );
-
+ 
 logMessage(
 "👨‍👩‍👦 Hai passato tempo con la famiglia."
 );
-
+ 
 saveGame();
 updateUI();
-
+maybeTriggerOffer();
+ 
 }
-
+ 
+ 
 /* =========================
 RELATIONSHIP
 ========================= */
-
+ 
 function relationship(){
-
+ 
 if(player.money>=300){
-
+ 
 player.money-=300;
+ 
 player.fans+=75;
-
+ 
 logMessage(
 "❤️ Cena romantica completata!"
 );
-
+ 
 }else{
-
+ 
 logMessage(
 "💰 Non hai abbastanza soldi."
 );
-
+ 
 }
-
+ 
 saveGame();
 updateUI();
-
+maybeTriggerOffer();
+ 
 }
-
+ 
+ 
 /* =========================
 CLINIC
 ========================= */
-
+ 
 function clinic(){
-
+ 
 if(player.injuryDays>0){
-
+ 
 player.injuryDays=0;
-
+ 
 logMessage(
 "🏥 Sei completamente guarito!"
 );
-
+ 
 saveGame();
 updateUI();
-
+ 
 }else{
-
+ 
 logMessage(
 "🟢 Non sei infortunato."
 );
-
+ 
 }
-
+ 
 }
-
+ 
+ 
+/* =========================
+OFFERTE DI TRASFERIMENTO
+========================= */
+ 
+function maybeTriggerOffer(){
+ 
+if(!player.team)return;
+ 
+if(pendingOffer)return;
+ 
+actionsSinceOffer++;
+ 
+if(actionsSinceOffer<3)return;
+ 
+if(Math.random()<0.22){
+ 
+triggerTransferOffer();
+ 
+actionsSinceOffer=0;
+ 
+}
+ 
+}
+ 
+function triggerTransferOffer(){
+ 
+const teams=
+teamsDB[player.nationality]||[];
+ 
+const candidates=
+teams.filter(t=>t!==player.team);
+ 
+const club=
+randomItem(candidates)||
+"Club Misterioso";
+ 
+const amount=
+Math.floor(
+Math.random()*2000000
+)+1000000;
+ 
+pendingOffer={club,amount};
+ 
+document.getElementById("offerClub")
+.textContent=
+"🏟️ "+club;
+ 
+document.getElementById("offerAmount")
+.textContent=
+"€"+amount.toLocaleString();
+ 
+document.getElementById("transferOfferModal")
+.classList.remove("hidden");
+ 
+}
+ 
+function acceptOffer(){
+ 
+if(!pendingOffer)return;
+ 
+const oldTeam=player.team;
+ 
+player.team=pendingOffer.club;
+player.money+=pendingOffer.amount;
+ 
+logMessage(
+"✍️ Hai firmato per "+
+pendingOffer.club+
+"! Bonus alla firma di €"+
+pendingOffer.amount.toLocaleString()+
+" (lasci "+
+oldTeam+
+")."
+);
+ 
+pendingOffer=null;
+ 
+document.getElementById("transferOfferModal")
+.classList.add("hidden");
+ 
+saveGame();
+updateUI();
+ 
+}
+ 
+function declineOffer(){
+ 
+if(!pendingOffer)return;
+ 
+logMessage(
+"🚫 Hai rifiutato l'offerta del "+
+pendingOffer.club+
+"."
+);
+ 
+pendingOffer=null;
+ 
+document.getElementById("transferOfferModal")
+.classList.add("hidden");
+ 
+}
+ 
+ 
+/* =========================
+VALORE DI MERCATO
+========================= */
+ 
+function computeMarketValue(){
+ 
+let base=
+Math.pow(
+Math.max(player.overall,40)/60,
+3
+)*200000;
+ 
+base+=player.goals*12000;
+base+=player.assists*7000;
+base+=player.trophies*250000;
+base+=player.worldCups*1500000;
+base+=player.uclTrophies*800000;
+base+=player.ballonDor*2000000;
+base+=Math.floor(player.fans/1000)*8000;
+ 
+let ageFactor=1;
+ 
+if(player.age<=20){
+ 
+ageFactor=
+0.65+(player.age-16)*0.09;
+ 
+}else if(player.age>=31){
+ 
+ageFactor=
+Math.max(
+0.25,
+1-(player.age-30)*0.09
+);
+ 
+}
+ 
+base*=ageFactor;
+ 
+base+=
+getOwnedPrestigeValue()*0.15;
+ 
+return Math.max(
+20000,
+Math.floor(base)
+);
+ 
+}
+ 
+ 
 /* =========================
 COPPE
 ========================= */
-
+ 
 function openCup(){
-
-document.getElementById("nationalCupStatus").textContent=
+ 
+document.getElementById("nationalCupStatus")
+.textContent=
 player.nationalCup.active
 ?
-"Turno "+player.nationalCup.round
+"Turno "+
+player.nationalCup.round
 :
 "Non iniziata";
-
-document.getElementById("uclStatus").textContent=
+ 
+document.getElementById("uclStatus")
+.textContent=
 player.ucl.active
 ?
-"Turno "+player.ucl.round
+"Turno "+
+player.ucl.round
 :
 "Non iniziata";
-
+ 
 showScreen("cups");
-
+ 
 }
-
+ 
+ 
+/* =========================
+NATIONAL CUP
+========================= */
+ 
 function startNationalCup(){
-
+ 
 if(player.nationalCup.active){
-
+ 
 playCupMatch("national");
+ 
 return;
-
+ 
 }
-
+ 
 player.nationalCup={
+ 
 active:true,
 round:1,
 wins:0
+ 
 };
-
+ 
 document.getElementById("nationalCupStatus")
-.textContent="Sedicesimi di finale";
-
+.textContent=
+"Sedicesimi di finale";
+ 
 playCupMatch("national");
-
+ 
 }
-
+ 
+ 
+/* =========================
+UCL
+========================= */
+ 
 function startUCL(){
-
+ 
 if(player.overall<70){
-
+ 
 alert(
 "⭐ Devi raggiungere almeno Overall 70 per giocare la Champions."
 );
-
+ 
 return;
-
+ 
 }
-
+ 
 if(player.ucl.active){
-
+ 
 playCupMatch("ucl");
+ 
 return;
-
+ 
 }
-
+ 
 player.ucl={
+ 
 active:true,
 round:1,
 wins:0
+ 
 };
-
+ 
 document.getElementById("uclStatus")
-.textContent="Fase a eliminazione";
-
+.textContent=
+"Fase a eliminazione";
+ 
 playCupMatch("ucl");
-
+ 
 }
-
+ 
+ 
+/* =========================
+CUP MATCH
+========================= */
+ 
 function playCupMatch(type){
-
+ 
 const cup=
 type==="national"
 ?
 player.nationalCup
 :
 player.ucl;
-
+ 
 const rounds=
 type==="national"
 ?
@@ -2652,35 +3700,35 @@ type==="national"
 "Semifinale",
 "Finale"
 ];
-
+ 
 const roundName=
 rounds[cup.round-1]||
 "Finale";
-
+ 
 const opponent=
 randomItem(
 (teamsDB[player.nationality]||[])
 .filter(t=>t!==player.team)
 )||
 "FC Avversario";
-
+ 
 const win=
 Math.random()<
 .38+
 (player.overall/220);
-
+ 
 const bracket=
 document.getElementById("cupBracket");
-
+ 
 const card=
 document.createElement("div");
-
+ 
 card.className="bracket-card";
-
+ 
 if(win){
-
+ 
 cup.wins++;
-
+ 
 card.innerHTML=
 "🏆 <strong>"+
 roundName+
@@ -2688,39 +3736,39 @@ roundName+
 player.team+
 " ✅ batte "+
 opponent;
-
+ 
 cup.round++;
-
+ 
 if(cup.round>rounds.length){
-
+ 
 if(type==="national"){
-
+ 
 player.nationalCups++;
 player.trophies++;
 player.money+=1000000;
-
+ 
 }else{
-
+ 
 player.uclTrophies++;
 player.trophies++;
 player.money+=5000000;
-
+ 
 }
-
+ 
 cup.active=false;
-
+ 
 card.innerHTML+=
 "<br><br>🏆 <strong>HAI VINTO LA COPPA!</strong>";
-
+ 
 }else{
-
+ 
 card.innerHTML+=
 "<br>➡️ Passi al turno successivo!";
-
+ 
 }
-
+ 
 }else{
-
+ 
 card.innerHTML=
 "❌ <strong>"+
 roundName+
@@ -2728,238 +3776,388 @@ roundName+
 player.team+
 " perde contro "+
 opponent;
-
+ 
 cup.active=false;
-
+ 
 }
-
+ 
 bracket.prepend(card);
-
+ 
 saveGame();
 updateUI();
-
+ 
 }
-
+ 
+ 
 /* =========================
 SHOP
 ========================= */
-
+ 
 function openShop(){
-
+ 
 document.getElementById("shopMoney")
 .textContent=
-"€"+player.money.toLocaleString();
-
+"€"+
+player.money.toLocaleString();
+ 
+renderShopTabs();
+renderShop(currentShopCategory);
+ 
 showScreen("shop");
-
+ 
 }
-
-function buyItem(item){
-
-const items={
-
-energy:{
-price:500,
-name:"Energia Plus"
-},
-
-boots:{
-price:5000,
-name:"Scarpe Pro"
-},
-
-kit:{
-price:10000,
-name:"Divisa Premium"
-},
-
-phone:{
-price:15000,
-name:"Smartphone Pro"
-},
-
-car:{
-price:100000,
-name:"Auto Sportiva"
-},
-
-house:{
-price:500000,
-name:"Casa di Lusso"
-}
-
+ 
+function renderShopTabs(){
+ 
+const categories=
+["Tutti",...new Set(SHOP_ITEMS.map(i=>i.category))];
+ 
+const tabs=
+document.getElementById("shopTabs");
+ 
+tabs.innerHTML="";
+ 
+categories.forEach(cat=>{
+ 
+const btn=
+document.createElement("button");
+ 
+btn.className=
+"shop-tab"+
+(cat===currentShopCategory?" active":"");
+ 
+btn.textContent=cat;
+ 
+btn.onclick=()=>{
+ 
+currentShopCategory=cat;
+ 
+renderShopTabs();
+renderShop(cat);
+ 
 };
-
-const data=items[item];
-
-if(!data)return;
-
+ 
+tabs.appendChild(btn);
+ 
+});
+ 
+}
+ 
+function renderShop(category){
+ 
+const grid=
+document.getElementById("shopGrid");
+ 
+grid.innerHTML="";
+ 
+const list=
+category==="Tutti"
+?
+SHOP_ITEMS
+:
+SHOP_ITEMS.filter(i=>i.category===category);
+ 
+list.forEach(item=>{
+ 
+const owned=
+!item.consumable&&
+player.ownedItems.includes(item.id);
+ 
+const div=
+document.createElement("div");
+ 
+div.className=
+"shop-item"+
+(owned?" owned":"");
+ 
+div.innerHTML=
+"<div class='shop-icon'>"+
+item.icon+
+"</div>"+
+"<h3>"+
+escapeHTML(item.name)+
+"</h3>"+
+"<p class='shop-desc'>"+
+escapeHTML(item.desc)+
+"</p>"+
+"<div class='shop-price'>€"+
+item.price.toLocaleString()+
+"</div>";
+ 
+const button=
+document.createElement("button");
+ 
+button.className=
+"start-button btn-secondary";
+ 
+button.textContent=
+owned
+?
+"POSSEDUTO ✅"
+:
+"COMPRA";
+ 
+if(owned){
+button.disabled=true;
+}else{
+button.onclick=()=>buyShopItem(item.id);
+}
+ 
+div.appendChild(button);
+ 
+grid.appendChild(div);
+ 
+});
+ 
+}
+ 
+function buyShopItem(id){
+ 
+const item=
+SHOP_ITEMS.find(i=>i.id===id);
+ 
+if(!item)return;
+ 
 if(
-item!=="energy"&&
-player.inventory[item]
+!item.consumable&&
+player.ownedItems.includes(id)
 ){
-
+ 
 alert("Hai già questo oggetto!");
+ 
 return;
-
+ 
 }
-
-if(player.money<data.price){
-
+ 
+if(player.money<item.price){
+ 
 alert("💰 Non hai abbastanza soldi!");
+ 
 return;
-
+ 
 }
-
-player.money-=data.price;
-
-if(item==="energy"){
-
+ 
+player.money-=item.price;
+ 
+if(item.energy){
+ 
 player.energy=
 Math.min(
 100,
-player.energy+30
+player.energy+item.energy
 );
-
-}else{
-
-player.inventory[item]=true;
-
-if(item==="kit"){
-player.fans+=1000;
+ 
 }
-
-if(item==="car"){
-player.fans+=5000;
+ 
+if(item.moneyBonus){
+ 
+player.money+=item.moneyBonus;
+ 
 }
-
-if(item==="house"){
-player.fans+=15000;
+ 
+if(item.fans){
+ 
+player.fans+=item.fans;
+ 
 }
-
+ 
+if(!item.consumable){
+ 
+player.ownedItems.push(id);
+ 
 }
-
+ 
 logMessage(
 "🛒 Hai acquistato "+
-data.name+
+item.name+
 "!"
 );
-
+ 
 saveGame();
 updateUI();
-openShop();
-
+ 
+document.getElementById("shopMoney")
+.textContent=
+"€"+
+player.money.toLocaleString();
+ 
+renderShop(currentShopCategory);
+ 
 }
-
+ 
+function getTrainingBonusPct(){
+ 
+const owned=
+SHOP_ITEMS.filter(
+i=>
+i.trainingBonus&&
+player.ownedItems.includes(i.id)
+);
+ 
+if(owned.length===0)return 0;
+ 
+return Math.max(
+...owned.map(i=>i.trainingBonus)
+);
+ 
+}
+ 
+function getSocialMultiplier(){
+ 
+const owned=
+SHOP_ITEMS.filter(
+i=>
+i.socialMult&&
+player.ownedItems.includes(i.id)
+);
+ 
+if(owned.length===0)return 1;
+ 
+return Math.max(
+...owned.map(i=>i.socialMult)
+);
+ 
+}
+ 
+function getOwnedPrestigeValue(){
+ 
+if(!player.ownedItems)return 0;
+ 
+return player.ownedItems.reduce(
+(sum,id)=>{
+ 
+const item=
+SHOP_ITEMS.find(i=>i.id===id);
+ 
+return sum+(item?item.price:0);
+ 
+},
+0
+);
+ 
+}
+ 
+ 
 /* =========================
 CLASSIFICA LOCALE
 ========================= */
-
+ 
 function getCareers(){
-
+ 
 try{
-
+ 
 return JSON.parse(
 localStorage.getItem(CAREERS_KEY)||"[]"
 );
-
+ 
 }catch(e){
-
+ 
 return [];
-
+ 
 }
-
+ 
 }
-
+ 
 function saveCareers(careers){
-
+ 
 localStorage.setItem(
 CAREERS_KEY,
 JSON.stringify(careers)
 );
-
+ 
 }
-
+ 
 function registerNewCareer(){
-
-const careers=getCareers();
-
+ 
+player.careerId=Date.now();
+ 
+const careers=
+getCareers();
+ 
 careers.push({
-
-id:Date.now(),
-
+ 
+id:player.careerId,
 name:
 player.name+
 " "+
 player.surname,
-
+ 
 overall:player.overall,
 goals:player.goals,
 fans:player.fans,
-
 date:
 new Date().toLocaleDateString("it-IT")
-
+ 
 });
-
+ 
 saveCareers(careers);
-
+ 
 }
-
+ 
 function saveCareerToRanking(){
-
+ 
 if(!player.name)return;
-
-let careers=getCareers();
-
+ 
+let careers=
+getCareers();
+ 
 const index=
+player.careerId
+?
 careers.findIndex(
-c=>
-c.name===
+c=>c.id===player.careerId
+)
+:
+careers.findIndex(
+c=>c.name===
 player.name+
 " "+
 player.surname
 );
-
+ 
 const data={
-
+ 
 id:
 index>=0
 ?
 careers[index].id
 :
-Date.now(),
-
+(player.careerId||Date.now()),
+ 
 name:
 player.name+
 " "+
 player.surname,
-
+ 
 overall:player.overall,
 goals:player.goals,
 fans:player.fans,
-
+ 
 date:
 new Date().toLocaleDateString("it-IT")
-
+ 
 };
-
+ 
+if(!player.careerId){
+player.careerId=data.id;
+}
+ 
 if(index>=0){
-
+ 
 careers[index]=data;
-
+ 
 }else{
-
+ 
 careers.push(data);
-
+ 
 }
-
+ 
 saveCareers(careers);
-
+ 
 }
-
+ 
 function openLeaderboard(){
-
+ 
 const careers=
 getCareers()
 .sort(
@@ -2968,10 +4166,11 @@ b.overall-a.overall||
 b.goals-a.goals||
 b.fans-a.fans
 );
-
+ 
 document.getElementById("careerCount")
-.textContent=careers.length;
-
+.textContent=
+careers.length;
+ 
 document.getElementById("globalBest")
 .textContent=
 careers.length
@@ -2979,36 +4178,37 @@ careers.length
 careers[0].overall
 :
 0;
-
+ 
 const list=
 document.getElementById("leaderboardList");
-
+ 
 list.innerHTML="";
-
+ 
 if(careers.length===0){
-
+ 
 list.innerHTML=
 "<div class='section-box'>Nessuna carriera ancora registrata.</div>";
-
+ 
 showScreen("leaderboard");
-
+ 
 return;
-
+ 
 }
-
+ 
 careers.slice(0,50).forEach(
 (career,index)=>{
-
-const row=document.createElement("div");
-
+ 
+const row=
+document.createElement("div");
+ 
 row.className="rank-row";
-
+ 
 let medal="";
-
+ 
 if(index===0)medal="🥇";
 else if(index===1)medal="🥈";
 else if(index===2)medal="🥉";
-
+ 
 row.innerHTML=
 "<div class='rank-position'>"+
 (medal||("#"+(index+1)))+
@@ -3024,67 +4224,69 @@ career.fans+
 "<div class='rank-score'>OVR "+
 career.overall+
 "</div>";
-
+ 
 list.appendChild(row);
-
+ 
 });
-
+ 
 showScreen("leaderboard");
-
+ 
 }
-
+ 
+ 
 /* =========================
 REVIEWS
 ========================= */
-
+ 
 function getReviews(){
-
+ 
 try{
-
+ 
 return JSON.parse(
 localStorage.getItem(REVIEW_KEY)||"[]"
 );
-
+ 
 }catch(e){
-
+ 
 return [];
-
+ 
 }
-
+ 
 }
-
+ 
 function saveReviews(reviews){
-
+ 
 localStorage.setItem(
 REVIEW_KEY,
 JSON.stringify(reviews)
 );
-
+ 
 }
-
+ 
 function openReviews(){
-
-const reviews=getReviews();
-
+ 
+const reviews=
+getReviews();
+ 
 let average=0;
-
+ 
 if(reviews.length){
-
+ 
 average=
 reviews.reduce(
 (sum,r)=>sum+r.rating,
 0
 )/
 reviews.length;
-
+ 
 }
-
+ 
 document.getElementById("averageRating")
 .textContent=
 "⭐ "+
 average.toFixed(1)+
 " / 5";
-
+ 
 document.getElementById("reviewCount")
 .textContent=
 reviews.length+
@@ -3095,25 +4297,26 @@ reviews.length===1
 :
 " recensioni"
 );
-
+ 
 const list=
 document.getElementById("reviewList");
-
+ 
 list.innerHTML="";
-
+ 
 reviews
 .slice()
 .reverse()
 .forEach(r=>{
-
-const card=document.createElement("div");
-
+ 
+const card=
+document.createElement("div");
+ 
 card.className="review-card";
-
+ 
 const stars=
 "★".repeat(r.rating)+
 "☆".repeat(5-r.rating);
-
+ 
 card.innerHTML=
 "<strong>"+
 escapeHTML(r.name)+
@@ -3127,36 +4330,36 @@ escapeHTML(r.text)+
 "<small>"+
 escapeHTML(r.date)+
 "</small>";
-
+ 
 list.appendChild(card);
-
+ 
 });
-
+ 
 showScreen("reviews");
-
+ 
 }
-
+ 
 function selectRating(rating){
-
+ 
 selectedRating=rating;
-
+ 
 const spans=
 document.querySelectorAll(
 "#starSelector span"
 );
-
+ 
 spans.forEach(
 (span,i)=>{
-
+ 
 span.textContent=
 i<rating
 ?
 "★"
 :
 "☆";
-
+ 
 });
-
+ 
 document.getElementById("selectedRating")
 .textContent=
 rating
@@ -3166,214 +4369,239 @@ rating+
 " / 5"
 :
 "Seleziona le stelle";
-
+ 
 }
-
+ 
 function submitReview(){
-
+ 
 const name=
 document.getElementById("reviewName")
 .value.trim();
-
+ 
 const text=
 document.getElementById("reviewText")
 .value.trim();
-
+ 
 if(
 !name||
 !text||
 !selectedRating
 ){
-
+ 
 alert(
 "⚠️ Inserisci nome, recensione e stelle."
 );
-
+ 
 return;
-
+ 
 }
-
-const reviews=getReviews();
-
+ 
+const reviews=
+getReviews();
+ 
 reviews.push({
-
+ 
 name,
 rating:selectedRating,
 text,
-
 date:
 new Date()
 .toLocaleDateString("it-IT")
-
+ 
 });
-
+ 
 saveReviews(reviews);
-
-document.getElementById("reviewName").value="";
-document.getElementById("reviewText").value="";
-
+ 
+document.getElementById("reviewName")
+.value="";
+ 
+document.getElementById("reviewText")
+.value="";
+ 
 selectedRating=0;
-
+ 
 selectRating(0);
+ 
 openReviews();
-
+ 
 }
-
+ 
+ 
 /* =========================
 ESCAPE
 ========================= */
-
+ 
 function escapeHTML(text){
-
+ 
 return String(text)
-
+ 
 .replaceAll("&","&amp;")
 .replaceAll("<","&lt;")
 .replaceAll(">","&gt;")
 .replaceAll('"',"&quot;")
 .replaceAll("'","&#039;");
-
+ 
 }
-
+ 
+ 
 /* =========================
 CAREER STATS
 ========================= */
-
+ 
 function careerStats(){
-
+ 
 document.getElementById("careerGoals")
-.textContent=player.goals;
-
+.textContent=
+player.goals;
+ 
 document.getElementById("careerAssists")
-.textContent=player.assists;
-
+.textContent=
+player.assists;
+ 
 document.getElementById("careerTrophies")
-.textContent=player.trophies;
-
+.textContent=
+player.trophies;
+ 
 document.getElementById("careerWorldCups")
-.textContent=player.worldCups;
-
+.textContent=
+player.worldCups;
+ 
 document.getElementById("careerUCL")
-.textContent=player.uclTrophies;
-
+.textContent=
+player.uclTrophies;
+ 
 document.getElementById("careerBallon")
-.textContent=player.ballonDor;
-
+.textContent=
+player.ballonDor;
+ 
 document.getElementById("careerMaxOverall")
-.textContent=player.maxOverall;
-
+.textContent=
+player.maxOverall;
+ 
 document.getElementById("careerMoney")
-.textContent=player.money.toLocaleString();
-
+.textContent=
+player.money.toLocaleString();
+ 
+document.getElementById("careerMarket")
+.textContent=
+computeMarketValue().toLocaleString();
+ 
 showScreen("careerStats");
-
+ 
 }
-
+ 
+ 
 /* =========================
 LOG
 ========================= */
-
+ 
 function logMessage(msg){
-
+ 
 const box=
 document.getElementById("gameLog");
-
+ 
 if(!box)return;
-
-const div=document.createElement("div");
-
-div.textContent="> "+msg;
-
+ 
+const div=
+document.createElement("div");
+ 
+div.textContent=
+"> "+msg;
+ 
 box.appendChild(div);
-
-box.scrollTop=box.scrollHeight;
-
+ 
+box.scrollTop=
+box.scrollHeight;
+ 
 document.getElementById("newsText")
 .textContent=msg;
-
+ 
 }
-
+ 
+ 
 /* =========================
 UTILITY
 ========================= */
-
+ 
 function randomItem(arr){
-
+ 
 if(!arr||arr.length===0)return null;
-
+ 
 return arr[
 Math.floor(
 Math.random()*arr.length
 )
 ];
-
+ 
 }
-
+ 
 function resetGame(){
-
+ 
 if(
 confirm(
 "Vuoi cancellare completamente la carriera?"
 )
 ){
-
+ 
 localStorage.removeItem(SAVE_KEY);
-
+ 
 location.reload();
-
+ 
 }
-
+ 
 }
-
+ 
+ 
 /* =========================
 START
 ========================= */
-
+ 
 document.addEventListener(
 "DOMContentLoaded",
 ()=>{
-
+ 
 updatePreview();
 updateUI();
-
+ 
 }
 );
-
+ 
+ 
 /* =========================
 ADSENSE
 ========================= */
-
+ 
 window.addEventListener(
 "load",
 ()=>{
-
+ 
 try{
-
+ 
 if(
 typeof adsbygoogle!=="undefined"
 ){
-
+ 
 (
 window.adsbygoogle=
 window.adsbygoogle||[]
 ).push({});
-
+ 
 }
-
+ 
 }catch(e){
-
+ 
 console.log(
 "AdSense:",
 e
 );
-
+ 
 }
-
+ 
 }
 );
-
+ 
 </script>
-
+ 
 </body>
 </html>
 

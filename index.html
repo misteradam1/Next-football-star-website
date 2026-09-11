@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -32,6 +33,7 @@ crossorigin="anonymous"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+ 
  
 <title>Next Football Star ⚽ Ultimate Edition</title>
  
@@ -860,6 +862,8 @@ padding:11px 15px
  
 <body>
  
+<div style="display:flex;flex-direction:column;align-items:center;width:100%;">
+ 
 <main class="container">
  
 <!-- HOME -->
@@ -909,6 +913,11 @@ onclick="openReviews()">
 <button class="start-button btn-secondary"
 onclick="openLeaderboard()">
 🌍 CLASSIFICA
+</button>
+ 
+<button class="start-button btn-purple"
+onclick="openHallOfFame()">
+🏛️ HALL OF FAME
 </button>
  
 <div class="adsense-box">
@@ -1201,6 +1210,11 @@ onclick="openCup()">
 🏆 Coppe
 </button>
  
+<button class="start-button btn-purple"
+onclick="openWorldCup()">
+🌍 Nazionale
+</button>
+ 
 </div>
  
 <div class="actions-heading">Vita privata</div>
@@ -1251,10 +1265,20 @@ onclick="openEditProfile()">
 ✏️ Profilo
 </button>
  
+<button class="start-button btn-secondary"
+onclick="openAchievements()">
+🏅 Obiettivi
+</button>
+ 
 </div>
  
 <div class="actions-heading">Sistema</div>
 <div class="actions-grid">
+ 
+<button class="start-button btn-gold"
+onclick="retireCareer()">
+🏁 Ritirati
+</button>
  
 <button class="start-button btn-red"
 onclick="resetGame()">
@@ -1581,9 +1605,83 @@ onclick="showScreen('hub')">
  
 </div>
  
+<div class="section-box" id="rivalBox">
+ 
+<h3>🤝 Il tuo rivale: <span id="rivalName">-</span></h3>
+ 
+<p>⭐ Overall: <strong id="rivalOverall">-</strong></p>
+<p>⚽ Gol: <strong id="rivalGoals">-</strong></p>
+<p>🎯 Assist: <strong id="rivalAssists">-</strong></p>
+<p>🏆 Trofei: <strong id="rivalTrophies">-</strong></p>
+<p id="rivalVerdict" style="color:#facc15;font-weight:800;margin-top:8px"></p>
+ 
+</div>
+ 
 <button class="start-button btn-secondary"
 onclick="showScreen('hub')">
 ⬅️ Torna
+</button>
+ 
+</section>
+ 
+ 
+<!-- ACHIEVEMENT -->
+ 
+<section class="card hidden" id="achievements">
+ 
+<h2>🏅 OBIETTIVI</h2>
+ 
+<p style="color:#aab8ae;margin:10px 0" id="achievementsProgress">
+0 / 0 sbloccati
+</p>
+ 
+<div id="achievementsList" style="display:flex;flex-direction:column;gap:8px;margin-top:10px"></div>
+ 
+<button class="start-button btn-secondary"
+onclick="showScreen('hub')">
+⬅️ Torna
+</button>
+ 
+</section>
+ 
+ 
+<!-- NAZIONALE / MONDIALI -->
+ 
+<section class="card hidden" id="worldcup">
+ 
+<h2>🌍 NAZIONALE</h2>
+ 
+<p style="color:#aab8ae;margin:10px 0" id="worldCupStatusText">
+Non ancora convocato.
+</p>
+ 
+<div id="worldCupAction"></div>
+ 
+<div id="worldCupBracket" class="bracket"></div>
+ 
+<button class="start-button btn-secondary"
+onclick="showScreen('hub')">
+⬅️ Torna
+</button>
+ 
+</section>
+ 
+ 
+<!-- HALL OF FAME -->
+ 
+<section class="card hidden" id="hallOfFame">
+ 
+<h2>🏛️ HALL OF FAME</h2>
+ 
+<p style="color:#aab8ae;margin:10px 0">
+Le leggende che hanno concluso la carriera su questo dispositivo.
+</p>
+ 
+<div id="hallOfFameList" style="display:flex;flex-direction:column;gap:8px;margin-top:10px"></div>
+ 
+<button class="start-button btn-secondary"
+onclick="showScreen('home')">
+⬅️ Torna alla home
 </button>
  
 </section>
@@ -1626,6 +1724,8 @@ Next Football Star ·
 ·
 <a href="about.html" style="color:#38e878;text-decoration:none">Chi siamo</a>
 </footer>
+ 
+</div>
  
  
 <script>
@@ -2033,6 +2133,106 @@ const SHOP_ITEMS=[
  
  
 /* =========================
+RIVALE
+========================= */
+ 
+const RIVAL_NAMES=[
+"Luca Ferretti","Diego Moretti","Andrea Colombo","Kevin Esposito",
+"Simone Ricci","Matteo Greco","Gabriel Santos","Youssef Amrani",
+"Lars Andersen","Marco Vitali","Thiago Fernandes","Adama Diallo",
+"Nico Weber","Rafael Costa","Jamal Robinson","Tommaso Bruno"
+];
+ 
+function generateRival(){
+ 
+return{
+ 
+name:randomItem(RIVAL_NAMES),
+overall:58+Math.floor(Math.random()*8),
+goals:0,
+assists:0,
+trophies:0
+ 
+};
+ 
+}
+ 
+function progressRival(){
+ 
+if(!player.rival)return;
+ 
+player.rival.overall=
+Math.min(
+99,
+player.rival.overall+
+Math.floor(Math.random()*3)
+);
+ 
+player.rival.goals+=
+Math.floor(Math.random()*18)+2;
+ 
+player.rival.assists+=
+Math.floor(Math.random()*10)+1;
+ 
+if(Math.random()<0.35){
+ 
+player.rival.trophies++;
+ 
+}
+ 
+}
+ 
+ 
+/* =========================
+ACHIEVEMENT
+========================= */
+ 
+const ACHIEVEMENTS=[
+{id:"primo_gol",icon:"⚽",name:"Primo Gol",desc:"Segna il tuo primo gol.",check:p=>p.goals>=1},
+{id:"bomber",icon:"🎯",name:"Bomber",desc:"Segna 50 gol in carriera.",check:p=>p.goals>=50},
+{id:"leggenda_gol",icon:"🔥",name:"Leggenda del Gol",desc:"Segna 200 gol in carriera.",check:p=>p.goals>=200},
+{id:"assist_man",icon:"🎁",name:"Assist Man",desc:"Fornisci 50 assist.",check:p=>p.assists>=50},
+{id:"primo_trofeo",icon:"🏆",name:"Primo Trofeo",desc:"Vinci il tuo primo trofeo.",check:p=>p.trophies>=1},
+{id:"bacheca_piena",icon:"🏅",name:"Bacheca Piena",desc:"Vinci 5 trofei.",check:p=>p.trophies>=5},
+{id:"campione_mondo",icon:"🌍",name:"Campione del Mondo",desc:"Vinci un Mondiale con la Nazionale.",check:p=>p.worldCups>=1},
+{id:"pallone_oro",icon:"⭐",name:"Pallone d'Oro",desc:"Vinci il Pallone d'Oro.",check:p=>p.ballonDor>=1},
+{id:"top_player",icon:"💎",name:"Top Player",desc:"Raggiungi 90 di overall.",check:p=>p.overall>=90},
+{id:"fenomeno",icon:"👑",name:"Fenomeno",desc:"Raggiungi 99 di overall.",check:p=>p.overall>=99},
+{id:"milionario",icon:"💰",name:"Milionario",desc:"Accumula 1.000.000 €.",check:p=>p.money>=1000000},
+{id:"star_social",icon:"📱",name:"Star dei Social",desc:"Raggiungi 100.000 fan.",check:p=>p.fans>=100000},
+{id:"veterano",icon:"🎖️",name:"Veterano",desc:"Raggiungi 35 anni di età.",check:p=>p.age>=35},
+{id:"collezionista",icon:"🛍️",name:"Collezionista",desc:"Possiedi 20 oggetti dello shop.",check:p=>(p.ownedItems||[]).length>=20}
+];
+ 
+function checkAchievements(){
+ 
+if(!player.unlockedAchievements){
+player.unlockedAchievements=[];
+}
+ 
+ACHIEVEMENTS.forEach(a=>{
+ 
+if(
+!player.unlockedAchievements.includes(a.id)&&
+a.check(player)
+){
+ 
+player.unlockedAchievements.push(a.id);
+ 
+logMessage(
+"🏅 Obiettivo sbloccato: "+
+a.name+
+"!"
+);
+ 
+}
+ 
+});
+ 
+}
+ 
+ 
+/* =========================
 PLAYER
 ========================= */
  
@@ -2081,6 +2281,19 @@ socialPosts:[],
  
 ownedItems:[],
  
+unlockedAchievements:[],
+ 
+rival:null,
+ 
+worldCup:{
+active:false,
+called:false,
+round:0,
+lastCalledSeason:0
+},
+ 
+retired:false,
+ 
 nationalCup:{
 active:false,
 round:0,
@@ -2106,6 +2319,8 @@ SAVE
 ========================= */
  
 function saveGame(){
+ 
+checkAchievements();
  
 localStorage.setItem(
 SAVE_KEY,
@@ -2171,6 +2386,27 @@ if(!player.socialPosts){
 player.socialPosts=[];
 }
  
+if(!player.unlockedAchievements){
+player.unlockedAchievements=[];
+}
+ 
+if(!player.rival){
+player.rival=generateRival();
+}
+ 
+if(!player.worldCup){
+player.worldCup={
+active:false,
+called:false,
+round:0,
+lastCalledSeason:0
+};
+}
+ 
+if(typeof player.retired!=="boolean"){
+player.retired=false;
+}
+ 
 return true;
  
 }catch(e){
@@ -2199,7 +2435,10 @@ function showScreen(id){
 "careerStats",
 "social",
 "shop",
-"leaderboard"
+"leaderboard",
+"achievements",
+"worldcup",
+"hallOfFame"
 ].forEach(x=>{
  
 const el=document.getElementById(x);
@@ -2528,6 +2767,19 @@ injuryDays:0,
 socialPosts:[],
  
 ownedItems:[],
+ 
+unlockedAchievements:[],
+ 
+rival:generateRival(),
+ 
+worldCup:{
+active:false,
+called:false,
+round:0,
+lastCalledSeason:0
+},
+ 
+retired:false,
  
 nationalCup:{
 active:false,
@@ -3139,7 +3391,13 @@ player.age+
 " anni."
 );
  
+evaluateBallonDor();
+progressRival();
+checkWorldCupCallUp();
+ 
 }
+ 
+maybeInjury();
  
 saveGame();
 updateUI();
@@ -4518,7 +4776,508 @@ document.getElementById("careerMarket")
 .textContent=
 computeMarketValue().toLocaleString();
  
+renderRivalBox();
+ 
 showScreen("careerStats");
+ 
+}
+ 
+function renderRivalBox(){
+ 
+if(!player.rival)return;
+ 
+document.getElementById("rivalName")
+.textContent=player.rival.name;
+ 
+document.getElementById("rivalOverall")
+.textContent=player.rival.overall;
+ 
+document.getElementById("rivalGoals")
+.textContent=player.rival.goals;
+ 
+document.getElementById("rivalAssists")
+.textContent=player.rival.assists;
+ 
+document.getElementById("rivalTrophies")
+.textContent=player.rival.trophies;
+ 
+const verdict=
+document.getElementById("rivalVerdict");
+ 
+if(player.overall>player.rival.overall){
+ 
+verdict.textContent=
+"🔥 Sei davanti a "+player.rival.name+"!";
+ 
+}else if(player.overall<player.rival.overall){
+ 
+verdict.textContent=
+"⚠️ "+player.rival.name+" è avanti a te, per ora.";
+ 
+}else{
+ 
+verdict.textContent=
+"⚖️ Testa a testa con "+player.rival.name+".";
+ 
+}
+ 
+}
+ 
+ 
+/* =========================
+MONDIALE (NAZIONALE)
+========================= */
+ 
+function checkWorldCupCallUp(){
+ 
+if(
+player.overall>=65&&
+player.season>player.worldCup.lastCalledSeason&&
+player.season%2===0&&
+!player.worldCup.active
+){
+ 
+player.worldCup.called=true;
+ 
+player.worldCup.lastCalledSeason=player.season;
+ 
+logMessage(
+"📯 Convocazione in Nazionale! Puoi giocare il Mondiale."
+);
+ 
+}
+ 
+}
+ 
+function openWorldCup(){
+ 
+const statusEl=
+document.getElementById("worldCupStatusText");
+ 
+const actionEl=
+document.getElementById("worldCupAction");
+ 
+actionEl.innerHTML="";
+ 
+if(player.worldCup.active){
+ 
+statusEl.textContent=
+"🌍 Mondiale in corso — Turno "+
+player.worldCup.round;
+ 
+const btn=document.createElement("button");
+ 
+btn.className="start-button btn-gold";
+btn.textContent="GIOCA IL PROSSIMO TURNO";
+btn.onclick=()=>playWorldCupMatch();
+ 
+actionEl.appendChild(btn);
+ 
+}else if(player.worldCup.called){
+ 
+statusEl.textContent=
+"📯 Sei stato convocato in Nazionale! Pronto per il Mondiale?";
+ 
+const btn=document.createElement("button");
+ 
+btn.className="start-button btn-gold";
+btn.textContent="INIZIA IL MONDIALE";
+btn.onclick=()=>startWorldCup();
+ 
+actionEl.appendChild(btn);
+ 
+}else{
+ 
+statusEl.textContent=
+"Non ancora convocato. Serve almeno 65 di overall — la chiamata arriva ogni 2 stagioni.";
+ 
+}
+ 
+showScreen("worldcup");
+ 
+}
+ 
+function startWorldCup(){
+ 
+player.worldCup={
+ 
+active:true,
+called:false,
+round:1,
+lastCalledSeason:player.worldCup.lastCalledSeason
+ 
+};
+ 
+document.getElementById("worldCupBracket").innerHTML="";
+ 
+saveGame();
+ 
+playWorldCupMatch();
+ 
+}
+ 
+function playWorldCupMatch(){
+ 
+const rounds=[
+"Fase a gironi",
+"Ottavi",
+"Quarti",
+"Semifinale",
+"Finale"
+];
+ 
+const roundName=
+rounds[player.worldCup.round-1]||
+"Finale";
+ 
+const opponentNations=
+Object.keys(teamsDB)
+.filter(n=>n!==player.nationality);
+ 
+const opponent=
+randomItem(opponentNations)||
+"Nazionale Avversaria";
+ 
+const win=
+Math.random()<
+(0.42+(player.overall/230));
+ 
+const bracket=
+document.getElementById("worldCupBracket");
+ 
+const card=
+document.createElement("div");
+ 
+card.className="bracket-card";
+ 
+if(win){
+ 
+card.innerHTML=
+"🌍 <strong>"+
+roundName+
+"</strong><br>"+
+player.nationality+
+" ✅ batte "+
+opponent;
+ 
+player.worldCup.round++;
+ 
+if(player.worldCup.round>rounds.length){
+ 
+player.worldCups++;
+player.trophies++;
+player.money+=8000000;
+player.fans+=30000;
+ 
+player.worldCup.active=false;
+ 
+card.innerHTML+=
+"<br><br>🏆 <strong>HAI VINTO IL MONDIALE!</strong>";
+ 
+}else{
+ 
+card.innerHTML+=
+"<br>➡️ Passi al turno successivo!";
+ 
+}
+ 
+}else{
+ 
+card.innerHTML=
+"❌ <strong>"+
+roundName+
+"</strong><br>"+
+player.nationality+
+" viene eliminata da "+
+opponent;
+ 
+player.worldCup.active=false;
+ 
+}
+ 
+bracket.prepend(card);
+ 
+saveGame();
+updateUI();
+openWorldCup();
+ 
+}
+ 
+ 
+/* =========================
+PALLONE D'ORO
+========================= */
+ 
+function evaluateBallonDor(){
+ 
+const seasonScore=
+player.goals*3+
+player.assists*2+
+player.trophies*50+
+player.overall;
+ 
+const rivalScore=
+player.rival
+?
+player.rival.goals*2+player.rival.overall
+:
+60;
+ 
+const contenders=[
+seasonScore,
+rivalScore,
+40+Math.floor(Math.random()*260),
+40+Math.floor(Math.random()*260)
+];
+ 
+const maxScore=Math.max(...contenders);
+ 
+if(seasonScore>=maxScore){
+ 
+player.ballonDor++;
+player.fans+=5000;
+ 
+logMessage(
+"🌟 Hai vinto il Pallone d'Oro di quest'anno!"
+);
+ 
+}else if(
+player.rival&&
+rivalScore>=maxScore
+){
+ 
+logMessage(
+"⭐ Il Pallone d'Oro è andato a "+
+player.rival.name+
+" quest'anno."
+);
+ 
+}else{
+ 
+logMessage(
+"⭐ Il Pallone d'Oro è andato a un altro giocatore quest'anno."
+);
+ 
+}
+ 
+}
+ 
+ 
+/* =========================
+INFORTUNI
+========================= */
+ 
+function maybeInjury(){
+ 
+if(player.injuryDays>0)return;
+ 
+let chance=0.05;
+ 
+if(player.energy<30){
+ 
+chance+=0.15;
+ 
+}else if(player.energy<50){
+ 
+chance+=0.08;
+ 
+}
+ 
+if(Math.random()<chance){
+ 
+const days=
+Math.floor(Math.random()*5)+1;
+ 
+player.injuryDays=days;
+ 
+logMessage(
+"🚑 Infortunio! Starai fermo per "+
+days+
+" giorni."
+);
+ 
+}
+ 
+}
+ 
+ 
+/* =========================
+ACHIEVEMENT (schermata)
+========================= */
+ 
+function openAchievements(){
+ 
+const list=
+document.getElementById("achievementsList");
+ 
+list.innerHTML="";
+ 
+const unlocked=
+player.unlockedAchievements||[];
+ 
+document.getElementById("achievementsProgress")
+.textContent=
+unlocked.length+
+" / "+
+ACHIEVEMENTS.length+
+" sbloccati";
+ 
+ACHIEVEMENTS.forEach(a=>{
+ 
+const isUnlocked=
+unlocked.includes(a.id);
+ 
+const div=
+document.createElement("div");
+ 
+div.className="section-box";
+div.style.opacity=
+isUnlocked?"1":"0.45";
+ 
+div.innerHTML=
+"<h3>"+
+a.icon+
+" "+
+escapeHTML(a.name)+
+(isUnlocked?" ✅":" 🔒")+
+"</h3>"+
+"<p style='color:#aab8ae;margin-top:4px'>"+
+escapeHTML(a.desc)+
+"</p>";
+ 
+list.appendChild(div);
+ 
+});
+ 
+showScreen("achievements");
+ 
+}
+ 
+ 
+/* =========================
+HALL OF FAME / RITIRO
+========================= */
+ 
+const HALL_OF_FAME_KEY="nextFootballStarHallOfFame_v1";
+ 
+function getHallOfFame(){
+ 
+try{
+ 
+return JSON.parse(
+localStorage.getItem(HALL_OF_FAME_KEY)||"[]"
+);
+ 
+}catch(e){
+ 
+return [];
+ 
+}
+ 
+}
+ 
+function saveHallOfFameEntry(entry){
+ 
+const list=getHallOfFame();
+ 
+list.push(entry);
+ 
+localStorage.setItem(
+HALL_OF_FAME_KEY,
+JSON.stringify(list)
+);
+ 
+}
+ 
+function openHallOfFame(){
+ 
+const list=
+getHallOfFame()
+.slice()
+.reverse();
+ 
+const container=
+document.getElementById("hallOfFameList");
+ 
+container.innerHTML="";
+ 
+if(list.length===0){
+ 
+container.innerHTML=
+"<div class='section-box'>Nessuna leggenda ha ancora appeso gli scarpini al chiodo.</div>";
+ 
+}else{
+ 
+list.forEach(entry=>{
+ 
+const div=
+document.createElement("div");
+ 
+div.className="section-box";
+ 
+div.innerHTML=
+"<h3>🏛️ "+
+escapeHTML(entry.name)+
+"</h3>"+
+"<p>⭐ Overall: "+
+entry.overall+
+" · ⚽ "+
+entry.goals+
+" gol · 🏆 "+
+entry.trophies+
+" trofei</p>"+
+"<p style='color:#aab8ae'>Ritirato a "+
+entry.age+
+" anni · "+
+escapeHTML(entry.date)+
+"</p>";
+ 
+container.appendChild(div);
+ 
+});
+ 
+}
+ 
+showScreen("hallOfFame");
+ 
+}
+ 
+function retireCareer(){
+ 
+if(player.age<33){
+ 
+alert(
+"🏁 Puoi ritirarti solo a partire dai 33 anni."
+);
+ 
+return;
+ 
+}
+ 
+if(
+!confirm(
+"Vuoi davvero ritirarti? La carriera attuale verrà archiviata nella Hall of Fame e non potrai più giocarla."
+)
+){
+ 
+return;
+ 
+}
+ 
+saveHallOfFameEntry({
+ 
+name:(player.name+" "+player.surname).trim(),
+overall:player.maxOverall,
+goals:player.goals,
+trophies:player.trophies,
+age:player.age,
+date:new Date().toLocaleDateString("it-IT")
+ 
+});
+ 
+localStorage.removeItem(SAVE_KEY);
+ 
+showScreen("home");
  
 }
  
@@ -4636,7 +5395,6 @@ e
  
 </body>
 </html>
-
 
 
 
